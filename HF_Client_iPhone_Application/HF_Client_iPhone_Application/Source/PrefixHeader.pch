@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  HF_Client_iPhone_Application
+//
+//  Created by liuyang on 2017/11/9.
+//  Copyright © 2017年 HengFeng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "ViewController.h"
+
+#define SCREEN_WIDTH     ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
+
+#define IS_IPHONE5S_OR_BEFORE ([UIScreen mainScreen].bounds.size.height <= 568)
+#define IS_IPHONE5 ([UIScreen mainScreen].bounds.size.height == 568)
+#define IS_IPHONE4 ([UIScreen mainScreen].bounds.size.height == 480)
+#define IS_IPHONE6_PLUS ([UIScreen mainScreen].scale == 3)
+#define IS_NARROW_SCREEN (SCREEN_WIDTH == 320)
+#define WIDTH_ONE_PIXEL (1.0 / [UIScreen mainScreen].scale)
+
+#define _R_COLOR(color) ((((unsigned int)color) >> 16) & 0xFF)
+#define _G_COLOR(color) ((((unsigned int)color) >> 8) & 0xFF)
+#define _B_COLOR(color) (((unsigned int)color) & 0xFF)
+#define _A_COLOR(color) ((((unsigned int)color) >> 24)&0xFF)
+#define UICOLOR_ARGB(color) [UIColor colorWithRed: _R_COLOR(color) / 255.0 green: _G_COLOR(color) / 255.0 blue: _B_COLOR(color) / 255.0 alpha: _A_COLOR(color) / 255.0]
+#define UICOLOR_RGB(color) UICOLOR_ARGB(color + 0xff000000)
+
+#define FLEXIBLE_WIDTH(x) ((x) * SCREEN_WIDTH / 375.0)
+#define FLEXIBLE_HEIGHT(x) ((x) * SCREEN_HEIGHT / 667.0)
+#define FIT_WIDTH_LAYOUT_CONSTRAINT(x) (x.constant = FLEXIBLE_WIDTH(x.constant))
+#define FIT_HEIGHT_LAYOUT_CONSTRAINT(x) (x.constant = FLEXIBLE_HEIGHT(x.constant))
+
+#ifndef DEBUG
+#define NSLog(fmt, ...)
+#endif
+
+#endif /* PrefixHeader_pch */

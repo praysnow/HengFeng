@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HFTabBarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60r-ws-APz">
+                    <rect key="frame" x="94" y="0.0" width="93.5" height="49"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-IB-77O">
+                            <rect key="frame" x="21" y="11" width="50" height="27"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="教学工具"/>
+                            <connections>
+                                <action selector="selectItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="h7T-CF-HS9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="a3i-IB-77O" firstAttribute="centerX" secondItem="60r-ws-APz" secondAttribute="centerX" id="YKk-nL-a6o"/>
+                        <constraint firstItem="a3i-IB-77O" firstAttribute="centerY" secondItem="60r-ws-APz" secondAttribute="centerY" id="hu1-29-w9M"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMS-IR-rsQ">
+                    <rect key="frame" x="187.5" y="0.0" width="94" height="49"/>
+                    <subviews>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-y1-yjK">
+                            <rect key="frame" x="22" y="11" width="50" height="27"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="课堂测试"/>
+                            <connections>
+                                <action selector="selectItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="INJ-D5-vzy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Xa2-y1-yjK" firstAttribute="centerY" secondItem="BMS-IR-rsQ" secondAttribute="centerY" id="hYE-Ul-kEt"/>
+                        <constraint firstItem="Xa2-y1-yjK" firstAttribute="centerX" secondItem="BMS-IR-rsQ" secondAttribute="centerX" id="rXN-4G-A26"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ruo-AD-Znr">
+                    <rect key="frame" x="281.5" y="0.0" width="93.5" height="49"/>
+                    <subviews>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-9L-KeJ">
+                            <rect key="frame" x="24.5" y="11.5" width="45" height="26"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <state key="normal" title="学生状态"/>
+                            <connections>
+                                <action selector="selectItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="vtg-UT-IIh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="HrU-9L-KeJ" firstAttribute="centerX" secondItem="Ruo-AD-Znr" secondAttribute="centerX" id="wYO-Hv-28Y"/>
+                        <constraint firstItem="HrU-9L-KeJ" firstAttribute="centerY" secondItem="Ruo-AD-Znr" secondAttribute="centerY" id="xEE-1k-B9W"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UB-F1-WMe">
+                    <rect key="frame" x="0.0" y="0.0" width="94" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mf-hC-eKt">
+                            <rect key="frame" x="22" y="11" width="50" height="27"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="我的资源"/>
+                            <connections>
+                                <action selector="selectItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="g8C-SK-8DX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="0Mf-hC-eKt" firstAttribute="centerX" secondItem="9UB-F1-WMe" secondAttribute="centerX" id="1RU-wc-ctA"/>
+                        <constraint firstItem="0Mf-hC-eKt" firstAttribute="centerY" secondItem="9UB-F1-WMe" secondAttribute="centerY" id="foS-nX-5tl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="top" secondItem="60r-ws-APz" secondAttribute="top" id="6ih-JP-4fh"/>
+                <constraint firstItem="BMS-IR-rsQ" firstAttribute="height" secondItem="9UB-F1-WMe" secondAttribute="height" id="AKd-Bw-UkK"/>
+                <constraint firstItem="60r-ws-APz" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="DYP-dv-ue1"/>
+                <constraint firstItem="60r-ws-APz" firstAttribute="height" secondItem="9UB-F1-WMe" secondAttribute="height" id="MUw-cP-6Wb"/>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="NA1-ku-RNR"/>
+                <constraint firstItem="9UB-F1-WMe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ODf-cE-Pnw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ruo-AD-Znr" secondAttribute="trailing" id="ST2-Y5-3VZ"/>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="top" secondItem="BMS-IR-rsQ" secondAttribute="top" id="d8N-RM-XcJ"/>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="leading" secondItem="BMS-IR-rsQ" secondAttribute="trailing" id="ggf-j2-Wbf"/>
+                <constraint firstItem="9UB-F1-WMe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kUP-cG-pvv"/>
+                <constraint firstItem="BMS-IR-rsQ" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="lGe-Yt-Jl1"/>
+                <constraint firstItem="BMS-IR-rsQ" firstAttribute="leading" secondItem="60r-ws-APz" secondAttribute="trailing" id="lgH-2b-Wfz"/>
+                <constraint firstItem="60r-ws-APz" firstAttribute="leading" secondItem="9UB-F1-WMe" secondAttribute="trailing" id="voh-ID-kLm"/>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="height" secondItem="9UB-F1-WMe" secondAttribute="height" id="wJM-N6-LLW"/>
+                <constraint firstItem="Ruo-AD-Znr" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="wib-wM-V3v"/>
+                <constraint firstItem="9UB-F1-WMe" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ydJ-hJ-0F7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="items" destination="a3i-IB-77O" id="XR8-Yy-eXm"/>
+                <outletCollection property="items" destination="HrU-9L-KeJ" id="657-Al-ull"/>
+                <outletCollection property="items" destination="Xa2-y1-yjK" id="E6C-Mh-FRH"/>
+                <outletCollection property="items" destination="0Mf-hC-eKt" id="oh7-9T-y91"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

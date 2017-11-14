@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HF_Client_iPhone_Application' do
+
+#pod 'AFNetworking'
+#pod 'SDWebImage'
+#pod 'FMDB'
+#pod 'CocoaAsyncSocket'
+#pod 'SDCycleScrollView','~> 1.64'
+#pod 'UMengAnalytics'
+#pod 'SAMKeychain'
+
+end

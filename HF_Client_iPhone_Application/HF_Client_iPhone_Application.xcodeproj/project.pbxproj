@@ -1,0 +1,890 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39181E861FB574DF00A364AB /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E661FB574DF00A364AB /* 1.png */; };
+		39181E871FB574DF00A364AB /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E671FB574DF00A364AB /* 2.png */; };
+		39181E881FB574DF00A364AB /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E681FB574DF00A364AB /* bg.png */; };
+		39181E891FB574DF00A364AB /* configue_ensure.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E691FB574DF00A364AB /* configue_ensure.png */; };
+		39181E8A1FB574DF00A364AB /* errors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6A1FB574DF00A364AB /* errors.txt */; };
+		39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6B1FB574DF00A364AB /* ic_dcampus.png */; };
+		39181E8C1FB574DF00A364AB /* ic_drop_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6C1FB574DF00A364AB /* ic_drop_normal.png */; };
+		39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6D1FB574DF00A364AB /* ic_drop_selected.png */; };
+		39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6E1FB574DF00A364AB /* ic_exit.png */; };
+		39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E6F1FB574DF00A364AB /* ic_login_bg.png */; };
+		39181E901FB574DF00A364AB /* ic_pwd_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E701FB574DF00A364AB /* ic_pwd_normal.png */; };
+		39181E911FB574DF00A364AB /* ic_pwd_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E711FB574DF00A364AB /* ic_pwd_selected.png */; };
+		39181E921FB574DF00A364AB /* ic_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E721FB574DF00A364AB /* ic_set.png */; };
+		39181E931FB574DF00A364AB /* ic_user_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E731FB574DF00A364AB /* ic_user_normal.png */; };
+		39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E741FB574DF00A364AB /* ic_user_selected.png */; };
+		39181E951FB574DF00A364AB /* ic_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E751FB574DF00A364AB /* ic_wifi.png */; };
+		39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E761FB574DF00A364AB /* keyboard_bg_dark.png */; };
+		39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E771FB574DF00A364AB /* keyboard_bg_green.png */; };
+		39181E981FB574DF00A364AB /* login_button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E781FB574DF00A364AB /* login_button_bg.png */; };
+		39181E991FB574DF00A364AB /* passwoard_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E791FB574DF00A364AB /* passwoard_back.png */; };
+		39181E9A1FB574DF00A364AB /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7A1FB574DF00A364AB /* refresh.png */; };
+		39181E9B1FB574DF00A364AB /* system_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7B1FB574DF00A364AB /* system_close.png */; };
+		39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7C1FB574DF00A364AB /* system_keyboard_deep_green.png */; };
+		39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7D1FB574DF00A364AB /* teacher_mobile.png */; };
+		39181E9E1FB574DF00A364AB /* user_name.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7E1FB574DF00A364AB /* user_name.png */; };
+		39181E9F1FB574DF00A364AB /* wifi1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E7F1FB574DF00A364AB /* wifi1.png */; };
+		39181EA01FB574DF00A364AB /* wifi2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E801FB574DF00A364AB /* wifi2.png */; };
+		39181EA11FB574DF00A364AB /* wifi3.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E811FB574DF00A364AB /* wifi3.png */; };
+		39181EA21FB574DF00A364AB /* wifi5.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E821FB574DF00A364AB /* wifi5.png */; };
+		39181EA31FB574DF00A364AB /* wlan_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E831FB574DF00A364AB /* wlan_close.png */; };
+		39181EA41FB574DF00A364AB /* WLANbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E841FB574DF00A364AB /* WLANbg.png */; };
+		39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E851FB574DF00A364AB /* WLANxxbg.png */; };
+		39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */; };
+		39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */; };
+		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
+		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
+		393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393FE60A1FB4005300C75ACD /* HFLoginViewController.m */; };
+		393FE60D1FB4005300C75ACD /* HFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */; };
+		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
+		3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB2B1FB198D40017DFE9 /* ViewController.m */; };
+		3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3972CB2D1FB198D40017DFE9 /* Main.storyboard */; };
+		3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3972CB301FB198D40017DFE9 /* Assets.xcassets */; };
+		3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3972CB321FB198D40017DFE9 /* LaunchScreen.storyboard */; };
+		3972CB371FB198D40017DFE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB361FB198D40017DFE9 /* main.m */; };
+		3972CB411FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB401FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m */; };
+		3972CB4C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */; };
+		39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718DD1FB949B10088C348 /* HFTabBarView.m */; };
+		39B718E01FB949BC0088C348 /* HFTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718DF1FB949BC0088C348 /* HFTabBarView.xib */; };
+		39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718E21FB971790088C348 /* HFCustomTabBar.m */; };
+		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3972CB3D1FB198D40017DFE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3972CB1C1FB198D40017DFE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3972CB231FB198D40017DFE9;
+			remoteInfo = HF_Client_iPhone_Application;
+		};
+		3972CB481FB198D40017DFE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3972CB1C1FB198D40017DFE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3972CB231FB198D40017DFE9;
+			remoteInfo = HF_Client_iPhone_Application;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		117CF0EF9B719FF7E9B37CF5 /* libPods-HF_Client_iPhone_ApplicationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF82E6AEC219A3F034AC0AD /* Pods-HF_Client_iPhone_Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HF_Client_iPhone_Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.release.xcconfig"; sourceTree = "<group>"; };
+		33EA0AF723B55030AA316581 /* Pods-HF_Client_iPhone_Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HF_Client_iPhone_Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.debug.xcconfig"; sourceTree = "<group>"; };
+		39181E661FB574DF00A364AB /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		39181E671FB574DF00A364AB /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		39181E681FB574DF00A364AB /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		39181E691FB574DF00A364AB /* configue_ensure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = configue_ensure.png; sourceTree = "<group>"; };
+		39181E6A1FB574DF00A364AB /* errors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = errors.txt; sourceTree = "<group>"; };
+		39181E6B1FB574DF00A364AB /* ic_dcampus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_dcampus.png; sourceTree = "<group>"; };
+		39181E6C1FB574DF00A364AB /* ic_drop_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_drop_normal.png; sourceTree = "<group>"; };
+		39181E6D1FB574DF00A364AB /* ic_drop_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_drop_selected.png; sourceTree = "<group>"; };
+		39181E6E1FB574DF00A364AB /* ic_exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_exit.png; sourceTree = "<group>"; };
+		39181E6F1FB574DF00A364AB /* ic_login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_login_bg.png; sourceTree = "<group>"; };
+		39181E701FB574DF00A364AB /* ic_pwd_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pwd_normal.png; sourceTree = "<group>"; };
+		39181E711FB574DF00A364AB /* ic_pwd_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pwd_selected.png; sourceTree = "<group>"; };
+		39181E721FB574DF00A364AB /* ic_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_set.png; sourceTree = "<group>"; };
+		39181E731FB574DF00A364AB /* ic_user_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user_normal.png; sourceTree = "<group>"; };
+		39181E741FB574DF00A364AB /* ic_user_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user_selected.png; sourceTree = "<group>"; };
+		39181E751FB574DF00A364AB /* ic_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_wifi.png; sourceTree = "<group>"; };
+		39181E761FB574DF00A364AB /* keyboard_bg_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_bg_dark.png; sourceTree = "<group>"; };
+		39181E771FB574DF00A364AB /* keyboard_bg_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_bg_green.png; sourceTree = "<group>"; };
+		39181E781FB574DF00A364AB /* login_button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_button_bg.png; sourceTree = "<group>"; };
+		39181E791FB574DF00A364AB /* passwoard_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwoard_back.png; sourceTree = "<group>"; };
+		39181E7A1FB574DF00A364AB /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		39181E7B1FB574DF00A364AB /* system_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = system_close.png; sourceTree = "<group>"; };
+		39181E7C1FB574DF00A364AB /* system_keyboard_deep_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = system_keyboard_deep_green.png; sourceTree = "<group>"; };
+		39181E7D1FB574DF00A364AB /* teacher_mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teacher_mobile.png; sourceTree = "<group>"; };
+		39181E7E1FB574DF00A364AB /* user_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_name.png; sourceTree = "<group>"; };
+		39181E7F1FB574DF00A364AB /* wifi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi1.png; sourceTree = "<group>"; };
+		39181E801FB574DF00A364AB /* wifi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi2.png; sourceTree = "<group>"; };
+		39181E811FB574DF00A364AB /* wifi3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi3.png; sourceTree = "<group>"; };
+		39181E821FB574DF00A364AB /* wifi5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi5.png; sourceTree = "<group>"; };
+		39181E831FB574DF00A364AB /* wlan_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wlan_close.png; sourceTree = "<group>"; };
+		39181E841FB574DF00A364AB /* WLANbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WLANbg.png; sourceTree = "<group>"; };
+		39181E851FB574DF00A364AB /* WLANxxbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WLANxxbg.png; sourceTree = "<group>"; };
+		39181EAD1FB5AAEF00A364AB /* HFMyResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceViewController.h; sourceTree = "<group>"; };
+		39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceViewController.m; sourceTree = "<group>"; };
+		39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceViewController.xib; sourceTree = "<group>"; };
+		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
+		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
+		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
+		393FE6091FB4005300C75ACD /* HFLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFLoginViewController.h; sourceTree = "<group>"; };
+		393FE60A1FB4005300C75ACD /* HFLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFLoginViewController.m; sourceTree = "<group>"; };
+		393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFLoginViewController.xib; sourceTree = "<group>"; };
+		3972CB241FB198D40017DFE9 /* HF_Client_iPhone_Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HF_Client_iPhone_Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3972CB271FB198D40017DFE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3972CB281FB198D40017DFE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3972CB2A1FB198D40017DFE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3972CB2B1FB198D40017DFE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3972CB2E1FB198D40017DFE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3972CB301FB198D40017DFE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3972CB331FB198D40017DFE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3972CB351FB198D40017DFE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3972CB361FB198D40017DFE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3972CB3C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HF_Client_iPhone_ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3972CB401FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_Client_iPhone_ApplicationTests.m; sourceTree = "<group>"; };
+		3972CB421FB198D40017DFE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3972CB471FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HF_Client_iPhone_ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_Client_iPhone_ApplicationUITests.m; sourceTree = "<group>"; };
+		3972CB4D1FB198D40017DFE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B718DC1FB949B10088C348 /* HFTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTabBarView.h; sourceTree = "<group>"; };
+		39B718DD1FB949B10088C348 /* HFTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTabBarView.m; sourceTree = "<group>"; };
+		39B718DF1FB949BC0088C348 /* HFTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTabBarView.xib; sourceTree = "<group>"; };
+		39B718E11FB971790088C348 /* HFCustomTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCustomTabBar.h; sourceTree = "<group>"; };
+		39B718E21FB971790088C348 /* HFCustomTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCustomTabBar.m; sourceTree = "<group>"; };
+		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3972CB211FB198D40017DFE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB391FB198D40017DFE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB441FB198D40017DFE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		212D610DF245B2AD224B2003 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */,
+				117CF0EF9B719FF7E9B37CF5 /* libPods-HF_Client_iPhone_ApplicationTests.a */,
+				DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39181E651FB574DF00A364AB /* loginImage */ = {
+			isa = PBXGroup;
+			children = (
+				39181E661FB574DF00A364AB /* 1.png */,
+				39181E671FB574DF00A364AB /* 2.png */,
+				39181E681FB574DF00A364AB /* bg.png */,
+				39181E691FB574DF00A364AB /* configue_ensure.png */,
+				39181E6A1FB574DF00A364AB /* errors.txt */,
+				39181E6B1FB574DF00A364AB /* ic_dcampus.png */,
+				39181E6C1FB574DF00A364AB /* ic_drop_normal.png */,
+				39181E6D1FB574DF00A364AB /* ic_drop_selected.png */,
+				39181E6E1FB574DF00A364AB /* ic_exit.png */,
+				39181E6F1FB574DF00A364AB /* ic_login_bg.png */,
+				39181E701FB574DF00A364AB /* ic_pwd_normal.png */,
+				39181E711FB574DF00A364AB /* ic_pwd_selected.png */,
+				39181E721FB574DF00A364AB /* ic_set.png */,
+				39181E731FB574DF00A364AB /* ic_user_normal.png */,
+				39181E741FB574DF00A364AB /* ic_user_selected.png */,
+				39181E751FB574DF00A364AB /* ic_wifi.png */,
+				39181E761FB574DF00A364AB /* keyboard_bg_dark.png */,
+				39181E771FB574DF00A364AB /* keyboard_bg_green.png */,
+				39181E781FB574DF00A364AB /* login_button_bg.png */,
+				39181E791FB574DF00A364AB /* passwoard_back.png */,
+				39181E7A1FB574DF00A364AB /* refresh.png */,
+				39181E7B1FB574DF00A364AB /* system_close.png */,
+				39181E7C1FB574DF00A364AB /* system_keyboard_deep_green.png */,
+				39181E7D1FB574DF00A364AB /* teacher_mobile.png */,
+				39181E7E1FB574DF00A364AB /* user_name.png */,
+				39181E7F1FB574DF00A364AB /* wifi1.png */,
+				39181E801FB574DF00A364AB /* wifi2.png */,
+				39181E811FB574DF00A364AB /* wifi3.png */,
+				39181E821FB574DF00A364AB /* wifi5.png */,
+				39181E831FB574DF00A364AB /* wlan_close.png */,
+				39181E841FB574DF00A364AB /* WLANbg.png */,
+				39181E851FB574DF00A364AB /* WLANxxbg.png */,
+			);
+			path = loginImage;
+			sourceTree = "<group>";
+		};
+		39181EA61FB5A5AA00A364AB /* HFLogin */ = {
+			isa = PBXGroup;
+			children = (
+				393FE6091FB4005300C75ACD /* HFLoginViewController.h */,
+				393FE60A1FB4005300C75ACD /* HFLoginViewController.m */,
+				393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */,
+			);
+			path = HFLogin;
+			sourceTree = "<group>";
+		};
+		39181EA71FB5A5C300A364AB /* HFMain */ = {
+			isa = PBXGroup;
+			children = (
+				392BB3B71FB5B40A00444EAF /* MainTabViewController.h */,
+				392BB3B81FB5B40A00444EAF /* MainTabViewController.m */,
+				392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */,
+				39B718DC1FB949B10088C348 /* HFTabBarView.h */,
+				39B718DD1FB949B10088C348 /* HFTabBarView.m */,
+				39B718DF1FB949BC0088C348 /* HFTabBarView.xib */,
+				39B718E11FB971790088C348 /* HFCustomTabBar.h */,
+				39B718E21FB971790088C348 /* HFCustomTabBar.m */,
+			);
+			path = HFMain;
+			sourceTree = "<group>";
+		};
+		39181EB41FB5AB4700A364AB /* HFMyResource */ = {
+			isa = PBXGroup;
+			children = (
+				39181EAD1FB5AAEF00A364AB /* HFMyResourceViewController.h */,
+				39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */,
+				39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */,
+			);
+			path = HFMyResource;
+			sourceTree = "<group>";
+		};
+		3964C6F61FB3F09100A024A9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3964C6F71FB3F2F400A024A9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				39181E651FB574DF00A364AB /* loginImage */,
+				3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3964C6F81FB3F4A900A024A9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				39181EB41FB5AB4700A364AB /* HFMyResource */,
+				39181EA71FB5A5C300A364AB /* HFMain */,
+				39181EA61FB5A5AA00A364AB /* HFLogin */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3964C6F91FB3F4B700A024A9 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		3972CB1B1FB198D40017DFE9 = {
+			isa = PBXGroup;
+			children = (
+				3972CB261FB198D40017DFE9 /* HF_Client_iPhone_Application */,
+				3972CB3F1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests */,
+				3972CB4A1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests */,
+				3972CB251FB198D40017DFE9 /* Products */,
+				212D610DF245B2AD224B2003 /* Frameworks */,
+				A92E0E17AFDCB6BFFBACC06F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		3972CB251FB198D40017DFE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3972CB241FB198D40017DFE9 /* HF_Client_iPhone_Application.app */,
+				3972CB3C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.xctest */,
+				3972CB471FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3972CB261FB198D40017DFE9 /* HF_Client_iPhone_Application */ = {
+			isa = PBXGroup;
+			children = (
+				3964C6F81FB3F4A900A024A9 /* Class */,
+				3964C6F91FB3F4B700A024A9 /* Category */,
+				3964C6F71FB3F2F400A024A9 /* Source */,
+				3964C6F61FB3F09100A024A9 /* Utils */,
+				3972CB271FB198D40017DFE9 /* AppDelegate.h */,
+				3972CB281FB198D40017DFE9 /* AppDelegate.m */,
+				3972CB2A1FB198D40017DFE9 /* ViewController.h */,
+				3972CB2B1FB198D40017DFE9 /* ViewController.m */,
+				3972CB2D1FB198D40017DFE9 /* Main.storyboard */,
+				3972CB301FB198D40017DFE9 /* Assets.xcassets */,
+				3972CB321FB198D40017DFE9 /* LaunchScreen.storyboard */,
+				3972CB351FB198D40017DFE9 /* Info.plist */,
+				3972CB361FB198D40017DFE9 /* main.m */,
+			);
+			path = HF_Client_iPhone_Application;
+			sourceTree = "<group>";
+		};
+		3972CB3F1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				3972CB401FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m */,
+				3972CB421FB198D40017DFE9 /* Info.plist */,
+			);
+			path = HF_Client_iPhone_ApplicationTests;
+			sourceTree = "<group>";
+		};
+		3972CB4A1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */,
+				3972CB4D1FB198D40017DFE9 /* Info.plist */,
+			);
+			path = HF_Client_iPhone_ApplicationUITests;
+			sourceTree = "<group>";
+		};
+		A92E0E17AFDCB6BFFBACC06F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33EA0AF723B55030AA316581 /* Pods-HF_Client_iPhone_Application.debug.xcconfig */,
+				1CF82E6AEC219A3F034AC0AD /* Pods-HF_Client_iPhone_Application.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3972CB231FB198D40017DFE9 /* HF_Client_iPhone_Application */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3972CB501FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_Application" */;
+			buildPhases = (
+				07428356D3A6771DEC3B9FC0 /* [CP] Check Pods Manifest.lock */,
+				3972CB201FB198D40017DFE9 /* Sources */,
+				3972CB211FB198D40017DFE9 /* Frameworks */,
+				3972CB221FB198D40017DFE9 /* Resources */,
+				DB1129643C73B6ECC79ABB81 /* [CP] Embed Pods Frameworks */,
+				B00DE66523049958481655B9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HF_Client_iPhone_Application;
+			productName = HF_Client_iPhone_Application;
+			productReference = 3972CB241FB198D40017DFE9 /* HF_Client_iPhone_Application.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3972CB3B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3972CB531FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_ApplicationTests" */;
+			buildPhases = (
+				3972CB381FB198D40017DFE9 /* Sources */,
+				3972CB391FB198D40017DFE9 /* Frameworks */,
+				3972CB3A1FB198D40017DFE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3972CB3E1FB198D40017DFE9 /* PBXTargetDependency */,
+			);
+			name = HF_Client_iPhone_ApplicationTests;
+			productName = HF_Client_iPhone_ApplicationTests;
+			productReference = 3972CB3C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3972CB461FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3972CB561FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_ApplicationUITests" */;
+			buildPhases = (
+				3972CB431FB198D40017DFE9 /* Sources */,
+				3972CB441FB198D40017DFE9 /* Frameworks */,
+				3972CB451FB198D40017DFE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3972CB491FB198D40017DFE9 /* PBXTargetDependency */,
+			);
+			name = HF_Client_iPhone_ApplicationUITests;
+			productName = HF_Client_iPhone_ApplicationUITests;
+			productReference = 3972CB471FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3972CB1C1FB198D40017DFE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = HengFeng;
+				TargetAttributes = {
+					3972CB231FB198D40017DFE9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					3972CB3B1FB198D40017DFE9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3972CB231FB198D40017DFE9;
+					};
+					3972CB461FB198D40017DFE9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3972CB231FB198D40017DFE9;
+					};
+				};
+			};
+			buildConfigurationList = 3972CB1F1FB198D40017DFE9 /* Build configuration list for PBXProject "HF_Client_iPhone_Application" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3972CB1B1FB198D40017DFE9;
+			productRefGroup = 3972CB251FB198D40017DFE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3972CB231FB198D40017DFE9 /* HF_Client_iPhone_Application */,
+				3972CB3B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests */,
+				3972CB461FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3972CB221FB198D40017DFE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39181E871FB574DF00A364AB /* 2.png in Resources */,
+				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
+				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
+				393FE60D1FB4005300C75ACD /* HFLoginViewController.xib in Resources */,
+				39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */,
+				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
+				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
+				39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */,
+				39181E9E1FB574DF00A364AB /* user_name.png in Resources */,
+				39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */,
+				39181EA31FB574DF00A364AB /* wlan_close.png in Resources */,
+				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
+				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
+				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
+				39181E8A1FB574DF00A364AB /* errors.txt in Resources */,
+				39181E911FB574DF00A364AB /* ic_pwd_selected.png in Resources */,
+				39181E991FB574DF00A364AB /* passwoard_back.png in Resources */,
+				39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */,
+				39181E981FB574DF00A364AB /* login_button_bg.png in Resources */,
+				39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */,
+				39181EA41FB574DF00A364AB /* WLANbg.png in Resources */,
+				39181E8C1FB574DF00A364AB /* ic_drop_normal.png in Resources */,
+				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
+				3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */,
+				3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */,
+				39181E881FB574DF00A364AB /* bg.png in Resources */,
+				39181E931FB574DF00A364AB /* ic_user_normal.png in Resources */,
+				39181E9B1FB574DF00A364AB /* system_close.png in Resources */,
+				39181E9A1FB574DF00A364AB /* refresh.png in Resources */,
+				3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */,
+				39181E951FB574DF00A364AB /* ic_wifi.png in Resources */,
+				39181E861FB574DF00A364AB /* 1.png in Resources */,
+				39181E901FB574DF00A364AB /* ic_pwd_normal.png in Resources */,
+				39181E9F1FB574DF00A364AB /* wifi1.png in Resources */,
+				39181EA01FB574DF00A364AB /* wifi2.png in Resources */,
+				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
+				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
+				39B718E01FB949BC0088C348 /* HFTabBarView.xib in Resources */,
+				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB3A1FB198D40017DFE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB451FB198D40017DFE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07428356D3A6771DEC3B9FC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B00DE66523049958481655B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB1129643C73B6ECC79ABB81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3972CB201FB198D40017DFE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */,
+				39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */,
+				393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */,
+				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
+				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
+				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
+				3972CB371FB198D40017DFE9 /* main.m in Sources */,
+				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB381FB198D40017DFE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3972CB411FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3972CB431FB198D40017DFE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3972CB4C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3972CB3E1FB198D40017DFE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3972CB231FB198D40017DFE9 /* HF_Client_iPhone_Application */;
+			targetProxy = 3972CB3D1FB198D40017DFE9 /* PBXContainerItemProxy */;
+		};
+		3972CB491FB198D40017DFE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3972CB231FB198D40017DFE9 /* HF_Client_iPhone_Application */;
+			targetProxy = 3972CB481FB198D40017DFE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3972CB2D1FB198D40017DFE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3972CB2E1FB198D40017DFE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3972CB321FB198D40017DFE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3972CB331FB198D40017DFE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3972CB4E1FB198D40017DFE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3972CB4F1FB198D40017DFE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3972CB511FB198D40017DFE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33EA0AF723B55030AA316581 /* Pods-HF_Client_iPhone_Application.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;
+				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3972CB521FB198D40017DFE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CF82E6AEC219A3F034AC0AD /* Pods-HF_Client_iPhone_Application.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;
+				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		3972CB541FB198D40017DFE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				INFOPLIST_FILE = HF_Client_iPhone_ApplicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HF_Client_iPhone_Application.app/HF_Client_iPhone_Application";
+			};
+			name = Debug;
+		};
+		3972CB551FB198D40017DFE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				INFOPLIST_FILE = HF_Client_iPhone_ApplicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HF_Client_iPhone_Application.app/HF_Client_iPhone_Application";
+			};
+			name = Release;
+		};
+		3972CB571FB198D40017DFE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				INFOPLIST_FILE = HF_Client_iPhone_ApplicationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HF_Client_iPhone_Application;
+			};
+			name = Debug;
+		};
+		3972CB581FB198D40017DFE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				INFOPLIST_FILE = HF_Client_iPhone_ApplicationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HF_Client_iPhone_Application;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3972CB1F1FB198D40017DFE9 /* Build configuration list for PBXProject "HF_Client_iPhone_Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3972CB4E1FB198D40017DFE9 /* Debug */,
+				3972CB4F1FB198D40017DFE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3972CB501FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3972CB511FB198D40017DFE9 /* Debug */,
+				3972CB521FB198D40017DFE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3972CB531FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_ApplicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3972CB541FB198D40017DFE9 /* Debug */,
+				3972CB551FB198D40017DFE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3972CB561FB198D40017DFE9 /* Build configuration list for PBXNativeTarget "HF_Client_iPhone_ApplicationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3972CB571FB198D40017DFE9 /* Debug */,
+				3972CB581FB198D40017DFE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3972CB1C1FB198D40017DFE9 /* Project object */;
+}
