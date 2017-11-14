@@ -23,12 +23,6 @@
     [self setupappearance];
     
     [self addAllChildViewController];
-
-//    HFMyResourceViewController *vc = [HFMyResourceViewController new];
-//    HFMyResourceViewController *vc1 = [HFMyResourceViewController new];
-//    HFMyResourceViewController *vc2 = [HFMyResourceViewController new];
-//    HFMyResourceViewController *vc3 = [HFMyResourceViewController new];
-//    self.viewControllers = @[vc, vc1, vc2, vc3];
 }
 
 - (void)setupappearance
@@ -43,7 +37,7 @@
 // 添加全部的 childViewcontroller
 - (void)addAllChildViewController
 {
-    UIViewController *homeVC = [[UIViewController alloc] init];
+    HFMyResourceViewController *homeVC = [[HFMyResourceViewController alloc] init];
     homeVC.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:homeVC title:@"首页" imageNamed:@"tabbar_match_selected"];
 

@@ -3,10 +3,10 @@
 
 target 'HF_Client_iPhone_Application' do
 
-pod 'AFNetworking'
-pod 'SDWebImage'
-pod 'FMDB'
-pod 'CocoaAsyncSocket'
+#pod 'AFNetworking'
+#pod 'SDWebImage'
+#pod 'FMDB'
+#pod 'CocoaAsyncSocket'
 #pod 'SDCycleScrollView','~> 1.64'
 #pod 'UMengAnalytics'
 #pod 'SAMKeychain'
