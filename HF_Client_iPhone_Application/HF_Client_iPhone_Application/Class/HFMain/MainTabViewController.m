@@ -8,6 +8,7 @@
 
 #import "MainTabViewController.h"
 #import "HFMyResourceViewController.h"
+#import "HFTeachToolViewController.h"
 #import "HFCustomTabBar.h"
 
 @interface MainTabViewController () <HFTabBarViewDelegate>
@@ -30,6 +31,9 @@
     HFCustomTabBar *tabBar = [[HFCustomTabBar alloc] init];
     tabBar.tabBarView.viewDelegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
+    if ([tabBar.subviews count] == 5 && [tabBar.subviews[4] isKindOfClass: [UIImageView class]]) {
+        tabBar.subviews[4].backgroundColor = [UIColor clearColor];
+    }
 }
 
 #pragma mark - Private Methods
@@ -38,15 +42,12 @@
 - (void)addAllChildViewController
 {
     HFMyResourceViewController *homeVC = [[HFMyResourceViewController alloc] init];
-    homeVC.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:homeVC title:@"首页" imageNamed:@"tabbar_match_selected"];
 
-    UIViewController *activityVC = [[UIViewController alloc] init];
-    activityVC.view.backgroundColor = [UIColor yellowColor];
+    HFTeachToolViewController *activityVC = [[HFTeachToolViewController alloc] init];
     [self addChildViewController:activityVC title:@"活动" imageNamed:@"tabbar_match_selected"];
 
     UIViewController *findVC = [[UIViewController alloc] init];
-    findVC.view.backgroundColor = [UIColor blueColor];
     [self addChildViewController:findVC title:@"发现" imageNamed:@"tabbar_match_selected"];
 
     UIViewController *mineVC = [[UIViewController alloc] init];
@@ -58,11 +59,8 @@
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title imageNamed:(NSString *)imageNamed
 {
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    // 如果同时有navigationbar 和 tabbar的时候最好分别设置它们的title
     vc.navigationItem.title = title;
-    //    nav.tabBarItem.title = title;
-    //    nav.tabBarItem.image = [UIImage imageNamed:imageNamed];
-
+    vc.navigationController.navigationBar.hidden = YES;
     [self addChildViewController:nav];
 }
 

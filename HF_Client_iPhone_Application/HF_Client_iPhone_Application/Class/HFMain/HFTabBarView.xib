@@ -20,7 +20,7 @@
                     <rect key="frame" x="94" y="0.0" width="93.5" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-IB-77O">
-                            <rect key="frame" x="25.5" y="12.5" width="41" height="24"/>
+                            <rect key="frame" x="21" y="0.0" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="教学工具">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +40,7 @@
                     <rect key="frame" x="187.5" y="0.0" width="94" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-y1-yjK">
-                            <rect key="frame" x="26.5" y="12.5" width="41" height="24"/>
+                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="课堂测试">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,7 +59,7 @@
                     <rect key="frame" x="281.5" y="0.0" width="93.5" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-9L-KeJ">
-                            <rect key="frame" x="26.5" y="12.5" width="41" height="24"/>
+                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="学生状态">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -78,7 +78,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="94" height="49"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mf-hC-eKt">
-                            <rect key="frame" x="26.5" y="12.5" width="41" height="24"/>
+                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="M62-nq-AoS"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="我的资源">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -90,7 +93,9 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="0Mf-hC-eKt" firstAttribute="centerX" secondItem="9UB-F1-WMe" secondAttribute="centerX" id="1RU-wc-ctA"/>
+                        <constraint firstItem="0Mf-hC-eKt" firstAttribute="top" secondItem="9UB-F1-WMe" secondAttribute="top" id="LKo-NZ-coh"/>
                         <constraint firstItem="0Mf-hC-eKt" firstAttribute="centerY" secondItem="9UB-F1-WMe" secondAttribute="centerY" id="foS-nX-5tl"/>
+                        <constraint firstAttribute="bottom" secondItem="0Mf-hC-eKt" secondAttribute="bottom" id="k9c-2q-rwO"/>
                     </constraints>
                 </view>
             </subviews>
@@ -101,13 +106,19 @@
                 <constraint firstItem="60r-ws-APz" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="DYP-dv-ue1"/>
                 <constraint firstItem="60r-ws-APz" firstAttribute="height" secondItem="9UB-F1-WMe" secondAttribute="height" id="MUw-cP-6Wb"/>
                 <constraint firstItem="Ruo-AD-Znr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="NA1-ku-RNR"/>
+                <constraint firstItem="HrU-9L-KeJ" firstAttribute="width" secondItem="0Mf-hC-eKt" secondAttribute="width" id="NxL-gS-1YO"/>
                 <constraint firstItem="9UB-F1-WMe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ODf-cE-Pnw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ruo-AD-Znr" secondAttribute="trailing" id="ST2-Y5-3VZ"/>
+                <constraint firstItem="Xa2-y1-yjK" firstAttribute="height" secondItem="0Mf-hC-eKt" secondAttribute="height" id="TX7-ko-T0m"/>
                 <constraint firstItem="Ruo-AD-Znr" firstAttribute="top" secondItem="BMS-IR-rsQ" secondAttribute="top" id="d8N-RM-XcJ"/>
+                <constraint firstItem="Xa2-y1-yjK" firstAttribute="width" secondItem="0Mf-hC-eKt" secondAttribute="width" id="ewF-vN-vjW"/>
                 <constraint firstItem="Ruo-AD-Znr" firstAttribute="leading" secondItem="BMS-IR-rsQ" secondAttribute="trailing" id="ggf-j2-Wbf"/>
+                <constraint firstItem="a3i-IB-77O" firstAttribute="width" secondItem="0Mf-hC-eKt" secondAttribute="width" id="hO5-bP-Vwh"/>
                 <constraint firstItem="9UB-F1-WMe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kUP-cG-pvv"/>
                 <constraint firstItem="BMS-IR-rsQ" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="lGe-Yt-Jl1"/>
                 <constraint firstItem="BMS-IR-rsQ" firstAttribute="leading" secondItem="60r-ws-APz" secondAttribute="trailing" id="lgH-2b-Wfz"/>
+                <constraint firstItem="a3i-IB-77O" firstAttribute="height" secondItem="0Mf-hC-eKt" secondAttribute="height" id="lhc-2s-nhZ"/>
+                <constraint firstItem="HrU-9L-KeJ" firstAttribute="height" secondItem="0Mf-hC-eKt" secondAttribute="height" id="n69-Db-ri8"/>
                 <constraint firstItem="60r-ws-APz" firstAttribute="leading" secondItem="9UB-F1-WMe" secondAttribute="trailing" id="voh-ID-kLm"/>
                 <constraint firstItem="Ruo-AD-Znr" firstAttribute="height" secondItem="9UB-F1-WMe" secondAttribute="height" id="wJM-N6-LLW"/>
                 <constraint firstItem="Ruo-AD-Znr" firstAttribute="width" secondItem="9UB-F1-WMe" secondAttribute="width" id="wib-wM-V3v"/>

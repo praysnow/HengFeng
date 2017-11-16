@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGF-qV-UYR">
-                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DCAMPUS智慧课堂" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCS-tb-vma">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -53,7 +53,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTB-TH-GWN">
-                    <rect key="frame" x="0.0" y="108" width="375" height="26"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="26"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enU-J2-Ove">
                             <rect key="frame" x="275" y="0.0" width="100" height="13"/>
@@ -72,7 +72,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.99607843139999996" green="0.6588235294" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="1ff-Vs-Kdy"/>
                         <constraint firstItem="enU-J2-Ove" firstAttribute="top" secondItem="GTB-TH-GWN" secondAttribute="top" id="8sv-tt-Vi1"/>
@@ -85,7 +84,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wjn-bP-lsU">
-                    <rect key="frame" x="0.0" y="134" width="375" height="533"/>
+                    <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="emj-vV-IKA">
                         <size key="itemSize" width="50" height="50"/>
@@ -98,7 +97,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="GTB-TH-GWN" firstAttribute="top" secondItem="aGF-qV-UYR" secondAttribute="bottom" id="5qC-sH-OQV"/>
-                <constraint firstItem="aGF-qV-UYR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Iz3-Jw-27v"/>
+                <constraint firstItem="aGF-qV-UYR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Iz3-Jw-27v"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="aGF-qV-UYR" secondAttribute="trailing" id="MH0-QO-nxJ"/>
                 <constraint firstItem="GTB-TH-GWN" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="NXH-GR-h9Y"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="wjn-bP-lsU" secondAttribute="trailing" id="QRz-0R-7qZ"/>

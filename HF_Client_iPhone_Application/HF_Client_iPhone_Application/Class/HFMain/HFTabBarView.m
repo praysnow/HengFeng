@@ -34,7 +34,7 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             if (button.tag == 0) {
-                [button setBackgroundColor: [UIColor blueColor]];
+                [button setBackgroundColor: UICOLOR_RGB(0xff1388ba)];
             }
         });
         button.layer.masksToBounds = YES;
@@ -65,7 +65,7 @@
         [self.sender setBackgroundColor: [UIColor whiteColor]];
     }
     self.sender = sender;
-         [sender setBackgroundColor: [UIColor blueColor]];
+         [sender setBackgroundColor: UICOLOR_RGB(0xff1388ba)];
     self.selectIndex = sender.tag;
     ;
     // 让代理来处理切换viewController的操作

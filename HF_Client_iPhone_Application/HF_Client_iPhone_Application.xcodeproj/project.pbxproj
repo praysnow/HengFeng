@@ -56,6 +56,14 @@
 		39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718DD1FB949B10088C348 /* HFTabBarView.m */; };
 		39B718E01FB949BC0088C348 /* HFTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718DF1FB949BC0088C348 /* HFTabBarView.xib */; };
 		39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718E21FB971790088C348 /* HFCustomTabBar.m */; };
+		39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */; };
+		39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */; };
+		39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */; };
+		39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */; };
+		39B718FE1FBD7AD00088C348 /* HFTeachToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */; };
+		39B718FF1FBD7AD00088C348 /* HFTeachToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */; };
+		39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B719011FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m */; };
+		39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +151,18 @@
 		39B718DF1FB949BC0088C348 /* HFTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTabBarView.xib; sourceTree = "<group>"; };
 		39B718E11FB971790088C348 /* HFCustomTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCustomTabBar.h; sourceTree = "<group>"; };
 		39B718E21FB971790088C348 /* HFCustomTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCustomTabBar.m; sourceTree = "<group>"; };
+		39B718EC1FBC20050088C348 /* HFMyResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceCollectionViewCell.h; sourceTree = "<group>"; };
+		39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceCollectionViewCell.m; sourceTree = "<group>"; };
+		39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceCollectionViewCell.xib; sourceTree = "<group>"; };
+		39B718F11FBC20340088C348 /* HFMyResourceHeaderFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceHeaderFootView.h; sourceTree = "<group>"; };
+		39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceHeaderFootView.m; sourceTree = "<group>"; };
+		39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceHeaderFootView.xib; sourceTree = "<group>"; };
+		39B718FB1FBD7AD00088C348 /* HFTeachToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolViewController.h; sourceTree = "<group>"; };
+		39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolViewController.m; sourceTree = "<group>"; };
+		39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachToolViewController.xib; sourceTree = "<group>"; };
+		39B719001FBD8D990088C348 /* HFTTeachToolCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTTeachToolCollectionViewCell.h; sourceTree = "<group>"; };
+		39B719011FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTTeachToolCollectionViewCell.m; sourceTree = "<group>"; };
+		39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTTeachToolCollectionViewCell.xib; sourceTree = "<group>"; };
 		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -250,9 +270,9 @@
 		39181EB41FB5AB4700A364AB /* HFMyResource */ = {
 			isa = PBXGroup;
 			children = (
-				39181EAD1FB5AAEF00A364AB /* HFMyResourceViewController.h */,
-				39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */,
-				39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */,
+				39B718EB1FBC1F9B0088C348 /* controller */,
+				39B718EA1FBC1F9A0088C348 /* view */,
+				39B718E91FBC1F9A0088C348 /* model */,
 			);
 			path = HFMyResource;
 			sourceTree = "<group>";
@@ -276,6 +296,7 @@
 		3964C6F81FB3F4A900A024A9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				39B718F71FBD62060088C348 /* HFTeachTool */,
 				39181EB41FB5AB4700A364AB /* HFMyResource */,
 				39181EA71FB5A5C300A364AB /* HFMain */,
 				39181EA61FB5A5AA00A364AB /* HFLogin */,
@@ -348,6 +369,73 @@
 				3972CB4D1FB198D40017DFE9 /* Info.plist */,
 			);
 			path = HF_Client_iPhone_ApplicationUITests;
+			sourceTree = "<group>";
+		};
+		39B718E91FBC1F9A0088C348 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		39B718EA1FBC1F9A0088C348 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				39B718EC1FBC20050088C348 /* HFMyResourceCollectionViewCell.h */,
+				39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */,
+				39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */,
+				39B718F11FBC20340088C348 /* HFMyResourceHeaderFootView.h */,
+				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
+				39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		39B718EB1FBC1F9B0088C348 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				39181EAD1FB5AAEF00A364AB /* HFMyResourceViewController.h */,
+				39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */,
+				39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		39B718F71FBD62060088C348 /* HFTeachTool */ = {
+			isa = PBXGroup;
+			children = (
+				39B718F91FBD63350088C348 /* controller */,
+				39B718FA1FBD63350088C348 /* model */,
+				39B718F81FBD63350088C348 /* view */,
+			);
+			path = HFTeachTool;
+			sourceTree = "<group>";
+		};
+		39B718F81FBD63350088C348 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				39B719001FBD8D990088C348 /* HFTTeachToolCollectionViewCell.h */,
+				39B719011FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m */,
+				39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		39B718F91FBD63350088C348 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				39B718FB1FBD7AD00088C348 /* HFTeachToolViewController.h */,
+				39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */,
+				39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		39B718FA1FBD63350088C348 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A92E0E17AFDCB6BFFBACC06F /* Pods */ = {
@@ -472,6 +560,7 @@
 				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
 				393FE60D1FB4005300C75ACD /* HFLoginViewController.xib in Resources */,
+				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
 				39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */,
 				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
 				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
@@ -482,10 +571,12 @@
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
 				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
 				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
+				39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */,
 				39181E8A1FB574DF00A364AB /* errors.txt in Resources */,
 				39181E911FB574DF00A364AB /* ic_pwd_selected.png in Resources */,
 				39181E991FB574DF00A364AB /* passwoard_back.png in Resources */,
 				39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */,
+				39B718FF1FBD7AD00088C348 /* HFTeachToolViewController.xib in Resources */,
 				39181E981FB574DF00A364AB /* login_button_bg.png in Resources */,
 				39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */,
 				39181EA41FB574DF00A364AB /* WLANbg.png in Resources */,
@@ -493,6 +584,7 @@
 				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
 				3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */,
 				3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */,
+				39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */,
 				39181E881FB574DF00A364AB /* bg.png in Resources */,
 				39181E931FB574DF00A364AB /* ic_user_normal.png in Resources */,
 				39181E9B1FB574DF00A364AB /* system_close.png in Resources */,
@@ -581,10 +673,14 @@
 			files = (
 				39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */,
 				39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */,
+				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
 				393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */,
+				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
+				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
+				39B718FE1FBD7AD00088C348 /* HFTeachToolViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
 			);
