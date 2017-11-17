@@ -9,6 +9,8 @@
 #import "HFMyResourceViewController.h"
 #import "HFMyResourceCollectionViewCell.h"
 #import "HFMyResourceHeaderFootView.h"
+#import "HFNetwork.h"
+#import "WebServiceModel.h"
 
 @interface HFMyResourceViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
@@ -28,6 +30,18 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
+//    [self loadData];
+}
+
+- (void)loadData
+{
+    WebServiceModel *model = [[WebServiceModel alloc] init];
+    model.method = @"GetDaoXueRenWuByTpID";
+    [[HFNetwork network] SOAPDataWithSoapBody: [model getRequestParams] success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"loadData faild");
+    }];
 }
 
 - (void)setupLayout

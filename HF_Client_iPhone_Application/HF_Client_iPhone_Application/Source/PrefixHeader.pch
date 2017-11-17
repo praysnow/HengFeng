@@ -38,7 +38,7 @@
 #define FIT_HEIGHT_LAYOUT_CONSTRAINT(x) (x.constant = FLEXIBLE_HEIGHT(x.constant))
 
 #ifndef DEBUG
-#define NSLog(fmt, ...)
+#define NSLog(fmt, ...)  
 #endif
 
 #endif /* PrefixHeader_pch */
