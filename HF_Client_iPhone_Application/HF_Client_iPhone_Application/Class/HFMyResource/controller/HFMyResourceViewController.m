@@ -30,7 +30,7 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
-//    [self loadData];
+    [self loadData];
 }
 
 - (void)loadData
@@ -40,7 +40,7 @@
     [[HFNetwork network] SOAPDataWithSoapBody: [model getRequestParams] success:^(id responseObject) {
         NSLog(@"%@", responseObject);
     } failure:^(NSError *error) {
-        NSLog(@"loadData faild");
+        NSLog(@"loadData faild %@",error.userInfo);
     }];
 }
 
