@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HF_Client_iPhone_Application/Class/HFMyResource/controller/HFMyResourceViewController.m"
-            timestampString = "532866060.774474"
+            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
+            timestampString = "533723821.047642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-loadData"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-socket:didConnectToHost:port:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,46 +35,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HF_Client_iPhone_Application/Class/HFMyResource/controller/HFMyResourceViewController.m"
-            timestampString = "532866060.77524"
+            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
+            timestampString = "533723821.047712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-loadData"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-connectServer:port:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HFMyResourceViewController loadData]"
-                  moduleName = "HF_Client_iPhone_Application"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Caesar/Desktop/HengFeng/HF_Client_iPhone_Application/HF_Client_iPhone_Application/Class/HFMyResource/controller/HFMyResourceViewController.m"
-                  timestampString = "532866060.824716"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "110">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[HFMyResourceViewController loadData]_block_invoke"
-                  moduleName = "HF_Client_iPhone_Application"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Caesar/Desktop/HengFeng/HF_Client_iPhone_Application/HF_Client_iPhone_Application/Class/HFMyResource/controller/HFMyResourceViewController.m"
-                  timestampString = "532866060.828579"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
+            timestampString = "533723821.047759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-sendInfoIsHeader:andLength:andBody:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

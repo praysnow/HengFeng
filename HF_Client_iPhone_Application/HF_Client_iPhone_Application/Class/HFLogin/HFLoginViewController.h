@@ -6,8 +6,6 @@
 //  Copyright © 2017年 HengFeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface HFLoginViewController : UIViewController
 
 @end

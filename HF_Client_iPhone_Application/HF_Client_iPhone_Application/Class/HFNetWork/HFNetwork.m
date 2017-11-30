@@ -47,8 +47,6 @@
     return _mutableString;
 }
 
-
-
 - (void)SOAPDataWithSoapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -60,25 +58,18 @@
     manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
     
     // 设置请求头，也可以不设置
-    [manager.requestSerializer setValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        [manager.requestSerializer setValue: @"application/soap+xml; charset=utf-8;" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue: @"http://tempuri.org/CheckUser" forHTTPHeaderField:@"action"];
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml",nil];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
     }];
-    
-
-//    NSLog(@"请求URL：%@",BaseURL);
-//    NSLog@"请求数据：%@",soapBody);
+    NSLog(@"请求数据：%@",soapBody);
     __weak typeof(self) weakSelf = self;
-//    NSString *BaseURL;
-    [manager POST: @"http://192.168.13.96" parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-        
+    [manager POST: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
         
-        
-
         [responseObject setDelegate:weakSelf];
         [responseObject parse];
         
@@ -86,10 +77,8 @@
         NSLog(@"返回的结果：%@",weakSelf.mutableString);
         success(weakSelf.mutableString);
         
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        NSLog(@"请求失败");
             failure(error);
     }];
 }
