@@ -20,4 +20,12 @@
 
 + (NSString *)getPassWord:(NSString *)value andKey:(NSString *)key;
 
++ (instancetype)shardence;
+
+// TeacherInfo
+
+@property (nonatomic, copy) NSString *courseId;
+@property (nonatomic, copy) NSString *subjectId;
+@property (nonatomic, copy) NSString *classId;
+
 @end

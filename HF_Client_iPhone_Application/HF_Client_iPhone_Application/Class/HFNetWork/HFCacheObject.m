@@ -39,5 +39,20 @@
     return info;
 }
 
++ (instancetype)shardence
+{
+    static HFCacheObject *object;
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        object = [[HFCacheObject alloc] init];
+    });
+    return object;
+}
+
+- (void)setSubjectId:(NSString *)subjectId
+{
+    _subjectId = subjectId;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TEACHER_CTROL" object: nil];
+}
 
 @end

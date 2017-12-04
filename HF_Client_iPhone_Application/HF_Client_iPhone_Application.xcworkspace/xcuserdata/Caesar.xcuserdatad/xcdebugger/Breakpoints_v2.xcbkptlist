@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
-            timestampString = "533723821.047642"
+            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/WebServiceModel.m"
+            timestampString = "534077908.619955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-socket:didConnectToHost:port:"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-getRequestParams"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,29 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
-            timestampString = "533723821.047712"
+            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/WebServiceModel.m"
+            timestampString = "534077948.223372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-connectServer:port:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HF_Client_iPhone_Application/Class/HFNetWork/HFSocketService.m"
-            timestampString = "533723821.047759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-sendInfoIsHeader:andLength:andBody:"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-getRequestParams"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

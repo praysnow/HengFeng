@@ -54,30 +54,49 @@
 
 - (IBAction)tappedLoginButton:(UIButton *)sender
 {
-    WebServiceModel *model = [WebServiceModel new];
-    model.method = @"CheckUser";
-    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
-    NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
-    model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
-    if (userName.length == 0) {
-        NSLog(@"账号不能为空");
-    } else if (passWord == 0) {
-        NSLog(@"密码不能为空");
-    } else {
-        [[HFNetwork network] SOAPDataWithSoapBody:[model getRequestParams] success:^(NSString * responseObject) {
-            if ([responseObject containsString: @"true"]) {
-                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
-                MainTabViewController *vc = [[MainTabViewController alloc] init];
-                [self presentViewController: vc animated: YES completion:^{
-                    ;
-                }];
-                [self.navigationController pushViewController: vc animated: YES];
-            }
-        } failure:^(NSError *error) {
-            NSLog(@"%@",error.userInfo);
-        }];
-    }
+    MainTabViewController *vc = [[MainTabViewController alloc] init];
+    [self presentViewController: vc animated: YES completion:^{
+        ;
+    }];
+    [self.navigationController pushViewController: vc animated: YES];
+    
+    
+//    WebServiceModel *model = [WebServiceModel new];
+//    model.method = @"CheckUser";
+//    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
+//    NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
+//    model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
+//    if (userName.length == 0) {
+//        NSLog(@"账号不能为空");
+//    } else if (passWord == 0) {
+//        NSLog(@"密码不能为空");
+//    } else {
+//        [[HFNetwork network] SOAPDataWithSoapBody:[model getRequestParams] success:^(NSString * responseObject) {
+//            if ([responseObject containsString: @"true"]) {
+//                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
+//                MainTabViewController *vc = [[MainTabViewController alloc] init];
+//                [self presentViewController: vc animated: YES completion:^{
+//                    ;
+//                }];
+//                [self.navigationController pushViewController: vc animated: YES];
+//            }
+//        } failure:^(NSError *error) {
+//            NSLog(@"%@",error.userInfo);
+//        }];
+//    }
 }
 
+- (IBAction)tappedWifiConfigue:(UIButton *)sender
+{
+    NSString * urlString = @"App-Prefs:root=WIFI"; //
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]]) {
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+            // iOS10之后不允许跳转到设置的子页面，只允许跳转到设置界面(首页)，据说跳转到系统设置子页面，但同时会加大遇到审核被拒的可能性
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
+        } else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
+        }
+    }
+}
 
 @end
