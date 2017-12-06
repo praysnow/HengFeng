@@ -10,9 +10,16 @@
 
 @implementation HFMyResourceCollectionViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
+}
+
+- (void)setObject:(HFDaoxueModel *)object
+{
+    _object = object;
+    
+    
 }
 
 @end

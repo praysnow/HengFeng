@@ -56,11 +56,8 @@
 {
     MainTabViewController *vc = [[MainTabViewController alloc] init];
     [self presentViewController: vc animated: YES completion:^{
-        ;
     }];
     [self.navigationController pushViewController: vc animated: YES];
-    
-    
 //    WebServiceModel *model = [WebServiceModel new];
 //    model.method = @"CheckUser";
 //    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
@@ -71,7 +68,7 @@
 //    } else if (passWord == 0) {
 //        NSLog(@"密码不能为空");
 //    } else {
-//        [[HFNetwork network] SOAPDataWithSoapBody:[model getRequestParams] success:^(NSString * responseObject) {
+//        [[HFNetwork network] SOAPDataWithUrl: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] soapBody: [model getRequestParams] success:^(NSString * responseObject) {
 //            if ([responseObject containsString: @"true"]) {
 //                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
 //                MainTabViewController *vc = [[MainTabViewController alloc] init];

@@ -52,6 +52,8 @@
 - (void)setSubjectId:(NSString *)subjectId
 {
     _subjectId = subjectId;
+    NSLog(@"测试数据");
+    _subjectId = @"8926";
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TEACHER_CTROL" object: nil];
 }
 

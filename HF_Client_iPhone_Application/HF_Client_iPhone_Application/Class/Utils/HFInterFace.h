@@ -13,7 +13,8 @@
 
 /* Login InterFace */
 #define LOGIN_INTERFACE @"webService/WisdomClassWS.asmx?op=CheckUser"
-
+#define DAOXUEAN_INTERFACE @"webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
+#define DAOXUETANG_INTERFACE @"webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
 /* login name cache user default */
 
 #define LOGIN_INFO_CACHE @"LOGIN_INFO_CACHE"

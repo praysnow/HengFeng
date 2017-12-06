@@ -72,6 +72,8 @@
 		39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */; };
 		39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888D1FCFEB6800F36D16 /* HFSocketService.m */; };
 		39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F088A31FC7AFE500AB30F6 /* HFUtils.m */; };
+		39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFA81FD6A8AB00395908 /* XMLReader.m */; };
+		39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +189,10 @@
 		39F088A21FC7AFE500AB30F6 /* HFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUtils.h; sourceTree = "<group>"; };
 		39F088A31FC7AFE500AB30F6 /* HFUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUtils.m; sourceTree = "<group>"; };
 		39F088A51FC7C51E00AB30F6 /* HFInterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFInterFace.h; sourceTree = "<group>"; };
+		39F0DFA71FD6A8AB00395908 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		39F0DFA81FD6A8AB00395908 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		39F0DFAA1FD7C97200395908 /* HFDaoxueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFDaoxueModel.h; sourceTree = "<group>"; };
+		39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFDaoxueModel.m; sourceTree = "<group>"; };
 		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -473,6 +479,8 @@
 		39CE88E91FC81C150049CD0B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				39F0DFAA1FD7C97200395908 /* HFDaoxueModel.h */,
+				39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -490,6 +498,8 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				39F0DFA71FD6A8AB00395908 /* XMLReader.h */,
+				39F0DFA81FD6A8AB00395908 /* XMLReader.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -731,8 +741,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */,
 				39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */,
 				39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */,
+				39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */,

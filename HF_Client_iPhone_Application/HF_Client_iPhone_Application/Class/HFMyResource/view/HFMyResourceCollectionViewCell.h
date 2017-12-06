@@ -6,8 +6,10 @@
 //  Copyright © 2017年 HengFeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HFDaoxueModel.h"
 
 @interface HFMyResourceCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) HFDaoxueModel *object;
 
 @end

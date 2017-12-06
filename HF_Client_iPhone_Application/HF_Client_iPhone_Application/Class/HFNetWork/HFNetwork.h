@@ -23,6 +23,7 @@ typedef void (^requestFailureBlock)(NSError *error);
 + (instancetype)network;
 
 // 发送WebService的接口
-- (void)SOAPDataWithSoapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
-
+- (void)SOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
+// 发送WebService的接口
+- (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 @end

@@ -73,9 +73,9 @@
             if (@available(iOS 10.0, *)) {
                 [self sendLoginInfo];
                 [self sendTeacherCtrolMessage];
-//                self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
-//                                    [self sendTeacherCtrolMessage];
-//                                }];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
+                    [self headSocketInfoSent];
+                }];
             } else {
             }
         });
@@ -190,7 +190,8 @@
     for (NSString *string in arry) {
         if ([string containsString: @"classId="] ) {
             
-            [HFCacheObject shardence].classId = [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
+            [HFCacheObject shardence].classId = @"8926";
+//            [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
             NSLog(@"classID为:%@", [HFCacheObject shardence].classId);
         }
         if ([string containsString: @"courseId="] ) {

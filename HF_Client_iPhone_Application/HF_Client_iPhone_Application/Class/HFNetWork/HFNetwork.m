@@ -8,15 +8,17 @@
 
 #import "HFNetwork.h"
 #import "AFHTTPSessionManager.h"
+#import "HFDaoxueModel.h"
 
 
 @interface HFNetwork ()<NSXMLParserDelegate>
 
 @property(strong,nonatomic)AFHTTPSessionManager *manager;
 
-@property(strong,nonatomic)NSString *resultString;
-
-@property(strong,nonatomic)NSMutableString *mutableString;
+@property(strong, nonatomic)NSString *resultString;
+@property (strong, nonatomic)NSMutableArray *studentArray;
+@property(strong, nonatomic)NSMutableString *mutableString;
+@property(strong, nonatomic)NSString *currentElementName;
 
 @end
 
@@ -47,7 +49,7 @@
     return _mutableString;
 }
 
-- (void)SOAPDataWithSoapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+- (void)SOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -60,32 +62,54 @@
     // 设置请求头，也可以不设置
         [manager.requestSerializer setValue: @"application/soap+xml; charset=utf-8;" forHTTPHeaderField:@"Content-Type"];
     [manager.requestSerializer setValue: @"http://tempuri.org/CheckUser" forHTTPHeaderField:@"action"];
-    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml",nil];
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml", @"text/html",nil];
+    // 设置HTTPBody
+    [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
+        return soapBody;
+    }];
+    __weak typeof(self) weakSelf = self;
+    [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
+//        [responseObject setDelegate:weakSelf];
+//        [responseObject parse];
+        success([weakSelf.mutableString copy]);
+        weakSelf.mutableString = nil;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(error);
+    }];
+}
+
+- (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 设置请求超时时间
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    // 将返回结果解析txt
+    manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+          // 设置请求头，也可以不设置
+    [manager.requestSerializer setValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        [manager.requestSerializer setValue: @"http://tempuri.org/GetDaoXueRenWuByTpID" forHTTPHeaderField:@"action"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/xml", @"text/xml", @"text/javascript", @"text/html", nil];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
     }];
     NSLog(@"请求数据：%@",soapBody);
-    __weak typeof(self) weakSelf = self;
-    [manager POST: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
-        
-        [responseObject setDelegate:weakSelf];
-        [responseObject parse];
-        
         // 返回字符串
-        NSLog(@"返回的结果：%@",weakSelf.mutableString);
-        success(weakSelf.mutableString);
-        
+        success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
-            failure(error);
+        failure(error);
     }];
 }
 
-#pragma mark - NSXMLParser代理
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    
-    [self.mutableString appendString:string];
-}
+//#pragma mark - NSXMLParser代理
+//- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+//    NSLog(@"解析结果为: %@", self.mutableString);
+//    [self.mutableString appendString:string];
+//}
+
 @end
