@@ -23,8 +23,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-
-    [self setupButtons];
+    
+    //    [self setupButtons];
     self.selectIndex = 0;
 }
 
@@ -34,26 +34,33 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             if (button.tag == 0) {
-                [button setBackgroundColor: UICOLOR_RGB(0xff1388ba)];
+                button.highlighted = YES;
             }
         });
         button.layer.masksToBounds = YES;
         button.layer.borderColor = [UIColor grayColor].CGColor;
         button.layer.borderWidth = 0.5f;
     }
+    
+//    if ([button.titleLabel.text containsString: @"我的资源"])
+//    {
+//        [[button setImage: [UIImage imageNamed: @""] forState: UIControlStateNormal];
+//         [[button setImage: [UIImage imageNamed: @""] forState: UIControlStateSelected];
+//    }
+    
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-
+    
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextFillRect(context, rect);
-
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return image;
 }
 
@@ -61,13 +68,7 @@
 
 - (IBAction)selectItem:(UIButton *)sender
 {
-    if (self.sender) {
-        [self.sender setBackgroundColor: [UIColor whiteColor]];
-    }
-    self.sender = sender;
-         [sender setBackgroundColor: UICOLOR_RGB(0xff1388ba)];
     self.selectIndex = sender.tag;
-    ;
     // 让代理来处理切换viewController的操作
     if ([self.viewDelegate respondsToSelector:@selector(hfTabBarView: didSelectItemAtIndex:)]) {
         [self.viewDelegate hfTabBarView:self didSelectItemAtIndex:sender.tag];
@@ -78,15 +79,15 @@
 
 - (void)setSelectIndex:(NSInteger)selectIndex
 {
-//    // 先把上次选择的item设置为可用
-//    UIButton *lastItem = _items[_selectIndex];
-////    lastItem.enabled = YES;
-//    lastItem.highlighted = NO;
-//    // 再把这次选择的item设置为不可用
-//    UIButton *item = _items[selectIndex];
-////    item.enabled = NO;
-//    item.highlighted = YES;
-//    _selectIndex = selectIndex;
+    // 先把上次选择的item设置为可用
+    UIButton *lastItem = _items[_selectIndex];
+    //    lastItem.enabled = YES;
+    lastItem.highlighted = NO;
+    // 再把这次选择的item设置为不可用
+    UIButton *item = _items[selectIndex];
+    //    item.enabled = NO;
+    item.highlighted = YES;
+    _selectIndex = selectIndex;
 }
 
 @end

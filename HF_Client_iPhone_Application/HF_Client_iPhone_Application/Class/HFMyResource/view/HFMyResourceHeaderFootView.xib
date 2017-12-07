@@ -25,14 +25,56 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulz-Y2-wZD">
+                    <rect key="frame" x="22" y="333.5" width="5" height="20"/>
+                    <color key="backgroundColor" red="0.32549019607843138" green="0.72941176470588232" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="B2H-dn-1Wb"/>
+                        <constraint firstAttribute="width" constant="5" id="FeO-qp-qsG"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-90-sWa">
+                    <rect key="frame" x="246" y="336" width="50" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="MQa-a9-96e"/>
+                        <constraint firstAttribute="height" constant="15" id="OWq-Nd-A4t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="下载" image="my_source_down_load">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI1-D0-bsP">
+                    <rect key="frame" x="307" y="333.5" width="64" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="下发" image="my_source_sent_away">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ulz-Y2-wZD" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="5MB-w6-0Yz"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="GCZ-kN-eXZ"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="height" secondItem="64T-90-sWa" secondAttribute="height" constant="5" id="GDN-0S-YZ3"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="width" secondItem="64T-90-sWa" secondAttribute="width" constant="14" id="TvZ-rN-BH8"/>
+                <constraint firstItem="ulz-Y2-wZD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="XKH-mh-MOq"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Y6m-YU-xa9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f0w-du-2sg" secondAttribute="trailing" id="amz-rP-Yor"/>
+                <constraint firstItem="f0w-du-2sg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mKy-I5-vzS"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="leading" secondItem="64T-90-sWa" secondAttribute="trailing" constant="11" id="tcU-P6-kiZ"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="vBh-TD-v0r"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LI1-D0-bsP" secondAttribute="trailing" constant="4" id="vIK-1T-0Fz"/>
+                <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="zBl-Ca-VUF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="my_source_down_load" width="11" height="11"/>
+        <image name="my_source_sent_away" width="11" height="11"/>
+    </resources>
 </document>

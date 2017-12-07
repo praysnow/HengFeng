@@ -20,9 +20,11 @@
                     <rect key="frame" x="94" y="0.0" width="93.5" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-IB-77O">
-                            <rect key="frame" x="21" y="0.0" width="50" height="49"/>
+                            <rect key="frame" x="21.5" y="0.5" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="教学工具">
+                            <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="教学工具" image="teach_tool_unselected">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -40,9 +42,11 @@
                     <rect key="frame" x="187.5" y="0.0" width="94" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-y1-yjK">
-                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
+                            <rect key="frame" x="22.5" y="0.5" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="课堂测试">
+                            <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="课堂测试" image="class_test_unselected">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -59,9 +63,11 @@
                     <rect key="frame" x="281.5" y="0.0" width="93.5" height="49"/>
                     <subviews>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-9L-KeJ">
-                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
+                            <rect key="frame" x="22.5" y="0.5" width="50" height="49"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="学生状态">
+                            <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="学生状态" image="student_status_unselected">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                             </state>
                             <connections>
@@ -78,13 +84,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="94" height="49"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mf-hC-eKt">
-                            <rect key="frame" x="22" y="0.0" width="50" height="49"/>
+                            <rect key="frame" x="22.5" y="0.0" width="50" height="49"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="M62-nq-AoS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="我的资源">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                            <inset key="titleEdgeInsets" minX="-25" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="我的资源" image="my_source_unselected">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="selectItem:" destination="iN0-l3-epB" eventType="touchUpInside" id="g8C-SK-8DX"/>
@@ -135,4 +143,10 @@
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="class_test_unselected" width="22" height="22"/>
+        <image name="my_source_unselected" width="22" height="22"/>
+        <image name="student_status_unselected" width="22" height="22"/>
+        <image name="teach_tool_unselected" width="22" height="22"/>
+    </resources>
 </document>

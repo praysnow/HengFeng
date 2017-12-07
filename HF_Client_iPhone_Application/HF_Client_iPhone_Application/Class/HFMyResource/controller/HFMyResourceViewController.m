@@ -148,7 +148,7 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(100), 100);
+    layout.itemSize = CGSizeMake((SCREEN_WIDTH - 14 * 3) / 2, 80);
     self.collectionView.collectionViewLayout = layout;
 }
 
@@ -191,12 +191,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HFMyResourceCollectionViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
+    if (indexPath.section == 0 || indexPath.section == 1 ) {
+        HFDaoxueModel *object = [HFDaoxueModel new];
+        object.image = [UIImage imageNamed: @"guidance_learning"];
+        cell.object = object;
+    }
     return cell;
 }
 
@@ -222,6 +227,7 @@
         } else {
             headerFooterView.hidden = YES;
         }
+        headerFooterView.hidden = YES;
         reusableView = headerFooterView;
     }
     return reusableView;

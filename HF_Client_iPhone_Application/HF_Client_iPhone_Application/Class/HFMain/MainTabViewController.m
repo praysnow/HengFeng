@@ -43,7 +43,7 @@
 - (void)addAllChildViewController
 {
     HFMyResourceViewController *homeVC = [[HFMyResourceViewController alloc] init];
-    [self addChildViewController:homeVC title:@"首页" imageNamed:@"tabbar_match_selected"];
+    [self addChildViewController:homeVC title:@"我的资源" imageNamed:@"tabbar_match_selected"];
 
     HFStutentStatusViewController *findVC = [[HFStutentStatusViewController alloc] init];
     [self addChildViewController:findVC title:@"教学工具" imageNamed:@"tabbar_match_selected"];
@@ -59,9 +59,11 @@
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title imageNamed:(NSString *)imageNamed
 {
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.barTintColor = UICOLOR_ARGB(0x59c6ce);
+    nav.navigationBar.barStyle = UIBarStyleDefault;
+    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     vc.navigationItem.title = title;
-    vc.navigationController.navigationBar.hidden = YES;
-    [self addChildViewController:nav];
+    [self addChildViewController: nav];
 }
 
 #pragma mark - MSCustomTabBarViewDelegate
