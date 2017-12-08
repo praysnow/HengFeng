@@ -66,6 +66,9 @@
                                     <rect key="frame" x="32" y="58" width="62" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="随机提问"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="puB-Im-2Zv"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,6 +80,9 @@
                                     <rect key="frame" x="47" y="53" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="翻页"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="QWC-br-ebX"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,6 +94,9 @@
                                     <rect key="frame" x="47" y="53" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="批注"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="Cus-qK-8fN"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,6 +108,9 @@
                                     <rect key="frame" x="47" y="53" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="抢答"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="pOT-oH-34w"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -110,6 +122,9 @@
                                     <rect key="frame" x="47" y="60" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="锁屏"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="YYj-Py-yjT"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,6 +136,9 @@
                                     <rect key="frame" x="31" y="53" width="62" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="教学分享"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="rov-pa-7wX"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,6 +150,9 @@
                                     <rect key="frame" x="47" y="53" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="投票"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="Aw9-Ui-iKv"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,6 +164,9 @@
                                     <rect key="frame" x="31" y="53" width="62" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="移动直播"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="DiB-MV-BYN"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,6 +178,9 @@
                                     <rect key="frame" x="47" y="53" width="31" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="录屏"/>
+                                    <connections>
+                                        <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="a6g-Ww-OXS"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -19,5 +19,11 @@
 
 #define LOGIN_INFO_CACHE @"LOGIN_INFO_CACHE"
 
+typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
+    MATMatchDetailDataLoadedTypeNone = 0,
+    MATMatchDetailDataLoadedTypeHeader = 1 << 0,
+    MATMatchDetailDataLoadedTypeVideoLive = 1 << 1,
+};
+
 
 @end
