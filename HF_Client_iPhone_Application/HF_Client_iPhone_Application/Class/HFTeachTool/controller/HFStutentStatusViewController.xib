@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFTeachToolViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFStutentStatusViewController">
             <connections>
                 <outlet property="collectionView" destination="ps9-KP-VuN" id="2r0-eC-aOM"/>
                 <outlet property="scoreButton" destination="pTY-P7-hQl" id="qLP-ng-BNN"/>
@@ -74,8 +74,20 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY9-yl-D99">
+                                    <rect key="frame" x="268.5" y="0.0" width="0.5" height="50"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="0.5" id="WQC-cO-LWk"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="TY9-yl-D99" firstAttribute="top" secondItem="xEg-wn-ve9" secondAttribute="top" id="KSn-q0-4xV"/>
+                                <constraint firstAttribute="bottom" secondItem="TY9-yl-D99" secondAttribute="bottom" id="uTQ-Uw-87j"/>
+                                <constraint firstAttribute="trailing" secondItem="TY9-yl-D99" secondAttribute="trailing" constant="5" id="vI4-a1-t6c"/>
+                            </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTY-P7-hQl">
                             <rect key="frame" x="210" y="5" width="40" height="40"/>
@@ -113,11 +125,20 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbb-zc-aSb">
+                    <rect key="frame" x="0.0" y="597" width="375" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="Mvh-ZD-HPd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ps9-KP-VuN" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="8NV-h9-nxR"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hIR-Px-gHe" secondAttribute="trailing" constant="28" id="BlZ-90-8WX"/>
+                <constraint firstItem="fbb-zc-aSb" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="EZM-Ui-YqM"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fbb-zc-aSb" secondAttribute="trailing" id="GuW-Mx-Sw0"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="jdR-co-Z9N" secondAttribute="trailing" id="XWh-TZ-LbQ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ps9-KP-VuN" secondAttribute="trailing" id="Z0c-t6-hci"/>
                 <constraint firstItem="hIR-Px-gHe" firstAttribute="top" secondItem="ps9-KP-VuN" secondAttribute="bottom" constant="20" id="ZfG-pE-7aV"/>
@@ -125,16 +146,11 @@
                 <constraint firstItem="jdR-co-Z9N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fCQ-hb-bXP"/>
                 <constraint firstItem="ps9-KP-VuN" firstAttribute="top" secondItem="jdR-co-Z9N" secondAttribute="bottom" constant="20" id="fHl-b2-NCF"/>
                 <constraint firstItem="hIR-Px-gHe" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="moi-sP-SlT"/>
+                <constraint firstItem="fbb-zc-aSb" firstAttribute="top" secondItem="ps9-KP-VuN" secondAttribute="bottom" id="szz-cu-RbK"/>
                 <constraint firstItem="jdR-co-Z9N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="w5Z-lm-idi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="34.5" y="65.5"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mLf-ih-wrZ">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-            <point key="canvasLocation" x="176" y="467"/>
-        </button>
     </objects>
 </document>

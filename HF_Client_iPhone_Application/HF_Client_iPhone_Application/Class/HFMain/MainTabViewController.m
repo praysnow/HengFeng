@@ -8,9 +8,10 @@
 
 #import "MainTabViewController.h"
 #import "HFMyResourceViewController.h"
-#import "HFTeachToolViewController.h"
 #import "HFStutentStatusViewController.h"
+#import "HFTeachToolViewController.h"
 #import "HFCustomTabBar.h"
+#import "HFClassTestViewController.h"
 
 @interface MainTabViewController () <HFTabBarViewDelegate>
 
@@ -45,12 +46,11 @@
     HFMyResourceViewController *homeVC = [[HFMyResourceViewController alloc] init];
     [self addChildViewController:homeVC title:@"我的资源" imageNamed:@"tabbar_match_selected"];
 
-    HFStutentStatusViewController *findVC = [[HFStutentStatusViewController alloc] init];
+    HFTeachToolViewController *findVC = [[HFTeachToolViewController alloc] init];
     [self addChildViewController:findVC title:@"教学工具" imageNamed:@"tabbar_match_selected"];
 
-    UIViewController *mineVC = [[UIViewController alloc] init];
-    mineVC.view.backgroundColor = [UIColor greenColor];
-    [self addChildViewController:mineVC title:@"我的" imageNamed:@"tabbar_match_selected"];
+    HFClassTestViewController *mineVC = [[HFClassTestViewController alloc] init];
+    [self addChildViewController:mineVC title:@"课堂测试" imageNamed:@"tabbar_match_selected"];
     HFTeachToolViewController *activityVC = [[HFTeachToolViewController alloc] init];
     [self addChildViewController:activityVC title:@"学生状态" imageNamed:@"tabbar_match_selected"];
 }

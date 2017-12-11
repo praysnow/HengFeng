@@ -25,7 +25,7 @@
                             <constraint firstAttribute="height" constant="15" id="2Df-Hn-acX"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                        <color key="textColor" red="0.1137254902" green="0.70588235290000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[2014]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mi-Mj-reG">

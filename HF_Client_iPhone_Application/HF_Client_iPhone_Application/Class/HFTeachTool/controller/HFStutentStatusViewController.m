@@ -6,17 +6,17 @@
 //  Copyright © 2017年 HengFeng. All rights reserved.
 //
 
-#import "HFTeachToolViewController.h"
+#import "HFStutentStatusViewController.h"
 #import "HFTTeachToolCollectionViewCell.h"
 
-@interface HFTeachToolViewController () <UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout>
+@interface HFStutentStatusViewController () <UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *sortButton;
 @property (weak, nonatomic) IBOutlet UIButton *scoreButton;
 
 @end
 
-@implementation HFTeachToolViewController
+@implementation HFStutentStatusViewController
 
 - (void)viewDidLoad
 {
@@ -26,6 +26,20 @@
     self.collectionView.dataSource = self;
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFTTeachToolCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
     [self setupLayout];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)setupLayout

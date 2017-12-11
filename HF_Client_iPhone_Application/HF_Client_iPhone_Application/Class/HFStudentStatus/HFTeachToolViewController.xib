@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFStutentStatusViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFTeachToolViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,173 +20,229 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-Ci-atJ">
-                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DCAMPUS智慧课堂" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-aj-yE7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <color key="backgroundColor" red="0.086274509799999996" green="0.60784313729999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T5g-EP-TBQ">
-                            <rect key="frame" x="14" y="0.0" width="44" height="44"/>
-                            <color key="backgroundColor" red="0.19399953149999999" green="1" blue="0.84193046100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="44" id="skU-Er-YVc"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="2hL-aj-yE7" firstAttribute="centerY" secondItem="Whm-Ci-atJ" secondAttribute="centerY" id="2Qh-Zf-j8Z"/>
-                        <constraint firstAttribute="height" constant="44" id="Lfv-Ny-AfA"/>
-                        <constraint firstItem="2hL-aj-yE7" firstAttribute="centerX" secondItem="Whm-Ci-atJ" secondAttribute="centerX" id="M3P-fe-SHi"/>
-                        <constraint firstAttribute="bottom" secondItem="T5g-EP-TBQ" secondAttribute="bottom" id="VcH-YK-VEV"/>
-                        <constraint firstItem="T5g-EP-TBQ" firstAttribute="top" secondItem="Whm-Ci-atJ" secondAttribute="top" id="bwa-GX-gl3"/>
-                        <constraint firstItem="2hL-aj-yE7" firstAttribute="width" secondItem="Whm-Ci-atJ" secondAttribute="width" id="gag-tr-b5i"/>
-                        <constraint firstItem="T5g-EP-TBQ" firstAttribute="leading" secondItem="Whm-Ci-atJ" secondAttribute="leading" constant="14" id="hB8-YG-bPI"/>
-                        <constraint firstItem="2hL-aj-yE7" firstAttribute="height" secondItem="Whm-Ci-atJ" secondAttribute="height" id="hpM-cG-ePE"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKB-0I-rQW">
-                    <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="gBv-Aq-dWx"/>
+                        <constraint firstAttribute="height" id="gBv-Aq-dWx"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIp-4q-CDF">
-                    <rect key="frame" x="0.0" y="104" width="375" height="409"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="493"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biC-Ty-bor">
-                            <rect key="frame" x="125" y="137" width="125" height="213"/>
+                            <rect key="frame" x="125" y="165" width="125" height="164"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-0Z-HUz">
-                                    <rect key="frame" x="32" y="58" width="62" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="随机提问"/>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-0Z-HUz">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="随机提问" image="random_answer">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="puB-Im-2Zv"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="s7S-0Z-HUz" secondAttribute="trailing" id="5As-f0-vhw"/>
+                                <constraint firstAttribute="bottom" secondItem="s7S-0Z-HUz" secondAttribute="bottom" id="GOo-Ht-eXd"/>
+                                <constraint firstItem="s7S-0Z-HUz" firstAttribute="leading" secondItem="biC-Ty-bor" secondAttribute="leading" id="Som-B2-OaL"/>
+                                <constraint firstItem="s7S-0Z-HUz" firstAttribute="top" secondItem="biC-Ty-bor" secondAttribute="top" id="e3S-14-NIz"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4h-0Y-jiT">
-                            <rect key="frame" x="250" y="272.5" width="125" height="136.5"/>
+                            <rect key="frame" x="250" y="329.5" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnW-hQ-BmC">
-                                    <rect key="frame" x="47" y="53" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="翻页"/>
+                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnW-hQ-BmC">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="PPT助手" image="PPT_help">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="QWC-br-ebX"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="AnW-hQ-BmC" firstAttribute="top" secondItem="A4h-0Y-jiT" secondAttribute="top" id="9Wp-xA-DLw"/>
+                                <constraint firstItem="AnW-hQ-BmC" firstAttribute="leading" secondItem="A4h-0Y-jiT" secondAttribute="leading" id="DwK-9O-Lly"/>
+                                <constraint firstAttribute="bottom" secondItem="AnW-hQ-BmC" secondAttribute="bottom" id="IVQ-Xz-Weu"/>
+                                <constraint firstAttribute="trailing" secondItem="AnW-hQ-BmC" secondAttribute="trailing" id="u5R-Fv-ESl"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-yk-nP1">
-                            <rect key="frame" x="125" y="272.5" width="125" height="136.5"/>
+                            <rect key="frame" x="125" y="328.5" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iap-3C-SPI">
-                                    <rect key="frame" x="47" y="53" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="批注"/>
+                                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iap-3C-SPI">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="文件上传" image="document_update">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="Cus-qK-8fN"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Iap-3C-SPI" firstAttribute="top" secondItem="hKb-yk-nP1" secondAttribute="top" id="S6I-L9-mUp"/>
+                                <constraint firstAttribute="bottom" secondItem="Iap-3C-SPI" secondAttribute="bottom" id="nUy-4h-BnQ"/>
+                                <constraint firstItem="Iap-3C-SPI" firstAttribute="leading" secondItem="hKb-yk-nP1" secondAttribute="leading" id="oiZ-ow-Lr0"/>
+                                <constraint firstAttribute="trailing" secondItem="Iap-3C-SPI" secondAttribute="trailing" id="vjy-N1-twE"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22u-Pj-3aW">
-                            <rect key="frame" x="250" y="136.5" width="125" height="136"/>
+                            <rect key="frame" x="250" y="164.5" width="125" height="165"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJL-Hr-T3t">
-                                    <rect key="frame" x="47" y="53" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="抢答"/>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJL-Hr-T3t">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="165"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="抢答" image="rush_answer">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="pOT-oH-34w"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="cJL-Hr-T3t" firstAttribute="top" secondItem="22u-Pj-3aW" secondAttribute="top" id="8pe-55-bh6"/>
+                                <constraint firstAttribute="bottom" secondItem="cJL-Hr-T3t" secondAttribute="bottom" id="H8t-dh-Ow4"/>
+                                <constraint firstAttribute="trailing" secondItem="cJL-Hr-T3t" secondAttribute="trailing" id="mCo-94-uam"/>
+                                <constraint firstItem="cJL-Hr-T3t" firstAttribute="leading" secondItem="22u-Pj-3aW" secondAttribute="leading" id="xmd-Bn-hjl"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Clt-X1-HXr">
-                            <rect key="frame" x="250" y="0.0" width="125" height="136.5"/>
+                            <rect key="frame" x="250" y="0.0" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5C-jh-3cO">
-                                    <rect key="frame" x="47" y="60" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="锁屏"/>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5C-jh-3cO">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="锁屏" image="lock_screen">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="YYj-Py-yjT"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="v5C-jh-3cO" firstAttribute="top" secondItem="Clt-X1-HXr" secondAttribute="top" id="8Xg-47-PEE"/>
+                                <constraint firstItem="v5C-jh-3cO" firstAttribute="leading" secondItem="Clt-X1-HXr" secondAttribute="leading" id="BVF-Ae-79A"/>
+                                <constraint firstAttribute="trailing" secondItem="v5C-jh-3cO" secondAttribute="trailing" id="FCu-7k-lzx"/>
+                                <constraint firstAttribute="bottom" secondItem="v5C-jh-3cO" secondAttribute="bottom" id="lrK-r7-39y"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhu-7h-kxE">
-                            <rect key="frame" x="125" y="0.0" width="125" height="136.5"/>
+                            <rect key="frame" x="125" y="0.0" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deq-AT-Aev">
-                                    <rect key="frame" x="31" y="53" width="62" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="教学分享"/>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deq-AT-Aev">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="教学分享" image="teach_share">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="rov-pa-7wX"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="deq-AT-Aev" firstAttribute="top" secondItem="nhu-7h-kxE" secondAttribute="top" id="322-pf-7Vz"/>
+                                <constraint firstAttribute="trailing" secondItem="deq-AT-Aev" secondAttribute="trailing" id="6Oe-xw-BXJ"/>
+                                <constraint firstAttribute="bottom" secondItem="deq-AT-Aev" secondAttribute="bottom" id="N6C-VY-Hlp"/>
+                                <constraint firstItem="deq-AT-Aev" firstAttribute="leading" secondItem="nhu-7h-kxE" secondAttribute="leading" id="bgG-gU-Byp"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sF5-Nm-fwu">
-                            <rect key="frame" x="0.0" y="0.0" width="125" height="136.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly6-lr-kaE">
-                                    <rect key="frame" x="47" y="53" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="投票"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly6-lr-kaE">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="投票" image="vote">
+                                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="Aw9-Ui-iKv"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="ly6-lr-kaE" secondAttribute="bottom" id="dUi-cs-fZH"/>
+                                <constraint firstItem="ly6-lr-kaE" firstAttribute="leading" secondItem="sF5-Nm-fwu" secondAttribute="leading" id="pNt-uY-ERS"/>
+                                <constraint firstAttribute="trailing" secondItem="ly6-lr-kaE" secondAttribute="trailing" id="puq-5P-QTw"/>
+                                <constraint firstItem="ly6-lr-kaE" firstAttribute="top" secondItem="sF5-Nm-fwu" secondAttribute="top" id="vMw-rq-83S"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DuW-UJ-Age">
-                            <rect key="frame" x="0.0" y="272.5" width="125" height="136.5"/>
+                            <rect key="frame" x="0.0" y="328.5" width="125" height="164.5"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deL-fh-Z33">
-                                    <rect key="frame" x="31" y="53" width="62" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="移动直播"/>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deL-fh-Z33">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="164.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="移动直播" image="mobile_live">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="DiB-MV-BYN"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="deL-fh-Z33" firstAttribute="top" secondItem="DuW-UJ-Age" secondAttribute="top" id="2wq-J8-1r4"/>
+                                <constraint firstAttribute="trailing" secondItem="deL-fh-Z33" secondAttribute="trailing" id="IJ1-RO-h0E"/>
+                                <constraint firstItem="deL-fh-Z33" firstAttribute="leading" secondItem="DuW-UJ-Age" secondAttribute="leading" id="fF8-4Y-ptP"/>
+                                <constraint firstAttribute="bottom" secondItem="deL-fh-Z33" secondAttribute="bottom" id="mM3-3q-mTR"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qj7-gw-KB3">
-                            <rect key="frame" x="0.0" y="136.5" width="125" height="136"/>
+                            <rect key="frame" x="0.0" y="164.5" width="125" height="165"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-Cc-9Tp">
-                                    <rect key="frame" x="47" y="53" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="录屏"/>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-Cc-9Tp">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="165"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="40" maxX="30" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="30"/>
+                                    <state key="normal" title="录屏" image="record_screen">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="a6g-Ww-OXS"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Dfa-Cc-9Tp" secondAttribute="trailing" id="1ZV-DH-eEy"/>
+                                <constraint firstItem="Dfa-Cc-9Tp" firstAttribute="leading" secondItem="Qj7-gw-KB3" secondAttribute="leading" id="5hg-rk-ybl"/>
+                                <constraint firstAttribute="bottom" secondItem="Dfa-Cc-9Tp" secondAttribute="bottom" id="MWy-Bn-TGU"/>
+                                <constraint firstItem="Dfa-Cc-9Tp" firstAttribute="top" secondItem="Qj7-gw-KB3" secondAttribute="top" id="nwh-kL-tod"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-8F-ymd">
-                            <rect key="frame" x="124" y="14" width="1" height="381"/>
+                            <rect key="frame" x="124" y="14" width="1" height="465"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="0ht-tr-kuw"/>
@@ -195,14 +251,14 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msn-7P-vur">
-                            <rect key="frame" x="14" y="136" width="347" height="0.5"/>
+                            <rect key="frame" x="14" y="164" width="347" height="0.5"/>
                             <color key="backgroundColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="TeG-HJ-HuX"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45y-Ej-T2H">
-                            <rect key="frame" x="250" y="14" width="1" height="381"/>
+                            <rect key="frame" x="250" y="14" width="1" height="465"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="1" id="15u-dp-GwI"/>
@@ -210,7 +266,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvm-Nn-uCS">
-                            <rect key="frame" x="14" y="272" width="347" height="0.5"/>
+                            <rect key="frame" x="14" y="329" width="347" height="0.5"/>
                             <color key="backgroundColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="zth-pN-QDS"/>
@@ -227,7 +283,7 @@
                         <constraint firstItem="nhu-7h-kxE" firstAttribute="width" secondItem="sF5-Nm-fwu" secondAttribute="width" id="7Ye-ei-dMN"/>
                         <constraint firstAttribute="bottom" secondItem="DuW-UJ-Age" secondAttribute="bottom" id="7bG-yw-wFJ"/>
                         <constraint firstItem="biC-Ty-bor" firstAttribute="top" secondItem="nhu-7h-kxE" secondAttribute="bottom" id="Aa2-rh-Sf8"/>
-                        <constraint firstItem="hKb-yk-nP1" firstAttribute="top" secondItem="biC-Ty-bor" secondAttribute="bottom" constant="-77.5" id="Bzq-SW-1wY"/>
+                        <constraint firstItem="hKb-yk-nP1" firstAttribute="top" secondItem="biC-Ty-bor" secondAttribute="bottom" constant="-0.5" id="Bzq-SW-1wY"/>
                         <constraint firstItem="Msn-7P-vur" firstAttribute="leading" secondItem="BIp-4q-CDF" secondAttribute="leading" constant="14" id="DcR-kz-UOe"/>
                         <constraint firstAttribute="trailing" secondItem="A4h-0Y-jiT" secondAttribute="trailing" id="Djp-Is-qvU"/>
                         <constraint firstItem="45y-Ej-T2H" firstAttribute="top" secondItem="BIp-4q-CDF" secondAttribute="top" constant="14" id="EcU-Gm-wdl"/>
@@ -263,7 +319,7 @@
                         <constraint firstItem="22u-Pj-3aW" firstAttribute="leading" secondItem="biC-Ty-bor" secondAttribute="trailing" id="opi-g4-3eE"/>
                         <constraint firstItem="nhu-7h-kxE" firstAttribute="leading" secondItem="sF5-Nm-fwu" secondAttribute="trailing" id="s31-MQ-jys"/>
                         <constraint firstAttribute="bottom" secondItem="hKb-yk-nP1" secondAttribute="bottom" id="sbi-zP-tOc"/>
-                        <constraint firstItem="biC-Ty-bor" firstAttribute="height" secondItem="sF5-Nm-fwu" secondAttribute="height" constant="76.5" id="uYU-iK-BSm"/>
+                        <constraint firstItem="biC-Ty-bor" firstAttribute="height" secondItem="sF5-Nm-fwu" secondAttribute="height" constant="-0.5" id="uYU-iK-BSm"/>
                         <constraint firstItem="hKb-yk-nP1" firstAttribute="leading" secondItem="DuW-UJ-Age" secondAttribute="trailing" id="ut6-bh-qfT"/>
                         <constraint firstItem="Clt-X1-HXr" firstAttribute="width" secondItem="sF5-Nm-fwu" secondAttribute="width" id="uuI-kU-gqx"/>
                         <constraint firstItem="hKb-yk-nP1" firstAttribute="height" secondItem="sF5-Nm-fwu" secondAttribute="height" id="w9Y-vF-pWp"/>
@@ -283,21 +339,29 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="gpu-2a-ORs" secondAttribute="bottom" id="Br3-Dz-HzU"/>
-                <constraint firstItem="Whm-Ci-atJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GrT-y2-Hpp"/>
                 <constraint firstItem="BIp-4q-CDF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="KyY-sM-YOu"/>
                 <constraint firstItem="gpu-2a-ORs" firstAttribute="top" secondItem="BIp-4q-CDF" secondAttribute="bottom" id="Lrr-TM-LlL"/>
                 <constraint firstItem="KKB-0I-rQW" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Pl8-xT-NGY"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Whm-Ci-atJ" secondAttribute="trailing" id="bBP-gj-Z2P"/>
                 <constraint firstItem="gpu-2a-ORs" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="bNU-eS-0CV"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="KKB-0I-rQW" secondAttribute="trailing" id="dfy-nZ-75M"/>
-                <constraint firstItem="KKB-0I-rQW" firstAttribute="top" secondItem="Whm-Ci-atJ" secondAttribute="bottom" id="e0Z-tB-u3k"/>
                 <constraint firstItem="BIp-4q-CDF" firstAttribute="top" secondItem="KKB-0I-rQW" secondAttribute="bottom" id="m8E-aY-79n"/>
-                <constraint firstItem="Whm-Ci-atJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="mx6-aL-hOC"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gpu-2a-ORs" secondAttribute="trailing" id="qJM-eu-Gck"/>
+                <constraint firstItem="KKB-0I-rQW" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="qbu-hx-CGF"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BIp-4q-CDF" secondAttribute="trailing" id="rqV-7H-yF3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="PPT_help" width="35" height="35"/>
+        <image name="document_update" width="35" height="35"/>
+        <image name="lock_screen" width="35" height="35"/>
+        <image name="mobile_live" width="35" height="35"/>
+        <image name="random_answer" width="35" height="35"/>
+        <image name="record_screen" width="35" height="35"/>
+        <image name="rush_answer" width="35" height="35"/>
+        <image name="teach_share" width="35" height="35"/>
+        <image name="vote" width="35" height="35"/>
+    </resources>
 </document>

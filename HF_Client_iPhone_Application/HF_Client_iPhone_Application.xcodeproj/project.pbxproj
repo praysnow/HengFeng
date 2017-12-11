@@ -43,8 +43,6 @@
 		39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
-		393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393FE60A1FB4005300C75ACD /* HFLoginViewController.m */; };
-		393FE60D1FB4005300C75ACD /* HFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */; };
 		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
 		3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB2B1FB198D40017DFE9 /* ViewController.m */; };
 		3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3972CB2D1FB198D40017DFE9 /* Main.storyboard */; };
@@ -60,14 +58,23 @@
 		39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */; };
 		39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */; };
 		39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */; };
-		39B718FE1FBD7AD00088C348 /* HFTeachToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */; };
-		39B718FF1FBD7AD00088C348 /* HFTeachToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */; };
 		39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B719011FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m */; };
 		39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */; };
 		39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B719091FBE87DC0088C348 /* HFNetwork.m */; };
 		39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B7190A1FBE87DC0088C348 /* WebServiceModel.m */; };
-		39CE3A2D1FBEE00D008F67AE /* HFStutentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CE3A2B1FBEE00D008F67AE /* HFStutentStatusViewController.m */; };
-		39CE3A2E1FBEE00D008F67AE /* HFStutentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CE3A2C1FBEE00D008F67AE /* HFStutentStatusViewController.xib */; };
+		39C94A151FDA8B1D003641C9 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */; };
+		39C94A161FDA8B1D003641C9 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */; };
+		39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */; };
+		39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A201FDE6414003641C9 /* HFStutentStatusViewController.m */; };
+		39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A211FDE6414003641C9 /* HFStutentStatusViewController.xib */; };
+		39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A241FDE79D6003641C9 /* JZAlertWindow.m */; };
+		39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A271FDE79D7003641C9 /* JZAlertViewController.m */; };
+		39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A2B1FDE7BCA003641C9 /* CBAlertWindow.m */; };
+		39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A311FDE7CFE003641C9 /* HFLoginViewController.m */; };
+		39C94A341FDE7CFE003641C9 /* HFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */; };
+		39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */; };
+		39C94A391FDE81EE003641C9 /* HFLoginConfigueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */; };
+		39CE3A2E1FBEE00D008F67AE /* HFTeachToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */; };
 		39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CE88E71FC80A720049CD0B /* HFCacheObject.m */; };
 		39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */; };
 		39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888D1FCFEB6800F36D16 /* HFSocketService.m */; };
@@ -137,9 +144,6 @@
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
-		393FE6091FB4005300C75ACD /* HFLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFLoginViewController.h; sourceTree = "<group>"; };
-		393FE60A1FB4005300C75ACD /* HFLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFLoginViewController.m; sourceTree = "<group>"; };
-		393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFLoginViewController.xib; sourceTree = "<group>"; };
 		3972CB241FB198D40017DFE9 /* HF_Client_iPhone_Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HF_Client_iPhone_Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972CB271FB198D40017DFE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3972CB281FB198D40017DFE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,9 +171,6 @@
 		39B718F11FBC20340088C348 /* HFMyResourceHeaderFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceHeaderFootView.h; sourceTree = "<group>"; };
 		39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceHeaderFootView.m; sourceTree = "<group>"; };
 		39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceHeaderFootView.xib; sourceTree = "<group>"; };
-		39B718FB1FBD7AD00088C348 /* HFTeachToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolViewController.h; sourceTree = "<group>"; };
-		39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolViewController.m; sourceTree = "<group>"; };
-		39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachToolViewController.xib; sourceTree = "<group>"; };
 		39B719001FBD8D990088C348 /* HFTTeachToolCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTTeachToolCollectionViewCell.h; sourceTree = "<group>"; };
 		39B719011FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTTeachToolCollectionViewCell.m; sourceTree = "<group>"; };
 		39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTTeachToolCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -177,9 +178,27 @@
 		39B719081FBE87DC0088C348 /* HFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNetwork.h; sourceTree = "<group>"; };
 		39B719091FBE87DC0088C348 /* HFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNetwork.m; sourceTree = "<group>"; };
 		39B7190A1FBE87DC0088C348 /* WebServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceModel.m; sourceTree = "<group>"; };
-		39CE3A2A1FBEE00D008F67AE /* HFStutentStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStutentStatusViewController.h; sourceTree = "<group>"; };
-		39CE3A2B1FBEE00D008F67AE /* HFStutentStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStutentStatusViewController.m; sourceTree = "<group>"; };
-		39CE3A2C1FBEE00D008F67AE /* HFStutentStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStutentStatusViewController.xib; sourceTree = "<group>"; };
+		39C94A121FDA8B1D003641C9 /* HFClassTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
+		39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
+		39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
+		39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTeachToolViewController.h; sourceTree = "<group>"; };
+		39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolViewController.m; sourceTree = "<group>"; };
+		39C94A1F1FDE6414003641C9 /* HFStutentStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStutentStatusViewController.h; sourceTree = "<group>"; };
+		39C94A201FDE6414003641C9 /* HFStutentStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStutentStatusViewController.m; sourceTree = "<group>"; };
+		39C94A211FDE6414003641C9 /* HFStutentStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFStutentStatusViewController.xib; sourceTree = "<group>"; };
+		39C94A241FDE79D6003641C9 /* JZAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZAlertWindow.m; sourceTree = "<group>"; };
+		39C94A251FDE79D7003641C9 /* JZAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZAlertViewController.h; sourceTree = "<group>"; };
+		39C94A261FDE79D7003641C9 /* CBAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAlertWindow.h; sourceTree = "<group>"; };
+		39C94A271FDE79D7003641C9 /* JZAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZAlertViewController.m; sourceTree = "<group>"; };
+		39C94A2A1FDE7B74003641C9 /* JZAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZAlertWindow.h; sourceTree = "<group>"; };
+		39C94A2B1FDE7BCA003641C9 /* CBAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAlertWindow.m; sourceTree = "<group>"; };
+		39C94A301FDE7CFE003641C9 /* HFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLoginViewController.h; sourceTree = "<group>"; };
+		39C94A311FDE7CFE003641C9 /* HFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLoginViewController.m; sourceTree = "<group>"; };
+		39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFLoginViewController.xib; sourceTree = "<group>"; };
+		39C94A351FDE81E6003641C9 /* HFLoginConfigueView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFLoginConfigueView.h; sourceTree = "<group>"; };
+		39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFLoginConfigueView.m; sourceTree = "<group>"; };
+		39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFLoginConfigueView.xib; sourceTree = "<group>"; };
+		39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachToolViewController.xib; sourceTree = "<group>"; };
 		39CE88E61FC80A720049CD0B /* HFCacheObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCacheObject.h; sourceTree = "<group>"; };
 		39CE88E71FC80A720049CD0B /* HFCacheObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCacheObject.m; sourceTree = "<group>"; };
 		39D488891FCD5CFA00F36D16 /* HFHearBeat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFHearBeat.h; sourceTree = "<group>"; };
@@ -275,9 +294,9 @@
 		39181EA61FB5A5AA00A364AB /* HFLogin */ = {
 			isa = PBXGroup;
 			children = (
-				393FE6091FB4005300C75ACD /* HFLoginViewController.h */,
-				393FE60A1FB4005300C75ACD /* HFLoginViewController.m */,
-				393FE60B1FB4005300C75ACD /* HFLoginViewController.xib */,
+				39C94A2F1FDE7CFE003641C9 /* controller */,
+				39C94A2E1FDE7CFE003641C9 /* model */,
+				39C94A2D1FDE7CFE003641C9 /* view */,
 			);
 			path = HFLogin;
 			sourceTree = "<group>";
@@ -319,6 +338,7 @@
 		3964C6F81FB3F4A900A024A9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				39C94A111FDA8AF9003641C9 /* HFClassTest */,
 				39F088A11FC7AFCE00AB30F6 /* Category */,
 				39F088A01FC7AFC800AB30F6 /* Utils */,
 				39CE3A291FBEDFE0008F67AE /* HFStudentStatus */,
@@ -417,7 +437,7 @@
 		39B718F71FBD62060088C348 /* HFTeachTool */ = {
 			isa = PBXGroup;
 			children = (
-				39B718F91FBD63350088C348 /* controller */,
+				39C94A1E1FDE6414003641C9 /* controller */,
 				39B718FA1FBD63350088C348 /* model */,
 				39B718F81FBD63350088C348 /* view */,
 			);
@@ -432,16 +452,6 @@
 				39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		39B718F91FBD63350088C348 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				39B718FB1FBD7AD00088C348 /* HFTeachToolViewController.h */,
-				39B718FC1FBD7AD00088C348 /* HFTeachToolViewController.m */,
-				39B718FD1FBD7AD00088C348 /* HFTeachToolViewController.xib */,
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		39B718FA1FBD63350088C348 /* model */ = {
@@ -466,12 +476,59 @@
 			path = HFNetWork;
 			sourceTree = "<group>";
 		};
+		39C94A111FDA8AF9003641C9 /* HFClassTest */ = {
+			isa = PBXGroup;
+			children = (
+				39C94A121FDA8B1D003641C9 /* HFClassTestViewController.h */,
+				39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */,
+				39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */,
+			);
+			path = HFClassTest;
+			sourceTree = "<group>";
+		};
+		39C94A1E1FDE6414003641C9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				39C94A1F1FDE6414003641C9 /* HFStutentStatusViewController.h */,
+				39C94A201FDE6414003641C9 /* HFStutentStatusViewController.m */,
+				39C94A211FDE6414003641C9 /* HFStutentStatusViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		39C94A2D1FDE7CFE003641C9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				39C94A351FDE81E6003641C9 /* HFLoginConfigueView.h */,
+				39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */,
+				39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		39C94A2E1FDE7CFE003641C9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		39C94A2F1FDE7CFE003641C9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				39C94A301FDE7CFE003641C9 /* HFLoginViewController.h */,
+				39C94A311FDE7CFE003641C9 /* HFLoginViewController.m */,
+				39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		39CE3A291FBEDFE0008F67AE /* HFStudentStatus */ = {
 			isa = PBXGroup;
 			children = (
-				39CE3A2A1FBEE00D008F67AE /* HFStutentStatusViewController.h */,
-				39CE3A2B1FBEE00D008F67AE /* HFStutentStatusViewController.m */,
-				39CE3A2C1FBEE00D008F67AE /* HFStutentStatusViewController.xib */,
+				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
+				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
+				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
 			);
 			path = HFStudentStatus;
 			sourceTree = "<group>";
@@ -498,6 +555,12 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				39C94A261FDE79D7003641C9 /* CBAlertWindow.h */,
+				39C94A2B1FDE7BCA003641C9 /* CBAlertWindow.m */,
+				39C94A2A1FDE7B74003641C9 /* JZAlertWindow.h */,
+				39C94A241FDE79D6003641C9 /* JZAlertWindow.m */,
+				39C94A251FDE79D7003641C9 /* JZAlertViewController.h */,
+				39C94A271FDE79D7003641C9 /* JZAlertViewController.m */,
 				39F0DFA71FD6A8AB00395908 /* XMLReader.h */,
 				39F0DFA81FD6A8AB00395908 /* XMLReader.m */,
 			);
@@ -625,7 +688,6 @@
 				39181E871FB574DF00A364AB /* 2.png in Resources */,
 				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
-				393FE60D1FB4005300C75ACD /* HFLoginViewController.xib in Resources */,
 				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
 				391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */,
 				39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */,
@@ -638,18 +700,20 @@
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
 				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
 				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
+				39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */,
+				39C94A341FDE7CFE003641C9 /* HFLoginViewController.xib in Resources */,
 				39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */,
 				39181E8A1FB574DF00A364AB /* errors.txt in Resources */,
 				39181E911FB574DF00A364AB /* ic_pwd_selected.png in Resources */,
 				39181E991FB574DF00A364AB /* passwoard_back.png in Resources */,
 				39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */,
-				39B718FF1FBD7AD00088C348 /* HFTeachToolViewController.xib in Resources */,
 				39181E981FB574DF00A364AB /* login_button_bg.png in Resources */,
+				39C94A161FDA8B1D003641C9 /* HFClassTestViewController.xib in Resources */,
 				39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */,
 				39181EA41FB574DF00A364AB /* WLANbg.png in Resources */,
 				39181E8C1FB574DF00A364AB /* ic_drop_normal.png in Resources */,
 				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
-				39CE3A2E1FBEE00D008F67AE /* HFStutentStatusViewController.xib in Resources */,
+				39CE3A2E1FBEE00D008F67AE /* HFTeachToolViewController.xib in Resources */,
 				3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */,
 				3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */,
 				39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */,
@@ -659,6 +723,7 @@
 				3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */,
 				39181E951FB574DF00A364AB /* ic_wifi.png in Resources */,
 				39181E861FB574DF00A364AB /* 1.png in Resources */,
+				39C94A391FDE81EE003641C9 /* HFLoginConfigueView.xib in Resources */,
 				39181E901FB574DF00A364AB /* ic_pwd_normal.png in Resources */,
 				39181E9F1FB574DF00A364AB /* wifi1.png in Resources */,
 				39181EA01FB574DF00A364AB /* wifi2.png in Resources */,
@@ -745,11 +810,17 @@
 				39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */,
 				39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */,
 				39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */,
+				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
+				39C94A151FDA8B1D003641C9 /* HFClassTestViewController.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
-				393FE60C1FB4005300C75ACD /* HFLoginViewController.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
+				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
+				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
+				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
+				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
+				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
@@ -757,9 +828,8 @@
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
-				39CE3A2D1FBEE00D008F67AE /* HFStutentStatusViewController.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
-				39B718FE1FBD7AD00088C348 /* HFTeachToolViewController.m in Sources */,
+				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
 			);

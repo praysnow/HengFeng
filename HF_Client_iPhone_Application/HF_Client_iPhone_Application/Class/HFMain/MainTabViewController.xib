@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +20,69 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-hT-6h3">
+                    <rect key="frame" x="0.0" y="20" width="375" height="323.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-vA-cS5">
+                            <rect key="frame" x="94" y="81" width="187.5" height="161.5"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="课堂测验" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7c4-Sq-yJO">
+                            <rect key="frame" x="152" y="247.5" width="70" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="KC8-sq-XEM"/>
+                                <constraint firstAttribute="height" constant="21" id="rt7-dn-KHt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OvM-vA-cS5" firstAttribute="centerY" secondItem="bYU-hT-6h3" secondAttribute="centerY" id="2cc-eq-PpJ"/>
+                        <constraint firstItem="7c4-Sq-yJO" firstAttribute="top" secondItem="OvM-vA-cS5" secondAttribute="bottom" constant="5" id="7dk-7e-Gqz"/>
+                        <constraint firstItem="OvM-vA-cS5" firstAttribute="height" secondItem="bYU-hT-6h3" secondAttribute="height" multiplier="0.5" id="En9-Lc-Ei0"/>
+                        <constraint firstItem="OvM-vA-cS5" firstAttribute="centerX" secondItem="bYU-hT-6h3" secondAttribute="centerX" id="HaL-Jz-4W3"/>
+                        <constraint firstItem="OvM-vA-cS5" firstAttribute="width" secondItem="bYU-hT-6h3" secondAttribute="width" multiplier="0.5" id="sfs-8p-KLG"/>
+                        <constraint firstItem="7c4-Sq-yJO" firstAttribute="centerX" secondItem="OvM-vA-cS5" secondAttribute="centerX" id="vJA-kw-Lrv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-Vk-Wtl">
+                    <rect key="frame" x="0.0" y="343.5" width="375" height="323.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-8P-e4u">
+                            <rect key="frame" x="94" y="81" width="187.5" height="161.5"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="截屏测验" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKA-lV-GO3">
+                            <rect key="frame" x="152" y="269" width="70" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gEx-8P-e4u" firstAttribute="centerX" secondItem="MdP-Vk-Wtl" secondAttribute="centerX" id="7WP-BB-6mQ"/>
+                        <constraint firstItem="gEx-8P-e4u" firstAttribute="height" secondItem="MdP-Vk-Wtl" secondAttribute="height" multiplier="0.5" id="7lo-LB-Eff"/>
+                        <constraint firstItem="gEx-8P-e4u" firstAttribute="centerY" secondItem="MdP-Vk-Wtl" secondAttribute="centerY" id="Cxx-f1-Q9I"/>
+                        <constraint firstItem="gEx-8P-e4u" firstAttribute="width" secondItem="MdP-Vk-Wtl" secondAttribute="width" multiplier="0.5" id="uBP-vh-53u"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bYU-hT-6h3" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="3j9-U8-v1L"/>
+                <constraint firstItem="MdP-Vk-Wtl" firstAttribute="top" secondItem="bYU-hT-6h3" secondAttribute="bottom" id="4FE-h6-Mcf"/>
+                <constraint firstItem="MdP-Vk-Wtl" firstAttribute="top" secondItem="bYU-hT-6h3" secondAttribute="bottom" id="Ili-FC-a7C"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="MdP-Vk-Wtl" secondAttribute="bottom" id="M2Z-Ys-mzW"/>
+                <constraint firstItem="bYU-hT-6h3" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Qzp-M5-Ey3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="MdP-Vk-Wtl" secondAttribute="trailing" id="aoo-Kb-z4a"/>
+                <constraint firstItem="MdP-Vk-Wtl" firstAttribute="height" secondItem="bYU-hT-6h3" secondAttribute="height" id="hBu-C1-pUq"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="bYU-hT-6h3" secondAttribute="trailing" id="kKd-Jr-dCo"/>
+                <constraint firstItem="MdP-Vk-Wtl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ojf-Z9-mIL"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-11" y="76"/>
         </view>
     </objects>
 </document>
