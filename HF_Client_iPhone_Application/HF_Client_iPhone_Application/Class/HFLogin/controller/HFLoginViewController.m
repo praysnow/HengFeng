@@ -10,6 +10,9 @@
 #import "MainTabViewController.h"
 #import "WebServiceModel.h"
 #import "HFNetwork.h"
+#import "HFLoginConfigueView.h"
+#import "JZAlertWindow.h"
+#import "CBAlertWindow.h"
 
 @interface HFLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *loginView;
@@ -20,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backGroundView;
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordFeild;
+@property (strong, nonatomic) HFLoginConfigueView *configueView;
 
 @end
 
@@ -58,29 +62,39 @@
     [self presentViewController: vc animated: YES completion:^{
     }];
     [self.navigationController pushViewController: vc animated: YES];
-//    WebServiceModel *model = [WebServiceModel new];
-//    model.method = @"CheckUser";
-//    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
-//    NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
-//    model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
-//    if (userName.length == 0) {
-//        NSLog(@"账号不能为空");
-//    } else if (passWord == 0) {
-//        NSLog(@"密码不能为空");
-//    } else {
-//        [[HFNetwork network] SOAPDataWithUrl: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] soapBody: [model getRequestParams] success:^(NSString * responseObject) {
-//            if ([responseObject containsString: @"true"]) {
-//                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
-//                MainTabViewController *vc = [[MainTabViewController alloc] init];
-//                [self presentViewController: vc animated: YES completion:^{
-//                    ;
-//                }];
-//                [self.navigationController pushViewController: vc animated: YES];
-//            }
-//        } failure:^(NSError *error) {
-//            NSLog(@"%@",error.userInfo);
-//        }];
-//    }
+    //    WebServiceModel *model = [WebServiceModel new];
+    //    model.method = @"CheckUser";
+    //    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
+    //    NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
+    //    model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
+    //    if (userName.length == 0) {
+    //        NSLog(@"账号不能为空");
+    //    } else if (passWord == 0) {
+    //        NSLog(@"密码不能为空");
+    //    } else {
+    //        [[HFNetwork network] SOAPDataWithUrl: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] soapBody: [model getRequestParams] success:^(NSString * responseObject) {
+    //            if ([responseObject containsString: @"true"]) {
+    //                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
+    //                MainTabViewController *vc = [[MainTabViewController alloc] init];
+    //                [self presentViewController: vc animated: YES completion:^{
+    //                    ;
+    //                }];
+    //                [self.navigationController pushViewController: vc animated: YES];
+    //            }
+    //        } failure:^(NSError *error) {
+    //            NSLog(@"%@",error.userInfo);
+    //        }];
+    //    }
+}
+
+- (IBAction)tappedSystemConfigue:(UIButton *)sender
+{
+    HFLoginConfigueView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFLoginConfigueView.class) owner: nil options: nil].lastObject;
+    self.configueView = configueView;
+    [configueView.layer setCornerRadius: 10];
+    configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    configueView.layer.masksToBounds = YES;
+    [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
 }
 
 - (IBAction)tappedWifiConfigue:(UIButton *)sender

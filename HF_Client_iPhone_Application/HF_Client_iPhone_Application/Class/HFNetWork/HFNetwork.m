@@ -70,8 +70,6 @@
     __weak typeof(self) weakSelf = self;
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
-//        [responseObject setDelegate:weakSelf];
-//        [responseObject parse];
         success([weakSelf.mutableString copy]);
         weakSelf.mutableString = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -105,11 +103,5 @@
         failure(error);
     }];
 }
-
-//#pragma mark - NSXMLParser代理
-//- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-//    NSLog(@"解析结果为: %@", self.mutableString);
-//    [self.mutableString appendString:string];
-//}
 
 @end

@@ -12,10 +12,6 @@
 #define NORMOR_INFO_FIRST_BYTE (Byte)(0x99)
 #define HEADER_INFO_FIRST_BYTE (Byte)(0x00)
 
-//#define SOCKETS_HOST @"192.168.13.26"
-#define SOCKETS_HOST @"192.168.15.29"
-//#define SOCKETS_HOST @"192.168.10.12"
-
 @interface HFSocketService ()<GCDAsyncSocketDelegate>
 
 @property (strong, nonatomic)GCDAsyncSocket *socket;
@@ -28,12 +24,18 @@
 
 + (HFSocketService *)sharedInstance
 {
-    
     static HFSocketService *sharedInstace = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstace = [[self alloc] init];
-        [sharedInstace setUpSocketWithHost: SOCKETS_HOST andPort: 1001];
+        NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] valueForKey: ADDRESS_HOST];
+        if ([dictionary.allKeys containsObject: @"socket_address"]) {
+           sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
+        }
+        if ([dictionary.allKeys containsObject: @"service_host"]) {
+            sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
+        }
+        [sharedInstace setUpSocketWithHost: sharedInstace.socket_host andPort: 1001];
     });
     
     return sharedInstace;
@@ -239,7 +241,7 @@
     BOOL state = [_socket isConnected];   // 判断当前socket的连接状态
     NSLog(@"连接状态: %d",state);
     self.socket = nil;
-    [[HFSocketService sharedInstance] setUpSocketWithHost: SOCKETS_HOST andPort: 1001];
+    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
 }
 
 @end

@@ -9,13 +9,17 @@
 @interface HFInterFace : NSObject
 
 /* HOST */
-#define HOST @"http://222.16.80.43/"
+#define HOST [HFSocketService sharedInstance].service_host
 
 /* Login InterFace */
 #define LOGIN_INTERFACE @"webService/WisdomClassWS.asmx?op=CheckUser"
 #define DAOXUEAN_INTERFACE @"webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
 #define DAOXUETANG_INTERFACE @"webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
 /* login name cache user default */
+
+/*  UserDefault  */
+
+#define ADDRESS_HOST @"address_host"
 
 #define LOGIN_INFO_CACHE @"LOGIN_INFO_CACHE"
 

@@ -10,6 +10,9 @@
 
 @interface HFSocketService : NSObject
 
+@property (copy ,nonatomic) NSString *socket_host;
+@property (copy ,nonatomic) NSString *service_host;
+
 + (HFSocketService *)sharedInstance;
 
 - (void)setUpSocketWithHost:(NSString *)host andPort:(uint16_t)prot;
