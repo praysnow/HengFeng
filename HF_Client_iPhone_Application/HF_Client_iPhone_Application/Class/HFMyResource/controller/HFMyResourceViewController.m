@@ -24,6 +24,7 @@
 @property (strong, nonatomic)NSString *currentElementName;
 @property (strong, nonatomic)NSMutableArray *classArray;
 @property (nonatomic, copy) NSString *host;
+@property (nonatomic, assign) BOOL isStudent;
 
 @end
 
@@ -40,13 +41,15 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
     [HFSocketService sharedInstance];
+    [self loadData];
+//    [self loadClassData];
     
-//    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
 }
 
 - (void)loadData
 {
-//    HFCacheObject *object = [HFCacheObject shardence];
+    //    HFCacheObject *object = [HFCacheObject shardence];
     NSString *soapString = [NSString stringWithFormat: @"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
                             <soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\
                             <soap:Body>\
@@ -64,9 +67,6 @@
         NSLog(@"我的资源  请求结果失败");
         NSLog(@"loadData faild %@",error.userInfo);
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self loadClassData];
-    });
 }
 
 - (void)loadClassData
@@ -121,7 +121,7 @@
             HFDaoxueModel *stu = [self.studentArray lastObject];
             [stu setValue:string forKey:_currentElementName];
         }
-
+        
     } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
         if (_currentElementName != nil) {
             HFDaoxueModel *stu = [self.classArray lastObject];
@@ -185,29 +185,44 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self loadData];
     NSLog(@"点击");
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 2;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HFMyResourceCollectionViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
-    if (indexPath.section == 0 || indexPath.section == 1 ) {
-        HFDaoxueModel *object = [HFDaoxueModel new];
+    if (indexPath.section == 0 && self.studentArray.count > indexPath.row) {
+        HFDaoxueModel *object = self.studentArray[indexPath.row];
+        object.image = [UIImage imageNamed: @"guidance_learning"];
+        cell.object = object;
+    }
+    if (indexPath.section == 1 && self.classArray.count > indexPath.row) {
+        HFDaoxueModel *object = self.classArray[indexPath.row];
         object.image = [UIImage imageNamed: @"guidance_learning"];
         cell.object = object;
     }
     return cell;
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.studentArray.count;
+    } else {
+        return self.classArray.count;
+    }
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    NSInteger count = 0;
+    if (self.studentArray.count != 0) {
+        count ++;
+    }
+    if (self.classArray.count != 0 ) {
+        count ++;
+    }
+    return 2;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath

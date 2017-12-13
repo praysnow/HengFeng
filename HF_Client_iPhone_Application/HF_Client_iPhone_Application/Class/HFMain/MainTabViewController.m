@@ -51,7 +51,7 @@
 
     HFClassTestViewController *mineVC = [[HFClassTestViewController alloc] init];
     [self addChildViewController:mineVC title:@"课堂测试" imageNamed:@"tabbar_match_selected"];
-    HFTeachToolViewController *activityVC = [[HFTeachToolViewController alloc] init];
+    HFStutentStatusViewController *activityVC = [[HFStutentStatusViewController alloc] init];
     [self addChildViewController:activityVC title:@"学生状态" imageNamed:@"tabbar_match_selected"];
 }
 
