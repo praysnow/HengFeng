@@ -21,18 +21,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFTTeachToolCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
     [self setupLayout];
+    [self setupbackButton];
+}
+
+- (void)setupbackButton
+{
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [button setTitle:@"<" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView: button];
+}
+
+- (void)back:(UIButton *)button
+{
+    [HFUtils selectTabBarControllerIndexAndShowRootViewController: 0];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.tabBarController.tabBar.hidden = YES;
+//    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -30,7 +30,11 @@
 - (void)setObject:(HFDaoxueModel *)object
 {
     _object = object;
-    self.titleLabel.text = object.Dxa_Name;
+    if (object.type) {
+        self.titleLabel.text = object.resName;
+    } else {
+        self.titleLabel.text = object.Dxa_Name;
+    }
     self.avatarImage.image = object.image;
 }
 

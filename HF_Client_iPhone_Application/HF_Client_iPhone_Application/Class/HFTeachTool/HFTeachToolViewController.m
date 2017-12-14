@@ -7,6 +7,7 @@
 //
 
 #import "HFTeachToolViewController.h"
+#import "HFToolVoteViewController.h"
 
 @interface HFTeachToolViewController ()
 
@@ -27,7 +28,8 @@
     switch (sender.tag) {
         case 0:
         {
-            NSLog(@"投票");
+            HFToolVoteViewController *vc = [[HFToolVoteViewController alloc] init];
+            [self.navigationController pushViewController: vc animated: YES];
         }
             break;
         case 1:

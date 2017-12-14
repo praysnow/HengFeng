@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */; };
+		3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */; };
+		3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */; };
 		391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 391787BA1FC407C10073BD51 /* backGroundImage.png */; };
 		39181E861FB574DF00A364AB /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E661FB574DF00A364AB /* 1.png */; };
 		39181E871FB574DF00A364AB /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E671FB574DF00A364AB /* 2.png */; };
@@ -74,6 +77,8 @@
 		39C94A341FDE7CFE003641C9 /* HFLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */; };
 		39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */; };
 		39C94A391FDE81EE003641C9 /* HFLoginConfigueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */; };
+		39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */; };
+		39C94A3E1FE27B36003641C9 /* HFToolVoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */; };
 		39CE3A2E1FBEE00D008F67AE /* HFTeachToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */; };
 		39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CE88E71FC80A720049CD0B /* HFCacheObject.m */; };
 		39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */; };
@@ -105,6 +110,11 @@
 		117CF0EF9B719FF7E9B37CF5 /* libPods-HF_Client_iPhone_ApplicationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF82E6AEC219A3F034AC0AD /* Pods-HF_Client_iPhone_Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HF_Client_iPhone_Application.release.xcconfig"; path = "Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.release.xcconfig"; sourceTree = "<group>"; };
 		33EA0AF723B55030AA316581 /* Pods-HF_Client_iPhone_Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HF_Client_iPhone_Application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.debug.xcconfig"; sourceTree = "<group>"; };
+		3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMySourcesDetailViewController.h; sourceTree = "<group>"; };
+		3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMySourcesDetailViewController.m; sourceTree = "<group>"; };
+		3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMySourcesDetailViewController.xib; sourceTree = "<group>"; };
+		3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ConfigureCategory.h"; sourceTree = "<group>"; };
+		3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ConfigureCategory.m"; sourceTree = "<group>"; };
 		391787BA1FC407C10073BD51 /* backGroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundImage.png; sourceTree = "<group>"; };
 		39181E661FB574DF00A364AB /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		39181E671FB574DF00A364AB /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -198,6 +208,9 @@
 		39C94A351FDE81E6003641C9 /* HFLoginConfigueView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFLoginConfigueView.h; sourceTree = "<group>"; };
 		39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFLoginConfigueView.m; sourceTree = "<group>"; };
 		39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFLoginConfigueView.xib; sourceTree = "<group>"; };
+		39C94A3A1FE27B36003641C9 /* HFToolVoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFToolVoteViewController.h; sourceTree = "<group>"; };
+		39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFToolVoteViewController.m; sourceTree = "<group>"; };
+		39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFToolVoteViewController.xib; sourceTree = "<group>"; };
 		39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachToolViewController.xib; sourceTree = "<group>"; };
 		39CE88E61FC80A720049CD0B /* HFCacheObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCacheObject.h; sourceTree = "<group>"; };
 		39CE88E71FC80A720049CD0B /* HFCacheObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCacheObject.m; sourceTree = "<group>"; };
@@ -341,9 +354,9 @@
 				39C94A111FDA8AF9003641C9 /* HFClassTest */,
 				39F088A11FC7AFCE00AB30F6 /* Category */,
 				39F088A01FC7AFC800AB30F6 /* Utils */,
-				39CE3A291FBEDFE0008F67AE /* HFStudentStatus */,
+				39CE3A291FBEDFE0008F67AE /* HFTeachTool */,
 				39B719061FBE87AC0088C348 /* HFNetWork */,
-				39B718F71FBD62060088C348 /* HFTeachTool */,
+				39B718F71FBD62060088C348 /* HFStudentStatus */,
 				39181EB41FB5AB4700A364AB /* HFMyResource */,
 				39181EA71FB5A5C300A364AB /* HFMain */,
 				39181EA61FB5A5AA00A364AB /* HFLogin */,
@@ -430,18 +443,21 @@
 				39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */,
 				39D488891FCD5CFA00F36D16 /* HFHearBeat.h */,
 				39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */,
+				3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */,
+				3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */,
+				3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
 		};
-		39B718F71FBD62060088C348 /* HFTeachTool */ = {
+		39B718F71FBD62060088C348 /* HFStudentStatus */ = {
 			isa = PBXGroup;
 			children = (
 				39C94A1E1FDE6414003641C9 /* controller */,
 				39B718FA1FBD63350088C348 /* model */,
 				39B718F81FBD63350088C348 /* view */,
 			);
-			path = HFTeachTool;
+			path = HFStudentStatus;
 			sourceTree = "<group>";
 		};
 		39B718F81FBD63350088C348 /* view */ = {
@@ -523,14 +539,17 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		39CE3A291FBEDFE0008F67AE /* HFStudentStatus */ = {
+		39CE3A291FBEDFE0008F67AE /* HFTeachTool */ = {
 			isa = PBXGroup;
 			children = (
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
+				39C94A3A1FE27B36003641C9 /* HFToolVoteViewController.h */,
+				39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */,
+				39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */,
 			);
-			path = HFStudentStatus;
+			path = HFTeachTool;
 			sourceTree = "<group>";
 		};
 		39CE88E91FC81C150049CD0B /* model */ = {
@@ -555,6 +574,8 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */,
+				3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */,
 				39C94A261FDE79D7003641C9 /* CBAlertWindow.h */,
 				39C94A2B1FDE7BCA003641C9 /* CBAlertWindow.m */,
 				39C94A2A1FDE7B74003641C9 /* JZAlertWindow.h */,
@@ -694,10 +715,12 @@
 				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
 				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
 				39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */,
+				39C94A3E1FE27B36003641C9 /* HFToolVoteViewController.xib in Resources */,
 				39181E9E1FB574DF00A364AB /* user_name.png in Resources */,
 				39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */,
 				39181EA31FB574DF00A364AB /* wlan_close.png in Resources */,
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
+				3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */,
 				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
 				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
 				39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */,
@@ -816,8 +839,11 @@
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
 				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
+				3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */,
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
+				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
+				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,

@@ -19,5 +19,6 @@
 @property (nonatomic, copy) NSString *resType;
 @property (nonatomic, copy) NSString *resID;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) BOOL type;
 
 @end

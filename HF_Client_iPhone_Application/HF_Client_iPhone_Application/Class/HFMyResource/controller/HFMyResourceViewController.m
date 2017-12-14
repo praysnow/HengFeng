@@ -15,12 +15,14 @@
 #import "HFCacheObject.h"
 #import "XMLReader.h"
 #import "HFDaoxueModel.h"
+#import "HFMySourcesDetailViewController.h"
 
 @interface HFMyResourceViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout, GCDAsyncSocketDelegate, NSXMLParserDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (strong, nonatomic)NSMutableArray *studentArray;
+@property (strong, nonatomic) NSMutableArray *allInfoArray;
 @property (strong, nonatomic)NSString *currentElementName;
 @property (strong, nonatomic)NSMutableArray *classArray;
 @property (nonatomic, copy) NSString *host;
@@ -42,9 +44,9 @@
     [self setupLayout];
     [HFSocketService sharedInstance];
     [self loadData];
-//    [self loadClassData];
-    
-    //    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self loadClassData];
+    });
 }
 
 - (void)loadData
@@ -103,11 +105,17 @@
     if ([_host containsString: DAOXUEAN_INTERFACE]) {
         if ([elementName isEqualToString:@"Table1"]) {
             HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+            if (self.studentArray.count == 0) {
+                [self.allInfoArray addObject: self.studentArray];
+            }
             [self.studentArray addObject: stu];
         }
     } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
         if ([elementName isEqualToString:@"Table1"]) {
             HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+            if (self.classArray.count == 0) {
+                [self.allInfoArray addObject: self.classArray];
+            }
             [self.classArray addObject: stu];
         }
     }
@@ -155,27 +163,24 @@
 #pragma mark - UICollectionViewDeledate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section == 0 || section == 2) {
+    return CGSizeMake(SCREEN_WIDTH, 50);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    if (section == 1) {
         return CGSizeMake(SCREEN_WIDTH, 50);
     }
-    return CGSizeMake(0,0);
+    return CGSizeMake(0,FLT_MIN);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 100;
+    return 10;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 10;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
-    if (section == 3) {
-        return CGSizeMake(SCREEN_WIDTH, 50);
-    }
-    return CGSizeMake(0,10);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout :(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -185,7 +190,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击");
+    HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
+    HFMyResourceCollectionViewCell *cell = (HFMyResourceCollectionViewCell *)[self.collectionView cellForItemAtIndexPath: indexPath];
+    vc.object = cell.object;
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -199,6 +207,7 @@
     if (indexPath.section == 1 && self.classArray.count > indexPath.row) {
         HFDaoxueModel *object = self.classArray[indexPath.row];
         object.image = [UIImage imageNamed: @"guidance_learning"];
+        object.type = YES;
         cell.object = object;
     }
     return cell;
@@ -215,14 +224,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    NSInteger count = 0;
-    if (self.studentArray.count != 0) {
-        count ++;
-    }
-    if (self.classArray.count != 0 ) {
-        count ++;
-    }
-    return 2;
+    return self.allInfoArray.count;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -237,7 +239,7 @@
     if (kind == UICollectionElementKindSectionFooter)
     {
         HFMyResourceHeaderFootView *headerFooterView = [collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionFooter withReuseIdentifier: @"FooterView" forIndexPath: indexPath];
-        if (indexPath.section == 3) {
+        if (indexPath.section == 1) {
             headerFooterView.hidden = NO;
         } else {
             headerFooterView.hidden = YES;
@@ -264,6 +266,14 @@
         _classArray = [NSMutableArray array];
     }
     return _classArray;
+}
+
+- (NSMutableArray *)allInfoArray
+{
+    if (!_allInfoArray) {
+        _allInfoArray = [NSMutableArray array];
+    }
+    return _allInfoArray;
 }
 
 @end

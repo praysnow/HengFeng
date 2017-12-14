@@ -17,4 +17,6 @@
 
 + (void)teacherControl;
 
++ (void)selectTabBarControllerIndexAndShowRootViewController:(NSInteger)index;
+
 @end

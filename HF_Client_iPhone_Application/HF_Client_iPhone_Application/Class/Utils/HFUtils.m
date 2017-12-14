@@ -7,8 +7,25 @@
 //
 
 #import "HFUtils.h"
+#import "AppDelegate.h"
+#import "MainTabViewController.h"
 
 @implementation HFUtils
+
++ (void)selectTabBarControllerIndexAndShowRootViewController:(NSInteger)index
+{
+    MainTabViewController *tabBarController = (MainTabViewController *)((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController;
+    if ([tabBarController isKindOfClass: [MainTabViewController class]]) {
+        NSMutableArray *array = [NSMutableArray arrayWithArray: tabBarController.viewControllers];
+        if (index < [array count]) {
+            tabBarController.selectedIndex = index;
+            UINavigationController *navigationController = tabBarController.selectedViewController;
+            if ([navigationController isKindOfClass: [UINavigationController class]]) {
+                [navigationController popToRootViewControllerAnimated: YES];
+            }
+        }
+    }
+}
 
 // json字符串转为OC对象
 + (id)jsonStringToObject:(NSString *)jsonString
