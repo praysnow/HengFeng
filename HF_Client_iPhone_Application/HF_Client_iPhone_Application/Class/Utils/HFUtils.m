@@ -42,6 +42,25 @@
     return jsonObject;
 }
 
+// 判断数组是否可用
++ (BOOL)NSArrayUseable:(NSArray *)array{
+    
+    if (array != nil && [array isKindOfClass:[NSArray class]] ){
+        return YES;
+    }
+    
+    return NO;
+}
+
+// 判断字典是否可用
++ (BOOL)NSDictionaryUseable:(NSDictionary *)dict{
+    
+    if (dict != nil && [dict isKindOfClass:[NSDictionary class]] ){
+        return YES;
+    }
+    return NO;
+}
+
 + (void)teacherControl
 {
         NSString *loginStatus = @"Login?name=TeacherCtrl&os=android&class=defaultEx";

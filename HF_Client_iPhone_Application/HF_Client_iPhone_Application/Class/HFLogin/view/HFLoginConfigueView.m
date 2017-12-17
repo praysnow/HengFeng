@@ -41,7 +41,7 @@
 {
    NSUserDefaults *address = [NSUserDefaults standardUserDefaults];
 //    [address setObject: @{@"service_host": self.service_addressTextField.text, @"socket_address" : self.socket_addressTextField.text} forKey: ADDRESS_HOST];
-    [address setObject: @{@"service_host": @"http://222.16.80.43/", @"socket_address" : @"192.168.19.25"} forKey: ADDRESS_HOST];
+    [address setObject: @{@"service_host": @"http://222.16.80.43/", @"socket_address" : @"192.168.15.87"} forKey: ADDRESS_HOST];
     [address synchronize];
 }
 

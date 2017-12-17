@@ -15,6 +15,8 @@
 #define LOGIN_INTERFACE @"webService/WisdomClassWS.asmx?op=CheckUser"
 #define DAOXUEAN_INTERFACE @"webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
 #define DAOXUETANG_INTERFACE @"webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
+#define GETTASKLIST @"webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
+
 /* login name cache user default */
 
 /*  UserDefault  */

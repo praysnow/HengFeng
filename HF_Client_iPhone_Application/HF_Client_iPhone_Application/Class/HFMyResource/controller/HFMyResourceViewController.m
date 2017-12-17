@@ -44,7 +44,7 @@
     [self setupLayout];
     [HFSocketService sharedInstance];
     [self loadData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self loadClassData];
     });
 }
