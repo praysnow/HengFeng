@@ -162,6 +162,7 @@
     if (self.listData.count > self.selectedIndex) {
 
         NSLog(@"控制命令发送");
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"111"]];
     }
 }
 

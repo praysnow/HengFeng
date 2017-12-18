@@ -76,6 +76,7 @@
                 [self sendLoginInfo];
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
+                    [self sendCtrolMessage: @[@"111"]];
                 }];
             } else {
             }
