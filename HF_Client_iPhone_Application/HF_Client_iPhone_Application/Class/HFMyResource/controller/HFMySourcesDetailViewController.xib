@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFMySourcesDetailViewController">
             <connections>
+                <outlet property="tableView" destination="Mbw-ag-9oL" id="I8v-zZ-fba"/>
                 <outlet property="titleLabel" destination="nVs-me-grC" id="iRJ-5f-fXY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,11 +51,58 @@
                         <constraint firstAttribute="trailing" secondItem="nVs-me-grC" secondAttribute="trailing" id="pq6-fT-JqF"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-yU-Rdc">
+                    <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQt-Jm-sWX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
+                            <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="gWg-uT-pww"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-pW-L1P">
+                            <rect key="frame" x="0.0" y="0.5" width="187.5" height="47.5"/>
+                            <state key="normal" title="启用"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mR6-wi-Ue8">
+                            <rect key="frame" x="187.5" y="0.5" width="187.5" height="47.5"/>
+                            <state key="normal" title="下发"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mR6-wi-Ue8" firstAttribute="width" secondItem="jdh-pW-L1P" secondAttribute="width" id="Dyg-RH-DWu"/>
+                        <constraint firstItem="bQt-Jm-sWX" firstAttribute="leading" secondItem="vF4-yU-Rdc" secondAttribute="leading" id="NVk-Z2-6cE"/>
+                        <constraint firstAttribute="trailing" secondItem="mR6-wi-Ue8" secondAttribute="trailing" id="PW3-ev-BLo"/>
+                        <constraint firstItem="mR6-wi-Ue8" firstAttribute="leading" secondItem="jdh-pW-L1P" secondAttribute="trailing" id="Wj2-Vb-hOf"/>
+                        <constraint firstItem="jdh-pW-L1P" firstAttribute="leading" secondItem="vF4-yU-Rdc" secondAttribute="leading" id="XNz-NS-ZRo"/>
+                        <constraint firstItem="jdh-pW-L1P" firstAttribute="top" secondItem="bQt-Jm-sWX" secondAttribute="bottom" id="agT-Eo-381"/>
+                        <constraint firstAttribute="trailing" secondItem="bQt-Jm-sWX" secondAttribute="trailing" id="bYF-dw-LcI"/>
+                        <constraint firstItem="mR6-wi-Ue8" firstAttribute="top" secondItem="bQt-Jm-sWX" secondAttribute="bottom" id="e9C-zj-CaD"/>
+                        <constraint firstItem="mR6-wi-Ue8" firstAttribute="height" secondItem="jdh-pW-L1P" secondAttribute="height" id="eVk-rv-Oe4"/>
+                        <constraint firstAttribute="bottom" secondItem="jdh-pW-L1P" secondAttribute="bottom" id="fV1-Wk-4bn"/>
+                        <constraint firstAttribute="bottom" secondItem="mR6-wi-Ue8" secondAttribute="bottom" id="plN-sq-qRD"/>
+                        <constraint firstAttribute="height" constant="48" id="uRA-Iw-K54"/>
+                        <constraint firstItem="bQt-Jm-sWX" firstAttribute="top" secondItem="vF4-yU-Rdc" secondAttribute="top" id="wM1-IC-LEL"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-ag-9oL">
+                    <rect key="frame" x="0.0" y="85" width="375" height="534"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Mbw-ag-9oL" secondAttribute="trailing" id="2pC-ua-Ev2"/>
+                <constraint firstItem="Mbw-ag-9oL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="4OF-dS-Rg0"/>
                 <constraint firstItem="GNo-We-bP6" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="7OX-bO-pJY"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="vF4-yU-Rdc" secondAttribute="bottom" id="MAP-y3-s2X"/>
+                <constraint firstItem="Mbw-ag-9oL" firstAttribute="top" secondItem="GNo-We-bP6" secondAttribute="bottom" constant="20" id="TBI-eC-It1"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="vF4-yU-Rdc" secondAttribute="trailing" id="hBN-fS-2ph"/>
                 <constraint firstItem="GNo-We-bP6" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="14" id="i6q-Dv-tRV"/>
+                <constraint firstItem="vF4-yU-Rdc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lDp-09-JWA"/>
+                <constraint firstItem="vF4-yU-Rdc" firstAttribute="top" secondItem="Mbw-ag-9oL" secondAttribute="bottom" id="qSh-dO-NjV"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GNo-We-bP6" secondAttribute="trailing" constant="14" id="xTC-Sk-5DT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

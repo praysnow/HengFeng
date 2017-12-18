@@ -8,14 +8,19 @@
 
 #import "HFMySourcesDetailViewController.h"
 #import "HFNetwork.h"
+#import "HFMYResourCeDetailTableViewCell.h"
+#import "HFDaoxueDetailObject.h"
+#import "HFWebViewController.h"
 
-@interface HFMySourcesDetailViewController () <NSXMLParserDelegate>
+@interface HFMySourcesDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, copy) NSString *currentElementName;
 @property (nonatomic, strong) NSMutableString *mutableString;
 @property (nonatomic, strong) NSDictionary *Total;
 @property (nonatomic, strong) NSArray *listData;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) HFMYResourCeDetailTableViewCell *cell;
 
 @end
 
@@ -28,13 +33,30 @@
     self.titleLabel.text = _object.type ? _object.resName : _object.Dxa_Name;
     self.navigationItem.title = @"我的资源-导学案";
     self.mutableString = [[NSMutableString alloc] init];
+    [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFMYResourCeDetailTableViewCell class]) bundle: nil] forCellReuseIdentifier: @"Cell"];
+     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self showBackButton];
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)loadData
 {
-    //    HFCacheObject *object = [HFCacheObject shardence];
     NSString *soapString = [NSString stringWithFormat: @"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
                             <soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\
                             <soap:Body>\
@@ -52,6 +74,35 @@
         NSLog(@"我的资源  请求结果失败");
         NSLog(@"loadData faild %@",error.userInfo);
     }];
+}
+
+#pragma mark - tableView delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.listData.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HFMYResourCeDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell"];
+    cell.dictionary = self.listData[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    
+    HFWebViewController *webView = [[HFWebViewController alloc] init];
+    NSDictionary *dictioanry = self.listData[indexPath.row];
+    webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
+    [self.navigationController pushViewController: webView animated: YES];
 }
 
 # pragma mark - 协议方法
@@ -98,12 +149,12 @@
     if ([jsonData isKindOfClass: [NSDictionary class]])
       {
         NSDictionary *dictionary = (NSDictionary *)jsonData;
-        NSDictionary *Total = [dictionary objectForKey: @"Total"];
-        NSArray *listData = [dictionary objectForKey: @"listData"];
-        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, Total, listData.count);
+        self.Total = [dictionary objectForKey: @"Total"];
+        self.listData = [dictionary objectForKey: @"listData"];
+          [self.tableView reloadData];
+        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
        }
     }
 }
-
 
 @end

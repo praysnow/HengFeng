@@ -61,9 +61,21 @@
     return NO;
 }
 
++ (void)setCookieWithCookieName:(NSString *)name andValue:(NSString *)value
+{
+    NSMutableDictionary *cookiePropertyDictionary = [NSMutableDictionary dictionary];
+    cookiePropertyDictionary[NSHTTPCookieName] = name;
+    cookiePropertyDictionary[NSHTTPCookieValue] = value;
+    cookiePropertyDictionary[NSHTTPCookieDomain] = @"http://222.16.80.43";
+    cookiePropertyDictionary[NSHTTPCookiePath] = @"/";
+    cookiePropertyDictionary[NSHTTPCookieMaximumAge] = @"99999999";
+    NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties: cookiePropertyDictionary];
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie: cookie];
+}
+
 + (void)teacherControl
 {
-        NSString *loginStatus = @"Login?name=TeacherCtrl&os=android&class=defaultEx";
+//        NSString *loginStatus = @"Login?name=TeacherCtrl&os=android&class=defaultEx";
     
     NSString *resultStr = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
     <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"e1963ff6-0c5e-4ad1-a523-4b9dadf50b19\" />{7A76F682-6058-4EBC-A5AF-013A4369EE0E}111";

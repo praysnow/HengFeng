@@ -12,6 +12,8 @@
 
 // json字符串转为OC对象
 + (id)jsonStringToObject:(NSString *)jsonString;
+//保存Cookie
++ (void)setCookieWithCookieName:(NSString *)name andValue:(NSString *)value;
 
 //控制指令
 

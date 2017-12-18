@@ -70,6 +70,14 @@
     __weak typeof(self) weakSelf = self;
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
+        //存储Cookie
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSDictionary *allHeaders = response.allHeaderFields;
+        NSLog(@"登录成功后: allHeaders: %@", allHeaders);
+        //结束
+        [responseObject setDelegate:weakSelf];
+        [responseObject parse];
         success([weakSelf.mutableString copy]);
         weakSelf.mutableString = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -77,10 +85,16 @@
     }];
 }
 
+//#pragma mark - NSXMLParser代理
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    NSLog(@"解析结果为: %@", self.mutableString);
+    [self.mutableString appendString:string];
+}
+
+
 - (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     // 设置请求超时时间
     manager.requestSerializer.timeoutInterval = 30;
     
@@ -98,6 +112,9 @@
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
         // 返回字符串
+        //存储Cookie
+
+        //结束
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);

@@ -58,33 +58,31 @@
 
 - (IBAction)tappedLoginButton:(UIButton *)sender
 {
-    MainTabViewController *vc = [[MainTabViewController alloc] init];
-    [self presentViewController: vc animated: YES completion:^{
-    }];
-    [self.navigationController pushViewController: vc animated: YES];
-    //    WebServiceModel *model = [WebServiceModel new];
-    //    model.method = @"CheckUser";
-    //    NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
-    //    NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
-    //    model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
-    //    if (userName.length == 0) {
-    //        NSLog(@"账号不能为空");
-    //    } else if (passWord == 0) {
-    //        NSLog(@"密码不能为空");
-    //    } else {
-    //        [[HFNetwork network] SOAPDataWithUrl: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] soapBody: [model getRequestParams] success:^(NSString * responseObject) {
-    //            if ([responseObject containsString: @"true"]) {
-    //                [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
-    //                MainTabViewController *vc = [[MainTabViewController alloc] init];
-    //                [self presentViewController: vc animated: YES completion:^{
-    //                    ;
-    //                }];
-    //                [self.navigationController pushViewController: vc animated: YES];
-    //            }
-    //        } failure:^(NSError *error) {
-    //            NSLog(@"%@",error.userInfo);
-    //        }];
-    //    }
+        WebServiceModel *model = [WebServiceModel new];
+        model.method = @"CheckUser";
+        NSString *userName = self.userNameTextField.text.length == 0 ? @"" : self.userNameTextField.text;
+        NSString *passWord = self.userNameTextField.text.length == 0 ? @"" : self.passWordFeild.text;
+        model.params = (NSMutableDictionary *)@{@"userLoginName": userName.length != 0 ? userName : @"",@"userPassword": passWord.length != 0 ? passWord: @"", @"userType":@"教师"};
+        if (userName.length == 0) {
+            NSLog(@"账号不能为空");
+        } else if (passWord == 0) {
+            NSLog(@"密码不能为空");
+        } else {
+            [[HFNetwork network] SOAPDataWithUrl: [NSString stringWithFormat: @"%@%@", HOST, LOGIN_INTERFACE] soapBody: [model getRequestParams] success:^(NSString * responseObject) {
+                if ([responseObject containsString: @"true"]) {
+                    
+                    [HFUtils setCookieWithCookieName: @"ASP.NET_SessionId" andValue: @"ht2dhn51h3iq4endlkld0qma"];
+                    [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
+                    MainTabViewController *vc = [[MainTabViewController alloc] init];
+                    [self presentViewController: vc animated: YES completion:^{
+                        ;
+                    }];
+                    [self.navigationController pushViewController: vc animated: YES];
+                }
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error.userInfo);
+            }];
+        }
 }
 
 - (IBAction)tappedSystemConfigue:(UIButton *)sender
