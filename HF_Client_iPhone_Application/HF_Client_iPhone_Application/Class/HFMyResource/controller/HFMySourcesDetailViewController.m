@@ -152,7 +152,7 @@
         self.Total = [dictionary objectForKey: @"Total"];
         self.listData = [dictionary objectForKey: @"listData"];
           [self.tableView reloadData];
-        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
+//        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
        }
     }
 }
@@ -161,8 +161,8 @@
 {
     if (self.listData.count > self.selectedIndex) {
 
-        NSLog(@"控制命令发送");
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"111"]];
+        NSLog(@"下发导学案");
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"117", @(self.selectedIndex), @"", @"", @"1"]];
     }
 }
 

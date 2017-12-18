@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (strong, nonatomic)NSTimer *timer;
+@property (assign, nonatomic) BOOL reLineStatus;
 
 @end
 
@@ -103,7 +104,7 @@
     NSMutableString *string = [NSMutableString stringWithString: loginStatus];
     for (NSString *key in array) {
         [string stringByAppendingString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
-            NSLog(@"执行 %@指令", key);
+//            NSLog(@"\n 执行 %@指令", key);
     }
     NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
@@ -247,7 +248,23 @@
     BOOL state = [_socket isConnected];   // 判断当前socket的连接状态
     NSLog(@"连接状态: %d",state);
     self.socket = nil;
+    if (!self.reLineStatus) {
     [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
+        self.reLineStatus = YES;
+    }
+    
+    if (self.reLineStatus)
+    {
+        if (@available(iOS 10.0, *)) {
+            [NSTimer scheduledTimerWithTimeInterval: 20 repeats: YES block:^(NSTimer * _Nonnull timer) {
+                self.reLineStatus = NO;
+                NSLog(@"\n重连执行一次");
+            }];
+        } else {
+            // Fallback on earlier versions
+        }
+     }
+
 }
 
 @end
