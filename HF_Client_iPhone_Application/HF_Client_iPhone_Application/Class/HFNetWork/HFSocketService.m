@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (strong, nonatomic)NSTimer *timer;
-@property (assign, nonatomic) BOOL reLineStatus;
 
 @end
 
@@ -77,7 +76,7 @@
                 [self sendLoginInfo];
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
-                    [self sendCtrolMessage: @[@"111"]];
+//                    [self sendCtrolMessage: @[@"111"]];
                 }];
             } else {
             }
@@ -96,20 +95,19 @@
     Byte type = (Byte)(0x00);
     NSData *typeData = [NSData dataWithBytes: &type length: 1];
     NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
-    [mutableData appendData: typeData];
-    [mutableData appendData: steamIdData];
-    
     NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
     <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"e1963ff6-0c5e-4ad1-a523-4b9dadf50b19\" />";
     NSMutableString *string = [NSMutableString stringWithString: loginStatus];
     for (NSString *key in array) {
-        [string stringByAppendingString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
-//            NSLog(@"\n 执行 %@指令", key);
+        NSLog(@"key: %@",key);
+        [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
-    NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
+    [mutableData appendData: typeData];
     [mutableData appendData: lengthData];
+    [mutableData appendData: steamIdData];
     [mutableData appendData: data];
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
@@ -248,23 +246,7 @@
     BOOL state = [_socket isConnected];   // 判断当前socket的连接状态
     NSLog(@"连接状态: %d",state);
     self.socket = nil;
-    if (!self.reLineStatus) {
-    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
-        self.reLineStatus = YES;
-    }
-    
-    if (self.reLineStatus)
-    {
-        if (@available(iOS 10.0, *)) {
-            [NSTimer scheduledTimerWithTimeInterval: 20 repeats: YES block:^(NSTimer * _Nonnull timer) {
-                self.reLineStatus = NO;
-                NSLog(@"\n重连执行一次");
-            }];
-        } else {
-            // Fallback on earlier versions
-        }
-     }
-
+//    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
 }
 
 @end

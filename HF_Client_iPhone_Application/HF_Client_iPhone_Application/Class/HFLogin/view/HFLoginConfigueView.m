@@ -47,7 +47,7 @@
 
 - (IBAction)tapCloseView:(UIButton *)sender
 {
-    [HFSocketService sharedInstance].socket_host  = self.socket_addressTextField.text;
+    [HFSocketService sharedInstance].service_host  = self.service_addressTextField.text;
     [HFSocketService sharedInstance].socket_host  = self.socket_addressTextField.text;
     [self cacheUserDefautlInfo];
     [CBAlertWindow jz_hide];
