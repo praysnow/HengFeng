@@ -17,4 +17,7 @@
 
 - (void)setUpSocketWithHost:(NSString *)host andPort:(uint16_t)prot;
 
+//发送Socket命令
+- (void)sendCtrolMessage:(NSArray *)array;
+
 @end

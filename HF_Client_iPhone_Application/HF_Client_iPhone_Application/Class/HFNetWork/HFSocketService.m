@@ -74,7 +74,6 @@
         dispatch_once(&onceToken, ^{
             if (@available(iOS 10.0, *)) {
                 [self sendLoginInfo];
-                [self sendTeacherCtrolMessage];
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
                 }];
@@ -87,23 +86,29 @@
     [self.socket readDataWithTimeout:-1 tag:0];//WithTimeout 是超时时间,-1表示一直读取数据
 }
 
-- (void)sendTeacherCtrolMessage
+- (void)sendCtrolMessage:(NSArray *)array
 {
-    NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
-    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"e1963ff6-0c5e-4ad1-a523-4b9dadf50b19\" />{7A76F682-6058-4EBC-A5AF-013A4369EE0E}111";
-    NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
-    int length = (int)data.length;
+    if (array.count == 0) return;
+    NSMutableData *mutableData = [NSMutableData new];
     int steamId = (int)0;
     Byte type = (Byte)(0x00);
     NSData *typeData = [NSData dataWithBytes: &type length: 1];
-    NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
     NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
-    NSMutableData *mutableData = [NSMutableData new];
     [mutableData appendData: typeData];
-    [mutableData appendData: lengthData];
     [mutableData appendData: steamIdData];
+    
+    NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
+    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"e1963ff6-0c5e-4ad1-a523-4b9dadf50b19\" />";
+    NSMutableString *string = [NSMutableString stringWithString: loginStatus];
+    for (NSString *key in array) {
+        [string stringByAppendingString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
+            NSLog(@"执行 %@指令", key);
+    }
+    NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
+    int length = (int)data.length;
+    NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
+    [mutableData appendData: lengthData];
     [mutableData appendData: data];
-    NSLog(@"发送111指令");
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 

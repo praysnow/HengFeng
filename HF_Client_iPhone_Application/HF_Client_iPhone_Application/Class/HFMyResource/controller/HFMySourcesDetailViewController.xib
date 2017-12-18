@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFMySourcesDetailViewController">
             <connections>
+                <outlet property="getAwayButton" destination="mR6-wi-Ue8" id="p5i-uF-Ktc"/>
+                <outlet property="startButton" destination="jdh-pW-L1P" id="e0n-pW-0Z0"/>
                 <outlet property="tableView" destination="Mbw-ag-9oL" id="I8v-zZ-fba"/>
                 <outlet property="titleLabel" destination="nVs-me-grC" id="iRJ-5f-fXY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,10 +66,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdh-pW-L1P">
                             <rect key="frame" x="0.0" y="0.5" width="187.5" height="47.5"/>
                             <state key="normal" title="启用"/>
+                            <connections>
+                                <action selector="startingResource:" destination="-1" eventType="touchUpInside" id="nEx-bj-gjm"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mR6-wi-Ue8">
                             <rect key="frame" x="187.5" y="0.5" width="187.5" height="47.5"/>
                             <state key="normal" title="下发"/>
+                            <connections>
+                                <action selector="sendAway:" destination="-1" eventType="touchUpInside" id="Jqo-Bn-2Cq"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) HFMYResourCeDetailTableViewCell *cell;
+@property (weak, nonatomic) IBOutlet UIButton *getAwayButton;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 
@@ -97,12 +100,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+//    [tableView deselectRowAtIndexPath: indexPath animated: YES];
     
-    HFWebViewController *webView = [[HFWebViewController alloc] init];
-    NSDictionary *dictioanry = self.listData[indexPath.row];
-    webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
-    [self.navigationController pushViewController: webView animated: YES];
+    self.selectedIndex = indexPath.row;
 }
 
 # pragma mark - 协议方法
@@ -155,6 +155,24 @@
         NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
        }
     }
+}
+
+- (IBAction)sendAway:(UIButton *)sender
+{
+    if (self.listData.count > self.selectedIndex) {
+
+        NSLog(@"控制命令发送");
+    }
+}
+
+//查看详情
+- (IBAction)startingResource:(UIButton *)sender
+{
+    if (self.listData.count < self.selectedIndex) return;
+    HFWebViewController *webView = [[HFWebViewController alloc] init];
+    NSDictionary *dictioanry = self.listData[self.selectedIndex];
+    webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
+    [self.navigationController pushViewController: webView animated: YES];
 }
 
 @end
