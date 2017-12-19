@@ -8,8 +8,16 @@
 
 #import "HFDaoxueModel.h"
 
+@protocol HFMyResourceCollectionViewCellDelegate <NSObject>
+
+- (void)doubleClickCell:(HFDaoxueModel *)object;
+
+@end
+
 @interface HFMyResourceCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) HFDaoxueModel *object;
+
+@property (nonatomic, weak) id <HFMyResourceCollectionViewCellDelegate> delegate;
 
 @end

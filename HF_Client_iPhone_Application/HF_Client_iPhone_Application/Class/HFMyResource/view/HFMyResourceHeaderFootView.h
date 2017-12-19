@@ -6,8 +6,19 @@
 //  Copyright © 2017年 HengFeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class HFMyResourceHeaderFootView;
+
+@protocol HFMyResourceHeaderFootViewDelegate <NSObject>
+
+- (void)headerFooterSend;
+- (void)headerFooterDownLoad;
+
+@end
 
 @interface HFMyResourceHeaderFootView : UICollectionReusableView
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) id <HFMyResourceHeaderFootViewDelegate> delegate;
 
 @end

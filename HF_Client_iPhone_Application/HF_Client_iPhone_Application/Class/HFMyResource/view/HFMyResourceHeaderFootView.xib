@@ -44,6 +44,9 @@
                     <state key="normal" title="下载" image="my_source_down_load">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="downLoad:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ge2-RC-Agb"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI1-D0-bsP">
                     <rect key="frame" x="307" y="333.5" width="64" height="20"/>
@@ -52,6 +55,9 @@
                     <state key="normal" title="下发" image="my_source_sent_away">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="sendAway:" destination="iN0-l3-epB" eventType="touchUpInside" id="mw5-Wd-B0s"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,6 +76,9 @@
                 <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="zBl-Ca-VUF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="titleLabel" destination="f0w-du-2sg" id="nbX-Ak-4oi"/>
+            </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>

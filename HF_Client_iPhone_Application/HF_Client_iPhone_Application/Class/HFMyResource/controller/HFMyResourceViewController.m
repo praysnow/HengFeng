@@ -17,7 +17,7 @@
 #import "HFDaoxueModel.h"
 #import "HFMySourcesDetailViewController.h"
 
-@interface HFMyResourceViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout, GCDAsyncSocketDelegate, NSXMLParserDelegate>
+@interface HFMyResourceViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout, GCDAsyncSocketDelegate, NSXMLParserDelegate, HFMyResourceCollectionViewCellDelegate, HFMyResourceHeaderFootViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic)GCDAsyncSocket *socket;
@@ -27,6 +27,8 @@
 @property (strong, nonatomic)NSMutableArray *classArray;
 @property (nonatomic, copy) NSString *host;
 @property (nonatomic, assign) BOOL isStudent;
+@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, strong) HFDaoxueModel *object;
 
 @end
 
@@ -190,15 +192,44 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    for (HFMyResourceCollectionViewCell *cell in collectionView.visibleCells) {
+        cell.contentView.layer.borderColor = UICOLOR_ARGB(0xffe0e0e0).CGColor;
+    }
+    HFMyResourceCollectionViewCell *cell = (HFMyResourceCollectionViewCell *)[collectionView cellForItemAtIndexPath: indexPath];
+    self.object = cell.object;
+    cell.contentView.layer.borderColor = UICOLOR_ARGB(0xff53baa6).CGColor;
+}
+
+#pragma Cell Delegate
+
+- (void)doubleClickCell:(HFDaoxueModel *)object
+{
     HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
-    HFMyResourceCollectionViewCell *cell = (HFMyResourceCollectionViewCell *)[self.collectionView cellForItemAtIndexPath: indexPath];
-    vc.object = cell.object;
+    vc.object = object;
     [self.navigationController pushViewController: vc animated: YES];
+}
+
+#pragma HeaderFooter Delegate
+
+- (void)headerFooterSend
+{
+    NSLog(@"点击下发");
+    if (self.object) {
+        NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", self.object.resID.length == 0 ? self.object.Dxa_ID : self.object.resID, @"5820", @"1", @"0", self.object.Dxa_Name.length == 0 ? self.object.resName: self.object.Dxa_Name];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"127", @(self.selectedIndex), @"", string, @"3"]];
+    } else {
+        NSLog(@"请选择要下发的课程");
+    }
+}
+- (void)headerFooterDownLoad
+{
+   NSLog(@"点击下载");
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HFMyResourceCollectionViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
+    cell.delegate = self;
     if (indexPath.section == 0 && self.studentArray.count > indexPath.row) {
         HFDaoxueModel *object = self.studentArray[indexPath.row];
         object.image = [UIImage imageNamed: @"guidance_learning"];
@@ -232,7 +263,12 @@
     HFMyResourceHeaderFootView *reusableView = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         HFMyResourceHeaderFootView *headerFooterView = [collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier: @"HeaderView" forIndexPath: indexPath];
-        //        headerFooterView.delegate = self;
+                headerFooterView.delegate = self;
+        if (indexPath.section == 1) {
+            headerFooterView.titleLabel.text = @"导学堂";
+        } else {
+            headerFooterView.titleLabel.text = @"导学案";
+        }
         reusableView = headerFooterView;
     }
     reusableView.backgroundColor = [UIColor whiteColor];

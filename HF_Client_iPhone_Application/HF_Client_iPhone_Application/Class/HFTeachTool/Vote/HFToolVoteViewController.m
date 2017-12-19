@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"教学工具-投票";
+    [self showBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

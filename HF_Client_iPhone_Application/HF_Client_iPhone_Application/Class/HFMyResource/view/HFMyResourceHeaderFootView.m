@@ -10,12 +10,18 @@
 
 @implementation HFMyResourceHeaderFootView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)sendAway:(id)sender
+{
+    if ([self.delegate respondsToSelector: @selector(headerFooterSend)]) {
+        [self.delegate headerFooterSend];
+    }
 }
-*/
+
+- (IBAction)downLoad:(id)sender
+{
+    if ([self.delegate respondsToSelector: @selector(headerFooterDownLoad)]) {
+        [self.delegate headerFooterDownLoad];
+    }
+}
 
 @end

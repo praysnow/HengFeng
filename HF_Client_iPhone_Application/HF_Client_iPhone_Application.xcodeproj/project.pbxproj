@@ -346,10 +346,20 @@
 			isa = PBXGroup;
 			children = (
 				39B718EB1FBC1F9B0088C348 /* controller */,
-				39B718EA1FBC1F9A0088C348 /* view */,
 				39CE88E91FC81C150049CD0B /* model */,
+				39B718EA1FBC1F9A0088C348 /* view */,
 			);
 			path = HFMyResource;
+			sourceTree = "<group>";
+		};
+		391979C81FE7FC0300AD478D /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				39C94A3A1FE27B36003641C9 /* HFToolVoteViewController.h */,
+				39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */,
+				39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */,
+			);
+			path = Vote;
 			sourceTree = "<group>";
 		};
 		3964C6F71FB3F2F400A024A9 /* Source */ = {
@@ -561,9 +571,7 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
-				39C94A3A1FE27B36003641C9 /* HFToolVoteViewController.h */,
-				39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */,
-				39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */,
+				391979C81FE7FC0300AD478D /* Vote */,
 			);
 			path = HFTeachTool;
 			sourceTree = "<group>";
