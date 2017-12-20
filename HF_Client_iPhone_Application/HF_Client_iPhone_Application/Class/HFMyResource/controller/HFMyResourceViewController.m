@@ -215,7 +215,7 @@
 {
     NSLog(@"点击下发");
     if (self.object) {
-        NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", self.object.resID.length == 0 ? self.object.Dxa_ID : self.object.resID, @"5820", @"1", @"0", self.object.Dxa_Name.length == 0 ? self.object.resName: self.object.Dxa_Name];
+        NSString *string = [NSString stringWithFormat: @"%@%@%@%@%@", GET_INFO_CLASS, @(self.selectedIndex), @"", @"", @"1"];
         [[HFSocketService sharedInstance] sendCtrolMessage: @[@"127", @(self.selectedIndex), @"", string, @"3"]];
     } else {
         NSLog(@"请选择要下发的课程");

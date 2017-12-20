@@ -135,6 +135,7 @@
                                         <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
+                                        <action selector="tappedLockScreen:" destination="-1" eventType="touchUpInside" id="OqC-to-8z4"/>
                                         <action selector="tappedTeachToolsButton:" destination="-1" eventType="touchUpInside" id="YYj-Py-yjT"/>
                                     </connections>
                                 </button>

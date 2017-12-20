@@ -172,6 +172,12 @@
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
+    if ([receviedMessage containsString: @"LockScreen"]) {
+        [self lockScreen];
+    } else if ([receviedMessage containsString: @"unLockScreen"])
+    {
+        NSLog(@"解除锁屏");
+    }
     //    Byte *testByte = (Byte *)[data bytes];
     //    Byte lengthByte[] = {};
     //    for(int i=0;i<[data length];i++)
@@ -186,6 +192,11 @@
     //    } else {
     //        NSLog(@"\n是心跳包\n");
     //    }
+}
+
+- (void)lockScreen
+{
+    NSLog(@"\n锁定屏幕中...");
 }
 
 - (void)teacherInfo:(NSString*)receviedMessage

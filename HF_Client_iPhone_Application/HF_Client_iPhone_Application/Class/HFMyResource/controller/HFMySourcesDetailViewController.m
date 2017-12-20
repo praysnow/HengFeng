@@ -163,7 +163,7 @@
     if (self.listData.count > self.selectedIndex) {
 
         NSLog(@"下发导学案");
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"128", @(self.selectedIndex), @"", @"", @"1"]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
     }
 }
 

@@ -44,6 +44,8 @@
 		39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E851FB574DF00A364AB /* WLANxxbg.png */; };
 		39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */; };
 		39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */; };
+		391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391979CB1FE9130200AD478D /* HFPPTViewController.m */; };
+		391979CE1FE9130200AD478D /* HFPPTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979CC1FE9130200AD478D /* HFPPTViewController.xib */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
 		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
@@ -155,6 +157,9 @@
 		39181EAD1FB5AAEF00A364AB /* HFMyResourceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceViewController.h; sourceTree = "<group>"; };
 		39181EAE1FB5AAEF00A364AB /* HFMyResourceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceViewController.m; sourceTree = "<group>"; };
 		39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceViewController.xib; sourceTree = "<group>"; };
+		391979CA1FE9130200AD478D /* HFPPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPPTViewController.h; sourceTree = "<group>"; };
+		391979CB1FE9130200AD478D /* HFPPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPPTViewController.m; sourceTree = "<group>"; };
+		391979CC1FE9130200AD478D /* HFPPTViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPPTViewController.xib; sourceTree = "<group>"; };
 		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
@@ -357,6 +362,16 @@
 				39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */,
 			);
 			path = Vote;
+			sourceTree = "<group>";
+		};
+		391979C91FE9126000AD478D /* PPTHELP */ = {
+			isa = PBXGroup;
+			children = (
+				391979CA1FE9130200AD478D /* HFPPTViewController.h */,
+				391979CB1FE9130200AD478D /* HFPPTViewController.m */,
+				391979CC1FE9130200AD478D /* HFPPTViewController.xib */,
+			);
+			path = PPTHELP;
 			sourceTree = "<group>";
 		};
 		3964C6F71FB3F2F400A024A9 /* Source */ = {
@@ -571,6 +586,7 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
+				391979C91FE9126000AD478D /* PPTHELP */,
 				391979C81FE7FC0300AD478D /* Vote */,
 			);
 			path = HFTeachTool;
@@ -802,6 +818,7 @@
 				3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */,
 				39181E951FB574DF00A364AB /* ic_wifi.png in Resources */,
 				39181E861FB574DF00A364AB /* 1.png in Resources */,
+				391979CE1FE9130200AD478D /* HFPPTViewController.xib in Resources */,
 				39C94A391FDE81EE003641C9 /* HFLoginConfigueView.xib in Resources */,
 				39181E901FB574DF00A364AB /* ic_pwd_normal.png in Resources */,
 				39181E9F1FB574DF00A364AB /* wifi1.png in Resources */,
@@ -912,6 +929,7 @@
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
+				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
