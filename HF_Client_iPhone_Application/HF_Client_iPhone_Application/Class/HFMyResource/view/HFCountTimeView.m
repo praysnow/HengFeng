@@ -37,7 +37,7 @@
 
 - (IBAction)unLimitedTimeSend:(UIButton *)sender
 {
-    if ([self.delegate respondsToSelector: @selector(unlimitTimeSend::)])
+    if ([self.delegate respondsToSelector: @selector(unlimitTimeSend:)])
     {
         [self.delegate unlimitTimeSend: self.textField.text];
     }

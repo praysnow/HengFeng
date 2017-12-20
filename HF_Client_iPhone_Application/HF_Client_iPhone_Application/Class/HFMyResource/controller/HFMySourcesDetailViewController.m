@@ -164,8 +164,9 @@
 - (IBAction)sendAway:(UIButton *)sender
 {
     if (self.listData.count > self.selectedIndex) {
-        HFDaoxueDetailObject *object = self.listData[self.selectedIndex];
-        
+        HFDaoxueDetailObject *object = [HFDaoxueDetailObject new];
+        NSDictionary *dictionary = self.listData[self.selectedIndex];
+        object.typeName = [dictionary objectForKey: @"typeName"];
         if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]) {
             HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
             configueView.delegate = self;

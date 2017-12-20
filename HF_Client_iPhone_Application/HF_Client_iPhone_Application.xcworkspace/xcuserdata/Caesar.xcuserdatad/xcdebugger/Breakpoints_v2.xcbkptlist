@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HF_Client_iPhone_Application/Class/HFMyResource/controller/HFMySourcesDetailViewController.m"
-            timestampString = "535457484.632085"
+            timestampString = "535462385.457043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-sendAway:"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "-limitTimeSend:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
