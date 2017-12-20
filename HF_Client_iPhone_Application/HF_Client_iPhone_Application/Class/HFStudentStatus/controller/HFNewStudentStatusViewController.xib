@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFNewStudentStatusViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrA-Vw-9ix">
+                    <rect key="frame" x="20" y="50" width="335" height="175.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" backgroundImage="个人模式"/>
+                    <connections>
+                        <action selector="个人模式:" destination="-1" eventType="touchUpInside" id="kMM-D9-c4u"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkh-6K-Izx">
+                    <rect key="frame" x="20" y="461.5" width="335" height="175.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" backgroundImage="排行榜"/>
+                    <connections>
+                        <action selector="排行榜:" destination="-1" eventType="touchUpInside" id="LQt-ey-oJv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caO-Ie-QNA">
+                    <rect key="frame" x="20" y="255.5" width="335" height="176"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" backgroundImage="小组模式"/>
+                    <connections>
+                        <action selector="小组模式:" destination="-1" eventType="touchUpInside" id="R6m-Km-kxw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mkh-6K-Izx" firstAttribute="top" secondItem="caO-Ie-QNA" secondAttribute="bottom" constant="30" id="3cY-3W-YfD"/>
+                <constraint firstItem="caO-Ie-QNA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="92O-5o-QoW"/>
+                <constraint firstItem="mkh-6K-Izx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="CF6-Yu-Rhc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="FrA-Vw-9ix" secondAttribute="trailing" constant="20" id="E4X-Yl-86d"/>
+                <constraint firstItem="FrA-Vw-9ix" firstAttribute="height" secondItem="caO-Ie-QNA" secondAttribute="height" id="Jh0-PR-Oy9"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="mkh-6K-Izx" secondAttribute="trailing" constant="20" id="dL8-19-1aI"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="mkh-6K-Izx" secondAttribute="bottom" constant="30" id="gnn-TU-s6K"/>
+                <constraint firstItem="FrA-Vw-9ix" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="ogm-N7-24h"/>
+                <constraint firstItem="FrA-Vw-9ix" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="pg3-lv-3S9"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="caO-Ie-QNA" secondAttribute="trailing" constant="20" id="sou-b9-jO3"/>
+                <constraint firstItem="FrA-Vw-9ix" firstAttribute="height" secondItem="mkh-6K-Izx" secondAttribute="height" id="tk2-rN-QTS"/>
+                <constraint firstItem="caO-Ie-QNA" firstAttribute="top" secondItem="FrA-Vw-9ix" secondAttribute="bottom" constant="30" id="whT-Um-h6c"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="个人模式" width="364" height="169"/>
+        <image name="小组模式" width="364" height="169"/>
+        <image name="排行榜" width="364" height="169"/>
+    </resources>
+</document>

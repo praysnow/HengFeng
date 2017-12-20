@@ -59,9 +59,6 @@
 		398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF51FE76598008816CD /* HFDaoxueDetailObject.m */; };
 		398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBFB1FE77197008816CD /* HFWebViewController.m */; };
 		398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBFC1FE77197008816CD /* HFWebViewController.xib */; };
-		39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718DD1FB949B10088C348 /* HFTabBarView.m */; };
-		39B718E01FB949BC0088C348 /* HFTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718DF1FB949BC0088C348 /* HFTabBarView.xib */; };
-		39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718E21FB971790088C348 /* HFCustomTabBar.m */; };
 		39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */; };
 		39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */; };
 		39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */; };
@@ -70,8 +67,6 @@
 		39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */; };
 		39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B719091FBE87DC0088C348 /* HFNetwork.m */; };
 		39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B7190A1FBE87DC0088C348 /* WebServiceModel.m */; };
-		39C94A151FDA8B1D003641C9 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */; };
-		39C94A161FDA8B1D003641C9 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */; };
 		39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */; };
 		39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C94A201FDE6414003641C9 /* HFStutentStatusViewController.m */; };
 		39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C94A211FDE6414003641C9 /* HFStutentStatusViewController.xib */; };
@@ -92,6 +87,11 @@
 		39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFA81FD6A8AB00395908 /* XMLReader.m */; };
 		39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
+		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
+		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
+		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
+		82E62FDF1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */; };
+		82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,11 +183,6 @@
 		398CDBFA1FE77197008816CD /* HFWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFWebViewController.h; sourceTree = "<group>"; };
 		398CDBFB1FE77197008816CD /* HFWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFWebViewController.m; sourceTree = "<group>"; };
 		398CDBFC1FE77197008816CD /* HFWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFWebViewController.xib; sourceTree = "<group>"; };
-		39B718DC1FB949B10088C348 /* HFTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTabBarView.h; sourceTree = "<group>"; };
-		39B718DD1FB949B10088C348 /* HFTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTabBarView.m; sourceTree = "<group>"; };
-		39B718DF1FB949BC0088C348 /* HFTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTabBarView.xib; sourceTree = "<group>"; };
-		39B718E11FB971790088C348 /* HFCustomTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCustomTabBar.h; sourceTree = "<group>"; };
-		39B718E21FB971790088C348 /* HFCustomTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCustomTabBar.m; sourceTree = "<group>"; };
 		39B718EC1FBC20050088C348 /* HFMyResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceCollectionViewCell.h; sourceTree = "<group>"; };
 		39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceCollectionViewCell.m; sourceTree = "<group>"; };
 		39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -201,9 +196,6 @@
 		39B719081FBE87DC0088C348 /* HFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFNetwork.h; sourceTree = "<group>"; };
 		39B719091FBE87DC0088C348 /* HFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFNetwork.m; sourceTree = "<group>"; };
 		39B7190A1FBE87DC0088C348 /* WebServiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceModel.m; sourceTree = "<group>"; };
-		39C94A121FDA8B1D003641C9 /* HFClassTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
-		39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
-		39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
 		39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTeachToolViewController.h; sourceTree = "<group>"; };
 		39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolViewController.m; sourceTree = "<group>"; };
 		39C94A1F1FDE6414003641C9 /* HFStutentStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStutentStatusViewController.h; sourceTree = "<group>"; };
@@ -238,6 +230,14 @@
 		39F0DFA81FD6A8AB00395908 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		39F0DFAA1FD7C97200395908 /* HFDaoxueModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFDaoxueModel.h; sourceTree = "<group>"; };
 		39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFDaoxueModel.m; sourceTree = "<group>"; };
+		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
+		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
+		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
+		82E62FDB1FE9187A00B90E69 /* HFNewStudentStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFNewStudentStatusViewController.h; sourceTree = "<group>"; };
+		82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFNewStudentStatusViewController.m; sourceTree = "<group>"; };
+		82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFNewStudentStatusViewController.xib; sourceTree = "<group>"; };
+		82E62FE01FE91E3000B90E69 /* HFNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFNavigationViewController.h; sourceTree = "<group>"; };
+		82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFNavigationViewController.m; sourceTree = "<group>"; };
 		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -333,11 +333,8 @@
 				392BB3B71FB5B40A00444EAF /* MainTabViewController.h */,
 				392BB3B81FB5B40A00444EAF /* MainTabViewController.m */,
 				392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */,
-				39B718DC1FB949B10088C348 /* HFTabBarView.h */,
-				39B718DD1FB949B10088C348 /* HFTabBarView.m */,
-				39B718DF1FB949BC0088C348 /* HFTabBarView.xib */,
-				39B718E11FB971790088C348 /* HFCustomTabBar.h */,
-				39B718E21FB971790088C348 /* HFCustomTabBar.m */,
+				82E62FE01FE91E3000B90E69 /* HFNavigationViewController.h */,
+				82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */,
 			);
 			path = HFMain;
 			sourceTree = "<group>";
@@ -521,9 +518,9 @@
 		39C94A111FDA8AF9003641C9 /* HFClassTest */ = {
 			isa = PBXGroup;
 			children = (
-				39C94A121FDA8B1D003641C9 /* HFClassTestViewController.h */,
-				39C94A131FDA8B1D003641C9 /* HFClassTestViewController.m */,
-				39C94A141FDA8B1D003641C9 /* HFClassTestViewController.xib */,
+				82E62FCD1FE911D600B90E69 /* controller */,
+				82E62FD21FE911D600B90E69 /* model */,
+				82E62FD11FE911D600B90E69 /* view */,
 			);
 			path = HFClassTest;
 			sourceTree = "<group>";
@@ -534,6 +531,9 @@
 				39C94A1F1FDE6414003641C9 /* HFStutentStatusViewController.h */,
 				39C94A201FDE6414003641C9 /* HFStutentStatusViewController.m */,
 				39C94A211FDE6414003641C9 /* HFStutentStatusViewController.xib */,
+				82E62FDB1FE9187A00B90E69 /* HFNewStudentStatusViewController.h */,
+				82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */,
+				82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -615,6 +615,30 @@
 				39F0DFA81FD6A8AB00395908 /* XMLReader.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		82E62FCD1FE911D600B90E69 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */,
+				82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */,
+				82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		82E62FD11FE911D600B90E69 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		82E62FD21FE911D600B90E69 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A92E0E17AFDCB6BFFBACC06F /* Pods */ = {
@@ -738,6 +762,7 @@
 				39181E871FB574DF00A364AB /* 2.png in Resources */,
 				398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */,
 				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
+				82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */,
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
 				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
 				391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */,
@@ -745,6 +770,7 @@
 				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
 				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
 				39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */,
+				82E62FDF1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib in Resources */,
 				39C94A3E1FE27B36003641C9 /* HFToolVoteViewController.xib in Resources */,
 				39181E9E1FB574DF00A364AB /* user_name.png in Resources */,
 				39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */,
@@ -761,7 +787,6 @@
 				39181E991FB574DF00A364AB /* passwoard_back.png in Resources */,
 				39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */,
 				39181E981FB574DF00A364AB /* login_button_bg.png in Resources */,
-				39C94A161FDA8B1D003641C9 /* HFClassTestViewController.xib in Resources */,
 				39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */,
 				39181EA41FB574DF00A364AB /* WLANbg.png in Resources */,
 				39181E8C1FB574DF00A364AB /* ic_drop_normal.png in Resources */,
@@ -783,7 +808,6 @@
 				39181EA01FB574DF00A364AB /* wifi2.png in Resources */,
 				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
 				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
-				39B718E01FB949BC0088C348 /* HFTabBarView.xib in Resources */,
 				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,19 +884,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */,
 				39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */,
-				39B718E31FB971790088C348 /* HFCustomTabBar.m in Sources */,
-				39B718DE1FB949B10088C348 /* HFTabBarView.m in Sources */,
 				39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */,
 				398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */,
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
-				39C94A151FDA8B1D003641C9 /* HFClassTestViewController.m in Sources */,
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
 				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
 				3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */,
+				82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */,
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
 				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
@@ -881,6 +904,7 @@
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,
+				82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
@@ -1060,14 +1084,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B625Q63YR4;
+				DEVELOPMENT_TEAM = U86FP276EQ;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1079,14 +1103,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B625Q63YR4;
+				DEVELOPMENT_TEAM = U86FP276EQ;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

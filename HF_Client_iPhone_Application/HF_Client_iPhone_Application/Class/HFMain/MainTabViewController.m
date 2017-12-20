@@ -10,10 +10,11 @@
 #import "HFMyResourceViewController.h"
 #import "HFStutentStatusViewController.h"
 #import "HFTeachToolViewController.h"
-#import "HFCustomTabBar.h"
 #import "HFClassTestViewController.h"
+#import "HFNewStudentStatusViewController.h"
+#import "HFNavigationViewController.h"
 
-@interface MainTabViewController () <HFTabBarViewDelegate>
+@interface MainTabViewController ()
 
 @end
 
@@ -22,20 +23,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self setupappearance];
     
     [self addAllChildViewController];
 }
 
-- (void)setupappearance
+
++ (void)initialize
 {
-    HFCustomTabBar *tabBar = [[HFCustomTabBar alloc] init];
-    tabBar.tabBarView.viewDelegate = self;
-    [self setValue:tabBar forKey:@"tabBar"];
-    if ([tabBar.subviews count] == 5 && [tabBar.subviews[4] isKindOfClass: [UIImageView class]]) {
-        tabBar.subviews[4].backgroundColor = [UIColor clearColor];
-    }
+    // 通过appearance统一设置所有UITabBarItem的文字属性
+    // 后面带有UI_APPEARANCE_SELECTOR的方法, 都可以通过appearance对象来统一设置
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
+    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSFontAttributeName] = attrs[NSFontAttributeName];
+    selectedAttrs[NSForegroundColorAttributeName] = UICOLOR_RGB(0xff54BAA6);
+    
+    UITabBarItem *item = [UITabBarItem appearance];
+    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 }
 
 #pragma mark - Private Methods
@@ -44,34 +51,36 @@
 - (void)addAllChildViewController
 {
     HFMyResourceViewController *homeVC = [[HFMyResourceViewController alloc] init];
-    [self addChildViewController:homeVC title:@"我的资源" imageNamed:@"tabbar_match_selected"];
-
+    [self addChildViewController:homeVC title:@"我的资源" image:@"my_source_unselected" selectedImage:@"my_source_selected"];
+    
     HFTeachToolViewController *findVC = [[HFTeachToolViewController alloc] init];
-    [self addChildViewController:findVC title:@"教学工具" imageNamed:@"tabbar_match_selected"];
-
+    [self addChildViewController:findVC title:@"教学工具" image:@"teach_tool_unselected" selectedImage:@"teach_tool_selected"];
+    
     HFClassTestViewController *mineVC = [[HFClassTestViewController alloc] init];
-    [self addChildViewController:mineVC title:@"课堂测试" imageNamed:@"tabbar_match_selected"];
-    HFStutentStatusViewController *activityVC = [[HFStutentStatusViewController alloc] init];
-    [self addChildViewController:activityVC title:@"学生状态" imageNamed:@"tabbar_match_selected"];
+    [self addChildViewController:mineVC title:@"课堂测试" image:@"class_test_unselected" selectedImage:@"class_test_selected"];
+    
+    HFNewStudentStatusViewController *activityVC = [[HFNewStudentStatusViewController alloc] init];
+     [self addChildViewController:activityVC title:@"学生状态" image:@"student_status_unselected" selectedImage:@"student_status_selected"];
+    
 }
 
-// 添加某个 childViewController
-- (void)addChildViewController:(UIViewController *)vc title:(NSString *)title imageNamed:(NSString *)imageNamed
+
+
+/**
+ * 初始化子控制器
+ */
+- (void)addChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    nav.navigationBar.barTintColor = UICOLOR_ARGB(0x59c6ce);
-    nav.navigationBar.barStyle = UIBarStyleDefault;
-    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    // 设置文字和图片
     vc.navigationItem.title = title;
-    [self addChildViewController: nav];
-}
-
-#pragma mark - MSCustomTabBarViewDelegate
-
-- (void)hfTabBarView:(HFTabBarView *)view didSelectItemAtIndex:(NSInteger)index
-{
-    // 切换到对应index的viewController
-    self.selectedIndex = index;
+    vc.tabBarItem.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
+    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    
+    // 包装一个导航控制器, 添加导航控制器为tabbarcontroller的子控制器
+    HFNavigationViewController *nav = [[HFNavigationViewController alloc] initWithRootViewController:vc];
+    nav.navigationBar.barTintColor = UICOLOR_ARGB(0x59c6ce);
+    [self addChildViewController:nav];
 }
 
 @end
