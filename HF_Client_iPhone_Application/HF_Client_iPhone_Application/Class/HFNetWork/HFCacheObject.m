@@ -49,12 +49,13 @@
     return object;
 }
 
-- (void)setSubjectId:(NSString *)subjectId
+- (void)setClassId:(NSString *)classId
 {
-    _subjectId = subjectId;
+    _classId = classId;
     NSLog(@"测试数据");
-    _subjectId = @"8926";
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TEACHER_CTROL" object: nil];
+    if (_classId.length > 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"TEACHER_CTROL" object: nil];
+    }
 }
 
 @end

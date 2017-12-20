@@ -11,8 +11,10 @@
 #import "HFMYResourCeDetailTableViewCell.h"
 #import "HFDaoxueDetailObject.h"
 #import "HFWebViewController.h"
+#import "HFCountTimeView.h"
+#import "CBAlertWindow.h"
 
-@interface HFMySourcesDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface HFMySourcesDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, HFCountTimeViewDelegate>
 
 @property (nonatomic, copy) NSString *currentElementName;
 @property (nonatomic, strong) NSMutableString *mutableString;
@@ -24,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *getAwayButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, strong) HFCountTimeView *configueView;
 
 @end
 
@@ -161,10 +164,34 @@
 - (IBAction)sendAway:(UIButton *)sender
 {
     if (self.listData.count > self.selectedIndex) {
-
-        NSLog(@"下发导学案");
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+        HFDaoxueDetailObject *object = self.listData[self.selectedIndex];
+        
+        if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]) {
+            HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
+            configueView.delegate = self;
+            self.configueView = configueView;
+            configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            configueView.layer.masksToBounds = YES;
+            [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+        } else {
+            NSLog(@"下发导学案");
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+        }
     }
+}
+
+- (void)limitTimeSend:(NSString *)count
+{
+    NSLog(@"计时下发");
+//     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+    [CBAlertWindow jz_hide];
+}
+
+-(void)unlimitTimeSend:(NSString *)count
+{
+    NSLog(@"不计时下发");
+//     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+    [CBAlertWindow jz_hide];
 }
 
 //查看详情
