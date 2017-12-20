@@ -7,7 +7,7 @@
 //
 
 #import "HFNewStudentStatusViewController.h"
-#import "HFStutentStatusViewController.h"
+#import "HFStudentStatusPersonViewController.h"
 
 
 @interface HFNewStudentStatusViewController ()
@@ -22,7 +22,7 @@
 }
 
 - (IBAction)个人模式:(id)sender {
-    HFStutentStatusViewController *vc = [HFStutentStatusViewController new];
+    HFStudentStatusPersonViewController *vc = [HFStudentStatusPersonViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

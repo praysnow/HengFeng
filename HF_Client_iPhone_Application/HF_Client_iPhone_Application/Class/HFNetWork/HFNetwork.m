@@ -108,6 +108,7 @@
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
     }];
+    NSLog(@"请求url：%@",url);
     NSLog(@"请求数据：%@",soapBody);
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
@@ -118,6 +119,7 @@
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
+        NSLog(@"%@",error);
     }];
 }
 

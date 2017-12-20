@@ -94,6 +94,8 @@
 		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
 		82E62FDF1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */; };
 		82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */; };
+		82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FE41FEA17C100B90E69 /* HFStudentStatusPersonViewController.m */; };
+		82E62FE71FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FE51FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +245,9 @@
 		82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFNewStudentStatusViewController.xib; sourceTree = "<group>"; };
 		82E62FE01FE91E3000B90E69 /* HFNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFNavigationViewController.h; sourceTree = "<group>"; };
 		82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFNavigationViewController.m; sourceTree = "<group>"; };
+		82E62FE31FEA17C100B90E69 /* HFStudentStatusPersonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentStatusPersonViewController.h; sourceTree = "<group>"; };
+		82E62FE41FEA17C100B90E69 /* HFStudentStatusPersonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentStatusPersonViewController.m; sourceTree = "<group>"; };
+		82E62FE51FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentStatusPersonViewController.xib; sourceTree = "<group>"; };
 		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -549,6 +554,9 @@
 				82E62FDB1FE9187A00B90E69 /* HFNewStudentStatusViewController.h */,
 				82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */,
 				82E62FDD1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib */,
+				82E62FE31FEA17C100B90E69 /* HFStudentStatusPersonViewController.h */,
+				82E62FE41FEA17C100B90E69 /* HFStudentStatusPersonViewController.m */,
+				82E62FE51FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -794,6 +802,7 @@
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
 				3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */,
 				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
+				82E62FE71FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib in Resources */,
 				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
 				39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */,
 				39C94A341FDE7CFE003641C9 /* HFLoginViewController.xib in Resources */,
@@ -916,6 +925,7 @@
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
 				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
+				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
