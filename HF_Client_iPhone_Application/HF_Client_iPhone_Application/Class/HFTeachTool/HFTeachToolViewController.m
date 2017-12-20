@@ -8,6 +8,7 @@
 
 #import "HFTeachToolViewController.h"
 #import "HFToolVoteViewController.h"
+#import "HFPPTViewController.h"
 
 @interface HFTeachToolViewController ()
 
@@ -69,7 +70,8 @@
             break;
         case 8:
         {
-           NSLog(@"PPT助手");
+            HFPPTViewController *vc = [[HFPPTViewController alloc] init];
+            [self.navigationController pushViewController: vc animated: YES];
         }
             break;
         default:
@@ -77,5 +79,15 @@
     }
     
 }
+
+#pragma mark - tapped action
+
+- (IBAction)tappedLockScreen:(UIButton *)sender
+{
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[UNLOCK_SCREEN]];
+//    sender.selected = !sender.selected;
+//    [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
+}
+
 
 @end
