@@ -18,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // 状态栏改为白色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     HFLoginViewController *loginView = [HFLoginViewController new];

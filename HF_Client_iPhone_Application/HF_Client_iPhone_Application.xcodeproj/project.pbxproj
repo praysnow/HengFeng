@@ -98,6 +98,7 @@
 		82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */; };
 		82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FE41FEA17C100B90E69 /* HFStudentStatusPersonViewController.m */; };
 		82E62FE71FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FE51FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib */; };
+		82E62FEB1FEBAAD100B90E69 /* HFStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FEA1FEBAAD100B90E69 /* HFStudentModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,8 @@
 		82E62FE31FEA17C100B90E69 /* HFStudentStatusPersonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentStatusPersonViewController.h; sourceTree = "<group>"; };
 		82E62FE41FEA17C100B90E69 /* HFStudentStatusPersonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentStatusPersonViewController.m; sourceTree = "<group>"; };
 		82E62FE51FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentStatusPersonViewController.xib; sourceTree = "<group>"; };
+		82E62FE91FEBAAD100B90E69 /* HFStudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFStudentModel.h; path = HF_Client_iPhone_Application/Class/HFStudentStatus/controller/HFStudentModel.h; sourceTree = SOURCE_ROOT; };
+		82E62FEA1FEBAAD100B90E69 /* HFStudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFStudentModel.m; path = HF_Client_iPhone_Application/Class/HFStudentStatus/controller/HFStudentModel.m; sourceTree = SOURCE_ROOT; };
 		9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_Application.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HF_Client_iPhone_ApplicationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -505,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				39C94A1E1FDE6414003641C9 /* controller */,
-				39B718FA1FBD63350088C348 /* model */,
+				82E62FE81FEB9DE400B90E69 /* model */,
 				39B718F81FBD63350088C348 /* view */,
 			);
 			path = HFStudentStatus;
@@ -519,13 +522,6 @@
 				39B719021FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		39B718FA1FBD63350088C348 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		39B719061FBE87AC0088C348 /* HFNetWork */ = {
@@ -669,6 +665,15 @@
 		82E62FD21FE911D600B90E69 /* model */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		82E62FE81FEB9DE400B90E69 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				82E62FE91FEBAAD100B90E69 /* HFStudentModel.h */,
+				82E62FEA1FEBAAD100B90E69 /* HFStudentModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -944,6 +949,7 @@
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
+				82E62FEB1FEBAAD100B90E69 /* HFStudentModel.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,

@@ -44,6 +44,8 @@
 #define FIT_WIDTH_LAYOUT_CONSTRAINT(x) (x.constant = FLEXIBLE_WIDTH(x.constant))
 #define FIT_HEIGHT_LAYOUT_CONSTRAINT(x) (x.constant = FLEXIBLE_HEIGHT(x.constant))
 
+#define MainColor UICOLOR_ARGB(0xff54BAA6)
+
 #ifndef DEBUG
 #define NSLog(fmt, ...)  
 #endif

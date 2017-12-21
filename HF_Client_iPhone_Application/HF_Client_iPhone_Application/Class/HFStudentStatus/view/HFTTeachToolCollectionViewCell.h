@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HFStudentModel.h"
 
 @interface HFTTeachToolCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic,strong) HFStudentModel *studentModel;
 
 @end
