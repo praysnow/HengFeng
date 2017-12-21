@@ -184,14 +184,16 @@
 - (void)limitTimeSend:(NSString *)count
 {
     NSLog(@"计时下发");
-//     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @([count integerValue] * 60), _object.Dxa_Name];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @(self.selectedIndex), string, @"", @"1"]];
     [CBAlertWindow jz_hide];
 }
 
 -(void)unlimitTimeSend:(NSString *)count
 {
     NSLog(@"不计时下发");
-//     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), _object.Dxa_Name];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", string, @"1"]];
     [CBAlertWindow jz_hide];
 }
 
