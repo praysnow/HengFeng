@@ -22,8 +22,11 @@
     self.title = @"学生状态-个人";
     
     WebServiceModel *model = [WebServiceModel new];
-    model.method = @"GetGroupPeopleList";
-    model.params = @{@"PeopleGroupID":@"255"}.mutableCopy;
+    model.method = @"GetStudentListByClassID";
+    
+    NSString *classId = [HFCacheObject shardence].classId;
+    
+    model.params = @{@"ClassID":classId}.mutableCopy;
     
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
