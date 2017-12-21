@@ -76,8 +76,8 @@
                 [self sendLoginInfo];
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
-//                    [self sendCtrolMessage: @[@"111"]];
                 }];
+            [self sendCtrolMessage: @[@"111"]];
             } else {
             }
         });
@@ -207,9 +207,7 @@
     NSArray *arry=[message componentsSeparatedByString:@"&"];
     for (NSString *string in arry) {
         if ([string containsString: @"classId="] ) {
-            
-            [HFCacheObject shardence].classId = @"8926";
-//            [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
+           [HFCacheObject shardence].classId = [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
             NSLog(@"classID为:%@", [HFCacheObject shardence].classId);
         }
         if ([string containsString: @"courseId="] ) {

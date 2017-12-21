@@ -44,11 +44,7 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
-    [HFSocketService sharedInstance];
-    [self loadData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self loadClassData];
-    });
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
 }
 
 - (void)loadData
@@ -61,12 +57,13 @@
                             <tpID>%@</tpID>\
                             </GetDaoXueRenWuByTpID>\
                             </soap:Body>\
-                            </soap:Envelope>", @"8926"];
+                            </soap:Envelope>", [HFCacheObject shardence].courseId];
     _host = [NSString stringWithFormat: @"%@%@", HOST, DAOXUEAN_INTERFACE];
     [[HFNetwork network] xmlSOAPDataWithUrl: _host soapBody: soapString success:^(id responseObject){
         [responseObject setDelegate:self];
         [responseObject parse];
         NSLog(@"我的资源请求结果成功");
+        [self loadClassData];
     } failure:^(NSError *error) {
         NSLog(@"我的资源  请求结果失败");
         NSLog(@"loadData faild %@",error.userInfo);
@@ -83,7 +80,7 @@
                             <tpID>%@</tpID>\
                             </GetCourseResByTpID>\
                             </soap:Body>\
-                            </soap:Envelope>", @"8926"];
+                            </soap:Envelope>", [HFCacheObject shardence].courseId];
     _host = [NSString stringWithFormat: @"%@%@", HOST, DAOXUETANG_INTERFACE];
     [[HFNetwork network] xmlSOAPDataWithUrl: _host soapBody: soapString success:^(id responseObject){
         [responseObject setDelegate:self];

@@ -78,6 +78,7 @@
                         ;
                     }];
                     [self.navigationController pushViewController: vc animated: YES];
+                    [HFSocketService sharedInstance];
                 }
             } failure:^(NSError *error) {
                 NSLog(@"%@",error.userInfo);

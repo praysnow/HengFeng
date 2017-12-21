@@ -46,6 +46,8 @@
 		39181EB11FB5AAEF00A364AB /* HFMyResourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */; };
 		391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391979CB1FE9130200AD478D /* HFPPTViewController.m */; };
 		391979CE1FE9130200AD478D /* HFPPTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979CC1FE9130200AD478D /* HFPPTViewController.xib */; };
+		391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 391979D01FEA5FAA00AD478D /* HFCountTimeView.m */; };
+		391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979D21FEA5FB500AD478D /* HFCountTimeView.xib */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
 		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
@@ -162,6 +164,9 @@
 		391979CA1FE9130200AD478D /* HFPPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPPTViewController.h; sourceTree = "<group>"; };
 		391979CB1FE9130200AD478D /* HFPPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPPTViewController.m; sourceTree = "<group>"; };
 		391979CC1FE9130200AD478D /* HFPPTViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPPTViewController.xib; sourceTree = "<group>"; };
+		391979CF1FEA5FAA00AD478D /* HFCountTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCountTimeView.h; sourceTree = "<group>"; };
+		391979D01FEA5FAA00AD478D /* HFCountTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCountTimeView.m; sourceTree = "<group>"; };
+		391979D21FEA5FB500AD478D /* HFCountTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFCountTimeView.xib; sourceTree = "<group>"; };
 		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
@@ -474,6 +479,9 @@
 				398CDBEF1FE764D7008816CD /* HFMYResourCeDetailTableViewCell.h */,
 				398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */,
 				398CDBF11FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib */,
+				391979CF1FEA5FAA00AD478D /* HFCountTimeView.h */,
+				391979D01FEA5FAA00AD478D /* HFCountTimeView.m */,
+				391979D21FEA5FB500AD478D /* HFCountTimeView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -833,6 +841,7 @@
 				39181E9F1FB574DF00A364AB /* wifi1.png in Resources */,
 				39181EA01FB574DF00A364AB /* wifi2.png in Resources */,
 				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
+				391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */,
 				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
 				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
 			);
@@ -940,6 +949,7 @@
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
 				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
+				391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
