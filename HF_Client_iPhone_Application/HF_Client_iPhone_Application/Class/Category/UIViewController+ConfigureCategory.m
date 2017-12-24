@@ -17,18 +17,18 @@ NSString * const viewControllerHasViewDidAppearedKey = @"viewControllerHasViewDi
 - (void)showBackButton
 {
     //给返回按钮增加一个 super view 是为了解决默认情况下，返回按钮触发区域太宽的问题
-    UIView *view = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 44, 44)];
-    UIButton *leftButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    leftButton.titleLabel.font = [UIFont systemFontOfSize: 17.0f];
-    [leftButton setTitle: @"返回" forState: UIControlStateNormal];
-    leftButton.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
-    [leftButton addTarget: self action: @selector(tappedBackButton:) forControlEvents: UIControlEventTouchUpInside];
-    [leftButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    [view addSubview: leftButton];
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView: view];
-    UIBarButtonItem *fixedSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target: nil action: nil];
-    fixedSpaceBarButtonItem.width = -19.5;
-    self.navigationItem.leftBarButtonItems = @[fixedSpaceBarButtonItem, leftBarButtonItem];
+//    UIView *view = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 44, 44)];
+//    UIButton *leftButton = [UIButton buttonWithType: UIButtonTypeCustom];
+//    leftButton.titleLabel.font = [UIFont systemFontOfSize: 17.0f];
+//    [leftButton setTitle: @"返回" forState: UIControlStateNormal];
+//    leftButton.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+//    [leftButton addTarget: self action: @selector(tappedBackButton:) forControlEvents: UIControlEventTouchUpInside];
+//    [leftButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+//    [view addSubview: leftButton];
+//    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView: view];
+//    UIBarButtonItem *fixedSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target: nil action: nil];
+//    fixedSpaceBarButtonItem.width = -19.5;
+//    self.navigationItem.leftBarButtonItems = @[fixedSpaceBarButtonItem, leftBarButtonItem];
 }
 
 - (void)tappedBackButton:(id)sender

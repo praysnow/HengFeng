@@ -26,14 +26,43 @@
 {
     [super viewWillAppear: animated];
     
-    self.tabBarController.tabBar.hidden = YES;
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND_VOTE]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear: animated];
     
-    self.tabBarController.tabBar.hidden = NO;
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
 }
+
+- (IBAction)tappedToolButton:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+        {
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
+        }
+            break;
+        case 1:
+        {
+                        [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
+        }
+            break;
+        case 2:
+        {
+                        [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE]];
+        }
+            break;
+        case 3:
+        {
+                        [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 @end
