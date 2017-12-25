@@ -70,11 +70,6 @@
     __weak typeof(self) weakSelf = self;
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
-        //存储Cookie
-        
-        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-        NSDictionary *allHeaders = response.allHeaderFields;
-        NSLog(@"登录成功后: allHeaders: %@", allHeaders);
         //结束
         [responseObject setDelegate:weakSelf];
         [responseObject parse];
