@@ -88,9 +88,9 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  */
 #define START_TESCH_SHARE  @"16"
 /**
- * 开始教学分享
+ * 结束教学分享
  */
-#define START_TESCHER_SHARE  @"17"
+#define END_TESCHER_SHARE  @"17"
 /**
  * 锁屏
  */
@@ -207,11 +207,11 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
 /**
  * 随机提问
  */
- #define ASK_RANDOM  @"120"
+ #define START_ASK_RANDOM  @"120"
 /**
  * 停止提问
  */
- #define END_ASK  @"121"
+ #define END_ASK_RANDOM @"121"
 /**
  * 关闭举手
  */

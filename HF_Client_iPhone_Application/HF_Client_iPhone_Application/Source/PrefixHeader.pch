@@ -20,6 +20,7 @@
 
 #define SCREEN_WIDTH     ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
+#define VIEW_CONTROLLER_FROM_XIB(name) [[name alloc] initWithNibName: NSStringFromClass([name class]) bundle: nil]
 
 #define IS_IPHONE5S_OR_BEFORE ([UIScreen mainScreen].bounds.size.height <= 568)
 #define IS_IPHONE5 ([UIScreen mainScreen].bounds.size.height == 568)

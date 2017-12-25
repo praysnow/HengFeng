@@ -63,6 +63,9 @@
 		398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF51FE76598008816CD /* HFDaoxueDetailObject.m */; };
 		398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBFB1FE77197008816CD /* HFWebViewController.m */; };
 		398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBFC1FE77197008816CD /* HFWebViewController.xib */; };
+		39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */; };
+		39A0C2281FF0AD9900F3B681 /* HFTeachShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */; };
+		39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */; };
 		39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */; };
 		39B718F01FBC20050088C348 /* HFMyResourceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */; };
 		39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */; };
@@ -196,6 +199,11 @@
 		398CDBFA1FE77197008816CD /* HFWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFWebViewController.h; sourceTree = "<group>"; };
 		398CDBFB1FE77197008816CD /* HFWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFWebViewController.m; sourceTree = "<group>"; };
 		398CDBFC1FE77197008816CD /* HFWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFWebViewController.xib; sourceTree = "<group>"; };
+		39A0C2241FF0AD9900F3B681 /* HFTeachShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachShareViewController.h; sourceTree = "<group>"; };
+		39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachShareViewController.m; sourceTree = "<group>"; };
+		39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachShareViewController.xib; sourceTree = "<group>"; };
+		39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSVerticalButton.m; sourceTree = "<group>"; };
+		39A0C22A1FF1065400F3B681 /* ZSVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSVerticalButton.h; sourceTree = "<group>"; };
 		39B718EC1FBC20050088C348 /* HFMyResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMyResourceCollectionViewCell.h; sourceTree = "<group>"; };
 		39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMyResourceCollectionViewCell.m; sourceTree = "<group>"; };
 		39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMyResourceCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -470,6 +478,16 @@
 			path = HF_Client_iPhone_ApplicationUITests;
 			sourceTree = "<group>";
 		};
+		39A0C2231FF0AD5900F3B681 /* TeachShare */ = {
+			isa = PBXGroup;
+			children = (
+				39A0C2241FF0AD9900F3B681 /* HFTeachShareViewController.h */,
+				39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */,
+				39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */,
+			);
+			path = TeachShare;
+			sourceTree = "<group>";
+		};
 		39B718EA1FBC1F9A0088C348 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +616,7 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
+				39A0C2231FF0AD5900F3B681 /* TeachShare */,
 				391979C91FE9126000AD478D /* PPTHELP */,
 				391979C81FE7FC0300AD478D /* Vote */,
 			);
@@ -618,6 +637,8 @@
 		39F088A01FC7AFC800AB30F6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				39A0C22A1FF1065400F3B681 /* ZSVerticalButton.h */,
+				39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */,
 				39F088A21FC7AFE500AB30F6 /* HFUtils.h */,
 				39F088A31FC7AFE500AB30F6 /* HFUtils.m */,
 				39F088A51FC7C51E00AB30F6 /* HFInterFace.h */,
@@ -810,6 +831,7 @@
 				82E62FDF1FE9187A00B90E69 /* HFNewStudentStatusViewController.xib in Resources */,
 				39C94A3E1FE27B36003641C9 /* HFToolVoteViewController.xib in Resources */,
 				39181E9E1FB574DF00A364AB /* user_name.png in Resources */,
+				39A0C2281FF0AD9900F3B681 /* HFTeachShareViewController.xib in Resources */,
 				39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */,
 				39181EA31FB574DF00A364AB /* wlan_close.png in Resources */,
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
@@ -930,6 +952,7 @@
 				398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */,
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
+				39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */,
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
@@ -942,6 +965,7 @@
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
+				39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */,
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,

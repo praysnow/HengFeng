@@ -9,8 +9,11 @@
 #import "HFTeachToolViewController.h"
 #import "HFToolVoteViewController.h"
 #import "HFPPTViewController.h"
+#import "HFTeachShareViewController.h"
 
 @interface HFTeachToolViewController ()
+
+@property (nonatomic, assign) BOOL isBuzing;
 
 @end
 
@@ -29,18 +32,18 @@
     switch (sender.tag) {
         case 0:
         {
-            HFToolVoteViewController *vc = [[HFToolVoteViewController alloc] init];
-            [self.navigationController pushViewController: vc animated: YES];
+            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFToolVoteViewController) animated: YES];
         }
             break;
         case 1:
         {
-            NSLog(@"教学分享");
+            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
         }
             break;
         case 2:
         {
-            NSLog(@"锁屏");
+            sender.selected = !sender.selected;
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
         }
             break;
         case 3:
@@ -50,12 +53,15 @@
             break;
         case 4:
         {
-            NSLog(@"随机提问");
+            sender.selected = !sender.selected;
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_ASK_RANDOM : START_ASK_RANDOM]];
         }
             break;
         case 5:
         {
-            NSLog(@"抢答");
+            sender.selected = !sender.selected;
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_AWSER : START_AWSER]];
+
         }
             break;
         case 6:
@@ -79,15 +85,5 @@
     }
     
 }
-
-#pragma mark - tapped action
-
-- (IBAction)tappedLockScreen:(UIButton *)sender
-{
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[UNLOCK_SCREEN]];
-//    sender.selected = !sender.selected;
-//    [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
-}
-
 
 @end

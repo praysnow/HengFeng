@@ -116,19 +116,19 @@
                             </constraints>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQO-ee-JMm">
-                            <rect key="frame" x="0.0" y="570" width="375" height="17"/>
+                            <rect key="frame" x="0.0" y="569" width="375" height="17"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vu-Rc-ePh">
                                     <rect key="frame" x="0.0" y="0.0" width="275" height="17"/>
                                     <color key="backgroundColor" red="0.32549019607843138" green="0.72941176470588232" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已提交：20人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-7O-uFm">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已提交：0人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-7O-uFm">
                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未提交：30人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-gT-Yqf">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未提交：0人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-gT-Yqf">
                                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,7 +161,7 @@
                         <constraint firstAttribute="trailing" secondItem="MQO-ee-JMm" secondAttribute="trailing" id="RIw-iX-1s3"/>
                         <constraint firstAttribute="trailing" secondItem="hJH-eZ-cod" secondAttribute="trailing" id="lt5-Rk-fsh"/>
                         <constraint firstItem="hJH-eZ-cod" firstAttribute="leading" secondItem="MVH-Df-7NO" secondAttribute="leading" id="sh1-Gd-NdQ"/>
-                        <constraint firstAttribute="bottom" secondItem="MQO-ee-JMm" secondAttribute="bottom" id="zum-R8-hZc"/>
+                        <constraint firstAttribute="bottom" secondItem="MQO-ee-JMm" secondAttribute="bottom" constant="1" id="zum-R8-hZc"/>
                     </constraints>
                 </view>
             </subviews>
