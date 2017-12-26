@@ -10,5 +10,6 @@
 
 @interface ZSVerticalButton : UIButton
 
+- (void)isShowPointView:(BOOL)isShow;
 
 @end

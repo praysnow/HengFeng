@@ -48,6 +48,7 @@
 		391979CE1FE9130200AD478D /* HFPPTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979CC1FE9130200AD478D /* HFPPTViewController.xib */; };
 		391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 391979D01FEA5FAA00AD478D /* HFCountTimeView.m */; };
 		391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979D21FEA5FB500AD478D /* HFCountTimeView.xib */; };
+		391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
 		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
@@ -171,6 +172,8 @@
 		391979CF1FEA5FAA00AD478D /* HFCountTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFCountTimeView.h; sourceTree = "<group>"; };
 		391979D01FEA5FAA00AD478D /* HFCountTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFCountTimeView.m; sourceTree = "<group>"; };
 		391979D21FEA5FB500AD478D /* HFCountTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFCountTimeView.xib; sourceTree = "<group>"; };
+		391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameCategory.m"; sourceTree = "<group>"; };
+		391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameCategory.h"; sourceTree = "<group>"; };
 		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
@@ -652,6 +655,8 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */,
+				391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */,
 				3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */,
 				3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */,
 				39C94A261FDE79D7003641C9 /* CBAlertWindow.h */,
@@ -953,6 +958,7 @@
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
 				39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */,
+				391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */,
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,

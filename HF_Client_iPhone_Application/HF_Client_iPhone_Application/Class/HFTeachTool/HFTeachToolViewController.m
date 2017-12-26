@@ -10,6 +10,7 @@
 #import "HFToolVoteViewController.h"
 #import "HFPPTViewController.h"
 #import "HFTeachShareViewController.h"
+#import "ZSVerticalButton.h"
 
 @interface HFTeachToolViewController ()
 
@@ -27,7 +28,7 @@
 #pragma mark - tapped
 
 
-- (IBAction)tappedTeachToolsButton:(UIButton *)sender
+- (IBAction)tappedTeachToolsButton:(ZSVerticalButton *)sender
 {
     switch (sender.tag) {
         case 0:
@@ -83,7 +84,7 @@
         default:
             break;
     }
-    
+    [sender isShowPointView: !sender.selected];
 }
 
 @end
