@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HFLoginViewController.h"
+#import "MainTabViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +24,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    HFLoginViewController *loginView = [HFLoginViewController new];
+    HFLoginViewController *loginView = [[MainTabViewController alloc] init];
+    MainTabViewController *vc =
+//    [self presentViewController: vc animated: YES completion: nil];
+//    [self.navigationController pushViewController: vc animated: YES];
+    [HFSocketService sharedInstance];
     self.window.rootViewController = loginView;
 
     return YES;

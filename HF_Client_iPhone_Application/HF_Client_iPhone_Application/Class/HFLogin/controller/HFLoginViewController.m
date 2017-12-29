@@ -73,12 +73,6 @@
                     
                     [HFUtils setCookieWithCookieName: @"ASP.NET_SessionId" andValue: @"ht2dhn51h3iq4endlkld0qma"];
                     [HFCacheObject setUserDefaultData: @{@"username":userName, @"passWord":passWord}  andKey: LOGIN_INFO_CACHE];
-                    MainTabViewController *vc = [[MainTabViewController alloc] init];
-                    [self presentViewController: vc animated: YES completion:^{
-                        ;
-                    }];
-                    [self.navigationController pushViewController: vc animated: YES];
-                    [HFSocketService sharedInstance];
                 }
             } failure:^(NSError *error) {
                 NSLog(@"%@",error.userInfo);

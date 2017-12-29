@@ -23,12 +23,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.stopButton.layer.masksToBounds = YES;
+    self.stopButton.layer.cornerRadius = self.stopButton.height / 2;
 }
 
 #pragma mark - tapped
 
-
 - (IBAction)tappedTeachToolsButton:(ZSVerticalButton *)sender
+{
+    [self changeButtonStatus: sender];
+}
+
+- (void)changeButtonStatus:(ZSVerticalButton *)sender
 {
     switch (sender.tag) {
         case 0:
@@ -45,6 +52,11 @@
         {
             sender.selected = !sender.selected;
             [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
+            if (sender.selected) {
+                [self setUpShowStatus: @"解锁" andDetail: @"锁屏中..."];
+            } else {
+                [self setUpShowStatus: nil andDetail: nil];
+            }
         }
             break;
         case 3:
@@ -56,13 +68,22 @@
         {
             sender.selected = !sender.selected;
             [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_ASK_RANDOM : START_ASK_RANDOM]];
+            if (sender.selected) {
+                [self setUpShowStatus: @"停止" andDetail: @"随机提问中..."];
+            } else {
+                [self setUpShowStatus: nil andDetail: nil];
+            }
         }
             break;
         case 5:
         {
             sender.selected = !sender.selected;
             [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_AWSER : START_AWSER]];
-
+            if (sender.selected) {
+                [self setUpShowStatus: @"停止" andDetail: @"抢答中..."];
+            } else {
+                [self setUpShowStatus: nil andDetail: nil];
+            }
         }
             break;
         case 6:
@@ -85,6 +106,19 @@
             break;
     }
     [sender isShowPointView: !sender.selected];
+}
+
+- (void)setUpShowStatus:(NSString *)title andDetail:(NSString *)detail
+{
+    self.stopButton.hidden = title.length == 0;
+    [self.stopButton setTitle: title forState: UIControlStateNormal];
+    self.statusLabel.text = detail;
+}
+
+- (IBAction)stopButton:(ZSVerticalButton *)sender
+{
+    sender.selected = !sender.selected;
+    [self changeButtonStatus: sender];
 }
 
 @end

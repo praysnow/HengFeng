@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFTeachToolViewController">
             <connections>
+                <outlet property="statusLabel" destination="isa-be-Iej" id="7he-bZ-dPb"/>
+                <outlet property="stopButton" destination="vEe-AL-7S4" id="Gbp-46-z33"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -330,9 +332,36 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpu-2a-ORs">
                     <rect key="frame" x="0.0" y="513" width="375" height="154"/>
-                    <color key="backgroundColor" red="0.1137254902" green="0.70588235290000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isa-be-Iej">
+                            <rect key="frame" x="14" y="40" width="347" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="m3j-bb-34z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-AL-7S4">
+                            <rect key="frame" x="127.5" y="71" width="120" height="30"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.50196078431372548" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Zqe-PW-yIj"/>
+                                <constraint firstAttribute="width" constant="120" id="tQW-lX-bLz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <connections>
+                                <action selector="stopButton:" destination="-1" eventType="touchUpInside" id="q9w-8g-UED"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
+                        <constraint firstItem="vEe-AL-7S4" firstAttribute="centerX" secondItem="isa-be-Iej" secondAttribute="centerX" id="5vX-bs-ocN"/>
+                        <constraint firstItem="vEe-AL-7S4" firstAttribute="top" secondItem="isa-be-Iej" secondAttribute="bottom" constant="10" id="Jkl-4L-S4A"/>
                         <constraint firstAttribute="height" constant="154" id="RpY-GY-851"/>
+                        <constraint firstItem="isa-be-Iej" firstAttribute="leading" secondItem="gpu-2a-ORs" secondAttribute="leading" constant="14" id="SHx-Wt-kKl"/>
+                        <constraint firstItem="isa-be-Iej" firstAttribute="top" secondItem="gpu-2a-ORs" secondAttribute="top" constant="40" id="t5M-mX-aw4"/>
+                        <constraint firstAttribute="trailing" secondItem="isa-be-Iej" secondAttribute="trailing" constant="14" id="wCE-Uv-LOQ"/>
                     </constraints>
                 </view>
             </subviews>
