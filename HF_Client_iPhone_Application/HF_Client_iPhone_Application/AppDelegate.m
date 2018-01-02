@@ -24,8 +24,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    HFLoginViewController *loginView = [[MainTabViewController alloc] init];
-    MainTabViewController *vc =
+    MainTabViewController *loginView = [[MainTabViewController alloc] init];
 //    [self presentViewController: vc animated: YES completion: nil];
 //    [self.navigationController pushViewController: vc animated: YES];
     [HFSocketService sharedInstance];

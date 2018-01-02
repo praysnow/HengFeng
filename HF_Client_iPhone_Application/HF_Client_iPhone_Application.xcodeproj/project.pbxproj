@@ -59,6 +59,11 @@
 		3972CB371FB198D40017DFE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB361FB198D40017DFE9 /* main.m */; };
 		3972CB411FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB401FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m */; };
 		3972CB4C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */; };
+		397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */; };
+		397340E11FFB91E2004191BD /* HFUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */; };
+		397340F71FFBCBA6004191BD /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340F21FFBCBA6004191BD /* RECommonFunctions.m */; };
+		397340F81FFBCBA6004191BD /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340F41FFBCBA6004191BD /* RESideMenu.m */; };
+		397340F91FFBCBA6004191BD /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340F61FFBCBA6004191BD /* UIViewController+RESideMenu.m */; };
 		398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */; };
 		398CDBF31FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBF11FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib */; };
 		398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF51FE76598008816CD /* HFDaoxueDetailObject.m */; };
@@ -194,6 +199,15 @@
 		3972CB471FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HF_Client_iPhone_ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_Client_iPhone_ApplicationUITests.m; sourceTree = "<group>"; };
 		3972CB4D1FB198D40017DFE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		397340DD1FFB91E2004191BD /* HFUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUserInfoViewController.h; sourceTree = "<group>"; };
+		397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUserInfoViewController.m; sourceTree = "<group>"; };
+		397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFUserInfoViewController.xib; sourceTree = "<group>"; };
+		397340F11FFBCBA6004191BD /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		397340F21FFBCBA6004191BD /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		397340F31FFBCBA6004191BD /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		397340F41FFBCBA6004191BD /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		397340F51FFBCBA6004191BD /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		397340F61FFBCBA6004191BD /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		398CDBEF1FE764D7008816CD /* HFMYResourCeDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMYResourCeDetailTableViewCell.h; sourceTree = "<group>"; };
 		398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMYResourCeDetailTableViewCell.m; sourceTree = "<group>"; };
 		398CDBF11FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMYResourCeDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -481,6 +495,19 @@
 			path = HF_Client_iPhone_ApplicationUITests;
 			sourceTree = "<group>";
 		};
+		397340F01FFBCBA6004191BD /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				397340F11FFBCBA6004191BD /* RECommonFunctions.h */,
+				397340F21FFBCBA6004191BD /* RECommonFunctions.m */,
+				397340F31FFBCBA6004191BD /* RESideMenu.h */,
+				397340F41FFBCBA6004191BD /* RESideMenu.m */,
+				397340F51FFBCBA6004191BD /* UIViewController+RESideMenu.h */,
+				397340F61FFBCBA6004191BD /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
+			sourceTree = "<group>";
+		};
 		39A0C2231FF0AD5900F3B681 /* TeachShare */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +636,9 @@
 				39C94A301FDE7CFE003641C9 /* HFLoginViewController.h */,
 				39C94A311FDE7CFE003641C9 /* HFLoginViewController.m */,
 				39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */,
+				397340DD1FFB91E2004191BD /* HFUserInfoViewController.h */,
+				397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */,
+				397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -655,6 +685,7 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				397340F01FFBCBA6004191BD /* RESideMenu */,
 				391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */,
 				391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */,
 				3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */,
@@ -875,6 +906,7 @@
 				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
 				391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */,
 				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
+				397340E11FFB91E2004191BD /* HFUserInfoViewController.xib in Resources */,
 				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -972,10 +1004,12 @@
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */,
+				397340F91FFBCBA6004191BD /* UIViewController+RESideMenu.m in Sources */,
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,
 				82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */,
+				397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
@@ -984,9 +1018,11 @@
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
+				397340F81FFBCBA6004191BD /* RESideMenu.m in Sources */,
 				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
 				391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
+				397340F71FFBCBA6004191BD /* RECommonFunctions.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
