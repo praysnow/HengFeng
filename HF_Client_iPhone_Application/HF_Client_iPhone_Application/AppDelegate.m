@@ -9,27 +9,46 @@
 #import "AppDelegate.h"
 #import "HFLoginViewController.h"
 #import "MainTabViewController.h"
+#import "MMDrawerController.h"
+#import "HFUserInfoViewController.h"
 
 @interface AppDelegate ()
+
+@property(nonatomic,strong) MMDrawerController * drawerController;
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // 状态栏改为白色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
     self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    MainTabViewController *loginView = [[MainTabViewController alloc] init];
-//    [self presentViewController: vc animated: YES completion: nil];
-//    [self.navigationController pushViewController: vc animated: YES];
+    
+    //1、初始化控制器
+    UIViewController *centerVC = [[MainTabViewController alloc]init];
+    HFUserInfoViewController *leftVC = [[HFUserInfoViewController alloc]init];
+    //2、初始化导航控制器
+    UINavigationController *centerNvaVC = [[UINavigationController alloc]initWithRootViewController:centerVC];
+    UINavigationController *leftNvaVC = [[UINavigationController alloc]initWithRootViewController:leftVC];
+    
+    //3、使用MMDrawerController
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerNvaVC leftDrawerViewController:leftNvaVC rightDrawerViewController: nil];
+    
+    //4、设置打开/关闭抽屉的手势
+    self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    self.drawerController.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
+    //5、设置左右两边抽屉显示的多少
+    self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH * 0.8;
+    
+//    MainTabViewController *loginView = [[MainTabViewController alloc] init];
+//        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: loginView];
+//    navigationController.navigationBar.hidden = YES;
+//    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController: navigationController leftMenuViewController: nil rightMenuViewController: nil];
     [HFSocketService sharedInstance];
-    self.window.rootViewController = loginView;
-
+    self.window.rootViewController = self.drawerController;
     return YES;
 }
 
@@ -37,7 +56,6 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
