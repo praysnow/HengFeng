@@ -59,6 +59,14 @@
 		3972CB371FB198D40017DFE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB361FB198D40017DFE9 /* main.m */; };
 		3972CB411FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB401FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests.m */; };
 		3972CB4C1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */; };
+		397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */; };
+		397340E11FFB91E2004191BD /* HFUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */; };
+		397341051FFCBD80004191BD /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 397340FD1FFCBD80004191BD /* MMDrawerBarButtonItem.m */; };
+		397341061FFCBD80004191BD /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397341001FFCBD80004191BD /* MMDrawerController.m */; };
+		397341071FFCBD80004191BD /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 397341021FFCBD80004191BD /* MMDrawerVisualState.m */; };
+		397341081FFCBD80004191BD /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397341041FFCBD80004191BD /* UIViewController+MMDrawerController.m */; };
+		3973415A1FFD15FF004191BD /* HFUserInfocellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 397341581FFD15FF004191BD /* HFUserInfocellTableViewCell.m */; };
+		3973415B1FFD1600004191BD /* HFUserInfocellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397341591FFD15FF004191BD /* HFUserInfocellTableViewCell.xib */; };
 		398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */; };
 		398CDBF31FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBF11FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib */; };
 		398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF51FE76598008816CD /* HFDaoxueDetailObject.m */; };
@@ -194,6 +202,21 @@
 		3972CB471FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HF_Client_iPhone_ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972CB4B1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_Client_iPhone_ApplicationUITests.m; sourceTree = "<group>"; };
 		3972CB4D1FB198D40017DFE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		397340DD1FFB91E2004191BD /* HFUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUserInfoViewController.h; sourceTree = "<group>"; };
+		397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUserInfoViewController.m; sourceTree = "<group>"; };
+		397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFUserInfoViewController.xib; sourceTree = "<group>"; };
+		397340FC1FFCBD80004191BD /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		397340FD1FFCBD80004191BD /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		397340FE1FFCBD80004191BD /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		397340FF1FFCBD80004191BD /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		397341001FFCBD80004191BD /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		397341011FFCBD80004191BD /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		397341021FFCBD80004191BD /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		397341031FFCBD80004191BD /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		397341041FFCBD80004191BD /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		397341571FFD15FF004191BD /* HFUserInfocellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUserInfocellTableViewCell.h; sourceTree = "<group>"; };
+		397341581FFD15FF004191BD /* HFUserInfocellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUserInfocellTableViewCell.m; sourceTree = "<group>"; };
+		397341591FFD15FF004191BD /* HFUserInfocellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFUserInfocellTableViewCell.xib; sourceTree = "<group>"; };
 		398CDBEF1FE764D7008816CD /* HFMYResourCeDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFMYResourCeDetailTableViewCell.h; sourceTree = "<group>"; };
 		398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFMYResourCeDetailTableViewCell.m; sourceTree = "<group>"; };
 		398CDBF11FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMYResourCeDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -481,6 +504,22 @@
 			path = HF_Client_iPhone_ApplicationUITests;
 			sourceTree = "<group>";
 		};
+		397340FB1FFCBD80004191BD /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				397340FC1FFCBD80004191BD /* MMDrawerBarButtonItem.h */,
+				397340FD1FFCBD80004191BD /* MMDrawerBarButtonItem.m */,
+				397340FE1FFCBD80004191BD /* MMDrawerController+Subclass.h */,
+				397340FF1FFCBD80004191BD /* MMDrawerController.h */,
+				397341001FFCBD80004191BD /* MMDrawerController.m */,
+				397341011FFCBD80004191BD /* MMDrawerVisualState.h */,
+				397341021FFCBD80004191BD /* MMDrawerVisualState.m */,
+				397341031FFCBD80004191BD /* UIViewController+MMDrawerController.h */,
+				397341041FFCBD80004191BD /* UIViewController+MMDrawerController.m */,
+			);
+			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
 		39A0C2231FF0AD5900F3B681 /* TeachShare */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +631,9 @@
 				39C94A351FDE81E6003641C9 /* HFLoginConfigueView.h */,
 				39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */,
 				39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */,
+				397341571FFD15FF004191BD /* HFUserInfocellTableViewCell.h */,
+				397341581FFD15FF004191BD /* HFUserInfocellTableViewCell.m */,
+				397341591FFD15FF004191BD /* HFUserInfocellTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -609,6 +651,9 @@
 				39C94A301FDE7CFE003641C9 /* HFLoginViewController.h */,
 				39C94A311FDE7CFE003641C9 /* HFLoginViewController.m */,
 				39C94A321FDE7CFE003641C9 /* HFLoginViewController.xib */,
+				397340DD1FFB91E2004191BD /* HFUserInfoViewController.h */,
+				397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */,
+				397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -655,6 +700,7 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				397340FB1FFCBD80004191BD /* MMDrawerController */,
 				391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */,
 				391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */,
 				3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */,
@@ -858,6 +904,7 @@
 				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
 				39CE3A2E1FBEE00D008F67AE /* HFTeachToolViewController.xib in Resources */,
 				3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */,
+				3973415B1FFD1600004191BD /* HFUserInfocellTableViewCell.xib in Resources */,
 				3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */,
 				39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */,
 				398CDBF31FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib in Resources */,
@@ -875,6 +922,7 @@
 				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
 				391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */,
 				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
+				397340E11FFB91E2004191BD /* HFUserInfoViewController.xib in Resources */,
 				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -962,11 +1010,15 @@
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
+				397341081FFCBD80004191BD /* UIViewController+MMDrawerController.m in Sources */,
 				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
+				397341071FFCBD80004191BD /* MMDrawerVisualState.m in Sources */,
 				3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */,
 				82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */,
+				3973415A1FFD15FF004191BD /* HFUserInfocellTableViewCell.m in Sources */,
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
+				397341061FFCBD80004191BD /* MMDrawerController.m in Sources */,
 				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
@@ -975,7 +1027,9 @@
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,
+				397341051FFCBD80004191BD /* MMDrawerBarButtonItem.m in Sources */,
 				82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */,
+				397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,

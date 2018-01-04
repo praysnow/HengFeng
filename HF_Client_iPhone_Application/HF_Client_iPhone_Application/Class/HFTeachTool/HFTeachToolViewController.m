@@ -11,6 +11,7 @@
 #import "HFPPTViewController.h"
 #import "HFTeachShareViewController.h"
 #import "ZSVerticalButton.h"
+#import "HFLoginViewController.h"
 
 @interface HFTeachToolViewController ()
 
@@ -89,6 +90,8 @@
         case 6:
         {
             NSLog(@"移动直播");
+            HFLoginViewController *vc = [[HFLoginViewController alloc] init];
+            [self.navigationController pushViewController: vc animated: YES];
         }
             break;
         case 7:

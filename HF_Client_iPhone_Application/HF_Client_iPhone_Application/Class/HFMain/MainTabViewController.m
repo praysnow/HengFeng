@@ -13,6 +13,8 @@
 #import "HFClassTestViewController.h"
 #import "HFNewStudentStatusViewController.h"
 #import "HFNavigationViewController.h"
+#import "UIViewController+MMDrawerController.h"
+#import "MMDrawerBarButtonItem.h"
 
 @interface MainTabViewController ()
 
@@ -24,9 +26,15 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"导学案";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"next_page"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBtn)];
     [self addAllChildViewController];
 }
 
+-(void)leftBtn
+{
+    [self.mm_drawerController toggleDrawerSide: MMDrawerSideLeft animated:YES completion:nil];
+}
 
 + (void)initialize
 {

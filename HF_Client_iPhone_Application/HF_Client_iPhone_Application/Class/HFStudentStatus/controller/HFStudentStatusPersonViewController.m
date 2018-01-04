@@ -54,8 +54,9 @@
         return;
         
     }
-    
-    model.params = @{@"ClassID":classId}.mutableCopy;
+    if (classId.length != 0) {
+        model.params = @{@"ClassID":classId}.mutableCopy;
+    }
     
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
