@@ -21,10 +21,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCP-jV-O2e">
-                        <rect key="frame" x="16" y="11" width="25" height="25"/>
+                        <rect key="frame" x="16" y="11" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="7yS-GT-Hl2"/>
-                            <constraint firstAttribute="height" constant="25" id="Awg-p0-bAJ"/>
+                            <constraint firstAttribute="width" constant="15" id="7yS-GT-Hl2"/>
+                            <constraint firstAttribute="height" constant="15" id="Awg-p0-bAJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-2I-CdQ">
@@ -48,6 +48,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="avatarImage" destination="gCP-jV-O2e" id="2Og-cU-SB3"/>
+                <outlet property="cellTitle" destination="yDD-2I-CdQ" id="phe-dZ-6m1"/>
+                <outlet property="detailText" destination="epQ-jP-l1c" id="n9D-Hr-d2j"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

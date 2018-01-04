@@ -6,8 +6,8 @@
 //  Copyright © 2018 HengFeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface HFUserInfocellTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) NSDictionary *dictioanry;
 
 @end
