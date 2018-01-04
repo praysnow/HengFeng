@@ -26,7 +26,7 @@
     
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFUserInfocellTableViewCell class]) bundle: nil] forCellReuseIdentifier: @"cell"];
     self.avatarImage.layer.masksToBounds = YES;
-    self.avatarImage.layer.cornerRadius = self.avatarImage.height / 2;
+    self.avatarImage.layer.cornerRadius = self.avatarImage.width / 2;
     
 }
 
