@@ -51,6 +51,8 @@
     
     if (classId == nil) {
         NSLog(@"%@",@"classId为空");
+        return;
+        
     }
     if (classId.length != 0) {
         model.params = @{@"ClassID":classId}.mutableCopy;
