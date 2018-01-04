@@ -10,6 +10,7 @@
 #import "HFUserInfocellTableViewCell.h"
 #import "CBAlertWindow.h"
 #import "HFLoginConfigueView.h"
+#import "AppDelegate.h"
 
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -66,6 +67,12 @@
             break;
         case 1:
         {
+//            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            UIViewController *rootVC = appDelegate.window.rootViewController;
+//            
+//            UIViewController *vc = [UIViewController new];
+//            vc.view.backgroundColor = [UIColor redColor];
+//            [rootVC presentViewController:vc animated:YES completion:nil];
         }
             break;
         case 2:

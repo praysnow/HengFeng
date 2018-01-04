@@ -107,6 +107,8 @@
 		8226AAD71FFE463E00C9BDB4 /* HFVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAD61FFE463E00C9BDB4 /* HFVerticalButton.m */; };
 		8226AADB1FFE479800C9BDB4 /* 排行@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAD91FFE479800C9BDB4 /* 排行@2x.png */; };
 		8226AADC1FFE479800C9BDB4 /* 排行@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8226AADA1FFE479800C9BDB4 /* 排行@3x.png */; };
+		8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */; };
+		8226AAE11FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
 		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
 		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
@@ -289,6 +291,9 @@
 		8226AAD61FFE463E00C9BDB4 /* HFVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFVerticalButton.m; sourceTree = "<group>"; };
 		8226AAD91FFE479800C9BDB4 /* 排行@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "排行@2x.png"; path = "HF_Client_iPhone_Application/Assets.xcassets/排行.imageset/排行@2x.png"; sourceTree = SOURCE_ROOT; };
 		8226AADA1FFE479800C9BDB4 /* 排行@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "排行@3x.png"; path = "HF_Client_iPhone_Application/Assets.xcassets/排行.imageset/排行@3x.png"; sourceTree = SOURCE_ROOT; };
+		8226AADD1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentStatusRankingViewController.h; sourceTree = "<group>"; };
+		8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentStatusRankingViewController.m; sourceTree = "<group>"; };
+		8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentStatusRankingViewController.xib; sourceTree = "<group>"; };
 		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
 		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
 		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
@@ -639,6 +644,9 @@
 				8226AAD01FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.h */,
 				8226AAD11FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m */,
 				8226AAD21FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.xib */,
+				8226AADD1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.h */,
+				8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */,
+				8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -902,6 +910,7 @@
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
 				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
 				391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */,
+				8226AAE11FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib in Resources */,
 				39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */,
 				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
 				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
@@ -1064,6 +1073,7 @@
 				397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
+				8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
 				82E62FEB1FEBAAD100B90E69 /* HFStudentModel.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
@@ -1253,7 +1263,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1272,7 +1282,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

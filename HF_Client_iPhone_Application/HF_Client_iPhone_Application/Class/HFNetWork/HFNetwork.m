@@ -118,4 +118,26 @@
     }];
 }
 
+// 获取NSXMLParser中的字符串
+- (NSString *)stringInNSXMLParser:(id)XMLParser{
+    
+    if ([XMLParser isKindOfClass:[NSString class]]) {
+        return XMLParser;
+    }
+    
+    if ([XMLParser isKindOfClass:[NSXMLParser class]]) {
+        [XMLParser setDelegate:self];
+        [XMLParser parse];
+        
+        NSString *string = [self.mutableString copy];
+        
+        NSLog(@"这里%@",string);
+        self.mutableString = nil;
+        return string;
+    }
+    
+    return nil;
+    
+}
+
 @end

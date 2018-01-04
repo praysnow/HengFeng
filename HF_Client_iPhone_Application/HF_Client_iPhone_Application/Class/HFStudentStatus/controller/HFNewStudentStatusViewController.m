@@ -9,6 +9,7 @@
 #import "HFNewStudentStatusViewController.h"
 #import "HFStudentStatusPersonViewController.h"
 #import "HFStudentStatusGroupViewController.h"
+#import "HFStudentStatusRankingViewController.h"
 
 
 @interface HFNewStudentStatusViewController ()
@@ -32,6 +33,8 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)排行榜:(id)sender {
+    HFStudentStatusRankingViewController *vc = [HFStudentStatusRankingViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -217,7 +217,7 @@
             [HFCacheObject shardence].subjectId = [string stringByReplacingOccurrencesOfString: @"subjectId=" withString: @""];
         }
     }
-    NSLog(@"信息表现为: \nourseId=%@ \nsubjectId=%@ \nclassId=%@",  [HFCacheObject shardence].courseId,  [HFCacheObject shardence].subjectId,  [HFCacheObject shardence].classId);
+    NSLog(@"信息表现为: \ncourseId=%@ \nsubjectId=%@ \nclassId=%@",  [HFCacheObject shardence].courseId,  [HFCacheObject shardence].subjectId,  [HFCacheObject shardence].classId);
 }
 
 -(int)lBytesToInt:(Byte[]) byte

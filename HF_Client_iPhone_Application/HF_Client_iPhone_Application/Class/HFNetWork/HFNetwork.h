@@ -22,6 +22,9 @@ typedef void (^requestFailureBlock)(NSError *error);
 // 单例模式
 + (instancetype)network;
 
+// 获取NSXMLParser中的字符串
+- (NSString *)stringInNSXMLParser:(id)XMLParser;
+
 // 发送WebService的接口
 - (void)SOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 // 发送WebService的接口

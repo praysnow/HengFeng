@@ -10,6 +10,7 @@
 #import "HFTTeachToolCollectionViewCell.h"
 #import "HFNetwork.h"
 #import "WebServiceModel.h"
+#import "HFStudentStatusRankingViewController.h"
 
 @interface HFStudentStatusGroupViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
@@ -26,7 +27,7 @@
     
      self.title = @"学生状态-小组";
     
-    // 请求分组情况
+    [self GetGroupList]; // 请求分组情况
     [self setupUI];
 }
 
@@ -49,16 +50,15 @@
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetGroupList";
     
-    NSString *classId = [HFCacheObject shardence].classId;
+//    NSString *classId = [HFCacheObject shardence].classId;
     
-    if (classId == nil) {
-        NSLog(@"%@",@"classId为空");
-        return;
-        
-    }
-    if (classId.length != 0) {
-        model.params = @{@"ClassID":classId}.mutableCopy;
-    }
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"tpID"] = [HFCacheObject shardence].courseId;
+    param[@"SubjectID"] = [HFCacheObject shardence].subjectId;
+    param[@"ClassID"] = [HFCacheObject shardence].classId;
+    param[@"userLoginName"] = @"wanglixia";
+    
+    model.params = param;
     
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
@@ -66,6 +66,9 @@
         
         [responseObject setDelegate:self];
         [responseObject parse];
+         
+        NSString *text = [[HFNetwork network] stringInNSXMLParser:responseObject];
+        NSLog(@"%@",text);
         NSLog(@"获取学生列表成功");
         
     } failure:^(NSError *error) {
@@ -134,6 +137,25 @@
     //    [cell setSelected:YES];
 }
 
+- (IBAction)groupButton:(id)sender {
+    NSLog(@"小组");
+}
+- (IBAction)add1:(id)sender {
+    NSLog(@"+1");
+}
+- (IBAction)add2:(id)sender {
+    NSLog(@"+2");
+}
+- (IBAction)add3:(id)sender {
+    NSLog(@"+3");
+}
+
+- (IBAction)ranking:(id)sender {
+    NSLog(@"排行");
+    HFStudentStatusRankingViewController *vc = [HFStudentStatusRankingViewController new];
+    vc.rankType = @"小组";
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 

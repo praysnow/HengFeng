@@ -11,6 +11,7 @@
 #import "HFNetwork.h"
 #import "WebServiceModel.h"
 #import "HFStudentModel.h"
+#import "HFStudentStatusRankingViewController.h"
 
 @interface HFStudentStatusPersonViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
@@ -173,6 +174,10 @@
 }
 - (IBAction)Ranking:(id)sender {
     NSLog(@"排行");
+    HFStudentStatusRankingViewController *vc = [HFStudentStatusRankingViewController new];
+    vc.rankType = @"个人";
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 @end
