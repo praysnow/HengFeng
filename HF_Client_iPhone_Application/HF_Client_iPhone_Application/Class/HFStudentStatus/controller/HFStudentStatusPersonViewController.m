@@ -40,7 +40,7 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(60), 60); self.collectionView.collectionViewLayout = layout;
+    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(60), 40); self.collectionView.collectionViewLayout = layout;
 }
 
 - (void)GetStudentListByClassID{
@@ -162,5 +162,17 @@
     return _studentArray;
 }
 
+- (IBAction)add1:(id)sender {
+    NSLog(@"+1");
+}
+- (IBAction)add2:(id)sender {
+    NSLog(@"+2");
+}
+- (IBAction)add3:(id)sender {
+    NSLog(@"+3");
+}
+- (IBAction)Ranking:(id)sender {
+    NSLog(@"排行");
+}
 
 @end

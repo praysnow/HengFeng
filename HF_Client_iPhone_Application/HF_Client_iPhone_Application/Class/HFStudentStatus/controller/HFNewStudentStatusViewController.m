@@ -8,6 +8,7 @@
 
 #import "HFNewStudentStatusViewController.h"
 #import "HFStudentStatusPersonViewController.h"
+#import "HFStudentStatusGroupViewController.h"
 
 
 @interface HFNewStudentStatusViewController ()
@@ -27,6 +28,8 @@
 }
 
 - (IBAction)小组模式:(id)sender {
+    HFStudentStatusGroupViewController *vc = [HFStudentStatusGroupViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)排行榜:(id)sender {
 }

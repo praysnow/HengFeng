@@ -46,7 +46,8 @@
     _studentModel = studentModel;
     
     _userRealNameLabel.text = studentModel.userRealName;
-    _userLoginNameLabel.text = studentModel.userLoginName;
+    _userLoginNameLabel.text = [NSString stringWithFormat:@"[%@]", studentModel.userLoginName];
+   
 }
 
 @end
