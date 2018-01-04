@@ -8,12 +8,28 @@
 
 #import "HFUserInfocellTableViewCell.h"
 
+@interface HFUserInfocellTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (weak, nonatomic) IBOutlet UILabel *cellTitle;
+@property (weak, nonatomic) IBOutlet UILabel *detailText;
+
+@end
+
 @implementation HFUserInfocellTableViewCell
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setDictioanry:(NSDictionary *)dictioanry
+{
+    _dictioanry = dictioanry;
+    _avatarImage.image = [UIImage imageNamed: [dictioanry objectForKey: @"image"]];
+    _cellTitle.text = [dictioanry objectForKey: @"name"];
+    _detailText.text = [dictioanry objectForKey: @"context"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
