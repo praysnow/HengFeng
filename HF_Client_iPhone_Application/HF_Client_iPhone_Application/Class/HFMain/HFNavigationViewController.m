@@ -22,12 +22,14 @@
 //    UINavigationBar *bar = [UINavigationBar appearance];
     [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    bar.barTintColor = UICOLOR_ARGB(0xff53BAA6);
     
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

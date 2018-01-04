@@ -11,6 +11,7 @@
 #import "MainTabViewController.h"
 #import "MMDrawerController.h"
 #import "HFUserInfoViewController.h"
+#import "HFNavigationViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,11 +29,11 @@
     [self.window makeKeyAndVisible];
     
     //1、初始化控制器
-    UIViewController *centerVC = [[MainTabViewController alloc]init];
+    MainTabViewController *centerVC = [[MainTabViewController alloc]init];
     HFUserInfoViewController *leftVC = [[HFUserInfoViewController alloc]init];
     //2、初始化导航控制器
-    UINavigationController *centerNvaVC = [[UINavigationController alloc]initWithRootViewController:centerVC];
-    UINavigationController *leftNvaVC = [[UINavigationController alloc]initWithRootViewController:leftVC];
+    HFNavigationViewController *centerNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:centerVC];
+    HFNavigationViewController *leftNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:leftVC];
     
     //3、使用MMDrawerController
     self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerNvaVC leftDrawerViewController:leftNvaVC rightDrawerViewController: nil];

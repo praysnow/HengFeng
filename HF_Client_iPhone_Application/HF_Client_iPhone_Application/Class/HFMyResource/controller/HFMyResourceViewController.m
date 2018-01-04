@@ -47,6 +47,11 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
 }
 
+- (void)setupLeftItem
+{
+    self.navigationController.navigationItem.leftBarButtonItem = nil;
+}
+
 - (void)loadData
 {
     //    HFCacheObject *object = [HFCacheObject shardence];
