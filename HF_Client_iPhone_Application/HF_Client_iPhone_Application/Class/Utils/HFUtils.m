@@ -82,4 +82,25 @@
     NSLog(@"教师端发送命令为: %@",resultStr);
 }
 
+//+ (void)addSlideButton
+//{
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    //            [button setTitle:@"返回" forState:UIControlStateNormal];
+//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
+//
+//    button.frame = CGRectMake(0, 0, 70, 30);
+//    // 让按钮内部的所有内容左对齐
+//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    //        [button sizeToFit];
+//    // 让按钮的内容往左边偏移10
+//    //            button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+//    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//
+//    // 修改导航栏左边的item
+////    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//}
+
 @end

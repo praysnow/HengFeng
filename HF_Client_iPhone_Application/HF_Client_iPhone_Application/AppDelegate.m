@@ -32,11 +32,15 @@
     MainTabViewController *centerVC = [[MainTabViewController alloc]init];
     HFUserInfoViewController *leftVC = [[HFUserInfoViewController alloc]init];
     //2、初始化导航控制器
-    HFNavigationViewController *centerNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:centerVC];
-    HFNavigationViewController *leftNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:leftVC];
+//    HFNavigationViewController *centerNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:centerVC];
+//    centerVC.hideNavigationBar = YES;
+//    HFNavigationViewController *leftNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:leftVC];
+//    leftNvaVC.hideNavigationBar = YES;
     
     //3、使用MMDrawerController
-    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerNvaVC leftDrawerViewController:leftNvaVC rightDrawerViewController: nil];
+//    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerNvaVC leftDrawerViewController:leftNvaVC rightDrawerViewController: nil];
+        self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:leftVC rightDrawerViewController: nil];
+    self.drawerController.hideNavigationBar = YES;
     
     //4、设置打开/关闭抽屉的手势
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
@@ -49,8 +53,14 @@
 //    navigationController.navigationBar.hidden = YES;
 //    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController: navigationController leftMenuViewController: nil rightMenuViewController: nil];
     [HFSocketService sharedInstance];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startSlide) name: START_SLIDE object: nil];
     self.window.rootViewController = self.drawerController;
     return YES;
+}
+
+- (void)startSlide
+{
+   [self.drawerController toggleDrawerSide: MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

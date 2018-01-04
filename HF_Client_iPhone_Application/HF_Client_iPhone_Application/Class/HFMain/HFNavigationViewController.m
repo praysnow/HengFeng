@@ -7,6 +7,7 @@
 //
 
 #import "HFNavigationViewController.h"
+#import "AppDelegate.h"
 
 @interface HFNavigationViewController ()
 
@@ -36,7 +37,6 @@
 {
     if (self.childViewControllers.count > 0) { // 如果push进来的不是第一个控制器
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//            [button setTitle:@"返回" forState:UIControlStateNormal];
             [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
             [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
 
@@ -55,6 +55,8 @@
         
         // 隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
+    } else {
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"next_page"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBtn)];
     }
     
     // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem
@@ -62,9 +64,12 @@
     
 }
 
-- (void)back{
-    
+-(void)leftBtn
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: START_SLIDE  object: nil];
+}
 
+- (void)back{
     [self popViewControllerAnimated:YES];
 }
 

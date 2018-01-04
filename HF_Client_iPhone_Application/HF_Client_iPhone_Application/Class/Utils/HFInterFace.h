@@ -17,6 +17,14 @@
 #define DAOXUETANG_INTERFACE @"webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
 #define GETTASKLIST @"webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
 
+/*
+ Notification
+ //开始侧滑
+ */
+
+#define START_SLIDE @"START_SLIDE"
+
+
 /* login name cache user default */
 
 /*  UserDefault  */

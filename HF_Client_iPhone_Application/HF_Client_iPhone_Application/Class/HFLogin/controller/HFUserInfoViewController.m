@@ -11,10 +11,10 @@
 
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 
 @end
 
@@ -24,8 +24,10 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFUserInfocellTableViewCell class]) bundle: nil] forCellReuseIdentifier: @"cell"];
+    self.avatarImage.layer.masksToBounds = YES;
+    self.avatarImage.layer.cornerRadius = self.avatarImage.height / 2;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

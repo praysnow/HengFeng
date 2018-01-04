@@ -49,7 +49,7 @@
 
 - (void)setupLeftItem
 {
-    self.navigationController.navigationItem.leftBarButtonItem = nil;
+//    self.navigationController.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)loadData
