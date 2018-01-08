@@ -12,10 +12,11 @@
 #define NORMOR_INFO_FIRST_BYTE (Byte)(0x99)
 #define HEADER_INFO_FIRST_BYTE (Byte)(0x00)
 
-@interface HFSocketService ()<GCDAsyncSocketDelegate>
+@interface HFSocketService ()<GCDAsyncSocketDelegate, NSXMLParserDelegate>
 
 @property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (strong, nonatomic)NSTimer *timer;
+@property (strong, nonatomic) NSString *currentElementName;
 
 @end
 
@@ -30,7 +31,7 @@
         sharedInstace = [[self alloc] init];
         NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] valueForKey: ADDRESS_HOST];
         if ([dictionary.allKeys containsObject: @"socket_address"]) {
-           sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
+            sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
         }
         if ([dictionary.allKeys containsObject: @"service_host"]) {
             sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
@@ -74,10 +75,11 @@
         dispatch_once(&onceToken, ^{
             if (@available(iOS 10.0, *)) {
                 [self sendLoginInfo];
+                [self sendCheckStatus];
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
                 }];
-            [self sendCtrolMessage: @[@"111"]];
+                [self sendCtrolMessage: @[@"111"]];
             } else {
             }
         });
@@ -102,6 +104,29 @@
         NSLog(@"key: %@",key);
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    int length = (int)data.length;
+    NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
+    [mutableData appendData: typeData];
+    [mutableData appendData: lengthData];
+    [mutableData appendData: steamIdData];
+    [mutableData appendData: data];
+    [self.socket writeData: mutableData withTimeout: -1 tag: 0];
+}
+
+- (void)sendCheckStatus
+{
+    NSMutableData *mutableData = [NSMutableData new];
+    int steamId = (int)0;
+    Byte type = (Byte)(0x00);
+    NSData *typeData = [NSData dataWithBytes: &type length: 1];
+    NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
+    NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?><XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"  To=\"=\" CommandCode=\"GetXmlState\" Channel=\"\" From=\"idCard\"/>";
+    //    NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
+    \"<XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"To=\"=\" CommandCode=\"GetXmlState\"\
+    Channel=""From=\"idCard\">";
+    NSMutableString *string = [NSMutableString stringWithString: loginStatus];
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
@@ -177,6 +202,8 @@
     } else if ([receviedMessage containsString: @"unLockScreen"])
     {
         NSLog(@"解除锁屏");
+    } else if ([receviedMessage containsString: @"ReponseXmlState"]) {
+        [self responseXmlStatsWith: data];
     }
     //    Byte *testByte = (Byte *)[data bytes];
     //    Byte lengthByte[] = {};
@@ -207,7 +234,7 @@
     NSArray *arry=[message componentsSeparatedByString:@"&"];
     for (NSString *string in arry) {
         if ([string containsString: @"classId="] ) {
-           [HFCacheObject shardence].classId = [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
+            [HFCacheObject shardence].classId = [string stringByReplacingOccurrencesOfString: @"classId=" withString: @""];
             NSLog(@"classID为:%@", [HFCacheObject shardence].classId);
         }
         if ([string containsString: @"courseId="] ) {
@@ -255,7 +282,75 @@
     BOOL state = [_socket isConnected];   // 判断当前socket的连接状态
     NSLog(@"连接状态: %d",state);
     self.socket = nil;
-//    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
+    //    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
 }
+
+- (void)responseXmlStatsWith:(NSData *)data
+{
+    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
+    xmlData.delegate = self;
+    [xmlData parse];
+}
+
+# pragma mark - 协议方法
+
+// 开始
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+    NSLog(@"开始");
+}
+
+// 获取节点头
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    self.currentElementName = elementName;
+//    if ([_host containsString: DAOXUEAN_INTERFACE]) {
+//        if ([elementName isEqualToString:@"Table1"]) {
+//            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+//            if (self.studentArray.count == 0) {
+//                [self.allInfoArray addObject: self.studentArray];
+//            }
+//            [self.studentArray addObject: stu];
+//        }
+//    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
+//        if ([elementName isEqualToString:@"Table1"]) {
+//            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+//            if (self.classArray.count == 0) {
+//                [self.allInfoArray addObject: self.classArray];
+//            }
+//            [self.classArray addObject: stu];
+//        }
+//    }
+}
+
+// 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    
+//    if ([_host containsString: DAOXUEAN_INTERFACE]) {
+//        if (_currentElementName != nil) {
+//            HFDaoxueModel *stu = [self.studentArray lastObject];
+//            [stu setValue:string forKey:_currentElementName];
+//        }
+//
+//    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
+//        if (_currentElementName != nil) {
+//            HFDaoxueModel *stu = [self.classArray lastObject];
+//            [stu setValue:string forKey:_currentElementName];
+//        }
+//    }
+}
+
+// 获取节点尾
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    _currentElementName = nil;
+}
+
+// 结束
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+//    NSLog(@"结束");
+//    NSLog(@"导学案%zi",self.studentArray.count);
+//    NSLog(@"导学堂%zi",self.classArray.count);
+//    [self.collectionView reloadData];
+}
+
 
 @end
