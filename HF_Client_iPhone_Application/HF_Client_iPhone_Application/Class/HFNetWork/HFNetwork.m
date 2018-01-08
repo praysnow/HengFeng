@@ -82,9 +82,10 @@
 
 //#pragma mark - NSXMLParser代理
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"解析结果为: %@", self.mutableString);
+
     [self.mutableString appendString:string];
 }
+
 
 
 - (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {

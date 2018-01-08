@@ -62,61 +62,18 @@
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
-        
-        [responseObject setDelegate:self];
-        [responseObject parse];
-        NSLog(@"获取学生列表成功");
+        self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
+        [self.collectionView reloadData];
         
     } failure:^(NSError *error) {
         
     }];
 }
 
-# pragma mark - NSXMLParserDelegate
-// 开始
-- (void)parserDidStartDocument:(NSXMLParser *)parser
-{
-    NSLog(@"开始");
-}
-
-// 获取节点头
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
-    self.currentElementName = elementName;
-
-    
-    if ([elementName isEqualToString:@"Table1"]) {
-        // 创建学生模型
-        HFStudentModel *stu = [HFStudentModel new];
-        [self.studentArray addObject:stu];
-        
-    }
-    
-}
-
-// 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-
-    HFStudentModel *stu = [self.studentArray lastObject];
-    [stu setValue:string forKey:_currentElementName];
-}
-
-// 获取节点尾
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    _currentElementName = nil;
-}
-
-// 结束
-- (void)parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"结束");
-    NSLog(@"导学案%zi",self.studentArray.count);
-    NSLog(@"%@",self.studentArray);
-    [self.collectionView reloadData];
-}
-
 #pragma mark - UICollectionViewDelegate
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout :(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(0, 20, 0, 20);
+    return UIEdgeInsetsMake(20, 20, 0, 20);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

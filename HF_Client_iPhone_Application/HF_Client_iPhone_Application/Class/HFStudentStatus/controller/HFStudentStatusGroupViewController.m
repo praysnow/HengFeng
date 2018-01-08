@@ -11,12 +11,22 @@
 #import "HFNetwork.h"
 #import "WebServiceModel.h"
 #import "HFStudentStatusRankingViewController.h"
+#import "HFGroupModel.h"
+#import "ZSSelectView.h"
+#import "HFStudentArrayModel.h"
+#import "HFStudentGroupCollectionReusableView.h"
 
 @interface HFStudentStatusGroupViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic)NSMutableArray *studentArray; // 学生数组
+@property (strong, nonatomic)NSMutableArray<HFGroupModel *> *groupModelArray; // 小组分组情况数组
+
+@property (strong, nonatomic)ZSSelectView *selectView;
+
+@property (strong, nonatomic)NSMutableArray<HFStudentModel *> *studentArray; // 学生数组
+
+@property (strong, nonatomic)NSMutableArray<HFStudentArrayModel *> *studentGroupArray; // 小组数组
 
 @end
 
@@ -38,19 +48,21 @@
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFTTeachToolCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
     
     // 注册headerView
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    [self.collectionView registerNib:[UINib nibWithNibName: NSStringFromClass([HFStudentGroupCollectionReusableView class]) bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(60), 60); self.collectionView.collectionViewLayout = layout;
+    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(60), 40); self.collectionView.collectionViewLayout = layout;
 }
 
+#pragma mark - 网络请求
+// 请求有几个分组
 - (void)GetGroupList{
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetGroupList";
     
-//    NSString *classId = [HFCacheObject shardence].classId;
+    NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"tpID"] = [HFCacheObject shardence].courseId;
@@ -58,37 +70,80 @@
     param[@"ClassID"] = [HFCacheObject shardence].classId;
     param[@"userLoginName"] = @"wanglixia";
     
+    NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
     model.params = param;
     
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
-        
-        [responseObject setDelegate:self];
-        [responseObject parse];
-         
-        NSString *text = [[HFNetwork network] stringInNSXMLParser:responseObject];
-        NSLog(@"%@",text);
-        NSLog(@"获取学生列表成功");
+        self.groupModelArray = [[HFGroupModel new] getGroupModelArray:responseObject];
         
     } failure:^(NSError *error) {
         
     }];
 }
 
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+// 请求分组情况
+- (void)GetGroupPeopleList:(NSString *)PeopleGroupID{
+    
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"GetGroupPeopleList";
+    
+    model.params = @{@"PeopleGroupID":PeopleGroupID}.mutableCopy;
+    
+    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
+    [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
+        
+                
+        self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
+        NSMutableDictionary<NSString *,HFStudentArrayModel *> *dic = [NSMutableDictionary dictionary];
+        for (HFStudentModel *stu in self.studentArray) {
+            
+            if ([dic objectForKey:stu.PeopleGroupNum]) { // 是否包含这个小组
+                [dic[stu.PeopleGroupNum].studentArray addObject:stu];
+            }else{
+                HFStudentArrayModel *studentArrayModel = [HFStudentArrayModel new];
+                dic[stu.PeopleGroupNum] = studentArrayModel;
+                [dic[stu.PeopleGroupNum].studentArray addObject:stu];
+            }
+        }
+        
+//        NSLog(@"%@",dic);
+        // 字典转为数组
+        for(int i = 0;i<dic.count;i++){
+            if ([dic objectForKey:[NSString stringWithFormat:@"%zd",i]]) {
+                [self.studentGroupArray addObject:dic[[NSString stringWithFormat:@"%zd",i]]];
+            }
+        }
+        NSLog(@"%@",self.studentGroupArray);
+        
+        [self.collectionView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 5;
+    return self.studentGroupArray.count;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    HFStudentArrayModel *model = self.studentGroupArray[section];
+    
+    if (model.isShow) {
+        return self.studentGroupArray[section].studentArray.count;
+    }else{
+        return 0;
+    }
+    
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout :(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(0, 20, 0, 20);
+    return UIEdgeInsetsMake(10, 20, 10, 20);
 }
 
 
@@ -99,24 +154,40 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
-    return CGSizeMake(200, 30);
+    return CGSizeMake(200, 60);
 }
 
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HFTTeachToolCollectionViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
-//    cell.studentModel = self.studentArray[indexPath.row];
+
+    HFStudentModel *stu =  self.studentGroupArray[indexPath.section].studentArray[indexPath.item];
+    cell.studentModel = stu;
+    
     return cell;
 }
 
 // 设置collectionview的头部
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
-   UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+   HFStudentGroupCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
     
-    headerView.backgroundColor = [UIColor redColor];
+    headerView.backgroundColor = [UIColor grayColor];
+    
+    
+    
+    HFStudentArrayModel *model = self.studentGroupArray[indexPath.section];
+    headerView.groupNum = indexPath.section + 1;
+    headerView.groupStudentNum = model.studentArray.count;
+    
+    [headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerViewTap:)]];
     
     return headerView;
+}
+
+- (void)headerViewTap:(UITapGestureRecognizer *)tap{
+    NSLog(@"外面点击");
+    
 }
 
 
@@ -137,8 +208,25 @@
     //    [cell setSelected:YES];
 }
 
+
+
 - (IBAction)groupButton:(id)sender {
     NSLog(@"小组");
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (HFGroupModel *group in self.groupModelArray) {
+        [array addObject:group.PeopleGroupName];
+    }
+    
+    self.selectView = [ZSSelectView selectViewWithTitle:nil andContentArray:array andResultBlock:^(NSInteger index, NSString *result) {
+        
+        // 清空数据
+        self.studentGroupArray = nil;
+        [self GetGroupPeopleList:self.groupModelArray[index].PeopleGroupID];
+    }];
+    
+    self.selectView.point = CGPointMake(0, SCREEN_HEIGHT - array.count * 50 - 60);
+    [self.selectView show];
 }
 - (IBAction)add1:(id)sender {
     NSLog(@"+1");
@@ -160,11 +248,26 @@
 
 
 #pragma -mark 懒加载
-- (NSMutableArray *)studentArray{
+- (NSMutableArray *)groupModelArray{
+    if (_groupModelArray == nil) {
+        _groupModelArray = [NSMutableArray array];
+    }
+    return _groupModelArray;
+}
+
+-(NSMutableArray<HFStudentModel *> *)studentArray{
     if (_studentArray == nil) {
         _studentArray = [NSMutableArray array];
     }
+    
     return _studentArray;
+}
+
+- (NSMutableArray<HFStudentArrayModel *> *)studentGroupArray{
+    if (_studentGroupArray == nil) {
+        _studentGroupArray = [NSMutableArray array];
+    }
+    return _studentGroupArray;
 }
 
 
