@@ -341,7 +341,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-AL-7S4">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEe-AL-7S4">
                             <rect key="frame" x="127.5" y="71" width="120" height="30"/>
                             <color key="backgroundColor" red="0.93725490196078431" green="0.50196078431372548" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
