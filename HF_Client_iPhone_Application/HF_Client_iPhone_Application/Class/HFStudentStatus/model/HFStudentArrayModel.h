@@ -12,6 +12,7 @@
 @interface HFStudentArrayModel : NSObject
 
 @property(assign,nonatomic) BOOL isShow; // 是否展示
+@property (nonatomic,strong) NSString *PeopleGroupNum; // 小组号
 @property(strong,nonatomic) NSMutableArray<HFStudentModel *> *studentArray; // 学生数组
 
 @end

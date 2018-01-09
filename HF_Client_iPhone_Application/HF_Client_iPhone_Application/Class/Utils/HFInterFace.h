@@ -9,13 +9,14 @@
 @interface HFInterFace : NSObject
 
 /* HOST */
-#define HOST [HFSocketService sharedInstance].service_host
+
+#define HOST [HFNetwork network].ServerAddress
 
 /* Login InterFace */
-#define LOGIN_INTERFACE @"webService/WisdomClassWS.asmx?op=CheckUser"
-#define DAOXUEAN_INTERFACE @"webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
-#define DAOXUETANG_INTERFACE @"webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
-#define GETTASKLIST @"webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
+#define LOGIN_INTERFACE @"/webService/WisdomClassWS.asmx?op=CheckUser"
+#define DAOXUEAN_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
+#define DAOXUETANG_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
+#define GETTASKLIST @"/webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
 
 /*
  Notification

@@ -11,6 +11,7 @@
 #import "CBAlertWindow.h"
 #import "HFLoginConfigueView.h"
 #import "AppDelegate.h"
+#import "SystemSettingView.h"
 
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (strong, nonatomic) NSArray *array;
-@property (strong, nonatomic) HFLoginConfigueView *configueView;
+@property (strong, nonatomic) SystemSettingView *systemSettingView;
 
 @end
 
@@ -94,12 +95,19 @@
             break;
         case 4:
         {
-            HFLoginConfigueView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFLoginConfigueView.class) owner: nil options: nil].lastObject;
-            self.configueView = configueView;
-            [configueView.layer setCornerRadius: 10];
-            configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-            configueView.layer.masksToBounds = YES;
-            [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+//            HFLoginConfigueView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFLoginConfigueView.class) owner: nil options: nil].lastObject;
+//            self.configueView = configueView;
+//            [configueView.layer setCornerRadius: 10];
+//            configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//            configueView.layer.masksToBounds = YES;
+//            [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+            
+            SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
+            self.systemSettingView = systemSettingView;
+            systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH - 60, SCREEN_HEIGHT / 2);
+            [systemSettingView.layer setCornerRadius:10];
+            systemSettingView.layer.masksToBounds = YES;
+            [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
         }
             break;
             

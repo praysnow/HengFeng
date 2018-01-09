@@ -22,21 +22,28 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="下拉按钮" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-Eo-2pE">
+                    <rect key="frame" x="378" y="47" width="16" height="8"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="fq4-h6-xGW" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" constant="20" id="DsE-nw-Knm"/>
+                <constraint firstItem="qSP-Eo-2pE" firstAttribute="centerY" secondItem="fq4-h6-xGW" secondAttribute="centerY" id="H7U-jN-W5E"/>
                 <constraint firstItem="fq4-h6-xGW" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" constant="10" id="HMT-rK-d2A"/>
                 <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="fq4-h6-xGW" secondAttribute="trailing" constant="20" id="VhU-HA-OsU"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="qSP-Eo-2pE" secondAttribute="trailing" constant="30" id="meh-xB-eOd"/>
                 <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="fq4-h6-xGW" secondAttribute="bottom" id="vas-8M-GFk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
             <connections>
+                <outlet property="imageView" destination="qSP-Eo-2pE" id="j6I-E7-3pQ"/>
                 <outlet property="titleButton" destination="fq4-h6-xGW" id="EfU-qS-6BP"/>
             </connections>
-            <point key="canvasLocation" x="-116" y="-14"/>
+            <point key="canvasLocation" x="-116" y="-14.5"/>
         </collectionReusableView>
     </objects>
     <resources>
+        <image name="下拉按钮" width="16" height="8"/>
         <image name="未选中小组" width="24" height="20"/>
     </resources>
 </document>

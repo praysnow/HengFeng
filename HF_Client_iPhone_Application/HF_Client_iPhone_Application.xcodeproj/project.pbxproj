@@ -118,6 +118,12 @@
 		8226AAFA200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */; };
 		8226AAFB200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
+		82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF31E20037E47005C28DB /* UIView+Frame.m */; };
+		82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32020037E47005C28DB /* YZDisplayTitleLabel.m */; };
+		82BFF32820037E47005C28DB /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32220037E47005C28DB /* YZDisplayViewController.m */; };
+		82BFF32920037E47005C28DB /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32520037E47005C28DB /* YZFlowLayout.m */; };
+		82BFF32D20047195005C28DB /* SystemSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82BFF32B20047195005C28DB /* SystemSettingView.xib */; };
+		82BFF32E20047195005C28DB /* SystemSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32C20047195005C28DB /* SystemSettingView.m */; };
 		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
 		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
 		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
@@ -315,6 +321,18 @@
 		8226AAF7200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentGroupCollectionReusableView.h; sourceTree = "<group>"; };
 		8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentGroupCollectionReusableView.m; sourceTree = "<group>"; };
 		8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentGroupCollectionReusableView.xib; sourceTree = "<group>"; };
+		82BFF31D20037E47005C28DB /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		82BFF31E20037E47005C28DB /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		82BFF31F20037E47005C28DB /* YZDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayTitleLabel.h; sourceTree = "<group>"; };
+		82BFF32020037E47005C28DB /* YZDisplayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayTitleLabel.m; sourceTree = "<group>"; };
+		82BFF32120037E47005C28DB /* YZDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewController.h; sourceTree = "<group>"; };
+		82BFF32220037E47005C28DB /* YZDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayViewController.m; sourceTree = "<group>"; };
+		82BFF32320037E47005C28DB /* YZDisplayViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewHeader.h; sourceTree = "<group>"; };
+		82BFF32420037E47005C28DB /* YZFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZFlowLayout.h; sourceTree = "<group>"; };
+		82BFF32520037E47005C28DB /* YZFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZFlowLayout.m; sourceTree = "<group>"; };
+		82BFF32A20047194005C28DB /* SystemSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSettingView.h; sourceTree = "<group>"; };
+		82BFF32B20047195005C28DB /* SystemSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemSettingView.xib; sourceTree = "<group>"; };
+		82BFF32C20047195005C28DB /* SystemSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSettingView.m; sourceTree = "<group>"; };
 		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
 		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
 		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
@@ -614,6 +632,7 @@
 		39B718F81FBD63350088C348 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				82BFF31C20037E47005C28DB /* YZDisplayViewController */,
 				8226AAEE1FFF7C1500C9BDB4 /* ZSSelectView.h */,
 				8226AAED1FFF7C1500C9BDB4 /* ZSSelectView.m */,
 				8226AAF01FFF7C1500C9BDB4 /* ZSSelectViewCell.h */,
@@ -681,6 +700,9 @@
 		39C94A2D1FDE7CFE003641C9 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				82BFF32A20047194005C28DB /* SystemSettingView.h */,
+				82BFF32C20047195005C28DB /* SystemSettingView.m */,
+				82BFF32B20047195005C28DB /* SystemSettingView.xib */,
 				39C94A351FDE81E6003641C9 /* HFLoginConfigueView.h */,
 				39C94A361FDE81E6003641C9 /* HFLoginConfigueView.m */,
 				39C94A381FDE81EE003641C9 /* HFLoginConfigueView.xib */,
@@ -790,6 +812,22 @@
 				8226AAF5200238D200C9BDB4 /* HFStudentArrayModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		82BFF31C20037E47005C28DB /* YZDisplayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				82BFF31D20037E47005C28DB /* UIView+Frame.h */,
+				82BFF31E20037E47005C28DB /* UIView+Frame.m */,
+				82BFF31F20037E47005C28DB /* YZDisplayTitleLabel.h */,
+				82BFF32020037E47005C28DB /* YZDisplayTitleLabel.m */,
+				82BFF32120037E47005C28DB /* YZDisplayViewController.h */,
+				82BFF32220037E47005C28DB /* YZDisplayViewController.m */,
+				82BFF32320037E47005C28DB /* YZDisplayViewHeader.h */,
+				82BFF32420037E47005C28DB /* YZFlowLayout.h */,
+				82BFF32520037E47005C28DB /* YZFlowLayout.m */,
+			);
+			path = YZDisplayViewController;
 			sourceTree = "<group>";
 		};
 		82E62FCD1FE911D600B90E69 /* controller */ = {
@@ -974,6 +1012,7 @@
 				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
 				39CE3A2E1FBEE00D008F67AE /* HFTeachToolViewController.xib in Resources */,
 				3972CB341FB198D40017DFE9 /* LaunchScreen.storyboard in Resources */,
+				82BFF32D20047195005C28DB /* SystemSettingView.xib in Resources */,
 				3973415B1FFD1600004191BD /* HFUserInfocellTableViewCell.xib in Resources */,
 				3972CB311FB198D40017DFE9 /* Assets.xcassets in Resources */,
 				39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */,
@@ -1079,6 +1118,7 @@
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				8226AAF6200238D200C9BDB4 /* HFStudentArrayModel.m in Sources */,
 				39B719031FBD8D990088C348 /* HFTTeachToolCollectionViewCell.m in Sources */,
+				82BFF32E20047195005C28DB /* SystemSettingView.m in Sources */,
 				39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */,
 				8226AAD71FFE463E00C9BDB4 /* HFVerticalButton.m in Sources */,
 				391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */,
@@ -1115,12 +1155,16 @@
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
+				82BFF32920037E47005C28DB /* YZFlowLayout.m in Sources */,
 				8226AAF21FFF7C1600C9BDB4 /* ZSSelectView.m in Sources */,
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
 				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
 				391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */,
+				82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */,
+				82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
+				82BFF32820037E47005C28DB /* YZDisplayViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
 				8226AAEB1FFF738D00C9BDB4 /* HFGroupModel.m in Sources */,
@@ -1299,7 +1343,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1318,7 +1362,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application111";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1329,7 +1373,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B625Q63YR4;
+				DEVELOPMENT_TEAM = U86FP276EQ;
 				INFOPLIST_FILE = HF_Client_iPhone_ApplicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationTests";
@@ -1344,7 +1388,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B625Q63YR4;
+				DEVELOPMENT_TEAM = U86FP276EQ;
 				INFOPLIST_FILE = HF_Client_iPhone_ApplicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-ApplicationTests";

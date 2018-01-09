@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-
+typedef NS_ENUM(NSUInteger, ServerType) {
+    ServerTypeBeiJing = 0,      // 北京服务器
+    ServerTypeGuangZhou         // 广州服务器
+};
 
 @interface HFNetwork : NSObject
 
@@ -29,4 +32,8 @@ typedef void (^requestFailureBlock)(NSError *error);
 - (void)SOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 // 发送WebService的接口
 - (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
+
+@property(nonatomic,strong) NSString *ServerAddress;    // 公网服务器地址
+@property(nonatomic,strong) NSString *SocketAddress;    // Socket服务器地址
+@property(nonatomic,assign) ServerType serverType;      // 服务器类型 北京服务器或者广州服务器
 @end

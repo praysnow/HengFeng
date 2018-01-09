@@ -141,4 +141,53 @@
     
 }
 
+#pragma mark - 重写setter、getter
+#pragma mark 公网服务器地址
+- (void)setServerAddress:(NSString *)ServerAddress{
+    
+    // 保存到本地
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:ServerAddress forKey:@"ServerAddress"];
+}
+
+- (NSString *)ServerAddress{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    return [defaults valueForKey:@"ServerAddress"] ;
+}
+
+#pragma mark Socket服务器地址
+- (void)setSocketAddress:(NSString *)SocketAddress{
+    // 保存到本地
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:SocketAddress forKey:@"SocketAddress"];
+}
+
+- (NSString *)SocketAddress{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults valueForKey:@"SocketAddress"] ;
+}
+
+#pragma mark 服务器类型
+- (void)setServerType:(ServerType)serverType{
+    
+    // 保存到本地
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@(serverType) forKey:@"ServerType"];
+}
+
+- (ServerType)serverType{
+    
+    // 默认是北京
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"ServerType"] == nil) {
+        return ServerTypeBeiJing;
+    }
+    
+    return [[defaults valueForKey:@"ServerType"] intValue];
+    
+}
+
 @end

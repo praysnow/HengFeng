@@ -59,7 +59,7 @@
         model.params = @{@"ClassID":classId}.mutableCopy;
     }
     
-    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
+    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
         self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];

@@ -16,6 +16,7 @@
 #import "HFStudentArrayModel.h"
 #import "HFStudentGroupCollectionReusableView.h"
 
+
 @interface HFStudentStatusGroupViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -52,8 +53,28 @@
     
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(60), 40); self.collectionView.collectionViewLayout = layout;
+    layout.itemSize = CGSizeMake(FLEXIBLE_WIDTH(70), 40); self.collectionView.collectionViewLayout = layout;
+    
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"HFStudentGroupCollectionReusableView" object:nil];
+}
+
+- (void)action:(NSNotification *)notification {
+    NSLog(@"接受到通知%@",notification.object);
+    NSString *num = notification.object;
+    
+    HFStudentArrayModel *model = self.studentGroupArray[[num intValue]];
+    BOOL flag = model.isShow;
+    
+    for (HFStudentArrayModel *model in self.studentGroupArray) {
+        model.isShow = NO;
+    }
+    
+    
+    model.isShow = !flag;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - 网络请求
@@ -63,17 +84,21 @@
     model.method = @"GetGroupList";
     
     NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
+    NSString *classID = [HFCacheObject shardence].classId;
+    if (classID.length >= 3) {
+        classID =  [classID substringWithRange:NSMakeRange(0,3)];
+    }
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"tpID"] = [HFCacheObject shardence].courseId;
     param[@"SubjectID"] = [HFCacheObject shardence].subjectId;
-    param[@"ClassID"] = [HFCacheObject shardence].classId;
+    param[@"ClassID"] = classID;
     param[@"userLoginName"] = @"wanglixia";
     
     NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
     model.params = param;
     
-    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
+    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
         self.groupModelArray = [[HFGroupModel new] getGroupModelArray:responseObject];
@@ -91,7 +116,7 @@
     
     model.params = @{@"PeopleGroupID":PeopleGroupID}.mutableCopy;
     
-    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"webService/WisdomClassWS.asmx"];
+    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
                 
@@ -103,6 +128,7 @@
                 [dic[stu.PeopleGroupNum].studentArray addObject:stu];
             }else{
                 HFStudentArrayModel *studentArrayModel = [HFStudentArrayModel new];
+                studentArrayModel.PeopleGroupNum = stu.PeopleGroupNum;
                 dic[stu.PeopleGroupNum] = studentArrayModel;
                 [dic[stu.PeopleGroupNum].studentArray addObject:stu];
             }
@@ -143,13 +169,13 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout :(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(10, 20, 10, 20);
+    return UIEdgeInsetsMake(10, 30, 0, 30);
 }
 
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 20;
+    return 10;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -172,24 +198,14 @@
     
    HFStudentGroupCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
     
-    headerView.backgroundColor = [UIColor grayColor];
-    
-    
-    
+//    headerView.backgroundColor = [UIColor grayColor];
+
     HFStudentArrayModel *model = self.studentGroupArray[indexPath.section];
-    headerView.groupNum = indexPath.section + 1;
-    headerView.groupStudentNum = model.studentArray.count;
+    headerView.model = model;
     
-    [headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerViewTap:)]];
-    
+
     return headerView;
 }
-
-- (void)headerViewTap:(UITapGestureRecognizer *)tap{
-    NSLog(@"外面点击");
-    
-}
-
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

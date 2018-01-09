@@ -8,6 +8,7 @@
 
 #import "HFSocketService.h"
 #import "WebServiceModel.h"
+#import "HFNetwork.h"
 
 #define NORMOR_INFO_FIRST_BYTE (Byte)(0x99)
 #define HEADER_INFO_FIRST_BYTE (Byte)(0x00)
@@ -29,14 +30,14 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstace = [[self alloc] init];
-        NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] valueForKey: ADDRESS_HOST];
-        if ([dictionary.allKeys containsObject: @"socket_address"]) {
-            sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
-        }
-        if ([dictionary.allKeys containsObject: @"service_host"]) {
-            sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
-        }
-        [sharedInstace setUpSocketWithHost: sharedInstace.socket_host andPort: 1001];
+//        NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] valueForKey: ADDRESS_HOST];
+//        if ([dictionary.allKeys containsObject: @"socket_address"]) {
+//            sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
+//        }
+//        if ([dictionary.allKeys containsObject: @"service_host"]) {
+//            sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
+//        }
+        [sharedInstace setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
     });
     
     return sharedInstace;

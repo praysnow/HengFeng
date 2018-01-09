@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HFStudentArrayModel.h"
 
 @interface HFStudentGroupCollectionReusableView : UICollectionReusableView
 
-@property(assign,nonatomic)NSInteger groupNum; // 第几组
-@property(assign,nonatomic)NSInteger groupStudentNum; // 该小组人数
+@property(strong,nonatomic)HFStudentArrayModel *model;
+
 @end
