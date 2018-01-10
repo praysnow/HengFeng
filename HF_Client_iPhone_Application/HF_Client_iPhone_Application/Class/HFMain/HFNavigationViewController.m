@@ -21,7 +21,7 @@
     // 当导航栏用在HFNavigationController中, appearance设置才会生效 ce
     UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
     //    UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
+    [bar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24]}];
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     bar.barTintColor = UICOLOR_ARGB(0xff53BAA6);
     

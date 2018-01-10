@@ -12,6 +12,8 @@
 #import "HFLoginConfigueView.h"
 #import "AppDelegate.h"
 #import "SystemSettingView.h"
+#import "HFNavigationViewController.h"
+#import "HFClassSituationViewController.h"
 
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -68,12 +70,15 @@
             break;
         case 1:
         {
-//            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//            UIViewController *rootVC = appDelegate.window.rootViewController;
-//            
-//            UIViewController *vc = [UIViewController new];
-//            vc.view.backgroundColor = [UIColor redColor];
-//            [rootVC presentViewController:vc animated:YES completion:nil];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UIViewController *rootVC = appDelegate.window.rootViewController;
+            
+            
+            UIViewController *vc = [UIViewController new];
+            vc.view.backgroundColor = [UIColor redColor];
+            
+            HFNavigationViewController *nav = [[HFNavigationViewController alloc] initWithRootViewController:vc];
+            [rootVC presentViewController:nav animated:YES completion:nil];
         }
             break;
         case 2:
@@ -104,7 +109,7 @@
             
             SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
             self.systemSettingView = systemSettingView;
-            systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH - 60, SCREEN_HEIGHT / 2);
+            systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2);
             [systemSettingView.layer setCornerRadius:10];
             systemSettingView.layer.masksToBounds = YES;
             [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];

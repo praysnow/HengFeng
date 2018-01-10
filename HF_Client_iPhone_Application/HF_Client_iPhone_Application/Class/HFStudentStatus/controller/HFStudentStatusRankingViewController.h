@@ -6,9 +6,9 @@
 //  Copyright © 2018年 HengFeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YZDisplayViewController.h"
 
-@interface HFStudentStatusRankingViewController : UIViewController
+@interface HFStudentStatusRankingViewController : YZDisplayViewController
 
 @property (strong,nonatomic)NSString *rankType; // 个人或小组
 
