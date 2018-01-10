@@ -108,7 +108,6 @@
 		8226AADB1FFE479800C9BDB4 /* 排行@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAD91FFE479800C9BDB4 /* 排行@2x.png */; };
 		8226AADC1FFE479800C9BDB4 /* 排行@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8226AADA1FFE479800C9BDB4 /* 排行@3x.png */; };
 		8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */; };
-		8226AAE11FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */; };
 		8226AAE51FFF729D00C9BDB4 /* HFStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAE41FFF729D00C9BDB4 /* HFStudentModel.m */; };
 		8226AAEB1FFF738D00C9BDB4 /* HFGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAEA1FFF738D00C9BDB4 /* HFGroupModel.m */; };
 		8226AAF11FFF7C1600C9BDB4 /* ZSSelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAEC1FFF7C1500C9BDB4 /* ZSSelectViewCell.xib */; };
@@ -124,6 +123,8 @@
 		82BFF32920037E47005C28DB /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32520037E47005C28DB /* YZFlowLayout.m */; };
 		82BFF32D20047195005C28DB /* SystemSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82BFF32B20047195005C28DB /* SystemSettingView.xib */; };
 		82BFF32E20047195005C28DB /* SystemSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32C20047195005C28DB /* SystemSettingView.m */; };
+		82BFF3312004B353005C28DB /* HFClassSituationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF3302004B353005C28DB /* HFClassSituationViewController.m */; };
+		82BFF3342005B182005C28DB /* HFPersonRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */; };
 		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
 		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
 		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
@@ -306,7 +307,6 @@
 		8226AADA1FFE479800C9BDB4 /* 排行@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "排行@3x.png"; path = "HF_Client_iPhone_Application/Assets.xcassets/排行.imageset/排行@3x.png"; sourceTree = SOURCE_ROOT; };
 		8226AADD1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentStatusRankingViewController.h; sourceTree = "<group>"; };
 		8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentStatusRankingViewController.m; sourceTree = "<group>"; };
-		8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentStatusRankingViewController.xib; sourceTree = "<group>"; };
 		8226AAE31FFF729D00C9BDB4 /* HFStudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStudentModel.h; sourceTree = "<group>"; };
 		8226AAE41FFF729D00C9BDB4 /* HFStudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStudentModel.m; sourceTree = "<group>"; };
 		8226AAE91FFF738D00C9BDB4 /* HFGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFGroupModel.h; sourceTree = "<group>"; };
@@ -333,6 +333,10 @@
 		82BFF32A20047194005C28DB /* SystemSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemSettingView.h; sourceTree = "<group>"; };
 		82BFF32B20047195005C28DB /* SystemSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemSettingView.xib; sourceTree = "<group>"; };
 		82BFF32C20047195005C28DB /* SystemSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemSettingView.m; sourceTree = "<group>"; };
+		82BFF32F2004B353005C28DB /* HFClassSituationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassSituationViewController.h; sourceTree = "<group>"; };
+		82BFF3302004B353005C28DB /* HFClassSituationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassSituationViewController.m; sourceTree = "<group>"; };
+		82BFF3322005B182005C28DB /* HFPersonRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPersonRankingViewController.h; sourceTree = "<group>"; };
+		82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPersonRankingViewController.m; sourceTree = "<group>"; };
 		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
 		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
 		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
@@ -692,7 +696,8 @@
 				8226AAD21FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.xib */,
 				8226AADD1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.h */,
 				8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */,
-				8226AADF1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib */,
+				82BFF3322005B182005C28DB /* HFPersonRankingViewController.h */,
+				82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -729,6 +734,8 @@
 				397340DD1FFB91E2004191BD /* HFUserInfoViewController.h */,
 				397340DE1FFB91E2004191BD /* HFUserInfoViewController.m */,
 				397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */,
+				82BFF32F2004B353005C28DB /* HFClassSituationViewController.h */,
+				82BFF3302004B353005C28DB /* HFClassSituationViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -979,7 +986,6 @@
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
 				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
 				391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */,
-				8226AAE11FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.xib in Resources */,
 				39181E971FB574DF00A364AB /* keyboard_bg_green.png in Resources */,
 				39181EA21FB574DF00A364AB /* wifi5.png in Resources */,
 				39181E941FB574DF00A364AB /* ic_user_selected.png in Resources */,
@@ -1114,6 +1120,7 @@
 				39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */,
 				39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */,
 				8226AAFA200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m in Sources */,
+				82BFF3342005B182005C28DB /* HFPersonRankingViewController.m in Sources */,
 				398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */,
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
 				8226AAF6200238D200C9BDB4 /* HFStudentArrayModel.m in Sources */,
@@ -1150,6 +1157,7 @@
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */,
+				82BFF3312004B353005C28DB /* HFClassSituationViewController.m in Sources */,
 				8226AAF31FFF7C1600C9BDB4 /* ZSSelectViewCell.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
