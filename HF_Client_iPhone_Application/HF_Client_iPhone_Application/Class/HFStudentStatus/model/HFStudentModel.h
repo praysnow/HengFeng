@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm.h>
 
-@interface HFStudentModel : NSObject
+@interface HFStudentModel : RLMObject
 
 @property (nonatomic,strong) NSString *userID;
 @property (nonatomic,strong) NSString *userRealName;
@@ -16,6 +17,9 @@
 
 // 小组需要的字段 PeopleGroupNum
 @property (nonatomic,strong) NSString *PeopleGroupNum;
+
+// 分数
+@property (nonatomic,assign) NSInteger point;
 
 // 学生状态-小组返回的数组
 - (NSMutableArray<HFStudentModel *> *)getStudentGroup:(NSXMLParser *)xmlParser;

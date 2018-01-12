@@ -42,7 +42,7 @@
 {
     self.array = @[@{@"name":@"课程", @"content" : @"五年级语文"},
                    @{@"name":@"班级学情", @"image" : @"back"},
-                   @{@"name":@"我的备课", @"image" : @"back"},
+// 暂时去掉                  @{@"name":@"我的备课", @"image" : @"back"},
                    @{@"name":@"WIFI连接", @"image" : @"back"},
                    @{@"name":@"系统配置", @"image" : @"back"}];
 }
@@ -63,62 +63,42 @@
 {
     [tableView deselectRowAtIndexPath: indexPath animated: YES];
     
-    switch (indexPath.row) {
-        case 0:
-        {
-        }
-            break;
-        case 1:
-        {
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            UIViewController *rootVC = appDelegate.window.rootViewController;
-            
-            
-            UIViewController *vc = [UIViewController new];
-            vc.view.backgroundColor = [UIColor redColor];
-            
-            HFNavigationViewController *nav = [[HFNavigationViewController alloc] initWithRootViewController:vc];
-            [rootVC presentViewController:nav animated:YES completion:nil];
-        }
-            break;
-        case 2:
-        {
-        }
-            break;
-        case 3:
-            {
-                NSString * urlString = @"App-Prefs:root=WIFI"; //
-                if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]]) {
-                    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
-                        // iOS10之后不允许跳转到设置的子页面，只允许跳转到设置界面(首页)，据说跳转到系统设置子页面，但同时会加大遇到审核被拒的可能性
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
-                    } else {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
-                    }
-                }
+    NSString *name = self.array[indexPath.row][@"name"];
+    if ([name isEqualToString:@"课程"]){
+        
+    }else if ([name isEqualToString:@"班级学情"]){
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        UIViewController *rootVC = appDelegate.window.rootViewController;
+        
+        
+        HFClassSituationViewController *vc = [HFClassSituationViewController new];
+        vc.view.backgroundColor = [UIColor redColor];
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [rootVC presentViewController:nav animated:YES completion:nil];
+        
+    }else if ([name isEqualToString:@"WIFI连接"]){
+        
+        NSString * urlString = @"App-Prefs:root=WIFI"; //
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]]) {
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+                // iOS10之后不允许跳转到设置的子页面，只允许跳转到设置界面(首页)，据说跳转到系统设置子页面，但同时会加大遇到审核被拒的可能性
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
+            } else {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
             }
-            break;
-        case 4:
-        {
-//            HFLoginConfigueView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFLoginConfigueView.class) owner: nil options: nil].lastObject;
-//            self.configueView = configueView;
-//            [configueView.layer setCornerRadius: 10];
-//            configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-//            configueView.layer.masksToBounds = YES;
-//            [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
-            
-            SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
-            self.systemSettingView = systemSettingView;
-            systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2);
-            [systemSettingView.layer setCornerRadius:10];
-            systemSettingView.layer.masksToBounds = YES;
-            [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
         }
-            break;
-            
-        default:
-            break;
+    }else if ([name isEqualToString:@"系统配置"]){
+        SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
+        self.systemSettingView = systemSettingView;
+        systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2);
+        [systemSettingView.layer setCornerRadius:10];
+        systemSettingView.layer.masksToBounds = YES;
+        [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
+        
     }
+    
+
 }
 
 @end

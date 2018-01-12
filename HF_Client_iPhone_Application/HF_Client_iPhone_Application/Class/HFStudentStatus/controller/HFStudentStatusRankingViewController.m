@@ -7,6 +7,7 @@
 //
 
 #import "HFStudentStatusRankingViewController.h"
+#import "HFPersonRankingViewController.h"
 
 @interface HFStudentStatusRankingViewController ()
 
@@ -46,6 +47,12 @@
     // 如果有导航控制器或者tabBarController,需要设置tableView额外滚动区域,详情请看FullChildViewController
     self.isfullScreen = YES;
     self.dragingFollow = YES;
+    
+    if ([self.rankType isEqualToString:@"个人"]){
+        self.selectIndex = 0;
+    }else{
+        self.selectIndex = 1;
+    }
 }
 
 // 添加所有子控制器
@@ -57,9 +64,8 @@
 //    wordVc1.title = @"小码哥";
 //    [self addChildViewController:wordVc1];
     
-    UIViewController *vc = [UIViewController new];
+    HFPersonRankingViewController *vc = [HFPersonRankingViewController new];
     vc.title = @"个人";
-    vc.view.backgroundColor = [UIColor redColor];
     [self addChildViewController:vc];
     
     UIViewController *vc1 = [UIViewController new];

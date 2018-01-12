@@ -25,7 +25,7 @@
 
     self.contentView.layer.masksToBounds = YES;
     self.contentView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.contentView.layer.borderWidth = 0.5;
+    self.contentView.layer.borderWidth = 1;
     self.contentView.layer.cornerRadius = 2;
 }
 
@@ -34,10 +34,14 @@
         self.contentView.layer.borderColor = MainColor.CGColor; 
         _userRealNameLabel.textColor = MainColor;
         _userLoginNameLabel.textColor = MainColor;
+        
+        self.contentView.layer.borderWidth = 2;
     }else{
         self.contentView.layer.borderColor = [UIColor grayColor].CGColor;
         _userRealNameLabel.textColor = [UIColor grayColor];
         _userLoginNameLabel.textColor = [UIColor grayColor];
+        
+        self.contentView.layer.borderWidth = 1;
     }
     
 }
@@ -46,7 +50,7 @@
     _studentModel = studentModel;
     
     _userRealNameLabel.text = studentModel.userRealName;
-    _userLoginNameLabel.text = [NSString stringWithFormat:@"[%@]", studentModel.userLoginName];
+    _userLoginNameLabel.text = [NSString stringWithFormat:@"[%@]", studentModel.userID];
    
 }
 

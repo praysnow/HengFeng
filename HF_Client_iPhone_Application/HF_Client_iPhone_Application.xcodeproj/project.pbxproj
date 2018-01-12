@@ -116,6 +116,9 @@
 		8226AAF6200238D200C9BDB4 /* HFStudentArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAF5200238D200C9BDB4 /* HFStudentArrayModel.m */; };
 		8226AAFA200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */; };
 		8226AAFB200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */; };
+		825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E262008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m */; };
+		825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */; };
+		825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
 		82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF31E20037E47005C28DB /* UIView+Frame.m */; };
 		82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32020037E47005C28DB /* YZDisplayTitleLabel.m */; };
@@ -321,6 +324,11 @@
 		8226AAF7200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentGroupCollectionReusableView.h; sourceTree = "<group>"; };
 		8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentGroupCollectionReusableView.m; sourceTree = "<group>"; };
 		8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentGroupCollectionReusableView.xib; sourceTree = "<group>"; };
+		825D9E252008ACFD00A46EF4 /* HFPersonRankingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPersonRankingTableViewCell.h; sourceTree = "<group>"; };
+		825D9E262008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPersonRankingTableViewCell.m; sourceTree = "<group>"; };
+		825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPersonRankingTableViewCell.xib; sourceTree = "<group>"; };
+		825D9E2A2008C7FC00A46EF4 /* HFGroupRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFGroupRankingViewController.h; sourceTree = "<group>"; };
+		825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFGroupRankingViewController.m; sourceTree = "<group>"; };
 		82BFF31D20037E47005C28DB /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		82BFF31E20037E47005C28DB /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		82BFF31F20037E47005C28DB /* YZDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayTitleLabel.h; sourceTree = "<group>"; };
@@ -650,6 +658,9 @@
 				8226AAF7200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.h */,
 				8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */,
 				8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */,
+				825D9E252008ACFD00A46EF4 /* HFPersonRankingTableViewCell.h */,
+				825D9E262008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m */,
+				825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -698,6 +709,8 @@
 				8226AADE1FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m */,
 				82BFF3322005B182005C28DB /* HFPersonRankingViewController.h */,
 				82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */,
+				825D9E2A2008C7FC00A46EF4 /* HFGroupRankingViewController.h */,
+				825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -979,6 +992,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */,
 				39181E871FB574DF00A364AB /* 2.png in Resources */,
 				398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */,
 				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
@@ -1144,8 +1158,10 @@
 				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
 				8226AAE51FFF729D00C9BDB4 /* HFStudentModel.m in Sources */,
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
+				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
+				825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */,
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,

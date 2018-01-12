@@ -56,13 +56,13 @@
         [self.titleButton setImage:[UIImage imageNamed:@"选中小组"] forState:UIControlStateNormal];
         [self.titleButton setTitleColor:MainColor forState:UIControlStateNormal];
         
-        [self.imageView setImage:[UIImage imageNamed:@"下拉按钮"]];
+        [self.imageView setImage:[UIImage imageNamed:@"上拉按钮"]];
     }else{
         self.titleButton.layer.borderColor = [UIColor grayColor].CGColor;
         [self.titleButton setImage:[UIImage imageNamed:@"未选中小组"] forState:UIControlStateNormal];
         [self.titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
-        [self.imageView setImage:[UIImage imageNamed:@"上拉按钮"]];
+        [self.imageView setImage:[UIImage imageNamed:@"下拉按钮"]];
     }
     
 }
