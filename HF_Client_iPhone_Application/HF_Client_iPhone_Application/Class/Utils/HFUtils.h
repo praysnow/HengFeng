@@ -21,4 +21,9 @@
 
 + (void)selectTabBarControllerIndexAndShowRootViewController:(NSInteger)index;
 
+//正则表达式取标签之间的值
++ (NSString *)regulexFromString:(NSString *)mainString
+                 andStartString:(NSString *)startString
+                   andEndString:(NSString *)endString;
+
 @end

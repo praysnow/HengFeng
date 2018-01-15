@@ -161,7 +161,7 @@
 - (void)setSocketAddress:(NSString *)SocketAddress{
     // 保存到本地
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:SocketAddress forKey:@"SocketAddress"];
+    [defaults setValue: SocketAddress forKey:@"SocketAddress"];
 }
 
 - (NSString *)SocketAddress{

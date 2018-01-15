@@ -1,4 +1,4 @@
-//
+ //
 //  HFCacheObject.m
 //  HF_Client_iPhone_Application
 //
@@ -56,6 +56,79 @@
     if (_classId.length > 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName: @"TEACHER_CTROL" object: nil];
     }
+}
+
+- (void)setTeacherName:(NSString *)teacherName
+{
+    _teacherName = teacherName;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"teacherName" object: nil];
+}
+
+- (void)setHandUpUsersList:(NSString *)handUpUsersList
+{
+    _handUpUsersList = handUpUsersList;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"handUpUsersList" object: nil];
+}
+
+- (void)setIsInRacing:(NSString *)isInRacing
+{
+    _isInRacing = isInRacing;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"isInRacing" object: nil];
+}
+
+
+- (void)setClassName:(NSString *)className
+{
+    _className = className;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"className" object: nil];
+}
+
+- (void)setIsInHandup:(NSString *)isInHandup
+{
+    _isInHandup = isInHandup;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"isInHandup" object: nil];
+}
+
+- (void)setShowParamsUrl:(NSString *)showParamsUrl
+{
+    _showParamsUrl = showParamsUrl;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"showParamsUrl" object: nil];
+}
+
+- (void)setPaperInfo:(NSString *)paperInfo
+{
+    _paperInfo = paperInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"paperInfo" object: nil];
+}
+
+- (void)setPadViewImageMsg:(NSString *)padViewImageMsg
+{
+    _padViewImageMsg = padViewImageMsg;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"padViewImageMsg" object: nil];
+}
+
+- (void)setGuidedLearningInfo:(NSString *)guidedLearningInfo
+{
+    _guidedLearningInfo = guidedLearningInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"guidedLearningInfo" object: nil];
+}
+
+- (void)setMicroClassInfo:(NSString *)microClassInfo
+{
+    _microClassInfo = microClassInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"microClassInfo" object: nil];
+}
+
+- (void)setIosLookScreen:(NSString *)iosLookScreen
+{
+    _iosLookScreen = iosLookScreen;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"iosLookScreen" object: nil];
+}
+
+- (void)setVoteMsg:(NSString *)voteMsg
+{
+    _voteMsg = voteMsg;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"voteMsg" object: nil];
 }
 
 @end

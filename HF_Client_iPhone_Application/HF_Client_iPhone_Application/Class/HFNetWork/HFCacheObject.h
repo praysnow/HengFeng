@@ -28,4 +28,18 @@
 @property (nonatomic, copy) NSString *subjectId;
 @property (nonatomic, copy) NSString *classId;
 
+@property (nonatomic, copy) NSString *teacherName;
+@property (nonatomic, copy) NSString *handUpUsersList;
+@property (nonatomic, copy) NSString *className;
+@property (nonatomic, copy) NSString *isInRacing;
+@property (nonatomic, copy) NSString *isInHandup;
+@property (nonatomic, copy) NSString *showParamsUrl;
+@property (nonatomic, copy) NSString *paperInfo;
+@property (nonatomic, copy) NSString *padViewImageMsg;
+@property (nonatomic, copy) NSString *guidedLearningInfo;
+@property (nonatomic, copy) NSString *microClassInfo;
+@property (nonatomic, copy) NSString *isCanQuit;
+@property (nonatomic, copy) NSString *iosLookScreen;
+@property (nonatomic, copy) NSString *voteMsg;
+
 @end
