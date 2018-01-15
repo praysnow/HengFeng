@@ -16,6 +16,7 @@
 @interface HFTeachToolViewController ()
 
 @property (nonatomic, assign) BOOL isBuzing;
+@property (strong, nonatomic) IBOutletCollection(ZSVerticalButton) NSArray *buttonArray;
 
 @end
 
@@ -27,6 +28,70 @@
     
     self.stopButton.layer.masksToBounds = YES;
     self.stopButton.layer.cornerRadius = self.stopButton.height / 2;
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(changeTescherStatus) name: CHANGE_TEACHER_STATUS object: nil];
+}
+
+- (void)changeTescherStatus
+{
+    for (ZSVerticalButton *button in self.buttonArray) {
+        switch (button.tag) {
+            case 0:
+                {
+                    button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+                }
+                break;
+            case 1:
+            {
+                button.selected = [HFCacheObject shardence].guidedLearningInfo.length != 0;
+            }
+                break;
+            case 2:
+            {
+                button.selected = [[HFCacheObject shardence].iosLookScreen isEqualToString: @"true"];
+            }
+                break;
+            case 3:
+            {
+                //录屏
+//                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+            case 4:
+            {
+                //随机提问
+                //                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+            case 5:
+            {
+                //抢答
+                //                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+            case 6:
+            {
+                //移动直播
+                //                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+            case 7:
+            {
+                //文件传输助手
+                //                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+            case 8:
+            {
+                //PPT助手
+                //                button.selected = [HFCacheObject shardence].voteMsg.length != 0;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 #pragma mark - tapped

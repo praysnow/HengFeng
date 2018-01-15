@@ -24,7 +24,9 @@
 - (void)setup
 {
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.titleLabel.font = [UIFont systemFontOfSize: 16];
+    
+    [self.titleLabel sizeToFit];
     self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - 25, 25, 20, 20)];
     self.pointView.hidden = YES;
     self.pointView.backgroundColor = [UIColor redColor];
@@ -60,9 +62,9 @@
 //    self.imageView.height = self.imageView.width;
     
     // 调整文字
-//    self.titleLabel.x = self.imageView.x;
+    self.titleLabel.x = self.x;
 //    self.titleLabel.top = self.imageView.bottom + 20;
-//    self.titleLabel.width = self.width;
+    self.titleLabel.width = self.width;
 //    self.titleLabel.height = self.height - self.titleLabel.y;
 }
 

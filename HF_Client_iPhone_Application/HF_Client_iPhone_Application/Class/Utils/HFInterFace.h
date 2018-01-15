@@ -423,4 +423,9 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
 #define  DAOXUEAN_TeachingReflection @"教师教学反思"
 #define  DAOXUEAN_TopicMap @"教具准备主题图"
 
+
+/*通知*/
+
+#define CHANGE_TEACHER_STATUS @"changeTeacherStatus"
+
 @end
