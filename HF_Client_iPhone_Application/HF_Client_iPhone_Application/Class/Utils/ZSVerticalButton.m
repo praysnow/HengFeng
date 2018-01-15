@@ -23,6 +23,8 @@
 
 - (void)setup
 {
+    self.titleLabel.x = self.x;
+    self.titleLabel.width = self.width;
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize: 16];
     
@@ -46,6 +48,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
     [self setup];
 }
 
