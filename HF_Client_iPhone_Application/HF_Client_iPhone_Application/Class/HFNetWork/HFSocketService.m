@@ -15,7 +15,6 @@
 
 @interface HFSocketService ()<GCDAsyncSocketDelegate, NSXMLParserDelegate>
 
-@property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (strong, nonatomic)NSTimer *timer;
 @property (strong, nonatomic) NSString *currentElementName;
 
@@ -37,10 +36,15 @@
 //        if ([dictionary.allKeys containsObject: @"service_host"]) {
 //            sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
 //        }
-        [sharedInstace setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
     });
-    
+    [sharedInstace setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
     return sharedInstace;
+}
+
+- (void)reConnetSockets
+{
+    [self.socket disconnect];
+    [self setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
 }
 
 - (void)setUpSocketWithHost:(NSString *)host andPort:(uint16_t)prot
@@ -54,14 +58,15 @@
         _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
         [_socket readDataWithTimeout: -1 tag: 0];
         NSError *err = nil;
-        int t = [_socket connectToHost:hostIP onPort:hostPort error:&err];
+        int t = [_socket connectToHost: hostIP onPort: hostPort withTimeout: 5 error: &err];
+
         if (!t) {
             return 0;
         }else{
             return 1;
         }
     }else {
-        [_socket readDataWithTimeout:-1 tag:0];
+        [_socket readDataWithTimeout: -1 tag:0];
         return 1;
     }
 }
@@ -88,6 +93,23 @@
         NSLog(@"socket 没有连接");
     }
     [self.socket readDataWithTimeout:-1 tag:0];//WithTimeout 是超时时间,-1表示一直读取数据
+}
+
+// 断开连接
+-(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
+{
+    BOOL state = [sock isConnected];   // 判断当前socket的连接状态
+    NSLog(@"连接状态: %d",state);
+    if (!state) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
+        });
+        NSLog(@"增加遮罩");
+    } else {
+        NSLog(@"通知UI改变移除");
+    }
+   self.isSocketed = state;
+   [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
 }
 
 - (void)sendCtrolMessage:(NSArray *)array
@@ -206,20 +228,6 @@
     } else if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
-    //    Byte *testByte = (Byte *)[data bytes];
-    //    Byte lengthByte[] = {};
-    //    for(int i=0;i<[data length];i++)
-    //    {
-    //    }
-    //    if (testByte[0] != 153) {
-    //        for(int i = 1;i < 5;i++){
-    //            lengthByte[i-1] = (Byte)testByte[i];
-    //        }
-    //        NSLog(@"\n不是心跳：\n");
-    //        printf("testByte = %d ", [self lBytesToInt: lengthByte]);
-    //    } else {
-    //        NSLog(@"\n是心跳包\n");
-    //    }
 }
 
 - (void)lockScreen
@@ -275,15 +283,6 @@
     [mutableData appendData: data];
     NSLog(@"发送登录状态");
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
-}
-
-// 断开连接
--(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
-{
-    BOOL state = [_socket isConnected];   // 判断当前socket的连接状态
-    NSLog(@"连接状态: %d",state);
-    self.socket = nil;
-    //    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
 }
 
 - (void)responseXmlStatsWith:(NSString *)data
