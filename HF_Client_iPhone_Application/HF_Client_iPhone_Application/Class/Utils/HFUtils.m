@@ -82,25 +82,32 @@
     NSLog(@"教师端发送命令为: %@",resultStr);
 }
 
-//+ (void)addSlideButton
-//{
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    //            [button setTitle:@"返回" forState:UIControlStateNormal];
-//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-//    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
-//
-//    button.frame = CGRectMake(0, 0, 70, 30);
-//    // 让按钮内部的所有内容左对齐
-//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    //        [button sizeToFit];
-//    // 让按钮的内容往左边偏移10
-//    //            button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-//    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-//
-//    // 修改导航栏左边的item
-////    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//}
++ (NSString *)regulexFromString:(NSString *)mainString
+                 andStartString:(NSString *)startString
+                   andEndString:(NSString *)endString
+{
+    NSString *url = mainString;
+    NSError *error;
+    NSString *result;
+    // 创建NSRegularExpression对象并指定正则表达式
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern: [NSString stringWithFormat: @"(?<=%@).*(?=%@)", startString, endString]
+                                  options:0
+                                  error:&error];
+    if (!error) { // 如果没有错误
+        // 获取特特定字符串的范围
+        NSTextCheckingResult *match = [regex firstMatchInString:url
+                                                        options:0
+                                                          range:NSMakeRange(0, [url length])];
+        if (match) {
+            // 截获特定的字符串
+            result = [url substringWithRange:match.range];
+            NSLog(@"课堂状态为: %@",result);
+        }
+    } else { // 如果有错误，则把错误打印出来
+        NSLog(@"正则取值错误为: error - %@", error);
+    }
+    return result;
+}
 
 @end

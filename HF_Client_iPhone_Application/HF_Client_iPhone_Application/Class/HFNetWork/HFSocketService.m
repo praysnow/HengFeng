@@ -203,8 +203,8 @@
     } else if ([receviedMessage containsString: @"unLockScreen"])
     {
         NSLog(@"解除锁屏");
-    } else if ([receviedMessage containsString: @"ReponseXmlState"]) {
-        [self responseXmlStatsWith: data];
+    } else if ([receviedMessage containsString: @"XmlServerState"]) {
+        [self responseXmlStatsWith: receviedMessage];
     }
     //    Byte *testByte = (Byte *)[data bytes];
     //    Byte lengthByte[] = {};
@@ -286,11 +286,21 @@
     //    [[HFSocketService sharedInstance] setUpSocketWithHost: [HFSocketService sharedInstance].socket_host andPort: 1001];
 }
 
-- (void)responseXmlStatsWith:(NSData *)data
+- (void)responseXmlStatsWith:(NSString *)data
 {
-    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
-    xmlData.delegate = self;
-    [xmlData parse];
+    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<ClassName>" andEndString: @"</ClassName>"];
+    [HFCacheObject shardence].handUpUsersList = [HFUtils regulexFromString: data andStartString: @"<HandUpUsersList>" andEndString: @"<HandUpUsersList />"];
+    [HFCacheObject shardence].isInRacing = [HFUtils regulexFromString: data andStartString: @"<IsInRacing>" andEndString: @"</IsInRacing>"];
+    [HFCacheObject shardence].isInHandup = [HFUtils regulexFromString: data andStartString: @"<IsInHandup>" andEndString: @"</IsInHandup>"];
+    [HFCacheObject shardence].showParamsUrl = [HFUtils regulexFromString: data andStartString: @"<ShowParamsUrl>" andEndString: @"<ShowParamsUrl />"];
+    [HFCacheObject shardence].guidedLearningInfo = [HFUtils regulexFromString: data andStartString: @"<GuidedLearningInfo>" andEndString: @"<GuidedLearningInfo />"];
+//    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<MicroClassInfo />" andEndString: @"</ClassName>"];
+    [HFCacheObject shardence].isCanQuit = [HFUtils regulexFromString: data andStartString: @"<IsCanQuit>" andEndString: @"</IsCanQuit>"];
+    [HFCacheObject shardence].iosLookScreen = [HFUtils regulexFromString: data andStartString: @"<IsLookScreen>" andEndString: @"</IsLookScreen>"];
+    [HFCacheObject shardence].voteMsg = [HFUtils regulexFromString: data andStartString: @"<VoteMsg>" andEndString: @"<VoteMsg />"];
+//    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
+//    xmlData.delegate = self;
+//    [xmlData parse];
 }
 
 # pragma mark - 协议方法
@@ -352,6 +362,5 @@
 //    NSLog(@"导学堂%zi",self.classArray.count);
 //    [self.collectionView reloadData];
 }
-
 
 @end
