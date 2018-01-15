@@ -40,11 +40,11 @@
 
 - (void)setdata
 {
-    self.array = @[@{@"name":@"课程", @"content" : @"五年级语文"},
-                   @{@"name":@"班级学情", @"image" : @"back"},
+    self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : @"未获取到课程信息"},
+//                   @{@"name":@"班级学情", @"image" : @"back"},
 // 暂时去掉                  @{@"name":@"我的备课", @"image" : @"back"},
-                   @{@"name":@"WIFI连接", @"image" : @"back"},
-                   @{@"name":@"系统配置", @"image" : @"back"}];
+                   @{@"name":@"wifi确认", @"image" : @"wifi确认",@"content" : @""},
+                   @{@"name":@"系统配置", @"image" : @"系统配置",@"content" : @""}];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,10 +74,10 @@
         HFClassSituationViewController *vc = [HFClassSituationViewController new];
         vc.view.backgroundColor = [UIColor redColor];
         
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        HFNavigationViewController *nav = [[HFNavigationViewController alloc] initWithRootViewController:vc];
         [rootVC presentViewController:nav animated:YES completion:nil];
         
-    }else if ([name isEqualToString:@"WIFI连接"]){
+    }else if ([name isEqualToString:@"wifi确认"]){
         
         NSString * urlString = @"App-Prefs:root=WIFI"; //
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]]) {

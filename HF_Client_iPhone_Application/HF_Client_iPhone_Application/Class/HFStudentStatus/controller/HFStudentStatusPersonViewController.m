@@ -49,6 +49,9 @@
 }
 
 - (void)GetStudentListByClassID{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetStudentListByClassID";
     
@@ -71,11 +74,14 @@
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
         self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
         [self.collectionView reloadData];
         
     } failure:^(NSError *error) {
         
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 

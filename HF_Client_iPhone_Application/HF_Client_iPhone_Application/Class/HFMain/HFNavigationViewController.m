@@ -8,6 +8,7 @@
 
 #import "HFNavigationViewController.h"
 #import "AppDelegate.h"
+#import "HFClassSituationViewController.h"
 
 @interface HFNavigationViewController ()
 
@@ -59,6 +60,8 @@
     
     // 修改导航栏左边的item
     viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    
     
     // 隐藏tabbar
     // 这句super的push要放在后面, 让viewController可以覆盖上面设置的leftBarButtonItem

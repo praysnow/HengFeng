@@ -29,7 +29,7 @@
     _dictioanry = dictioanry;
     _avatarImage.image = [UIImage imageNamed: [dictioanry objectForKey: @"image"]];
     _cellTitle.text = [dictioanry objectForKey: @"name"];
-    _detailText.text = [dictioanry objectForKey: @"context"];
+    _detailText.text = [dictioanry objectForKey: @"content"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

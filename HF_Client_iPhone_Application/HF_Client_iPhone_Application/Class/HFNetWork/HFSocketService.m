@@ -193,7 +193,7 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; //  NSASCIIStringEncoding
     NSLog(@"iOS 接收命令:%zd  %@",data.length,receviedMessage);
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];

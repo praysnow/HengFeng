@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,30 +21,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCP-jV-O2e">
-                        <rect key="frame" x="16" y="11" width="15" height="15"/>
+                        <rect key="frame" x="8" y="14.5" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="7yS-GT-Hl2"/>
                             <constraint firstAttribute="height" constant="15" id="Awg-p0-bAJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-2I-CdQ">
-                        <rect key="frame" x="61" y="13" width="102" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-2I-CdQ">
+                        <rect key="frame" x="43" y="13" width="31" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="五年级语文-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-jP-l1c">
-                        <rect key="frame" x="182" y="13" width="102" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未获取到课程信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-jP-l1c">
+                        <rect key="frame" x="203.5" y="15" width="98.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="yDD-2I-CdQ" firstAttribute="leading" secondItem="gCP-jV-O2e" secondAttribute="trailing" constant="20" id="7a3-MD-Y2u"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="epQ-jP-l1c" secondAttribute="trailing" constant="10" id="TY5-co-khh"/>
                     <constraint firstItem="gCP-jV-O2e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UcE-B5-C1T"/>
-                    <constraint firstItem="gCP-jV-O2e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ZAt-rw-EjB"/>
+                    <constraint firstItem="yDD-2I-CdQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="i1V-ql-syp"/>
+                    <constraint firstItem="gCP-jV-O2e" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="t1V-g7-5X4"/>
+                    <constraint firstItem="epQ-jP-l1c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="x2Y-mQ-lls"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

@@ -55,6 +55,7 @@
     
     [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
+//    [button setTitle:@"" forState:<#(UIControlState)#>]
     [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     

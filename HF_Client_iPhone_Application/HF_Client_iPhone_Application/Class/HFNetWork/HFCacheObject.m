@@ -80,6 +80,8 @@
 - (void)setClassName:(NSString *)className
 {
     _className = className;
+    
+    NSLog(@"%@",_className);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"className" object: nil];
 }
 
