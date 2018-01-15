@@ -64,6 +64,8 @@
     [HFNetwork network].SocketAddress = self.IPAdressTextField.text;
     // 保存服务器类型
     [HFNetwork network].serverType = self.serverType.selectedSegmentIndex;
+    
+    [HFSocketService sharedInstance]; // 连接socket
 }
 
 #pragma mark - UITextFieldDelegate

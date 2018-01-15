@@ -12,13 +12,17 @@
 #import "WebServiceModel.h"
 #import "HFStudentModel.h"
 #import "HFStudentStatusRankingViewController.h"
+#import <MBProgressHUD.h>
+#import <Realm.h>
 
 @interface HFStudentStatusPersonViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
 @property (strong, nonatomic)NSString *currentElementName;
-@property (strong, nonatomic)NSMutableArray *studentArray; // 学生数组
+@property (strong, nonatomic)NSMutableArray<HFStudentModel *> *studentArray; // 学生数组
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property(strong,nonatomic) NSIndexPath *indexPath; // 选中的数据
 
 @end
 
@@ -55,6 +59,11 @@
         return;
         
     }
+    
+    if (classId.length >= 3) {
+        classId =  [classId substringWithRange:NSMakeRange(0,3)];
+    }
+    
     if (classId.length != 0) {
         model.params = @{@"ClassID":classId}.mutableCopy;
     }
@@ -90,6 +99,10 @@
     }
     cell =  [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
     [cell setSelected:YES];
+    
+    // 记录选择的数据
+    self.indexPath = indexPath;
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -122,12 +135,18 @@
 
 - (IBAction)add1:(id)sender {
     NSLog(@"+1");
+    
+    [self addPoint:1];
 }
 - (IBAction)add2:(id)sender {
     NSLog(@"+2");
+
+    [self addPoint:2];
 }
 - (IBAction)add3:(id)sender {
     NSLog(@"+3");
+    
+    [self addPoint:3];
 }
 - (IBAction)Ranking:(id)sender {
     NSLog(@"排行");
@@ -135,6 +154,54 @@
     vc.rankType = @"个人";
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+- (void)addPoint:(NSInteger)point{
+    
+    if (self.indexPath == nil) {
+        [self showText:@"请选择一名学生"];
+        return;
+    }
+    
+    [self showText:[NSString stringWithFormat:@"+%zd",point]];
+    
+    // 获取当前对象
+    HFStudentModel *model =  self.studentArray[self.indexPath.item];
+    NSLog(@"%@",model.userRealName);
+    
+    // 先查询数据库
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];  // 开放RLMRealm事务
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"userID = %@",model.userID];
+    RLMResults *models = [HFStudentModel objectsWithPredicate:pred];
+    // 如果有就添加分数
+    if(models.count > 0){
+        HFStudentModel *data = models[0];
+        model.point = data.point;
+    }
+    model.point += point;
+    
+    // 增加或修改
+    [HFStudentModel createOrUpdateInRealm:realm withValue:model];        // 添加到数据库 me为RLMObject
+    
+    pred = [NSPredicate predicateWithFormat:@"userID = %@",model.userID];
+    models = [HFStudentModel objectsWithPredicate:pred];
+    NSLog(@"%@",models[0]);
+    
+    [realm commitWriteTransaction]; // 提交事务
+}
+
+- (void)showText:(NSString *)text {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    
+    // Set the text mode to show only text.
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = text;
+    // Move to bottm center.
+//    hud.offset = CGPointMake(0.f, 100);
+    
+    [hud hideAnimated:YES afterDelay:2.f];
 }
 
 @end

@@ -246,12 +246,18 @@
 }
 - (IBAction)add1:(id)sender {
     NSLog(@"+1");
+    
+    [self showText:@"+1"];
 }
 - (IBAction)add2:(id)sender {
     NSLog(@"+2");
+    
+    [self showText:@"+2"];
 }
 - (IBAction)add3:(id)sender {
     NSLog(@"+3");
+    
+    [self showText:@"+3"];
 }
 
 - (IBAction)ranking:(id)sender {
@@ -261,7 +267,17 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+- (void)showText:(NSString *)text {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    
+    // Set the text mode to show only text.
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = text;
+    // Move to bottm center.
+    //    hud.offset = CGPointMake(0.f, 100);
+    
+    [hud hideAnimated:YES afterDelay:2.f];
+}
 
 #pragma -mark 懒加载
 - (NSMutableArray *)groupModelArray{

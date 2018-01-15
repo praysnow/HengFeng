@@ -17,6 +17,21 @@
 
 @implementation HFStudentModel
 
+// 指定主键
++ (NSString *)primaryKey {
+    return @"userID";
+}
+
+// 指定忽略的属性
++ (NSArray *)ignoredProperties {
+    return @[@"currentElementName",@"studentArray"];
+}
+
+// 指定默认属性
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"point" : @0};
+}
+
 - (NSMutableArray<HFStudentModel *> *)studentArray{
     if (_studentArray == nil) {
         _studentArray = [NSMutableArray array];

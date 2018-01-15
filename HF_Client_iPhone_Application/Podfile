@@ -9,6 +9,7 @@ target 'HF_Client_iPhone_Application' do
     pod 'CocoaAsyncSocket', '~> 7.6.2'
     pod 'MBProgressHUD', '~> 1.1.0'
     pod 'BlocksKit', '~> 2.2.5'
+    pod 'Realm', '~> 3.0.2'
     #pod 'SDCycleScrollView','~> 1.64'
     #pod 'UMengAnalytics'
     #pod 'SAMKeychain'
