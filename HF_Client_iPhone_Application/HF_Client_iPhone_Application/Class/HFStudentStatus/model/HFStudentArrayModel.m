@@ -18,4 +18,23 @@
     return _studentArray;
 }
 
+// 指定主键
++ (NSString *)primaryKey {
+    return @"keyID";
+}
+
+// 指定忽略的属性
++ (NSArray *)ignoredProperties {
+    return @[@"isShow",@"studentArray"];
+}
+
+// 指定默认属性
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"point" : @0};
+}
+
+- (NSString *)keyID{
+    return [NSString stringWithFormat:@"%@%@",_PeopleGroupID,_PeopleGroupNum];
+}
+
 @end

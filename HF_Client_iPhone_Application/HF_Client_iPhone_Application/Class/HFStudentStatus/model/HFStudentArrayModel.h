@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "HFStudentModel.h"
+#import <Realm.h>
 
-@interface HFStudentArrayModel : NSObject
+@interface HFStudentArrayModel : RLMObject
 
 @property(assign,nonatomic) BOOL isShow; // 是否展示
-@property (nonatomic,strong) NSString *PeopleGroupNum; // 小组号
+@property (nonatomic,strong) NSString *PeopleGroupID; // 分组模式的ID PeopleGroupID
+@property (nonatomic,strong) NSString *PeopleGroupNum; // 小组号 PeopleGroupNum
+
+@property (nonatomic,strong) NSString *keyID; // 主键
+
+// 分数
+@property (nonatomic,assign) NSInteger point;
+
 @property(strong,nonatomic) NSMutableArray<HFStudentModel *> *studentArray; // 学生数组
 
 @end

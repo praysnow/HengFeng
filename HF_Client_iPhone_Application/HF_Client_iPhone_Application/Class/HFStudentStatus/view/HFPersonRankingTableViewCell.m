@@ -32,6 +32,17 @@
     
 }
 
+- (void)setStudentArrayModel:(HFStudentArrayModel *)studentArrayModel{
+    _studentArrayModel = studentArrayModel;
+    
+    
+    _nameLabel.text = [NSString stringWithFormat:@"第%zd组",[studentArrayModel.PeopleGroupNum intValue] + 1];
+    _pointLabel.text = [NSString stringWithFormat:@"%zd积分",studentArrayModel.point];
+    
+    _numLabel.layer.cornerRadius = _numLabel.width / 2;
+    _numLabel.layer.masksToBounds = YES;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

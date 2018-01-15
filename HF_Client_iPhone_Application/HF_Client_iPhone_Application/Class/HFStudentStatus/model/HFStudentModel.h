@@ -15,8 +15,9 @@
 @property (nonatomic,strong) NSString *userRealName;
 @property (nonatomic,strong) NSString *userLoginName;
 
-// 小组需要的字段 PeopleGroupNum
+// 小组需要的字段 PeopleGroupNum PeopleGroupID
 @property (nonatomic,strong) NSString *PeopleGroupNum;
+@property (nonatomic,strong) NSString *PeopleGroupID;
 
 // 分数
 @property (nonatomic,assign) NSInteger point;

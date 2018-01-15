@@ -19,6 +19,8 @@
 
 @interface HFStudentStatusGroupViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout,NSXMLParserDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *groupButton; // 分组按钮
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic)NSMutableArray<HFGroupModel *> *groupModelArray; // 小组分组情况数组
@@ -28,6 +30,8 @@
 @property (strong, nonatomic)NSMutableArray<HFStudentModel *> *studentArray; // 学生数组
 
 @property (strong, nonatomic)NSMutableArray<HFStudentArrayModel *> *studentGroupArray; // 小组数组
+
+@property(strong,nonatomic) HFStudentArrayModel *selectedStudentArrayModel; // 选中的小组
 
 @end
 
@@ -66,6 +70,8 @@
     NSString *num = notification.object;
     
     HFStudentArrayModel *model = self.studentGroupArray[[num intValue]];
+    self.selectedStudentArrayModel = model;
+    
     BOOL flag = model.isShow;
     
     for (HFStudentArrayModel *model in self.studentGroupArray) {
@@ -80,6 +86,9 @@
 #pragma mark - 网络请求
 // 请求有几个分组
 - (void)GetGroupList{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetGroupList";
     
@@ -101,15 +110,31 @@
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.groupModelArray = [[HFGroupModel new] getGroupModelArray:responseObject];
         
+        // 请求最后一个分组
+        if (self.groupModelArray.count > 0) {
+            [self GetGroupPeopleList:[self.groupModelArray lastObject].PeopleGroupID];
+            [self.groupButton setTitle:[self.groupModelArray lastObject].PeopleGroupName forState:UIControlStateNormal];
+            
+            // 保存数据
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupID forKey:@"PeopleGroupID"];
+            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupName forKey:@"PeopleGroupName"];
+        }
+        
     } failure:^(NSError *error) {
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
     }];
 }
 
 // 请求分组情况
 - (void)GetGroupPeopleList:(NSString *)PeopleGroupID{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetGroupPeopleList";
@@ -119,6 +144,7 @@
     NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
         self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
         NSMutableDictionary<NSString *,HFStudentArrayModel *> *dic = [NSMutableDictionary dictionary];
@@ -128,6 +154,7 @@
                 [dic[stu.PeopleGroupNum].studentArray addObject:stu];
             }else{
                 HFStudentArrayModel *studentArrayModel = [HFStudentArrayModel new];
+                studentArrayModel.PeopleGroupID = stu.PeopleGroupID;
                 studentArrayModel.PeopleGroupNum = stu.PeopleGroupNum;
                 dic[stu.PeopleGroupNum] = studentArrayModel;
                 [dic[stu.PeopleGroupNum].studentArray addObject:stu];
@@ -147,6 +174,7 @@
         
     } failure:^(NSError *error) {
         
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 
@@ -236,9 +264,15 @@
     
     self.selectView = [ZSSelectView selectViewWithTitle:nil andContentArray:array andResultBlock:^(NSInteger index, NSString *result) {
         
+        // 保存数据
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:self.groupModelArray[index].PeopleGroupID forKey:@"PeopleGroupID"];
+        [defaults setValue:self.groupModelArray[index].PeopleGroupName forKey:@"PeopleGroupName"];
+        
         // 清空数据
         self.studentGroupArray = nil;
         [self GetGroupPeopleList:self.groupModelArray[index].PeopleGroupID];
+        [self.groupButton setTitle:self.groupModelArray[index].PeopleGroupName forState:UIControlStateNormal];
     }];
     
     self.selectView.point = CGPointMake(0, SCREEN_HEIGHT - array.count * 50 - 60);
@@ -247,17 +281,17 @@
 - (IBAction)add1:(id)sender {
     NSLog(@"+1");
     
-    [self showText:@"+1"];
+    [self addPoint:1];
 }
 - (IBAction)add2:(id)sender {
     NSLog(@"+2");
     
-    [self showText:@"+2"];
+    [self addPoint:2];
 }
 - (IBAction)add3:(id)sender {
     NSLog(@"+3");
     
-    [self showText:@"+3"];
+    [self addPoint:3];
 }
 
 - (IBAction)ranking:(id)sender {
@@ -267,7 +301,46 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)addPoint:(NSInteger)point{
+    
+    if (self.selectedStudentArrayModel == nil) {
+        [self showText:@"请选择一个小组"];
+        return;
+    }
+    
+    [self showText:[NSString stringWithFormat:@"+%zd",point]];
+    
+    // 获取当前对象
+    HFStudentArrayModel *model = self.selectedStudentArrayModel;
+//    NSLog(@"%@",model.userRealName);
+    
+    // 先查询数据库
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];  // 开放RLMRealm事务
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"keyID = %@",model.keyID];
+    RLMResults *models = [HFStudentArrayModel objectsWithPredicate:pred];
+    // 如果有就添加分数
+    if(models.count > 0){
+        HFStudentArrayModel *data = models[0];
+        model.point = data.point;
+    }
+    model.point += point;
+    
+    // 增加或修改
+    [HFStudentArrayModel createOrUpdateInRealm:realm withValue:model];        // 添加到数据库 me为RLMObject
+    
+    pred = [NSPredicate predicateWithFormat:@"keyID = %@",model.keyID];;
+    models = [HFStudentArrayModel objectsWithPredicate:pred];
+    NSLog(@"%@",models[0]);
+    
+    [realm commitWriteTransaction]; // 提交事务
+}
+
+
 - (void)showText:(NSString *)text {
+    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
     // Set the text mode to show only text.

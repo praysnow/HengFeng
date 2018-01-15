@@ -8,6 +8,7 @@
 
 #import "HFStudentStatusRankingViewController.h"
 #import "HFPersonRankingViewController.h"
+#import "HFGroupRankingViewController.h"
 
 @interface HFStudentStatusRankingViewController ()
 
@@ -59,18 +60,16 @@
 - (void)setUpAllViewController
 {
     
-//    // 段子
-//    FullChildViewController *wordVc1 = [[FullChildViewController alloc] init];
-//    wordVc1.title = @"小码哥";
-//    [self addChildViewController:wordVc1];
+    HFPersonRankingViewController *personVC = [HFPersonRankingViewController new];
+    personVC.title = @"个人";
+    [self addChildViewController:personVC];
     
-    HFPersonRankingViewController *vc = [HFPersonRankingViewController new];
-    vc.title = @"个人";
-    [self addChildViewController:vc];
     
-    UIViewController *vc1 = [UIViewController new];
-    vc1.title = @"小组";
-    [self addChildViewController:vc1];
+    HFGroupRankingViewController *groupVC = [HFGroupRankingViewController new];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *PeopleGroupName = [defaults valueForKey:@"PeopleGroupName"];
+    groupVC.title = [NSString stringWithFormat:@"小组(%@)",PeopleGroupName];
+    [self addChildViewController:groupVC];
     
     
 }

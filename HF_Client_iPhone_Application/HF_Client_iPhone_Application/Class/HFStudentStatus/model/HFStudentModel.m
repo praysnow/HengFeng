@@ -80,10 +80,17 @@
     if ([_currentElementName isEqualToString:@"userID"] ||
         [_currentElementName isEqualToString:@"userRealName"] ||
         [_currentElementName isEqualToString:@"userLoginName"] ||
-        [_currentElementName isEqualToString:@"PeopleGroupNum"]
+        [_currentElementName isEqualToString:@"PeopleGroupNum"] ||
+        [_currentElementName isEqualToString:@"PeopleGroupID"]
+        
         ) {
         
         [stu setValue:string forKey:_currentElementName];
+    }
+    
+    // PeopleGroupUserID
+    if ([_currentElementName isEqualToString:@"PeopleGroupUserID"]) {
+         [stu setValue:string forKey:@"userID"];
     }
     
 }

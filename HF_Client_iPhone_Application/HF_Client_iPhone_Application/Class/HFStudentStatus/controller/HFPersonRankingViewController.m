@@ -27,23 +27,7 @@ static NSString *ID = @"ID";
     
     [self initUI];
     
-    // 先查询数据库
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];  // 开放RLMRealm事务
-    
-    // 根据分数倒叙排行
-    RLMResults *sortedModels = [[HFStudentModel allObjects] sortedResultsUsingKeyPath:@"point" ascending:NO];
-    
-    for (HFStudentModel *model in sortedModels) {
-        NSLog(@"%@",model);
-
-    }
-    
-    self.studentArray = (NSMutableArray<HFStudentModel *> *)sortedModels;
-  
-    [realm commitWriteTransaction]; // 提交事务
-    
-   
+    [self getData];
 }
 
 - (void)initUI{
@@ -58,6 +42,24 @@ static NSString *ID = @"ID";
     // 注册cell
     [tableView registerNib:[UINib nibWithNibName:@"HFPersonRankingTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
+}
+
+- (void)getData{
+    // 先查询数据库
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];  // 开放RLMRealm事务
+    
+    // 根据分数倒叙排行
+    RLMResults *sortedModels = [[HFStudentModel allObjects] sortedResultsUsingKeyPath:@"point" ascending:NO];
+    
+    for (HFStudentModel *model in sortedModels) {
+        NSLog(@"%@",model);
+        
+    }
+    
+    self.studentArray = (NSMutableArray<HFStudentModel *> *)sortedModels;
+    
+    [realm commitWriteTransaction]; // 提交事务
 }
 
 #pragma mark - UITableViewDataSource
