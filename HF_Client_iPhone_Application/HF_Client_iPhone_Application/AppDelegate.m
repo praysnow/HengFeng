@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "HFLoginViewController.h"
-#import "MainTabViewController.h"
 #import "MMDrawerController.h"
 #import "HFUserInfoViewController.h"
 #import "HFNavigationViewController.h"
@@ -30,6 +29,7 @@
     
     //1、初始化控制器
     MainTabViewController *centerVC = [[MainTabViewController alloc]init];
+    self.centerVC = centerVC;
     HFUserInfoViewController *leftVC = [[HFUserInfoViewController alloc]init];
     //2、初始化导航控制器
 //    HFNavigationViewController *centerNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:centerVC];

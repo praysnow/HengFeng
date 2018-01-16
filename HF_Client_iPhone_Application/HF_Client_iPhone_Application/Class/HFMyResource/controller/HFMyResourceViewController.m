@@ -29,6 +29,7 @@
 @property (nonatomic, assign) BOOL isStudent;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) HFDaoxueModel *object;
+@property (nonatomic, strong) UIImageView *coverImageView;
 
 @end
 
@@ -45,11 +46,17 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(isShowCoverImage) name: @"isShowCoverImage" object: nil];
 }
 
-- (void)setupLeftItem
+- (void)isShowCoverImage
 {
-//    self.navigationController.navigationItem.leftBarButtonItem = nil;
+    NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
+    AppDelegate *myAppDelegate=[UIApplication sharedApplication].delegate;
+    myAppDelegate.centerVC.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
+    self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
+    self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
+    self.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
 - (void)loadData
@@ -312,6 +319,19 @@
         _allInfoArray = [NSMutableArray array];
     }
     return _allInfoArray;
+}
+
+- (UIImageView *)coverImageView
+{
+    if (!_coverImageView) {
+        _coverImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"cover_image"]];
+        _coverImageView.contentMode = UIViewContentModeCenter;
+        _coverImageView.backgroundColor = [UIColor whiteColor];
+        _coverImageView.frame = self.view.bounds;
+        [self.view addSubview: _coverImageView];
+        _coverImageView.hidden = YES;
+    }
+    return _coverImageView;
 }
 
 @end
