@@ -13,10 +13,12 @@
 #import "ZSVerticalButton.h"
 #import "HFLoginViewController.h"
 
-@interface HFTeachToolViewController ()
+@interface HFTeachToolViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, assign) BOOL isBuzing;
 @property (strong, nonatomic) IBOutletCollection(ZSVerticalButton) NSArray *buttonArray;
+
+@property (strong, nonatomic)  UIImagePickerController *imagePickerVC; // 相片选择控制器
 
 @end
 
@@ -162,6 +164,7 @@
         case 7:
         {
             NSLog(@"文件上传");
+            [self presentViewController:self.imagePickerVC animated:YES completion:nil];
         }
             break;
         case 8:
@@ -187,6 +190,29 @@
 {
     sender.selected = !sender.selected;
     [self changeButtonStatus: sender];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    [self.imagePickerVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self.imagePickerVC dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (UIImagePickerController *)imagePickerVC{
+    if (_imagePickerVC == nil) {
+        _imagePickerVC = [[UIImagePickerController alloc] init];
+        // 只选择本地图片
+        _imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _imagePickerVC.delegate = self;
+        _imagePickerVC.allowsEditing = YES;
+    }
+    
+    return _imagePickerVC;
 }
 
 @end

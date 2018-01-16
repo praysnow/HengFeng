@@ -36,11 +36,23 @@
     self.avatarImage.layer.masksToBounds = YES;
     self.avatarImage.layer.cornerRadius = self.avatarImage.width / 2;
     [self setdata];
+    
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"className" object:nil];
+}
+
+- (void)action:(NSNotification *)notification {
+    NSLog(@"通知我啦！");
+    
+    [self setdata];
+    [self.tableView reloadData];
 }
 
 - (void)setdata
 {
-    self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : @"未获取到课程信息"},
+    NSString *className = [HFCacheObject shardence].className;
+    className = className == nil?  @"未获取到课程信息":className;
+    self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : className},
 //                   @{@"name":@"班级学情", @"image" : @"back"},
 // 暂时去掉                  @{@"name":@"我的备课", @"image" : @"back"},
                    @{@"name":@"wifi确认", @"image" : @"wifi确认",@"content" : @""},
@@ -99,6 +111,12 @@
     }
     
 
+}
+
+
+- (void)dealloc{
+    // 移除通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
