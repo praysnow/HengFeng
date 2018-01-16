@@ -51,6 +51,18 @@
 		391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
+		39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */; };
+		39720CF6200E380200766D74 /* HFTeachToolLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39720CF4200E380200766D74 /* HFTeachToolLiveViewController.xib */; };
+		39720CF8200E394500766D74 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CF7200E393B00766D74 /* VideoToolbox.framework */; };
+		39720CFA200E395600766D74 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CF9200E394E00766D74 /* SystemConfiguration.framework */; };
+		39720CFC200E396C00766D74 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CFB200E395E00766D74 /* CoreTelephony.framework */; };
+		39720CFE200E397F00766D74 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CFD200E397700766D74 /* AVFoundation.framework */; };
+		39720D00200E399100766D74 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CFF200E398C00766D74 /* CoreMedia.framework */; };
+		39720D02200E39A300766D74 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720D01200E399D00766D74 /* CoreGraphics.framework */; };
+		39720D04200E39B200766D74 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720D03200E39B200766D74 /* libstdc++.tbd */; };
+		39720D06200E39B900766D74 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720D05200E39B800766D74 /* libz.tbd */; };
+		39720D08200E39C000766D74 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720D07200E39BF00766D74 /* libiconv.tbd */; };
+		39720D0A200E39C800766D74 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720D09200E39C800766D74 /* libresolv.tbd */; };
 		3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB281FB198D40017DFE9 /* AppDelegate.m */; };
 		3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3972CB2B1FB198D40017DFE9 /* ViewController.m */; };
 		3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3972CB2D1FB198D40017DFE9 /* Main.storyboard */; };
@@ -99,6 +111,7 @@
 		39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CE88E71FC80A720049CD0B /* HFCacheObject.m */; };
 		39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */; };
 		39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888D1FCFEB6800F36D16 /* HFSocketService.m */; };
+		39E0620B200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E0620A200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework */; };
 		39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F088A31FC7AFE500AB30F6 /* HFUtils.m */; };
 		39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFA81FD6A8AB00395908 /* XMLReader.m */; };
 		39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */; };
@@ -214,6 +227,20 @@
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
+		39720CEF200E35F100766D74 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Pods/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		39720CF2200E380200766D74 /* HFTeachToolLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolLiveViewController.h; sourceTree = "<group>"; };
+		39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolLiveViewController.m; sourceTree = "<group>"; };
+		39720CF4200E380200766D74 /* HFTeachToolLiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachToolLiveViewController.xib; sourceTree = "<group>"; };
+		39720CF7200E393B00766D74 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		39720CF9200E394E00766D74 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		39720CFB200E395E00766D74 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		39720CFD200E397700766D74 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		39720CFF200E398C00766D74 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		39720D01200E399D00766D74 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		39720D03200E39B200766D74 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		39720D05200E39B800766D74 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		39720D07200E39BF00766D74 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		39720D09200E39C800766D74 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		3972CB241FB198D40017DFE9 /* HF_Client_iPhone_Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HF_Client_iPhone_Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972CB271FB198D40017DFE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3972CB281FB198D40017DFE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -298,6 +325,7 @@
 		39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFHearBeat.m; sourceTree = "<group>"; };
 		39D4888C1FCFEB6800F36D16 /* HFSocketService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFSocketService.h; sourceTree = "<group>"; };
 		39D4888D1FCFEB6800F36D16 /* HFSocketService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFSocketService.m; sourceTree = "<group>"; };
+		39E0620A200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Smart.framework; path = Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK/TXLiteAVSDK_Smart.framework; sourceTree = "<group>"; };
 		39F088A21FC7AFE500AB30F6 /* HFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUtils.h; sourceTree = "<group>"; };
 		39F088A31FC7AFE500AB30F6 /* HFUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUtils.m; sourceTree = "<group>"; };
 		39F088A51FC7C51E00AB30F6 /* HFInterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFInterFace.h; sourceTree = "<group>"; };
@@ -376,6 +404,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E0620B200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework in Frameworks */,
+				39720D04200E39B200766D74 /* libstdc++.tbd in Frameworks */,
+				39720D02200E39A300766D74 /* CoreGraphics.framework in Frameworks */,
+				39720D00200E399100766D74 /* CoreMedia.framework in Frameworks */,
+				39720D0A200E39C800766D74 /* libresolv.tbd in Frameworks */,
+				39720CFE200E397F00766D74 /* AVFoundation.framework in Frameworks */,
+				39720D08200E39C000766D74 /* libiconv.tbd in Frameworks */,
+				39720CFC200E396C00766D74 /* CoreTelephony.framework in Frameworks */,
+				39720CFA200E395600766D74 /* SystemConfiguration.framework in Frameworks */,
+				39720CF8200E394500766D74 /* VideoToolbox.framework in Frameworks */,
+				39720D06200E39B900766D74 /* libz.tbd in Frameworks */,
 				8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +439,17 @@
 		212D610DF245B2AD224B2003 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39E0620A200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework */,
+				39720D09200E39C800766D74 /* libresolv.tbd */,
+				39720D07200E39BF00766D74 /* libiconv.tbd */,
+				39720D05200E39B800766D74 /* libz.tbd */,
+				39720D03200E39B200766D74 /* libstdc++.tbd */,
+				39720D01200E399D00766D74 /* CoreGraphics.framework */,
+				39720CFF200E398C00766D74 /* CoreMedia.framework */,
+				39720CFD200E397700766D74 /* AVFoundation.framework */,
+				39720CFB200E395E00766D74 /* CoreTelephony.framework */,
+				39720CF9200E394E00766D74 /* SystemConfiguration.framework */,
+				39720CF7200E393B00766D74 /* VideoToolbox.framework */,
 				9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */,
 				117CF0EF9B719FF7E9B37CF5 /* libPods-HF_Client_iPhone_ApplicationTests.a */,
 				DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */,
@@ -524,9 +574,20 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		39720CF1200E37DA00766D74 /* TeachLive */ = {
+			isa = PBXGroup;
+			children = (
+				39720CF2200E380200766D74 /* HFTeachToolLiveViewController.h */,
+				39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */,
+				39720CF4200E380200766D74 /* HFTeachToolLiveViewController.xib */,
+			);
+			path = TeachLive;
+			sourceTree = "<group>";
+		};
 		3972CB1B1FB198D40017DFE9 = {
 			isa = PBXGroup;
 			children = (
+				39720CEF200E35F100766D74 /* MBProgressHUD.h */,
 				3972CB261FB198D40017DFE9 /* HF_Client_iPhone_Application */,
 				3972CB3F1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationTests */,
 				3972CB4A1FB198D40017DFE9 /* HF_Client_iPhone_ApplicationUITests */,
@@ -770,6 +831,10 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
+				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
+				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
+				82E6096A200DF4D30079AF3B /* FileUpload */,
+				39720CF1200E37DA00766D74 /* TeachLive */,
 				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
 				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
 				82E6096A200DF4D30079AF3B /* FileUpload */,
@@ -1040,6 +1105,7 @@
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
 				3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */,
 				39181E921FB574DF00A364AB /* ic_set.png in Resources */,
+				39720CF6200E380200766D74 /* HFTeachToolLiveViewController.xib in Resources */,
 				82E62FE71FEA17C100B90E69 /* HFStudentStatusPersonViewController.xib in Resources */,
 				39181E9D1FB574DF00A364AB /* teacher_mobile.png in Resources */,
 				39C94A231FDE6414003641C9 /* HFStutentStatusViewController.xib in Resources */,
@@ -1189,6 +1255,7 @@
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
 				82E60975200E2E930079AF3B /* HFTeachToolButton.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
+				39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */,
 				825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */,
@@ -1390,7 +1457,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U86FP276EQ;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;
@@ -1409,7 +1480,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U86FP276EQ;
+				DEVELOPMENT_TEAM = B625Q63YR4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HF_Client_iPhone_Application/Source/PrefixHeader.pch;

@@ -23,12 +23,16 @@
 
 - (void)setup
 {
-    self.titleLabel.x = self.x;
-    self.titleLabel.width = self.width;
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.font = [UIFont systemFontOfSize: 16];
+    self.titleLabel.hidden = YES;
+    self.hfTitleLabel.text = self.titleLabel.text;
+    self.hfTitleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, self.imageView.bottom + 20, self.width, 40)];
+    [self addSubview: self.hfTitleLabel];
+//    self.titleLabel.x = self.x;
+//    self.titleLabel.width = self.width;
+    self.hfTitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.hfTitleLabel.font = [UIFont systemFontOfSize: 16];
     
-//    [self.titleLabel sizeToFit];
+    [self.hfTitleLabel sizeToFit];
     self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - 25, 25, 20, 20)];
     self.pointView.hidden = YES;
     self.pointView.backgroundColor = [UIColor redColor];
@@ -65,9 +69,9 @@
 //    self.imageView.height = self.imageView.width;
     
     // 调整文字
-    self.titleLabel.x = self.x;
+//    self.titleLabel.x = self.x;
 //    self.titleLabel.top = self.imageView.bottom + 20;
-    self.titleLabel.width = self.width;
+//    self.titleLabel.width = self.width;
 //    self.titleLabel.height = self.height - self.titleLabel.y;
 }
 

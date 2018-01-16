@@ -56,7 +56,7 @@
     myAppDelegate.centerVC.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
-    self.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
+//    self.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
 - (void)loadData
@@ -230,9 +230,16 @@
         NSLog(@"请选择要下发的课程");
     }
 }
+
 - (void)headerFooterDownLoad
 {
    NSLog(@"点击下载");
+}
+
+- (void)headerFooterStop
+{
+   [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
+    NSLog(@"点击停止下发");
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

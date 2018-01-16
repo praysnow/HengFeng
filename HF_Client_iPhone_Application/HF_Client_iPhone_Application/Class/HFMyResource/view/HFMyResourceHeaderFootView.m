@@ -23,5 +23,11 @@
         [self.delegate headerFooterDownLoad];
     }
 }
+- (IBAction)stopSendDocument:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector: @selector(headerFooterStop)]) {
+        [self.delegate headerFooterStop];
+    }
+}
 
 @end

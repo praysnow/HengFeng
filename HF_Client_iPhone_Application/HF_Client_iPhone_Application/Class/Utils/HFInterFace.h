@@ -156,10 +156,7 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  * 停止截屏
  */
 #define STOP_SCREEN_CAPTURE  @"49"
-/**
- * 上屏
- */
-#define UP_SCREEN  @"60"
+
 /**
  * 移动直播开始
  */
@@ -289,6 +286,12 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  *截屏下发 查看互评结果
  */
 #define SCREEN_CAPTURE_RECOMMEND_RESULT  @"139"
+
+/**
+ * 上屏
+ */
+#define UP_SCREEN  @"60"
+
 /**
  *结束上屏
  */

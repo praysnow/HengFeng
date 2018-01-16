@@ -12,6 +12,7 @@
 
 - (void)headerFooterSend;
 - (void)headerFooterDownLoad;
+- (void)headerFooterStop;
 
 @end
 

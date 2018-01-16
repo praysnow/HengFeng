@@ -59,6 +59,24 @@
                         <action selector="sendAway:" destination="iN0-l3-epB" eventType="touchUpInside" id="mw5-Wd-B0s"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-BZ-kMU">
+                    <rect key="frame" x="185" y="336" width="50" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="3qg-9b-yiY"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Ohn-AM-EwO"/>
+                        <constraint firstAttribute="width" constant="50" id="aBz-RH-2jk"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="er5-r2-eg2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="停止" image="my_source_down_load">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="downLoad:" destination="iN0-l3-epB" eventType="touchUpInside" id="OA7-Zh-r6v"/>
+                        <action selector="stopSendDocument:" destination="iN0-l3-epB" eventType="touchUpInside" id="lHy-sN-X96"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -69,10 +87,12 @@
                 <constraint firstItem="ulz-Y2-wZD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="XKH-mh-MOq"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Y6m-YU-xa9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f0w-du-2sg" secondAttribute="trailing" id="amz-rP-Yor"/>
+                <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="ID6-BZ-kMU" secondAttribute="centerY" id="hiU-bq-XRB"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mKy-I5-vzS"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="leading" secondItem="64T-90-sWa" secondAttribute="trailing" constant="11" id="tcU-P6-kiZ"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="vBh-TD-v0r"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LI1-D0-bsP" secondAttribute="trailing" constant="4" id="vIK-1T-0Fz"/>
+                <constraint firstItem="64T-90-sWa" firstAttribute="leading" secondItem="ID6-BZ-kMU" secondAttribute="trailing" constant="11" id="xOS-Mv-6La"/>
                 <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="zBl-Ca-VUF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

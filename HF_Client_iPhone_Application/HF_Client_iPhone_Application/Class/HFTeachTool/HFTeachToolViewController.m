@@ -14,6 +14,9 @@
 #import "HFLoginViewController.h"
 #import "HFFileUploadViewController.h"
 #import "HFTeachToolButton.h"
+#import "HFTeachToolLiveViewController.h"
+#import "HFFileUploadViewController.h"
+#import "HFTeachToolButton.h"
 
 @interface HFTeachToolViewController ()
 
@@ -83,7 +86,14 @@
         
         button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
         [bgView addSubview:button];
-    }
+	    }
+	}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)changeTescherStatus
@@ -182,6 +192,8 @@
         case 3:
         {
             NSLog(@"录屏");
+            sender.selected = !sender.selected;
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UP_SCREEN : STOP_UP_SCREEN]];
         }
             break;
         case 4:
@@ -209,7 +221,7 @@
         case 6:
         {
             NSLog(@"移动直播");
-            HFLoginViewController *vc = [[HFLoginViewController alloc] init];
+            HFTeachToolLiveViewController *vc = [[HFTeachToolLiveViewController alloc] init];
             [self.navigationController pushViewController: vc animated: YES];
         }
             break;

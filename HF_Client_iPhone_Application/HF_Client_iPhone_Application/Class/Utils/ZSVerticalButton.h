@@ -10,6 +10,8 @@
 
 @interface ZSVerticalButton : UIButton
 
+@property (nonatomic, strong) UILabel *hfTitleLabel;
+
 - (void)isShowPointView:(BOOL)isShow;
 
 @end
