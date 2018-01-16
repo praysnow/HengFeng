@@ -28,7 +28,7 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize: 16];
     
-    [self.titleLabel sizeToFit];
+//    [self.titleLabel sizeToFit];
     self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - 25, 25, 20, 20)];
     self.pointView.hidden = YES;
     self.pointView.backgroundColor = [UIColor redColor];

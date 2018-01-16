@@ -128,6 +128,10 @@
 		82BFF32E20047195005C28DB /* SystemSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32C20047195005C28DB /* SystemSettingView.m */; };
 		82BFF3312004B353005C28DB /* HFClassSituationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF3302004B353005C28DB /* HFClassSituationViewController.m */; };
 		82BFF3342005B182005C28DB /* HFPersonRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */; };
+		82E6096E200DF4D30079AF3B /* HFFileUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E6096C200DF4D30079AF3B /* HFFileUploadViewController.m */; };
+		82E6096F200DF4D30079AF3B /* HFFileUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E6096D200DF4D30079AF3B /* HFFileUploadViewController.xib */; };
+		82E60972200E03220079AF3B /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E60971200E03220079AF3B /* SCRFTPRequest.m */; };
+		82E60975200E2E930079AF3B /* HFTeachToolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E60974200E2E930079AF3B /* HFTeachToolButton.m */; };
 		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
 		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
 		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
@@ -345,6 +349,13 @@
 		82BFF3302004B353005C28DB /* HFClassSituationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassSituationViewController.m; sourceTree = "<group>"; };
 		82BFF3322005B182005C28DB /* HFPersonRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPersonRankingViewController.h; sourceTree = "<group>"; };
 		82BFF3332005B182005C28DB /* HFPersonRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPersonRankingViewController.m; sourceTree = "<group>"; };
+		82E6096B200DF4D30079AF3B /* HFFileUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFFileUploadViewController.h; sourceTree = "<group>"; };
+		82E6096C200DF4D30079AF3B /* HFFileUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFFileUploadViewController.m; sourceTree = "<group>"; };
+		82E6096D200DF4D30079AF3B /* HFFileUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFFileUploadViewController.xib; sourceTree = "<group>"; };
+		82E60970200E03210079AF3B /* SCRFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRFTPRequest.h; sourceTree = "<group>"; };
+		82E60971200E03220079AF3B /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFTPRequest.m; sourceTree = "<group>"; };
+		82E60973200E2E930079AF3B /* HFTeachToolButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolButton.h; sourceTree = "<group>"; };
+		82E60974200E2E930079AF3B /* HFTeachToolButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolButton.m; sourceTree = "<group>"; };
 		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
 		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
 		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
@@ -759,6 +770,9 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
+				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
+				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
+				82E6096A200DF4D30079AF3B /* FileUpload */,
 				39A0C2231FF0AD5900F3B681 /* TeachShare */,
 				391979C91FE9126000AD478D /* PPTHELP */,
 				391979C81FE7FC0300AD478D /* Vote */,
@@ -848,6 +862,18 @@
 				82BFF32520037E47005C28DB /* YZFlowLayout.m */,
 			);
 			path = YZDisplayViewController;
+			sourceTree = "<group>";
+		};
+		82E6096A200DF4D30079AF3B /* FileUpload */ = {
+			isa = PBXGroup;
+			children = (
+				82E60970200E03210079AF3B /* SCRFTPRequest.h */,
+				82E60971200E03220079AF3B /* SCRFTPRequest.m */,
+				82E6096B200DF4D30079AF3B /* HFFileUploadViewController.h */,
+				82E6096C200DF4D30079AF3B /* HFFileUploadViewController.m */,
+				82E6096D200DF4D30079AF3B /* HFFileUploadViewController.xib */,
+			);
+			path = FileUpload;
 			sourceTree = "<group>";
 		};
 		82E62FCD1FE911D600B90E69 /* controller */ = {
@@ -1027,6 +1053,7 @@
 				8226AAF11FFF7C1600C9BDB4 /* ZSSelectViewCell.xib in Resources */,
 				8226AADB1FFE479800C9BDB4 /* 排行@2x.png in Resources */,
 				39181E8D1FB574DF00A364AB /* ic_drop_selected.png in Resources */,
+				82E6096F200DF4D30079AF3B /* HFFileUploadViewController.xib in Resources */,
 				39181EA41FB574DF00A364AB /* WLANbg.png in Resources */,
 				39181E8C1FB574DF00A364AB /* ic_drop_normal.png in Resources */,
 				39181E8B1FB574DF00A364AB /* ic_dcampus.png in Resources */,
@@ -1160,6 +1187,7 @@
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
+				82E60975200E2E930079AF3B /* HFTeachToolButton.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
@@ -1167,9 +1195,11 @@
 				39C94A221FDE6414003641C9 /* HFStutentStatusViewController.m in Sources */,
 				39C94A191FDE6395003641C9 /* HFTeachToolViewController.m in Sources */,
 				39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */,
+				82E60972200E03220079AF3B /* SCRFTPRequest.m in Sources */,
 				397341051FFCBD80004191BD /* MMDrawerBarButtonItem.m in Sources */,
 				82E62FE21FE91E3000B90E69 /* HFNavigationViewController.m in Sources */,
 				397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */,
+				82E6096E200DF4D30079AF3B /* HFFileUploadViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */,

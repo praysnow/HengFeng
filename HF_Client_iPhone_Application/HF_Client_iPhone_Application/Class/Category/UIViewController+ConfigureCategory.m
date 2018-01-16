@@ -140,7 +140,7 @@ NSString * const viewControllerHasViewDidAppearedKey = @"viewControllerHasViewDi
     return YES;
 }
 
-#pragma mark - UIGestureRecognizerDelegate
+#pragma mark - MBProgressHUD相关
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -150,6 +150,25 @@ NSString * const viewControllerHasViewDidAppearedKey = @"viewControllerHasViewDi
     } else {
         return NO;
     }
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (void)showText:(NSString *)text{
+    [self showText:text afterDelay:2.f];
+}
+
+- (void)showText:(NSString *)text afterDelay:(NSTimeInterval)delay{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    
+    // Set the text mode to show only text.
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = text;
+    // Move to bottm center.
+    //    hud.offset = CGPointMake(0.f, 100);
+    
+    
+    
+    [hud hideAnimated:YES afterDelay:delay];
 }
 
 @end

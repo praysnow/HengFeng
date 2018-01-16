@@ -23,4 +23,7 @@
 /** 如果有数据则返回 YES；如果无数据，则返回 NO 并加载数据 */
 - (BOOL)loadDataIfHaveNoneWithCompletion:(void (^)(void))completion;
 
+
+- (void)showText:(NSString *)text;
+- (void)showText:(NSString *)text afterDelay:(NSTimeInterval)delay;
 @end

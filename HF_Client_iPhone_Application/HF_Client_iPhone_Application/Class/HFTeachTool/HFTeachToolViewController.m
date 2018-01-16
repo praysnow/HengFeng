@@ -12,13 +12,14 @@
 #import "HFTeachShareViewController.h"
 #import "ZSVerticalButton.h"
 #import "HFLoginViewController.h"
+#import "HFFileUploadViewController.h"
+#import "HFTeachToolButton.h"
 
-@interface HFTeachToolViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HFTeachToolViewController ()
 
 @property (nonatomic, assign) BOOL isBuzing;
 @property (strong, nonatomic) IBOutletCollection(ZSVerticalButton) NSArray *buttonArray;
 
-@property (strong, nonatomic)  UIImagePickerController *imagePickerVC; // 相片选择控制器
 
 @end
 
@@ -32,6 +33,57 @@
     self.stopButton.layer.cornerRadius = self.stopButton.height / 2;
     
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(changeTescherStatus) name: CHANGE_TEACHER_STATUS object: nil];
+    
+   
+}
+
+//- (void)viewWillLayoutSubviews{
+//    [super viewWillLayoutSubviews];
+//
+//    [self initUI];
+//}
+
+
+- (void)initUI{
+    UIView *bgView = [[UIView alloc] init];
+    bgView.backgroundColor = [UIColor redColor];
+    bgView.x = 10;
+    bgView.y = 64 + 10;
+    bgView.width = SCREEN_WIDTH - 20;
+    bgView.height = bgView.width;
+    
+    bgView.layer.borderWidth = 2;
+    bgView.layer.borderColor = [UIColor greenColor].CGColor;
+    
+    [self.view addSubview:bgView];
+   
+    
+    // 添加按钮
+    NSInteger rowCount = 3;   // 一排三个
+    CGFloat space = 2;
+    CGFloat buttonW = (bgView.width - 4)/ rowCount;
+    CGFloat buttonH = buttonW;
+    
+    
+    for (int i = 0; i < 9; i++) {
+        CGFloat buttonX = (i % rowCount)  * (buttonW + space);
+        CGFloat buttonY = (i / rowCount)  * (buttonH + space);
+        
+        HFTeachToolButton *button = [[HFTeachToolButton alloc] initWithFrame:CGRectMake(buttonX, buttonY, buttonW, buttonH)];
+        button.tag = i;
+        
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [button setTitle:@"测试" forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"vote"] forState:UIControlStateNormal];
+        
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        
+//        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [bgView addSubview:button];
+    }
 }
 
 - (void)changeTescherStatus
@@ -164,7 +216,9 @@
         case 7:
         {
             NSLog(@"文件上传");
-            [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+            HFFileUploadViewController *vc = [HFFileUploadViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+            
         }
             break;
         case 8:
@@ -192,27 +246,6 @@
     [self changeButtonStatus: sender];
 }
 
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    
-    [self.imagePickerVC dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [self.imagePickerVC dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (UIImagePickerController *)imagePickerVC{
-    if (_imagePickerVC == nil) {
-        _imagePickerVC = [[UIImagePickerController alloc] init];
-        // 只选择本地图片
-        _imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        _imagePickerVC.delegate = self;
-        _imagePickerVC.allowsEditing = YES;
-    }
-    
-    return _imagePickerVC;
-}
 
 @end

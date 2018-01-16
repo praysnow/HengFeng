@@ -11,6 +11,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HFUtils.h"
+#import "HFNetwork.h"
 #import "HFInterFace.h"
 #import "MBProgressHUD.h"
 #import "HFCacheObject.h"
