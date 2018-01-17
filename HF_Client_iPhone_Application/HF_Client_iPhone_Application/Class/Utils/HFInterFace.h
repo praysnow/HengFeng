@@ -15,6 +15,7 @@
 /* Login InterFace */
 #define LOGIN_INTERFACE @"/webService/WisdomClassWS.asmx?op=CheckUser"
 #define DAOXUEAN_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
+#define CLASSID_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetClassExamByTpID"
 #define DAOXUETANG_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
 #define GETTASKLIST @"/webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
 
