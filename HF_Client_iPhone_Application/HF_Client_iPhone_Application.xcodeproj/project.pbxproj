@@ -112,6 +112,10 @@
 		39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */; };
 		39D4888E1FCFEB6800F36D16 /* HFSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4888D1FCFEB6800F36D16 /* HFSocketService.m */; };
 		39E0620B200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E0620A200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework */; };
+		39E06210200EFB89005E89D6 /* HFClassTestDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E0620E200EFB89005E89D6 /* HFClassTestDetailViewController.m */; };
+		39E06211200EFB89005E89D6 /* HFClassTestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E0620F200EFB89005E89D6 /* HFClassTestDetailViewController.xib */; };
+		39E06215200F00B2005E89D6 /* HFTeacherCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E06213200F00B2005E89D6 /* HFTeacherCaptureViewController.m */; };
+		39E06216200F00B2005E89D6 /* HFTeacherCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E06214200F00B2005E89D6 /* HFTeacherCaptureViewController.xib */; };
 		39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F088A31FC7AFE500AB30F6 /* HFUtils.m */; };
 		39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFA81FD6A8AB00395908 /* XMLReader.m */; };
 		39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F0DFAB1FD7C97200395908 /* HFDaoxueModel.m */; };
@@ -326,6 +330,12 @@
 		39D4888C1FCFEB6800F36D16 /* HFSocketService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFSocketService.h; sourceTree = "<group>"; };
 		39D4888D1FCFEB6800F36D16 /* HFSocketService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFSocketService.m; sourceTree = "<group>"; };
 		39E0620A200E3C47005E89D6 /* TXLiteAVSDK_Smart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Smart.framework; path = Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK/TXLiteAVSDK_Smart.framework; sourceTree = "<group>"; };
+		39E0620D200EFB89005E89D6 /* HFClassTestDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestDetailViewController.h; sourceTree = "<group>"; };
+		39E0620E200EFB89005E89D6 /* HFClassTestDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassTestDetailViewController.m; sourceTree = "<group>"; };
+		39E0620F200EFB89005E89D6 /* HFClassTestDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFClassTestDetailViewController.xib; sourceTree = "<group>"; };
+		39E06212200F00B2005E89D6 /* HFTeacherCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeacherCaptureViewController.h; sourceTree = "<group>"; };
+		39E06213200F00B2005E89D6 /* HFTeacherCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeacherCaptureViewController.m; sourceTree = "<group>"; };
+		39E06214200F00B2005E89D6 /* HFTeacherCaptureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeacherCaptureViewController.xib; sourceTree = "<group>"; };
 		39F088A21FC7AFE500AB30F6 /* HFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUtils.h; sourceTree = "<group>"; };
 		39F088A31FC7AFE500AB30F6 /* HFUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUtils.m; sourceTree = "<group>"; };
 		39F088A51FC7C51E00AB30F6 /* HFInterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFInterFace.h; sourceTree = "<group>"; };
@@ -831,9 +841,6 @@
 				39C94A171FDE6394003641C9 /* HFTeachToolViewController.h */,
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
-				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
-				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
-				82E6096A200DF4D30079AF3B /* FileUpload */,
 				39720CF1200E37DA00766D74 /* TeachLive */,
 				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
 				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
@@ -947,6 +954,12 @@
 				82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */,
 				82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */,
 				82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */,
+				39E0620D200EFB89005E89D6 /* HFClassTestDetailViewController.h */,
+				39E0620E200EFB89005E89D6 /* HFClassTestDetailViewController.m */,
+				39E0620F200EFB89005E89D6 /* HFClassTestDetailViewController.xib */,
+				39E06212200F00B2005E89D6 /* HFTeacherCaptureViewController.h */,
+				39E06213200F00B2005E89D6 /* HFTeacherCaptureViewController.m */,
+				39E06214200F00B2005E89D6 /* HFTeacherCaptureViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1114,6 +1127,7 @@
 				39181E8A1FB574DF00A364AB /* errors.txt in Resources */,
 				39181E911FB574DF00A364AB /* ic_pwd_selected.png in Resources */,
 				39181E991FB574DF00A364AB /* passwoard_back.png in Resources */,
+				39E06216200F00B2005E89D6 /* HFTeacherCaptureViewController.xib in Resources */,
 				39181E8F1FB574DF00A364AB /* ic_login_bg.png in Resources */,
 				39181E981FB574DF00A364AB /* login_button_bg.png in Resources */,
 				8226AAF11FFF7C1600C9BDB4 /* ZSSelectViewCell.xib in Resources */,
@@ -1131,6 +1145,7 @@
 				39B719041FBD8D990088C348 /* HFTTeachToolCollectionViewCell.xib in Resources */,
 				398CDBF31FE764D7008816CD /* HFMYResourCeDetailTableViewCell.xib in Resources */,
 				39181E931FB574DF00A364AB /* ic_user_normal.png in Resources */,
+				39E06211200EFB89005E89D6 /* HFClassTestDetailViewController.xib in Resources */,
 				39181E9B1FB574DF00A364AB /* system_close.png in Resources */,
 				39181E9A1FB574DF00A364AB /* refresh.png in Resources */,
 				3972CB2F1FB198D40017DFE9 /* Main.storyboard in Resources */,
@@ -1239,11 +1254,13 @@
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
+				39E06215200F00B2005E89D6 /* HFTeacherCaptureViewController.m in Sources */,
 				397341081FFCBD80004191BD /* UIViewController+MMDrawerController.m in Sources */,
 				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
 				397341071FFCBD80004191BD /* MMDrawerVisualState.m in Sources */,
 				3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */,
 				82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */,
+				39E06210200EFB89005E89D6 /* HFClassTestDetailViewController.m in Sources */,
 				3973415A1FFD15FF004191BD /* HFUserInfocellTableViewCell.m in Sources */,
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,

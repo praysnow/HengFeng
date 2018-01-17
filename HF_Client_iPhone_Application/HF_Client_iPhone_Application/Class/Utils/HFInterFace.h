@@ -101,6 +101,15 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  */
 #define END_TESCHER_SHARE  @"17"
 /**
+ * 开始教学分享
+ */
+#define START_RECORDING  @"155"
+/**
+ * 结束教学分享
+ */
+#define END_RECORDING  @"156"
+
+/**
  * 锁屏
  */
 #define LOCK_SCREEN  @"18"

@@ -175,7 +175,13 @@
             break;
         case 1:
         {
-            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
+//            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
+            sender.selected = !sender.selected;
+            if (sender.selected) {
+                [self setUpShowStatus: @"停止教学分享" andDetail: @"教学分享中..."];
+            } else {
+                [self setUpShowStatus: nil andDetail: nil];
+            }
         }
             break;
         case 2:
@@ -193,7 +199,12 @@
         {
             NSLog(@"录屏");
             sender.selected = !sender.selected;
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UP_SCREEN : STOP_UP_SCREEN]];
+            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? START_RECORDING : END_RECORDING]];
+            if (sender.selected) {
+                [self setUpShowStatus: @"停止录屏" andDetail: @"录屏中..."];
+            } else {
+                [self setUpShowStatus: nil andDetail: nil];
+            }
         }
             break;
         case 4:
