@@ -138,7 +138,7 @@
     
     // 转换图片
     _imageUrl = [_imageUrl stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
-    NSLog(@"图片地址为: %@", _imageUrl);
+//    NSLog(@"图片地址为: %@", _imageUrl);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"imageUrl" object: nil];
 }
 
