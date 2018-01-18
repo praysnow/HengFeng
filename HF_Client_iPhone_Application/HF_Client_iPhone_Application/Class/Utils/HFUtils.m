@@ -102,7 +102,6 @@
         if (match) {
             // 截获特定的字符串
             result = [url substringWithRange:match.range];
-            NSLog(@"课堂状态为: %@",result);
         }
     } else { // 如果有错误，则把错误打印出来
         NSLog(@"正则取值错误为: error - %@", error);

@@ -41,5 +41,6 @@
 @property (nonatomic, copy) NSString *isCanQuit;
 @property (nonatomic, copy) NSString *iosLookScreen;
 @property (nonatomic, copy) NSString *voteMsg;
+@property (nonatomic, copy) NSString *imageUrl;
 
 @end

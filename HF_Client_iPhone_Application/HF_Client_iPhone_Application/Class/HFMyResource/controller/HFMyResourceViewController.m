@@ -52,8 +52,8 @@
 - (void)isShowCoverImage
 {
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
-    AppDelegate *myAppDelegate=[UIApplication sharedApplication].delegate;
-    myAppDelegate.centerVC.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
+//    AppDelegate *myAppDelegate=[UIApplication sharedApplication].delegate;
+//    myAppDelegate.centerVC.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
 //    self.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
@@ -93,7 +93,7 @@
                             </GetCourseResByTpID>\
                             </soap:Body>\
                             </soap:Envelope>", [HFCacheObject shardence].courseId];
-    _host = [NSString stringWithFormat: @"%@%@", HOST, DAOXUETANG_INTERFACE];
+    _host = [NSString stringWithFormat: @"%@%@", HOST, CLASSID_INTERFACE];
     [[HFNetwork network] xmlSOAPDataWithUrl: _host soapBody: soapString success:^(id responseObject){
         [responseObject setDelegate:self];
         [responseObject parse];
@@ -225,7 +225,7 @@
     NSLog(@"点击下发");
     if (self.object) {
         NSString *string = [NSString stringWithFormat: @"%@%@%@%@%@", GET_INFO_CLASS, @(self.selectedIndex), @"", @"", @"1"];
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[@"127", @(self.selectedIndex), @"", string, @"3"]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @(self.selectedIndex), @"", string, @"3"]];
     } else {
         NSLog(@"请选择要下发的课程");
     }

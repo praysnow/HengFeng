@@ -212,6 +212,8 @@
     [sock readDataWithTimeout: -1 tag: tag];
 }
 
+#pragma mark - recevied socket message
+
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
@@ -220,6 +222,10 @@
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
+        if ([receviedAsiiMessage containsString: @"}43{"]) {
+            [self revieveCaptureImageUrl: receviedAsiiMessage];
+        }
+    
     if ([receviedMessage containsString: @"LockScreen"]) {
         [self lockScreen];
     } else if ([receviedMessage containsString: @"unLockScreen"])
@@ -308,6 +314,11 @@
 //    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
 //    xmlData.delegate = self;
 //    [xmlData parse];
+}
+
+- (void)revieveCaptureImageUrl:(NSString *)imageUrl
+{
+        [HFCacheObject shardence].imageUrl = [HFUtils regulexFromString: imageUrl andStartString: @"root" andEndString: @"jpeg"];
 }
 
 # pragma mark - 协议方法
