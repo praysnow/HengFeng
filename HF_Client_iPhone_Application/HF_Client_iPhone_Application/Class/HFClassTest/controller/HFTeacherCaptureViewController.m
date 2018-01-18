@@ -112,9 +112,11 @@
 }
 - (IBAction)ensureButton:(UIButton *)sender
 {
+    [HF_MBPregress showMessag: @"裁剪成功"];
 }
 - (IBAction)cancelButton:(UIButton *)sender
 {
+    [HF_MBPregress showMessag: @"取消裁剪"];
 }
 
 - (void)dealloc

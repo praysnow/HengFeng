@@ -9,7 +9,6 @@
 #import "HFClassTestViewController.h"
 #import "HFClassTestDetailViewController.h"
 #import "HFTeacherCaptureViewController.h"
-#import "TestViewController.h"
 
 @interface HFClassTestViewController ()
 

@@ -19,6 +19,7 @@
 #import "UIViewController+ConfigureCategory.h"
 #import "HFSocketService.h"
 #import "UIView+FrameCategory.h"
+#import "HF_MBPregress.h"
 
 #define SCREEN_WIDTH     ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
