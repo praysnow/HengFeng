@@ -131,4 +131,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName: @"voteMsg" object: nil];
 }
 
+- (void)setImageUrl:(NSString *)imageUrl
+{
+    imageUrl = [NSString stringWithFormat: @"ftp://%@/root%@%@", [HFNetwork network].SocketAddress, imageUrl, @"jpeg"];
+    _imageUrl = imageUrl;
+    NSLog(@"图片地址为: %@", _imageUrl);
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"imageUrl" object: nil];
+}
+
 @end

@@ -28,7 +28,8 @@
 
 - (IBAction)capatureTest:(UIButton *)sender
 {
-        [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeacherCaptureViewController) animated: YES];
+    [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeacherCaptureViewController) animated: YES];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[SCREEN_CAPTURE]];
 }
 
 @end
