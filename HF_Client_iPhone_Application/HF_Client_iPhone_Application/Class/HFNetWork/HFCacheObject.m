@@ -135,6 +135,9 @@
 {
     imageUrl = [NSString stringWithFormat: @"ftp://%@/root%@%@", [HFNetwork network].SocketAddress, imageUrl, @"jpeg"];
     _imageUrl = imageUrl;
+    
+    // 转换图片
+    _imageUrl = [_imageUrl stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
     NSLog(@"图片地址为: %@", _imageUrl);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"imageUrl" object: nil];
 }

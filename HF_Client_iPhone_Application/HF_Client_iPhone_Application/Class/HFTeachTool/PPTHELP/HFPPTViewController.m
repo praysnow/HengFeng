@@ -25,9 +25,7 @@
     [super viewDidLoad];
     
     
-    NSString *string = @"ftp://192.168.15.194/root/cut_screen_temp/20180118102014.jpeg";
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"black.jpg"]];
-    
+
     _button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 125, 44)];
     
     [_button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
@@ -45,7 +43,13 @@
 }
 
 - (void)action:(NSNotification *)notification {
-    NSLog(@"通知我啦！%@",notification.object);
+    
+    NSLog(@"通知我啦！%@",[HFCacheObject shardence].imageUrl);
+    
+//    NSString *string = [HFCacheObject shardence].imageUrl;
+    
+    NSString *string = @"ftp://192.168.15.194/root/cut_screen_temp/20180118161726.jpeg";
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"black.jpg"]];
 }
 
 // 旋转屏幕

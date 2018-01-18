@@ -217,8 +217,10 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]; //  NSASCIIStringEncoding NSUTF8StringEncoding
-    NSLog(@"iOS 接收命令:%zd  %@",data.length,receviedMessage);
+    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
+     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
+    NSLog(@"iOS 接收UTF-8命令:%zd  %@",data.length,receviedMessage);
+    NSLog(@"iOS 接收ASII命令:%zd  %@",data.length,receviedAsiiMessage);
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
