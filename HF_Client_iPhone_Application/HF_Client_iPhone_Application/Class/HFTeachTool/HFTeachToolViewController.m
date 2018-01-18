@@ -13,10 +13,9 @@
 #import "ZSVerticalButton.h"
 #import "HFLoginViewController.h"
 #import "HFFileUploadViewController.h"
-#import "HFTeachToolButton.h"
 #import "HFTeachToolLiveViewController.h"
 #import "HFFileUploadViewController.h"
-#import "HFTeachToolButton.h"
+
 
 @interface HFTeachToolViewController ()
 
@@ -40,54 +39,6 @@
    
 }
 
-//- (void)viewWillLayoutSubviews{
-//    [super viewWillLayoutSubviews];
-//
-//    [self initUI];
-//}
-
-
-- (void)initUI{
-    UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = [UIColor redColor];
-    bgView.x = 10;
-    bgView.y = 64 + 10;
-    bgView.width = SCREEN_WIDTH - 20;
-    bgView.height = bgView.width;
-    
-    bgView.layer.borderWidth = 2;
-    bgView.layer.borderColor = [UIColor greenColor].CGColor;
-    
-    [self.view addSubview:bgView];
-   
-    
-    // 添加按钮
-    NSInteger rowCount = 3;   // 一排三个
-    CGFloat space = 2;
-    CGFloat buttonW = (bgView.width - 4)/ rowCount;
-    CGFloat buttonH = buttonW;
-    
-    
-    for (int i = 0; i < 9; i++) {
-        CGFloat buttonX = (i % rowCount)  * (buttonW + space);
-        CGFloat buttonY = (i / rowCount)  * (buttonH + space);
-        
-        HFTeachToolButton *button = [[HFTeachToolButton alloc] initWithFrame:CGRectMake(buttonX, buttonY, buttonW, buttonH)];
-        button.tag = i;
-        
-        [button setBackgroundColor:[UIColor whiteColor]];
-        [button setTitle:@"测试" forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"vote"] forState:UIControlStateNormal];
-        
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        
-//        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [bgView addSubview:button];
-	    }
-	}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -247,7 +198,8 @@
         case 8:
         {
             HFPPTViewController *vc = [[HFPPTViewController alloc] init];
-            [self.navigationController pushViewController: vc animated: YES];
+//            [self.navigationController pushViewController: vc animated: YES];
+            [self presentViewController:vc animated:YES completion:nil];
         }
             break;
         default:

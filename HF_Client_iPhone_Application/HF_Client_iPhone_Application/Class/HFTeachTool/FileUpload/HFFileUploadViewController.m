@@ -98,7 +98,7 @@
     
     
     // 发送指令
-    NSString *filePath = [NSString stringWithFormat:@"/root/mobileshow/portraitPiciOS.jpg"];
+    NSString *filePath = [NSString stringWithFormat:@"/root/mobileshow/portraitPiciOS.jpg"]; 
     
     NSLog(@"ftp路径%@",filePath);
     [[HFSocketService sharedInstance] sendCtrolMessage: @[UP_SCREEN,filePath]];

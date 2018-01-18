@@ -148,7 +148,7 @@
 		82E6096E200DF4D30079AF3B /* HFFileUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E6096C200DF4D30079AF3B /* HFFileUploadViewController.m */; };
 		82E6096F200DF4D30079AF3B /* HFFileUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E6096D200DF4D30079AF3B /* HFFileUploadViewController.xib */; };
 		82E60972200E03220079AF3B /* SCRFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E60971200E03220079AF3B /* SCRFTPRequest.m */; };
-		82E60975200E2E930079AF3B /* HFTeachToolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E60974200E2E930079AF3B /* HFTeachToolButton.m */; };
+		82E6097B201048710079AF3B /* UIDevice+TFDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E60979201048710079AF3B /* UIDevice+TFDevice.m */; };
 		82E62FD31FE911D700B90E69 /* HFClassTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */; };
 		82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */; };
 		82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E62FDC1FE9187A00B90E69 /* HFNewStudentStatusViewController.m */; };
@@ -392,8 +392,8 @@
 		82E6096D200DF4D30079AF3B /* HFFileUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFFileUploadViewController.xib; sourceTree = "<group>"; };
 		82E60970200E03210079AF3B /* SCRFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRFTPRequest.h; sourceTree = "<group>"; };
 		82E60971200E03220079AF3B /* SCRFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFTPRequest.m; sourceTree = "<group>"; };
-		82E60973200E2E930079AF3B /* HFTeachToolButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolButton.h; sourceTree = "<group>"; };
-		82E60974200E2E930079AF3B /* HFTeachToolButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolButton.m; sourceTree = "<group>"; };
+		82E60979201048710079AF3B /* UIDevice+TFDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+TFDevice.m"; sourceTree = "<group>"; };
+		82E6097A201048710079AF3B /* UIDevice+TFDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+TFDevice.h"; sourceTree = "<group>"; };
 		82E62FCE1FE911D600B90E69 /* HFClassTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassTestViewController.h; sourceTree = "<group>"; };
 		82E62FCF1FE911D600B90E69 /* HFClassTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassTestViewController.m; sourceTree = "<group>"; };
 		82E62FD01FE911D600B90E69 /* HFClassTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassTestViewController.xib; sourceTree = "<group>"; };
@@ -551,6 +551,8 @@
 		391979C91FE9126000AD478D /* PPTHELP */ = {
 			isa = PBXGroup;
 			children = (
+				82E6097A201048710079AF3B /* UIDevice+TFDevice.h */,
+				82E60979201048710079AF3B /* UIDevice+TFDevice.m */,
 				391979CA1FE9130200AD478D /* HFPPTViewController.h */,
 				391979CB1FE9130200AD478D /* HFPPTViewController.m */,
 				391979CC1FE9130200AD478D /* HFPPTViewController.xib */,
@@ -728,8 +730,8 @@
 			children = (
 				82BFF31C20037E47005C28DB /* YZDisplayViewController */,
 				8226AAEE1FFF7C1500C9BDB4 /* ZSSelectView.h */,
-				8226AAED1FFF7C1500C9BDB4 /* ZSSelectView.m */,
 				8226AAF01FFF7C1500C9BDB4 /* ZSSelectViewCell.h */,
+				8226AAED1FFF7C1500C9BDB4 /* ZSSelectView.m */,
 				8226AAEF1FFF7C1500C9BDB4 /* ZSSelectViewCell.m */,
 				8226AAEC1FFF7C1500C9BDB4 /* ZSSelectViewCell.xib */,
 				8226AAD51FFE463E00C9BDB4 /* HFVerticalButton.h */,
@@ -842,8 +844,6 @@
 				39C94A181FDE6395003641C9 /* HFTeachToolViewController.m */,
 				39CE3A2C1FBEE00D008F67AE /* HFTeachToolViewController.xib */,
 				39720CF1200E37DA00766D74 /* TeachLive */,
-				82E60973200E2E930079AF3B /* HFTeachToolButton.h */,
-				82E60974200E2E930079AF3B /* HFTeachToolButton.m */,
 				82E6096A200DF4D30079AF3B /* FileUpload */,
 				39A0C2231FF0AD5900F3B681 /* TeachShare */,
 				391979C91FE9126000AD478D /* PPTHELP */,
@@ -1270,7 +1270,6 @@
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
-				82E60975200E2E930079AF3B /* HFTeachToolButton.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */,
 				825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */,
@@ -1298,6 +1297,7 @@
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
 				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
 				391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */,
+				82E6097B201048710079AF3B /* UIDevice+TFDevice.m in Sources */,
 				82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */,
 				82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,

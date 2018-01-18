@@ -88,5 +88,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window
+
+{
+    
+    if (self.allowRotation == YES) {
+        //横屏
+        return UIInterfaceOrientationMaskLandscape;
+        
+    }else{
+        //竖屏
+        return UIInterfaceOrientationMaskPortrait;
+        
+    }
+    
+}
+
 
 @end

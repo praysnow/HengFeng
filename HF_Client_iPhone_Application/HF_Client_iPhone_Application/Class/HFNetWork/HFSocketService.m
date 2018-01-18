@@ -215,7 +215,7 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; //  NSASCIIStringEncoding
+    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]; //  NSASCIIStringEncoding NSUTF8StringEncoding
     NSLog(@"iOS 接收命令:%zd  %@",data.length,receviedMessage);
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
@@ -228,6 +228,14 @@
     } else if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
+    else if ([receviedMessage containsString: @"SendToCtrl"]) {
+        NSLog(@"截屏图片");
+        [self image: receviedMessage];
+    }
+}
+
+- (void)image:(NSString *)receviedMessage{
+    
 }
 
 - (void)lockScreen
