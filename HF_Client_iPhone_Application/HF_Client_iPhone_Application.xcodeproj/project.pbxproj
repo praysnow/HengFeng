@@ -140,6 +140,18 @@
 		825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */; };
 		825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
+		828846EB20109B6300D8DBF5 /* LXFArrowBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D420109B6300D8DBF5 /* LXFArrowBrush.m */; };
+		828846EC20109B6300D8DBF5 /* LXFBaseBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D620109B6300D8DBF5 /* LXFBaseBrush.m */; };
+		828846ED20109B6300D8DBF5 /* LXFCycleBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D820109B6300D8DBF5 /* LXFCycleBrush.m */; };
+		828846EE20109B6300D8DBF5 /* LXFEraserBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846DA20109B6300D8DBF5 /* LXFEraserBrush.m */; };
+		828846EF20109B6300D8DBF5 /* LXFLineBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846DC20109B6300D8DBF5 /* LXFLineBrush.m */; };
+		828846F020109B6300D8DBF5 /* LXFMosaicBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846DE20109B6300D8DBF5 /* LXFMosaicBrush.m */; };
+		828846F120109B6300D8DBF5 /* LXFPencilBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846E020109B6300D8DBF5 /* LXFPencilBrush.m */; };
+		828846F220109B6300D8DBF5 /* LXFRectangleBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846E220109B6300D8DBF5 /* LXFRectangleBrush.m */; };
+		828846F320109B6300D8DBF5 /* LXFTextBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846E420109B6300D8DBF5 /* LXFTextBrush.m */; };
+		828846F420109B6300D8DBF5 /* LXFDoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846E620109B6300D8DBF5 /* LXFDoManager.m */; };
+		828846F520109B6300D8DBF5 /* LXFDrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846E820109B6300D8DBF5 /* LXFDrawBoard.m */; };
+		828846F620109B6300D8DBF5 /* LXFDrawBoardStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846EA20109B6300D8DBF5 /* LXFDrawBoardStyle.m */; };
 		82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF31E20037E47005C28DB /* UIView+Frame.m */; };
 		82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32020037E47005C28DB /* YZDisplayTitleLabel.m */; };
 		82BFF32820037E47005C28DB /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF32220037E47005C28DB /* YZDisplayViewController.m */; };
@@ -379,6 +391,30 @@
 		825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPersonRankingTableViewCell.xib; sourceTree = "<group>"; };
 		825D9E2A2008C7FC00A46EF4 /* HFGroupRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFGroupRankingViewController.h; sourceTree = "<group>"; };
 		825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFGroupRankingViewController.m; sourceTree = "<group>"; };
+		828846D320109B6300D8DBF5 /* LXFArrowBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFArrowBrush.h; sourceTree = "<group>"; };
+		828846D420109B6300D8DBF5 /* LXFArrowBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFArrowBrush.m; sourceTree = "<group>"; };
+		828846D520109B6300D8DBF5 /* LXFBaseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFBaseBrush.h; sourceTree = "<group>"; };
+		828846D620109B6300D8DBF5 /* LXFBaseBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFBaseBrush.m; sourceTree = "<group>"; };
+		828846D720109B6300D8DBF5 /* LXFCycleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFCycleBrush.h; sourceTree = "<group>"; };
+		828846D820109B6300D8DBF5 /* LXFCycleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFCycleBrush.m; sourceTree = "<group>"; };
+		828846D920109B6300D8DBF5 /* LXFEraserBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFEraserBrush.h; sourceTree = "<group>"; };
+		828846DA20109B6300D8DBF5 /* LXFEraserBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFEraserBrush.m; sourceTree = "<group>"; };
+		828846DB20109B6300D8DBF5 /* LXFLineBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFLineBrush.h; sourceTree = "<group>"; };
+		828846DC20109B6300D8DBF5 /* LXFLineBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFLineBrush.m; sourceTree = "<group>"; };
+		828846DD20109B6300D8DBF5 /* LXFMosaicBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFMosaicBrush.h; sourceTree = "<group>"; };
+		828846DE20109B6300D8DBF5 /* LXFMosaicBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFMosaicBrush.m; sourceTree = "<group>"; };
+		828846DF20109B6300D8DBF5 /* LXFPencilBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFPencilBrush.h; sourceTree = "<group>"; };
+		828846E020109B6300D8DBF5 /* LXFPencilBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFPencilBrush.m; sourceTree = "<group>"; };
+		828846E120109B6300D8DBF5 /* LXFRectangleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFRectangleBrush.h; sourceTree = "<group>"; };
+		828846E220109B6300D8DBF5 /* LXFRectangleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFRectangleBrush.m; sourceTree = "<group>"; };
+		828846E320109B6300D8DBF5 /* LXFTextBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFTextBrush.h; sourceTree = "<group>"; };
+		828846E420109B6300D8DBF5 /* LXFTextBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFTextBrush.m; sourceTree = "<group>"; };
+		828846E520109B6300D8DBF5 /* LXFDoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFDoManager.h; sourceTree = "<group>"; };
+		828846E620109B6300D8DBF5 /* LXFDoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFDoManager.m; sourceTree = "<group>"; };
+		828846E720109B6300D8DBF5 /* LXFDrawBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFDrawBoard.h; sourceTree = "<group>"; };
+		828846E820109B6300D8DBF5 /* LXFDrawBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFDrawBoard.m; sourceTree = "<group>"; };
+		828846E920109B6300D8DBF5 /* LXFDrawBoardStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFDrawBoardStyle.h; sourceTree = "<group>"; };
+		828846EA20109B6300D8DBF5 /* LXFDrawBoardStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFDrawBoardStyle.m; sourceTree = "<group>"; };
 		82BFF31D20037E47005C28DB /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		82BFF31E20037E47005C28DB /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		82BFF31F20037E47005C28DB /* YZDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayTitleLabel.h; sourceTree = "<group>"; };
@@ -559,6 +595,7 @@
 		391979C91FE9126000AD478D /* PPTHELP */ = {
 			isa = PBXGroup;
 			children = (
+				828846D120109B6300D8DBF5 /* LXFDrawBoard */,
 				82E6097A201048710079AF3B /* UIDevice+TFDevice.h */,
 				82E60979201048710079AF3B /* UIDevice+TFDevice.m */,
 				391979CA1FE9130200AD478D /* HFPPTViewController.h */,
@@ -928,6 +965,45 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		828846D120109B6300D8DBF5 /* LXFDrawBoard */ = {
+			isa = PBXGroup;
+			children = (
+				828846D220109B6300D8DBF5 /* LXFBrush */,
+				828846E520109B6300D8DBF5 /* LXFDoManager.h */,
+				828846E620109B6300D8DBF5 /* LXFDoManager.m */,
+				828846E720109B6300D8DBF5 /* LXFDrawBoard.h */,
+				828846E820109B6300D8DBF5 /* LXFDrawBoard.m */,
+				828846E920109B6300D8DBF5 /* LXFDrawBoardStyle.h */,
+				828846EA20109B6300D8DBF5 /* LXFDrawBoardStyle.m */,
+			);
+			path = LXFDrawBoard;
+			sourceTree = "<group>";
+		};
+		828846D220109B6300D8DBF5 /* LXFBrush */ = {
+			isa = PBXGroup;
+			children = (
+				828846D320109B6300D8DBF5 /* LXFArrowBrush.h */,
+				828846D420109B6300D8DBF5 /* LXFArrowBrush.m */,
+				828846D520109B6300D8DBF5 /* LXFBaseBrush.h */,
+				828846D620109B6300D8DBF5 /* LXFBaseBrush.m */,
+				828846D720109B6300D8DBF5 /* LXFCycleBrush.h */,
+				828846D820109B6300D8DBF5 /* LXFCycleBrush.m */,
+				828846D920109B6300D8DBF5 /* LXFEraserBrush.h */,
+				828846DA20109B6300D8DBF5 /* LXFEraserBrush.m */,
+				828846DB20109B6300D8DBF5 /* LXFLineBrush.h */,
+				828846DC20109B6300D8DBF5 /* LXFLineBrush.m */,
+				828846DD20109B6300D8DBF5 /* LXFMosaicBrush.h */,
+				828846DE20109B6300D8DBF5 /* LXFMosaicBrush.m */,
+				828846DF20109B6300D8DBF5 /* LXFPencilBrush.h */,
+				828846E020109B6300D8DBF5 /* LXFPencilBrush.m */,
+				828846E120109B6300D8DBF5 /* LXFRectangleBrush.h */,
+				828846E220109B6300D8DBF5 /* LXFRectangleBrush.m */,
+				828846E320109B6300D8DBF5 /* LXFTextBrush.h */,
+				828846E420109B6300D8DBF5 /* LXFTextBrush.m */,
+			);
+			path = LXFBrush;
+			sourceTree = "<group>";
+		};
 		82BFF31C20037E47005C28DB /* YZDisplayViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,23 +1345,30 @@
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
 				39E06215200F00B2005E89D6 /* HFTeacherCaptureViewController.m in Sources */,
+				828846F420109B6300D8DBF5 /* LXFDoManager.m in Sources */,
 				397341081FFCBD80004191BD /* UIViewController+MMDrawerController.m in Sources */,
+				828846EF20109B6300D8DBF5 /* LXFLineBrush.m in Sources */,
 				39C94A2C1FDE7BCA003641C9 /* CBAlertWindow.m in Sources */,
 				397341071FFCBD80004191BD /* MMDrawerVisualState.m in Sources */,
+				828846F020109B6300D8DBF5 /* LXFMosaicBrush.m in Sources */,
 				3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */,
 				82E62FDE1FE9187A00B90E69 /* HFNewStudentStatusViewController.m in Sources */,
 				39E06210200EFB89005E89D6 /* HFClassTestDetailViewController.m in Sources */,
 				3973415A1FFD15FF004191BD /* HFUserInfocellTableViewCell.m in Sources */,
 				39C94A371FDE81E6003641C9 /* HFLoginConfigueView.m in Sources */,
 				39C94A331FDE7CFE003641C9 /* HFLoginViewController.m in Sources */,
+				828846EC20109B6300D8DBF5 /* LXFBaseBrush.m in Sources */,
 				397341061FFCBD80004191BD /* MMDrawerController.m in Sources */,
 				39C94A3D1FE27B36003641C9 /* HFToolVoteViewController.m in Sources */,
+				828846EE20109B6300D8DBF5 /* LXFEraserBrush.m in Sources */,
 				8226AAE51FFF729D00C9BDB4 /* HFStudentModel.m in Sources */,
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
+				828846ED20109B6300D8DBF5 /* LXFCycleBrush.m in Sources */,
 				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
 				39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */,
+				828846F320109B6300D8DBF5 /* LXFTextBrush.m in Sources */,
 				825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */,
 				39B718EF1FBC20050088C348 /* HFMyResourceCollectionViewCell.m in Sources */,
 				39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */,
@@ -1305,19 +1388,24 @@
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,
+				828846F520109B6300D8DBF5 /* LXFDrawBoard.m in Sources */,
 				39B718F31FBC20340088C348 /* HFMyResourceHeaderFootView.m in Sources */,
 				82BFF32920037E47005C28DB /* YZFlowLayout.m in Sources */,
 				8226AAF21FFF7C1600C9BDB4 /* ZSSelectView.m in Sources */,
 				39E06219200F919D005E89D6 /* HFClassTestObject.m in Sources */,
+				828846EB20109B6300D8DBF5 /* LXFArrowBrush.m in Sources */,
 				398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */,
 				391979CD1FE9130200AD478D /* HFPPTViewController.m in Sources */,
 				391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */,
+				828846F120109B6300D8DBF5 /* LXFPencilBrush.m in Sources */,
 				82E6097B201048710079AF3B /* UIDevice+TFDevice.m in Sources */,
 				82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */,
 				82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				39E0621D200FB24D005E89D6 /* HFClassTestDetailCell.m in Sources */,
+				828846F220109B6300D8DBF5 /* LXFRectangleBrush.m in Sources */,
+				828846F620109B6300D8DBF5 /* LXFDrawBoardStyle.m in Sources */,
 				82BFF32820037E47005C28DB /* YZDisplayViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
