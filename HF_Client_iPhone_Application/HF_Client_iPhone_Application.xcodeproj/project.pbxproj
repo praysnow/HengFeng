@@ -49,8 +49,10 @@
 		391979D11FEA5FAA00AD478D /* HFCountTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 391979D01FEA5FAA00AD478D /* HFCountTimeView.m */; };
 		391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391979D21FEA5FB500AD478D /* HFCountTimeView.xib */; };
 		391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */; };
+		392465122010C9BF0095744A /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 392465112010C9BF0095744A /* TKImageView.m */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
+		393051E020112C1C001BA5E4 /* HF_MBPregress.m in Sources */ = {isa = PBXBuildFile; fileRef = 393051DF20112C1C001BA5E4 /* HF_MBPregress.m */; };
 		39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */; };
 		39720CF6200E380200766D74 /* HFTeachToolLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39720CF4200E380200766D74 /* HFTeachToolLiveViewController.xib */; };
 		39720CF8200E394500766D74 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CF7200E393B00766D74 /* VideoToolbox.framework */; };
@@ -242,10 +244,14 @@
 		391979D21FEA5FB500AD478D /* HFCountTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFCountTimeView.xib; sourceTree = "<group>"; };
 		391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameCategory.m"; sourceTree = "<group>"; };
 		391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameCategory.h"; sourceTree = "<group>"; };
+		392465102010C9BF0095744A /* TKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageView.h; sourceTree = "<group>"; };
+		392465112010C9BF0095744A /* TKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageView.m; sourceTree = "<group>"; };
 		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
+		393051DE20112C1C001BA5E4 /* HF_MBPregress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HF_MBPregress.h; sourceTree = "<group>"; };
+		393051DF20112C1C001BA5E4 /* HF_MBPregress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_MBPregress.m; sourceTree = "<group>"; };
 		39720CEF200E35F100766D74 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Pods/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		39720CF2200E380200766D74 /* HFTeachToolLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolLiveViewController.h; sourceTree = "<group>"; };
 		39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolLiveViewController.m; sourceTree = "<group>"; };
@@ -605,6 +611,15 @@
 			path = PPTHELP;
 			sourceTree = "<group>";
 		};
+		3924650F2010C9BF0095744A /* TKImageView */ = {
+			isa = PBXGroup;
+			children = (
+				392465102010C9BF0095744A /* TKImageView.h */,
+				392465112010C9BF0095744A /* TKImageView.m */,
+			);
+			path = TKImageView;
+			sourceTree = "<group>";
+		};
 		3964C6F71FB3F2F400A024A9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +934,8 @@
 				398CDBFA1FE77197008816CD /* HFWebViewController.h */,
 				398CDBFB1FE77197008816CD /* HFWebViewController.m */,
 				398CDBFC1FE77197008816CD /* HFWebViewController.xib */,
+				393051DE20112C1C001BA5E4 /* HF_MBPregress.h */,
+				393051DF20112C1C001BA5E4 /* HF_MBPregress.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -926,6 +943,7 @@
 		39F088A11FC7AFCE00AB30F6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3924650F2010C9BF0095744A /* TKImageView */,
 				397340FB1FFCBD80004191BD /* MMDrawerController */,
 				391B4DD31FF24E7A00FA55D8 /* UIView+FrameCategory.h */,
 				391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */,
@@ -1341,9 +1359,11 @@
 				39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */,
 				8226AAD71FFE463E00C9BDB4 /* HFVerticalButton.m in Sources */,
 				391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */,
+				392465122010C9BF0095744A /* TKImageView.m in Sources */,
 				398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */,
 				39F088A41FC7AFE500AB30F6 /* HFUtils.m in Sources */,
 				39B7190B1FBE87DC0088C348 /* HFNetwork.m in Sources */,
+				393051E020112C1C001BA5E4 /* HF_MBPregress.m in Sources */,
 				39E06215200F00B2005E89D6 /* HFTeacherCaptureViewController.m in Sources */,
 				828846F420109B6300D8DBF5 /* LXFDoManager.m in Sources */,
 				397341081FFCBD80004191BD /* UIViewController+MMDrawerController.m in Sources */,
