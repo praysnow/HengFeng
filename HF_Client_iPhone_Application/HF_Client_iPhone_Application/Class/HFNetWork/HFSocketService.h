@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+enum{
+    SocketOfflineByServer, // 服务器断开
+    SocketOfflineByUser,   // 用户断开
+};
+
 @interface HFSocketService : NSObject
 
 @property (copy ,nonatomic) NSString *socket_host;
@@ -17,10 +22,15 @@
 
 + (HFSocketService *)sharedInstance;
 
-- (void)setUpSocketWithHost:(NSString *)host andPort:(uint16_t)prot;
+// 断开的情况
+@property (nonatomic, assign) NSInteger userData;
 
 //发送Socket命令
 - (void)sendCtrolMessage:(NSArray *)array;
-- (void)reConnetSockets;
+
+// socket连接
+-(void)socketConnectHost;
+// socket断开连接
+-(void)cutOffSocket;
 
 @end

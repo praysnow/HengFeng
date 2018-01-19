@@ -65,8 +65,10 @@
     // 保存服务器类型
     [HFNetwork network].serverType = self.serverType.selectedSegmentIndex;
     
-    [HFSocketService sharedInstance].socket = nil;
-    [[HFSocketService sharedInstance] reConnetSockets];
+    
+    // 先断开后连接
+    [[HFSocketService sharedInstance] cutOffSocket];
+    [[HFSocketService sharedInstance] socketConnectHost];
 }
 
 #pragma mark - UITextFieldDelegate

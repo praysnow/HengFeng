@@ -52,7 +52,9 @@
 //        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: loginView];
 //    navigationController.navigationBar.hidden = YES;
 //    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController: navigationController leftMenuViewController: nil rightMenuViewController: nil];
-    [HFSocketService sharedInstance];
+    
+    // 开启socket连接
+    [[HFSocketService sharedInstance] socketConnectHost];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startSlide) name: START_SLIDE object: nil];
     self.window.rootViewController = self.drawerController;
     

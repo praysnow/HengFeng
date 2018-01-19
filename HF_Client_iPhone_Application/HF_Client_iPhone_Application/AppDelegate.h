@@ -16,5 +16,6 @@
 // 是否允许转向
 @property(nonatomic,assign)BOOL allowRotation;
 
+
 @end
 

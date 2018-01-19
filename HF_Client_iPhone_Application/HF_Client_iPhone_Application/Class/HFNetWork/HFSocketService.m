@@ -13,10 +13,11 @@
 #define NORMOR_INFO_FIRST_BYTE (Byte)(0x99)
 #define HEADER_INFO_FIRST_BYTE (Byte)(0x00)
 
-@interface HFSocketService ()<GCDAsyncSocketDelegate, NSXMLParserDelegate>
+@interface HFSocketService ()<GCDAsyncSocketDelegate>
 
 @property (strong, nonatomic)NSTimer *timer;
-@property (strong, nonatomic) NSString *currentElementName;
+
+
 
 @end
 
@@ -29,47 +30,23 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstace = [[self alloc] init];
-//        NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] valueForKey: ADDRESS_HOST];
-//        if ([dictionary.allKeys containsObject: @"socket_address"]) {
-//            sharedInstace.socket_host = [dictionary valueForKey: @"socket_address"];
-//        }
-//        if ([dictionary.allKeys containsObject: @"service_host"]) {
-//            sharedInstace.service_host = [dictionary valueForKey: @"service_host"];
-//        }
+
     });
-    [sharedInstace setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
     return sharedInstace;
 }
 
-- (void)reConnetSockets
-{
-    [self.socket disconnect];
-    [self setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
+// socket连接
+-(void)socketConnectHost{
+    // 1.创建socket并指定代理对象为self,代理队列必须为主队列.
+    self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+    // 2.连接指定主机的对应端口.
+    NSError *error = nil;
+    [self.socket connectToHost:[HFNetwork network].SocketAddress onPort:1001 error:&error];
+    [self.socket readDataWithTimeout:-1 tag:0];
+    
 }
 
-- (void)setUpSocketWithHost:(NSString *)host andPort:(uint16_t)prot
-{
-    [self connectServer: host port: prot];
-}
-
-- (int)connectServer:(NSString *)hostIP port:(int)hostPort
-{
-    if (_socket == nil) {
-        _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-        [_socket readDataWithTimeout: -1 tag: 0];
-        NSError *err = nil;
-        int t = [_socket connectToHost: hostIP onPort: hostPort withTimeout: 5 error: &err];
-
-        if (!t) {
-            return 0;
-        }else{
-            return 1;
-        }
-    }else {
-        [_socket readDataWithTimeout: -1 tag:0];
-        return 1;
-    }
-}
 
 // 连接成功
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -77,11 +54,14 @@
     BOOL state = [self.socket isConnected];
     if (state) {
         NSLog(@"socket 已连接");
+    
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             if (@available(iOS 10.0, *)) {
                 [self sendLoginInfo];
                 [self sendCheckStatus];
+                
+                // 开启定时器
                 self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
                     [self headSocketInfoSent];
                 }];
@@ -93,23 +73,43 @@
         NSLog(@"socket 没有连接");
     }
     [self.socket readDataWithTimeout:-1 tag:0];//WithTimeout 是超时时间,-1表示一直读取数据
+    
+    self.isSocketed = state;
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
+    
 }
 
 // 断开连接
 -(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
     BOOL state = [sock isConnected];   // 判断当前socket的连接状态
-    NSLog(@"连接状态: %d",state);
-    if (!state) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self setUpSocketWithHost: [HFNetwork network].SocketAddress andPort: 1001];
-        });
-        NSLog(@"增加遮罩");
-    } else {
-        NSLog(@"通知UI改变移除");
+    self.isSocketed = state;
+//    NSLog(@"连接状态: %d",state);
+//    if (!state) {
+////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////            [self socketConnectHost];
+////        });
+//        NSLog(@"增加遮罩");
+//    } else {
+//        NSLog(@"通知UI改变移除");
+//    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
+    if (self.userData == SocketOfflineByServer) {
+        // 服务器掉线，重连
+        
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //            [self socketConnectHost];
+        //        });
+        [self socketConnectHost];
+        
+    }else if (self.userData == SocketOfflineByUser) {
+        // 如果由用户断开，不进行重连
+        return;
     }
-   self.isSocketed = state;
-   [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
+    
+   
+   
 }
 
 - (void)sendCtrolMessage:(NSArray *)array
@@ -323,64 +323,15 @@
         [HFCacheObject shardence].imageUrl = [HFUtils regulexFromString: imageUrl andStartString: @"root" andEndString: @"jpeg"];
 }
 
-# pragma mark - 协议方法
-
-// 开始
-- (void)parserDidStartDocument:(NSXMLParser *)parser
-{
-    NSLog(@"开始");
-}
-
-// 获取节点头
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
-    self.currentElementName = elementName;
-//    if ([_host containsString: DAOXUEAN_INTERFACE]) {
-//        if ([elementName isEqualToString:@"Table1"]) {
-//            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
-//            if (self.studentArray.count == 0) {
-//                [self.allInfoArray addObject: self.studentArray];
-//            }
-//            [self.studentArray addObject: stu];
-//        }
-//    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
-//        if ([elementName isEqualToString:@"Table1"]) {
-//            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
-//            if (self.classArray.count == 0) {
-//                [self.allInfoArray addObject: self.classArray];
-//            }
-//            [self.classArray addObject: stu];
-//        }
-//    }
-}
-
-// 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+// socket断开连接
+-(void)cutOffSocket{
     
-//    if ([_host containsString: DAOXUEAN_INTERFACE]) {
-//        if (_currentElementName != nil) {
-//            HFDaoxueModel *stu = [self.studentArray lastObject];
-//            [stu setValue:string forKey:_currentElementName];
-//        }
-//
-//    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
-//        if (_currentElementName != nil) {
-//            HFDaoxueModel *stu = [self.classArray lastObject];
-//            [stu setValue:string forKey:_currentElementName];
-//        }
-//    }
+    self.userData = SocketOfflineByUser;
+    
+    [self.timer invalidate];
+    
+    [self.socket disconnect];
 }
 
-// 获取节点尾
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    _currentElementName = nil;
-}
-
-// 结束
-- (void)parserDidEndDocument:(NSXMLParser *)parser {
-//    NSLog(@"结束");
-//    NSLog(@"导学案%zi",self.studentArray.count);
-//    NSLog(@"导学堂%zi",self.classArray.count);
-//    [self.collectionView reloadData];
-}
 
 @end
