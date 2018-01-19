@@ -55,6 +55,9 @@
     [HFSocketService sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startSlide) name: START_SLIDE object: nil];
     self.window.rootViewController = self.drawerController;
+    
+    
+//    self.window.rootViewController = [NSClassFromString(@"HFPPTViewController") new];
     return YES;
 }
 

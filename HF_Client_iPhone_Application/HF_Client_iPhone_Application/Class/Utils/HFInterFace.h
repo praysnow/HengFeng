@@ -403,6 +403,31 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  */
 #define TEACHER_CLOSER_LIVEING  @"CloseRtmp"
 
+/**
+ *返回学生排名
+ */
+#define SendStuScoreToCtrl @"SendStuScoreToCtrl"
+
+/**
+ *返回小组排名
+ */
+#define SendScoreToCtrl @"SendScoreToCtrl"
+
+/**
+ *发送小组评分
+ */
+#define sendGroupScoreToTeacher @"151"
+
+/**
+ *发送个人评分
+ */
+#define sendStuScoreToTeacher @"152"
+
+/**
+ * 请求排名数据(小组和个人)
+ */
+#define getEvaluateRank @"142"
+
 //导学案类型
 #define AfterClassExercise @"课后布置作业"
 #define DAOXUEAN_AfterClassMaterialLearning @"课后资料学习"

@@ -16,12 +16,22 @@
 
 @property (weak, nonatomic) IBOutlet LXFDrawBoard *imageView;
 
-@property(nonatomic,strong)UIButton *button;
+@property(nonatomic,strong)UIButton *button; // 返回按钮
+
 
 @property(nonatomic,strong)NSMutableArray *pointArray; // 点的数组
 
 @property(nonatomic,assign)CGFloat XRatio;// x轴上的比例
 @property(nonatomic,assign)CGFloat YRatio;// y轴上的比例
+
+@property (weak, nonatomic) IBOutlet UIButton *remarkButton; // 批注按钮
+@property (weak, nonatomic) IBOutlet UIView *muneView; // 菜单视图
+
+@property (weak, nonatomic) IBOutlet UIButton *blackButton;
+@property (weak, nonatomic) IBOutlet UIButton *whiteButton;
+@property (weak, nonatomic) IBOutlet UIButton *blueButton;
+@property (weak, nonatomic) IBOutlet UIButton *greenButton;
+@property (weak, nonatomic) IBOutlet UIButton *redButton;
 
 @end
 
@@ -46,12 +56,66 @@
 }
 
 - (void)initUI{
+    self.muneView.hidden = YES;
     
     _button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
     
     [_button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
     [_button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.view addSubview:_button];
+    
+    [self buttonInit:self.blackButton];
+    [self buttonInit:self.whiteButton];
+    [self buttonInit:self.blueButton];
+    [self buttonInit:self.greenButton];
+    [self buttonInit:self.redButton];
+}
+
+// 设置button的圆环
+- (void)buttonInit:(UIButton *)button{
+    button.layer.borderWidth = 2;
+    button.layer.borderColor = [UIColor blackColor].CGColor;
+    button.layer.cornerRadius = 2;
+    button.layer.masksToBounds = YES;
+    
+    if(button == self.redButton){
+        button.superview.backgroundColor = MainColor;
+    }
+    
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)buttonClick:(UIButton *)button{
+    
+    self.blackButton.superview.backgroundColor = [UIColor whiteColor];
+    self.whiteButton.superview.backgroundColor = [UIColor whiteColor];
+    self.blueButton.superview.backgroundColor = [UIColor whiteColor];
+    self.greenButton.superview.backgroundColor = [UIColor whiteColor];
+    self.redButton.superview.backgroundColor = [UIColor whiteColor];
+    
+    button.superview.backgroundColor = MainColor;
+    
+    // （0 红色，1黑色，2蓝色，3白色， 4绿色
+    if (button == self.redButton) {
+        self.imageView.style.lineColor = [UIColor redColor];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"4",@"0",@"",@""]];
+    }else if(button == self.blackButton){
+        self.imageView.style.lineColor = [UIColor blackColor];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"4",@"1",@"",@""]];
+    }else if(button == self.blueButton){
+        self.imageView.style.lineColor = [UIColor blueColor];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"4",@"2",@"",@""]];
+        
+    }else if(button == self.whiteButton){
+        self.imageView.style.lineColor = [UIColor purpleColor];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"4",@"3",@"",@""]];
+        
+    }else if(button == self.greenButton){
+        self.imageView.style.lineColor = [UIColor greenColor];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"4",@"4",@"",@""]];
+        
+    }
+    
 }
 
 - (void)sendMessage{
@@ -69,13 +133,13 @@
     NSString *string = [HFCacheObject shardence].imageUrl;
 
 //    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"black.jpg"]];
-    
+    self.imageView.image = nil;
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:string]  completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
         NSLog(@"图片大小 %f %f",image.size.width,image.size.height);
         
-        _XRatio = image.size.width / (SCREEN_HEIGHT - 44);
-        _YRatio = image.size.height / SCREEN_WIDTH;
+        _XRatio = image.size.width / (SCREEN_WIDTH - 44);
+        _YRatio = image.size.height / SCREEN_HEIGHT;
         
         NSLog(@"图片比例 %f %f",_XRatio,_YRatio);
     }];
@@ -94,6 +158,9 @@
 
 - (void)dismissController{
     
+    // 发送结束批注的指令
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[CLOSE_RECOMMEND]];
+    
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
     //切换到竖屏
@@ -105,66 +172,60 @@
 - (IBAction)upPage:(id)sender {
     NSLog(@"上一页");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_LEFT_PAGE]];
+    
+    self.remarkButton.selected = NO;
+    self.remarkButton.backgroundColor = [UIColor whiteColor];
 }
 - (IBAction)remark:(id)sender {
     NSLog(@"批注");
     
     [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND]];
-    
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"1",@"0",@"0",@"0.5",@"1",@"100",@"100",@"0.5"]];
+
     
     self.imageView.brush = [LXFPencilBrush new];
     self.imageView.style.lineColor = [UIColor redColor]; // 默认是红色
     self.imageView.style.lineWidth = 2;
     self.imageView.delegate = self;
+    
+    self.remarkButton.selected = YES;
+    self.remarkButton.backgroundColor = MainColor;
+    self.muneView.hidden = NO;
+    
 }
 - (IBAction)refresh:(id)sender {
     NSLog(@"刷新");
+    
+    [self sendMessage];
+    
+   
 }
 - (IBAction)downPage:(id)sender {
     NSLog(@"下一页");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_RIGHT_PAGE]];
+    
+    self.remarkButton.selected = NO;
+    self.remarkButton.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (IBAction)cancel:(id)sender {
+    NSLog(@"撤销");
     
-    self.pointArray = nil;
-    if (self.imageView.brush != nil) {
-        LXFBaseBrush *brush =  self.imageView.brush;
-        [self.pointArray addObject:@"1"];
-        [self.pointArray addObject:@(brush.endPoint.x)];
-        [self.pointArray addObject:@(brush.endPoint.y)];
-        [self.pointArray addObject:@"0.5"];
-    }
+    [self.imageView revoke];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"2",@"",@"",@""]];
 }
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    if (self.imageView.brush != nil) {
-        LXFBaseBrush *brush =  self.imageView.brush;
-        [self.pointArray addObject:@"1"];
-        [self.pointArray addObject:@(brush.endPoint.x)];
-        [self.pointArray addObject:@(brush.endPoint.y)];
-        [self.pointArray addObject:@"0.5"];
+- (IBAction)clear:(id)sender {
+    NSLog(@"清除");
+    
+    // 撤销所有
+    while ([self.imageView canRevoke]){
+        [self.imageView revoke];
     }
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[WRITER_RECOMMEND,@"3",@"",@"",@""]];
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    if (self.imageView.brush != nil) {
-        LXFBaseBrush *brush =  self.imageView.brush;
-        [self.pointArray addObject:@"1"];
-        [self.pointArray addObject:@(brush.endPoint.x)];
-        [self.pointArray addObject:@(brush.endPoint.y)];
-        [self.pointArray addObject:@"0.5"];
-        
-        NSMutableArray *messageArray = [NSMutableArray array];
-        [messageArray addObject:WRITER_RECOMMEND];
-        [messageArray addObjectsFromArray:self.pointArray];
-        
-        [[HFSocketService sharedInstance] sendCtrolMessage: messageArray];
-    }
-    
-}
 
 
 #pragma mark - LXFDrawBoardDelegate
@@ -178,13 +239,8 @@
     NSLog(@"开始触摸");
     
     self.pointArray = nil;
-//    if (self.imageView.brush != nil) {
-//        LXFBaseBrush *brush =  self.imageView.brush;
-//        [self.pointArray addObject:@"1"];
-//        [self.pointArray addObject:@(brush.endPoint.x)];
-//        [self.pointArray addObject:@(brush.endPoint.y)];
-//        [self.pointArray addObject:@"0.5"];
-//    }
+
+    self.muneView.hidden = YES;
 }
 
 - (void)touchesMovedWithLXFDrawBoard:(LXFDrawBoard *)drawBoard{
@@ -192,10 +248,12 @@
     if (self.imageView.brush != nil) {
         LXFBaseBrush *brush =  self.imageView.brush;
         [self.pointArray addObject:@"1"];
-        [self.pointArray addObject:@(brush.endPoint.x)];
-        [self.pointArray addObject:@(brush.endPoint.y)];
+        [self.pointArray addObject:@(brush.endPoint.x * _XRatio)];
+        [self.pointArray addObject:@(brush.endPoint.y * _YRatio)];
         [self.pointArray addObject:@"0.5"];
     }
+    
+    self.muneView.hidden = YES;
 }
 
 - (void)touchesEndedWithLXFDrawBoard:(LXFDrawBoard *)drawBoard{
@@ -203,8 +261,8 @@
     if (self.imageView.brush != nil) {
         LXFBaseBrush *brush =  self.imageView.brush;
         [self.pointArray addObject:@"1"];
-        [self.pointArray addObject:@(brush.endPoint.x)];
-        [self.pointArray addObject:@(brush.endPoint.y)];
+        [self.pointArray addObject:@(brush.endPoint.x * _XRatio)];
+        [self.pointArray addObject:@(brush.endPoint.y * _YRatio)];
         [self.pointArray addObject:@"0.5"];
         
         NSMutableArray *messageArray = [NSMutableArray array];
@@ -213,6 +271,8 @@
         
         [[HFSocketService sharedInstance] sendCtrolMessage: messageArray];
     }
+    
+    self.muneView.hidden = NO;
 }
 
 

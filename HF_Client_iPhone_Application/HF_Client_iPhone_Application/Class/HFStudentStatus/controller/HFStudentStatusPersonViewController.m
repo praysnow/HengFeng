@@ -177,9 +177,9 @@
     
 //    "stu_first" + "&" + student.ID + "&" + student.Name + "&" + evaluateScore.ToString();
 //    NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.userID,model.userRealName,@2];
-//    [[HFSocketService sharedInstance] sendCtrolMessage:@[@"sendStuScoreToTeacher",message]];
-//
-//     [[HFSocketService sharedInstance] sendCtrolMessage:@[@"SendStuScoreToCtrl"]];
+//    [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
+
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[getEvaluateRank]];
     // 先查询数据库
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];  // 开放RLMRealm事务
