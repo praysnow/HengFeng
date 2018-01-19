@@ -97,19 +97,16 @@
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     if (self.userData == SocketOfflineByServer) {
         // 服务器掉线，重连
-        
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //            [self socketConnectHost];
-        //        });
+//        NSLog(@"5秒重连");
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self socketConnectHost];
+//        });
         [self socketConnectHost];
         
     }else if (self.userData == SocketOfflineByUser) {
         // 如果由用户断开，不进行重连
         return;
     }
-    
-   
-   
 }
 
 - (void)sendCtrolMessage:(NSArray *)array

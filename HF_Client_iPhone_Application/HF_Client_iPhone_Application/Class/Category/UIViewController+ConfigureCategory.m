@@ -158,7 +158,7 @@ NSString * const viewControllerHasViewDidAppearedKey = @"viewControllerHasViewDi
 }
 
 - (void)showText:(NSString *)text afterDelay:(NSTimeInterval)delay{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     // Set the text mode to show only text.
     hud.mode = MBProgressHUDModeText;
