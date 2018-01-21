@@ -57,4 +57,8 @@
                               finishBlock:(void(^)(void))blockF;
 + (MBProgressHUD *)showMessag:(NSString *)message;
 
++ (void)mbpregress;
+
++ (void)hide_mbpregress;
+
 @end

@@ -20,7 +20,7 @@
                     <rect key="frame" x="50" y="263.5" width="275" height="160"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCw-dd-F2V">
-                            <rect key="frame" x="260" y="-15" width="30" height="30"/>
+                            <rect key="frame" x="250" y="-5" width="30" height="30"/>
                             <color key="backgroundColor" red="0.55294117649999996" green="0.89411764709999997" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="KhI-td-FdB"/>
@@ -58,7 +58,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="40.5" height="30"/>
                                             <state key="normal" title="&lt;"/>
                                             <connections>
-                                                <action selector="tappedAdd:" destination="iN0-l3-epB" eventType="touchUpInside" id="eV5-OU-UZK"/>
+                                                <action selector="tappedReduce:" destination="iN0-l3-epB" eventType="touchUpInside" id="vVv-MV-a7w"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72b-Kg-QFr">
@@ -71,7 +71,7 @@
                                             <rect key="frame" x="101.5" y="0.0" width="40.5" height="30"/>
                                             <state key="normal" title="&gt;"/>
                                             <connections>
-                                                <action selector="tappedReduce:" destination="iN0-l3-epB" eventType="touchUpInside" id="P9O-CD-l8Z"/>
+                                                <action selector="tappedAdd:" destination="iN0-l3-epB" eventType="touchUpInside" id="nbm-ch-hmh"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -122,7 +122,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="不计时下发"/>
                                     <connections>
-                                        <action selector="unLimitedTimeSend:" destination="iN0-l3-epB" eventType="touchUpInside" id="eE5-Dc-jep"/>
+                                        <action selector="unLimitedTimeSend:" destination="iN0-l3-epB" eventType="touchUpInside" id="UuB-YE-a5D"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZN-YI-fkU">
@@ -130,7 +130,7 @@
                                     <color key="backgroundColor" red="0.32549019610000002" green="0.72941176470000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="计时下发"/>
                                     <connections>
-                                        <action selector="limitedTimeSend:" destination="iN0-l3-epB" eventType="touchUpInside" id="2bk-wy-nEu"/>
+                                        <action selector="limitedTimeSend:" destination="iN0-l3-epB" eventType="touchUpInside" id="QhZ-1l-W17"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apT-s5-sq5">
@@ -163,7 +163,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="DeX-Lp-FGT"/>
-                        <constraint firstItem="GCw-dd-F2V" firstAttribute="top" secondItem="IQu-Af-0yQ" secondAttribute="top" constant="-15" id="E6t-06-d6I"/>
+                        <constraint firstItem="GCw-dd-F2V" firstAttribute="top" secondItem="IQu-Af-0yQ" secondAttribute="top" constant="-5" id="E6t-06-d6I"/>
                         <constraint firstItem="TlU-XY-z6S" firstAttribute="leading" secondItem="IQu-Af-0yQ" secondAttribute="leading" constant="14" id="Lyj-Fc-lsO"/>
                         <constraint firstItem="bQT-Qv-uDW" firstAttribute="top" secondItem="IQu-Af-0yQ" secondAttribute="top" constant="15" id="Otr-va-MIn"/>
                         <constraint firstItem="3JL-9K-8V8" firstAttribute="top" secondItem="TlU-XY-z6S" secondAttribute="bottom" constant="20" id="RPz-Gq-f4r"/>
@@ -172,7 +172,7 @@
                         <constraint firstItem="bQT-Qv-uDW" firstAttribute="leading" secondItem="IQu-Af-0yQ" secondAttribute="leading" constant="14" id="hEu-hQ-jUt"/>
                         <constraint firstAttribute="trailing" secondItem="bQT-Qv-uDW" secondAttribute="trailing" constant="14" id="maf-Gs-Nf4"/>
                         <constraint firstItem="TlU-XY-z6S" firstAttribute="top" secondItem="bQT-Qv-uDW" secondAttribute="bottom" constant="8" id="oDz-aL-AG1"/>
-                        <constraint firstAttribute="trailing" secondItem="GCw-dd-F2V" secondAttribute="trailing" constant="-15" id="sqi-od-SYr"/>
+                        <constraint firstAttribute="trailing" secondItem="GCw-dd-F2V" secondAttribute="trailing" constant="-5" id="sqi-od-SYr"/>
                         <constraint firstAttribute="trailing" secondItem="TlU-XY-z6S" secondAttribute="trailing" constant="14" id="t43-29-NwE"/>
                     </constraints>
                 </view>
@@ -184,6 +184,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="backView" destination="IQu-Af-0yQ" id="zGp-3x-yyd"/>
                 <outlet property="closeBUtton" destination="GCw-dd-F2V" id="Xe9-h5-Nch"/>
                 <outlet property="textField" destination="72b-Kg-QFr" id="COb-Mf-36q"/>
             </connections>

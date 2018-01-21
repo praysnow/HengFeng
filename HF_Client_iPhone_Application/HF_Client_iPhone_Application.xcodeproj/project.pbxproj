@@ -53,6 +53,8 @@
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
 		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
 		393051E020112C1C001BA5E4 /* HF_MBPregress.m in Sources */ = {isa = PBXBuildFile; fileRef = 393051DF20112C1C001BA5E4 /* HF_MBPregress.m */; };
+		393051E42013738D001BA5E4 /* HFClassTestShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393051E22013738D001BA5E4 /* HFClassTestShowViewController.m */; };
+		393051E52013738D001BA5E4 /* HFClassTestShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393051E32013738D001BA5E4 /* HFClassTestShowViewController.xib */; };
 		39720CF5200E380200766D74 /* HFTeachToolLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */; };
 		39720CF6200E380200766D74 /* HFTeachToolLiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39720CF4200E380200766D74 /* HFTeachToolLiveViewController.xib */; };
 		39720CF8200E394500766D74 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39720CF7200E393B00766D74 /* VideoToolbox.framework */; };
@@ -252,6 +254,9 @@
 		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
 		393051DE20112C1C001BA5E4 /* HF_MBPregress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HF_MBPregress.h; sourceTree = "<group>"; };
 		393051DF20112C1C001BA5E4 /* HF_MBPregress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_MBPregress.m; sourceTree = "<group>"; };
+		393051E12013738D001BA5E4 /* HFClassTestShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestShowViewController.h; sourceTree = "<group>"; };
+		393051E22013738D001BA5E4 /* HFClassTestShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassTestShowViewController.m; sourceTree = "<group>"; };
+		393051E32013738D001BA5E4 /* HFClassTestShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFClassTestShowViewController.xib; sourceTree = "<group>"; };
 		39720CEF200E35F100766D74 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Pods/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		39720CF2200E380200766D74 /* HFTeachToolLiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachToolLiveViewController.h; sourceTree = "<group>"; };
 		39720CF3200E380200766D74 /* HFTeachToolLiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachToolLiveViewController.m; sourceTree = "<group>"; };
@@ -1062,6 +1067,9 @@
 				39E06212200F00B2005E89D6 /* HFTeacherCaptureViewController.h */,
 				39E06213200F00B2005E89D6 /* HFTeacherCaptureViewController.m */,
 				39E06214200F00B2005E89D6 /* HFTeacherCaptureViewController.xib */,
+				393051E12013738D001BA5E4 /* HFClassTestShowViewController.h */,
+				393051E22013738D001BA5E4 /* HFClassTestShowViewController.m */,
+				393051E32013738D001BA5E4 /* HFClassTestShowViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1221,6 +1229,7 @@
 				39A0C2281FF0AD9900F3B681 /* HFTeachShareViewController.xib in Resources */,
 				39181E961FB574DF00A364AB /* keyboard_bg_dark.png in Resources */,
 				8226AAFB200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib in Resources */,
+				393051E52013738D001BA5E4 /* HFClassTestShowViewController.xib in Resources */,
 				39181EA31FB574DF00A364AB /* wlan_close.png in Resources */,
 				39181E9C1FB574DF00A364AB /* system_keyboard_deep_green.png in Resources */,
 				3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */,
@@ -1426,6 +1435,7 @@
 				39E0621D200FB24D005E89D6 /* HFClassTestDetailCell.m in Sources */,
 				828846F220109B6300D8DBF5 /* LXFRectangleBrush.m in Sources */,
 				828846F620109B6300D8DBF5 /* LXFDrawBoardStyle.m in Sources */,
+				393051E42013738D001BA5E4 /* HFClassTestShowViewController.m in Sources */,
 				82BFF32820037E47005C28DB /* YZDisplayViewController.m in Sources */,
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,

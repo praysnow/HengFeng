@@ -45,7 +45,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <inset key="titleEdgeInsets" minX="-15" minY="30" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="30"/>
-                            <state key="normal" title="不计时下发" image="unlimited_time">
+                            <state key="normal" title="停止" image="unlimited_time">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>

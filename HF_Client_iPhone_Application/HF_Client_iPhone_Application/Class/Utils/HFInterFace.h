@@ -149,11 +149,11 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
 /**
  * 发送截屏结果计时
  */
-#define SCREEN_CAPTURE_TIME  @"44"
+#define SCREEN_CAPTURE_TIME  @"88"
 /**
  * 发送截屏结果不计时
  */
-#define SCREEN_CAPTURE_UNTIME  @"45"
+#define SCREEN_CAPTURE_UNTIME  @"89"
 /**
  * 截屏结果 打开图片
  */

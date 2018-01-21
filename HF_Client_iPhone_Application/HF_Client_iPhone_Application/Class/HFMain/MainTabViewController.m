@@ -18,6 +18,8 @@
 
 @interface MainTabViewController ()
 
+@property (nonatomic, strong) NSMutableArray *array;
+
 @end
 
 @implementation MainTabViewController
@@ -27,6 +29,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"导学案";
+    self.array  = [NSMutableArray array];
     [self addAllChildViewController];
 }
 
@@ -81,6 +84,7 @@
     
     // 包装一个导航控制器, 添加导航控制器为tabbarcontroller的子控制器
     HFNavigationViewController *nav = [[HFNavigationViewController alloc] initWithRootViewController:vc];
+    [self.array addObject: nav];
     [self addChildViewController:nav];
 }
 

@@ -52,6 +52,16 @@ static MBProgressHUD *HUD = nil;
     return HUD;
 }
 
++ (void)mbpregress
+{
+    [MBProgressHUD showHUDAddedTo: [HF_MBPregress topMostController].view animated: YES];
+}
+
++ (void)hide_mbpregress
+{
+    [MBProgressHUD hideHUDForView: [HF_MBPregress topMostController].view animated: YES];
+}
+
 + (UIViewController*) topMostController
 
 {
@@ -65,7 +75,6 @@ static MBProgressHUD *HUD = nil;
     }
     
     return topController;
-    
 }
 
 @end

@@ -233,10 +233,10 @@
     } else if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
-    else if ([receviedMessage containsString: @"SendToCtrl"]) {
-        NSLog(@"截屏图片");
-        [self image: receviedMessage];
-    }
+//    else if ([receviedMessage containsString: @"SendToCtrl"]) {
+//        NSLog(@"截屏图片");
+//        [self image: receviedMessage];
+//    }
 }
 
 - (void)image:(NSString *)receviedMessage{

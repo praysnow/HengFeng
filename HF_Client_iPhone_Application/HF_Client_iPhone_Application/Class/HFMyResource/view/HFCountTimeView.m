@@ -12,10 +12,22 @@
 @interface HFCountTimeView ()
 
 @property (weak, nonatomic) IBOutlet UIButton *closeBUtton;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 
 @end
 
 @implementation HFCountTimeView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.closeBUtton.layer.masksToBounds = YES;
+    self.closeBUtton.layer.cornerRadius = self.closeBUtton.height / 2;
+    
+//    self.backView.layer.masksToBounds = YES;
+//    self.closeBUtton.layer.cornerRadius = 5;
+}
 
 - (IBAction)tappedAdd:(UIButton *)sender
 {
@@ -29,7 +41,7 @@
 }
 - (IBAction)limitedTimeSend:(UIButton *)sender
 {
-    if ([self.delegate respondsToSelector: @selector(limitedTimeSend:)])
+    if ([self.delegate respondsToSelector: @selector(limitTimeSend:)])
     {
         [self.delegate limitTimeSend: self.textField.text];
     }

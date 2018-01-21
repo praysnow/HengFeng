@@ -27,4 +27,6 @@
                  andStartString:(NSString *)startString
                    andEndString:(NSString *)endString;
 
++ (UIViewController *)topViewController;
+
 @end

@@ -63,8 +63,10 @@
 + (void)jz_hide{
     CBAlertWindow *v = [self shareInstance];
     v.alertWindow.hidden = YES;
-    v.alertWindow.rootViewController = nil;
     [v.alertWindow resignKeyWindow];
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate.window makeKeyWindow];
+    v.alertWindow.rootViewController = nil;
 }
 
 @end
