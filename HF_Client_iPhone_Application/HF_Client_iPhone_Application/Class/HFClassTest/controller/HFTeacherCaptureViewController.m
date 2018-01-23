@@ -39,6 +39,7 @@
     self.hf_vagationcontroller = self.navigationController;
     [self setUpTKImageView];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedImageFromNotifaiction) name: @"imageUrl" object: nil];
+    self.imageVIew.contentMode = UIViewContentModeCenter;
     [self.imageVIew sd_setImageWithURL: nil placeholderImage: [UIImage imageNamed: @"guide_capture"]];
 }
 

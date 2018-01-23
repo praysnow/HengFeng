@@ -10,29 +10,54 @@
 
 @implementation WebServiceModel
 
+- (BOOL)hideN0{
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        _hideN0 = YES;
+    }else{
+        _hideN0 = NO;
+    }
+    return _hideN0;
+}
+
 - (NSString *)getRequestParams{
     
     if (self.method == nil || self.method.length == 0) {
         return @"";
     }
-//    NSString *methodTag = @"";
-//    NSString *xmlTag = @"";
+    
+    NSString *methodTag = self.hideN0 ? @"":@"n0:";
+    NSString *xmlTag = self.hideN0 ? @"":@":n0";
+    
     
     NSMutableString *mString = [NSMutableString string];
-
-    [mString appendFormat: @"<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">"
+    
+    //    [NSString stringWithFormat:@"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+    //     "<soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\n"
+    //     "  <soap:Body>\n"
+    //     "  <n0:CheckUser xmlns:n0=\"http://ui.asp.zhpt.header.com/\">\n"
+    //     " <arg2>学生</arg2>\n"
+    //     " <arg0>2017040411</arg0>\n"
+    //     " <arg1>888888</arg1>\n"
+    //     "       </n0:CheckUser>\n"
+    //     "  </soap:Body>\n"
+    //     "</soap:Envelope>"];
+    
+    [mString appendFormat:@"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+     "<soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\n"
+     "  <soap:Body>\n"
      ];
-    [mString appendFormat:@"<s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema/\"><%@ xmlns=\"http://tempuri.org/\">",self.method];
-
+    [mString appendFormat:@"<%@%@ xmlns%@=\"%@\">\n",methodTag, self.method,xmlTag,[HFNetwork network].NameSpace];
+    
     if (self.params) {
         for (NSString *key in self.params) {
             [mString appendFormat:@" <%@>%@</%@>\n",key,self.params[key],key];
         }
     }
-    [mString appendFormat:@"</%@>\n",self.method];
+    
+    [mString appendFormat:@"</%@%@>\n",methodTag,self.method];
     [mString appendFormat:
-     @"</s:Body>\n"
-     "</s:Envelope>"];
+     @"</soap:Body>\n"
+     "</soap:Envelope>"];
     
     return mString;
 }

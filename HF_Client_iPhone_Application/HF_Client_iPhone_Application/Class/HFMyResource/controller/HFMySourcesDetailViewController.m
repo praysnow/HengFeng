@@ -13,13 +13,14 @@
 #import "HFWebViewController.h"
 #import "HFCountTimeView.h"
 #import "CBAlertWindow.h"
+#import "WebServiceModel.h"
 
 @interface HFMySourcesDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, HFCountTimeViewDelegate>
 
 @property (nonatomic, copy) NSString *currentElementName;
 @property (nonatomic, strong) NSMutableString *mutableString;
 @property (nonatomic, strong) NSDictionary *Total;
-@property (nonatomic, strong) NSArray *listData;
+@property (nonatomic, strong) NSMutableArray *listData;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) HFMYResourCeDetailTableViewCell *cell;
@@ -44,7 +45,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self showBackButton];
-    [self loadData];
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        [self loadData];
+    } else {
+        [self gz_loadData];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,6 +64,27 @@
     [super viewWillDisappear:animated];
 
     self.tabBarController.tabBar.hidden = NO;
+}
+
+- (void)gz_loadData
+{
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"getTaskList";
+    NSString *url = nil;
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        model.params = @{@"tpID" : [HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    }
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
+        [responseObject setDelegate:self];
+        [responseObject parse];
+        NSLog(@"导学堂请求结果成功");
+    } failure:^(NSError *error) {
+        NSLog(@"导学堂  请求结果失败");
+    }];
 }
 
 - (void)loadData
@@ -122,15 +148,22 @@
     if ([elementName isEqualToString: @"getTaskListResult"]) {
         _currentElementName = @"getTaskListResult";
     }
+    if ([elementName isEqualToString: @"return"]) {
+        _currentElementName = @"return";
+    }
 }
 
 // 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    
-    [self.mutableString appendString:string];
+    if ([_currentElementName isEqualToString: @"getTaskList"]) {
+        [self.mutableString appendString:string];
+    }
+    if ([_currentElementName isEqualToString: @"return"]) {
+        [self.mutableString appendString: string];
+    }
 }
 
--(id) stringToNSArrayOrNSDictionary
+- (id) stringToNSArrayOrNSDictionary
 {
     NSData* data = [@"" dataUsingEncoding:NSUTF8StringEncoding];
     __autoreleasing NSError* error = nil;
@@ -144,20 +177,52 @@
     if ([elementName isEqualToString: @"getTaskListResult"]) {
         _currentElementName = nil;
     }
+    if ([elementName isEqualToString: @"return"]) {
+        NSDictionary *dataDictionary = [HFUtils jsonStringToObject: self.mutableString];
+        NSArray *array = [dataDictionary objectForKey: @"listData"];
+        self.listData = [NSMutableArray arrayWithArray: array];
+//        if (array.count > 0) {
+//            for (NSDictionary *dictionary in array) {
+//                NSLog(@"导学案详情字典： %@", dictionary);
+//                HFDaoxueDetailObject *object = [HFDaoxueDetailObject new];
+//                object.Sort_Id = [dictionary objectForKey: @"Sort_Id"];
+//                object.DxaC_ID = [dictionary objectForKey: @"DxaC_ID"];
+//                object.DxaZj_Title = [dictionary objectForKey: @"DxaZj_Title"];
+//                object.typeName = [dictionary objectForKey: @"typeName"];
+//                object.linkResID = [dictionary objectForKey: @"linkResID"];
+//                object.Text = [dictionary objectForKey: @"Text"];
+//                object.PicPath = [dictionary objectForKey: @"PicPath"];
+//                object.PicCount = [dictionary objectForKey: @"PicCount"];
+//                object.IsFinished = [dictionary objectForKey: @"IsFinished"];
+//                object.IsShow = [dictionary objectForKey: @"IsShow"];
+//                object.SortNO = [dictionary objectForKey: @"SortNO"];
+//                object.showUrl = [dictionary objectForKey: @"showUrl"];
+//                object.From_Type = [dictionary objectForKey: @"From_Type"];
+//                [self.listData addObject: object];
+//            }
+//        }
+        _currentElementName = nil;
+    }
 }
 
 // 结束
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    if (_currentElementName.length == 0 && self.mutableString.length != 0) {
-    id jsonData = [HFUtils jsonStringToObject: self.mutableString];
-    if ([jsonData isKindOfClass: [NSDictionary class]])
-      {
-        NSDictionary *dictionary = (NSDictionary *)jsonData;
-        self.Total = [dictionary objectForKey: @"Total"];
-        self.listData = [dictionary objectForKey: @"listData"];
-          [self.tableView reloadData];
-//        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
-       }
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        if (_currentElementName.length == 0 && self.mutableString.length != 0) {
+            id jsonData = [HFUtils jsonStringToObject: self.mutableString];
+            if ([jsonData isKindOfClass: [NSDictionary class]])
+            {
+                NSDictionary *dictionary = (NSDictionary *)jsonData;
+                self.Total = [dictionary objectForKey: @"Total"];
+                self.listData = [NSMutableArray arrayWithArray: [dictionary objectForKey: @"listData"]];
+                [self.tableView reloadData];
+                //        NSLog(@"解析数据为: %@ \n 总数量为： %@\n 数组和为: %zi", dictionary, self.Total, self.listData.count);
+            }
+        }
+    } else {
+        NSLog(@"结束");
+        NSLog(@"数据个数为: %zi", self.listData.count);
+        [self.tableView reloadData];
     }
 }
 
@@ -205,6 +270,14 @@
     NSDictionary *dictioanry = self.listData[self.selectedIndex];
     webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
     [self.navigationController pushViewController: webView animated: YES];
+}
+
+- (NSMutableArray *)listData
+{
+    if (!_listData) {
+        _listData = [NSMutableArray array];
+    }
+    return _listData;
 }
 
 @end

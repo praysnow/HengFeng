@@ -104,7 +104,8 @@
         [[HFSocketService sharedInstance] sendCtrolMessage: @[END_LIVE]];
         [_txLivePush stopPush];
     }
-    [self.stopButton setTitle: sender.selected ? @"开始" : @"关闭" forState: UIControlStateNormal];
+    [self.stopButton setTitle: @"开始" forState: UIControlStateNormal];
+    [self.stopButton setTitle: @"关闭" forState: UIControlStateSelected];
     sender.selected = !sender.selected;
 }
 

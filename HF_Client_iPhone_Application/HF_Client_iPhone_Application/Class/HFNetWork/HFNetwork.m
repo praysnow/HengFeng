@@ -45,7 +45,6 @@
     if (_mutableString == nil) {
         _mutableString = [NSMutableString string];
     }
-    
     return _mutableString;
 }
 
@@ -60,21 +59,27 @@
     manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
     
     // 设置请求头，也可以不设置
-        [manager.requestSerializer setValue: @"application/soap+xml; charset=utf-8;" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setValue: @"http://tempuri.org/CheckUser" forHTTPHeaderField:@"action"];
-    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml", @"text/html",nil];
+//        [manager.requestSerializer setValue: @"application/soap+xml; charset=utf-8;" forHTTPHeaderField:@"Content-Type"];
+//    [manager.requestSerializer setValue: @"http://tempuri.org/CheckUser" forHTTPHeaderField:@"action"];
+//    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml", @"text/html",nil];
+    [manager.requestSerializer setValue: @"text/xml;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/html; charset=us-ascii" @"text/javascript", @"text/html", @"text/xml;charset=utf-8", nil];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
     }];
-    __weak typeof(self) weakSelf = self;
+    NSLog(@"HTTP的请求URL：%@",url);
+    
+    NSLog(@"HTTP的请求数据：\n%@",soapBody);
+//    __weak typeof(self) weakSelf = self;
     [manager POST: url parameters:soapBody progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSXMLParser *responseObject) {
+        success(responseObject);
         //结束
-        [responseObject setDelegate:weakSelf];
-        [responseObject parse];
-        success([weakSelf.mutableString copy]);
-        weakSelf.mutableString = nil;
+//        [responseObject setDelegate:weakSelf];
+//        [responseObject parse];
+//        success([weakSelf.mutableString copy]);
+//        weakSelf.mutableString = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             failure(error);
     }];
@@ -86,8 +91,6 @@
     [self.mutableString appendString:string];
 }
 
-
-
 - (void)xmlSOAPDataWithUrl:(NSString *)url soapBody:(NSString *)soapBody success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -97,9 +100,13 @@
     // 将返回结果解析txt
     manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
           // 设置请求头，也可以不设置
-    [manager.requestSerializer setValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-        [manager.requestSerializer setValue: @"http://tempuri.org/GetDaoXueRenWuByTpID" forHTTPHeaderField:@"action"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/javascript", @"text/html", nil];
+//    if ([[HFNetwork network].ServerAddress containsString: @"222"]) {
+//        [manager.requestSerializer setValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    } else {
+    [manager.requestSerializer setValue: @"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//        }
+    [manager.requestSerializer setValue: @"http://tempuri.org/GetDaoXueRenWuByTpID" forHTTPHeaderField:@"action"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/html; charset=us-ascii" @"text/javascript", @"text/html", nil];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
@@ -185,9 +192,23 @@
     if ([defaults valueForKey:@"ServerType"] == nil) {
         return ServerTypeBeiJing;
     }
-    
     return [[defaults valueForKey:@"ServerType"] intValue];
-    
+}
+
+#pragma mark WebServicePath
+- (NSString *)WebServicePath{
+    return self.serverType == ServerTypeBeiJing ? WEB_SERVCE_PATH : GZ_WEB_SERVCE_PATH;
+}
+
+#pragma mark NameSpace
+- (NSString *)NameSpace{
+    return self.serverType == ServerTypeBeiJing ? NAME_SPACE : GZ_NAME_SPACE;
+}
+
+#pragma mark HttpPath
+- (NSString *)HttpPath{
+    return nil;
+//    return self.serverType == ServerTypeBeiJing ? HTTP_PATH : GZ_HTTP_PATH;
 }
 
 @end

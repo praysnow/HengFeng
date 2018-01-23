@@ -14,6 +14,8 @@
 
 @property(strong,nonatomic) NSMutableDictionary *params;
 
+@property (nonatomic, assign) BOOL hideN0;
+
 // 获取拼接的参数
 - (NSString *)getRequestParams;
 

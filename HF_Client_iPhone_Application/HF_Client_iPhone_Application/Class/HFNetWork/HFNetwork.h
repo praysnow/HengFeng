@@ -21,7 +21,6 @@ typedef void (^requestSuccessBlock)(NSString *resultString);
 //请求失败回调block
 typedef void (^requestFailureBlock)(NSError *error);
 
-
 // 单例模式
 + (instancetype)network;
 
@@ -36,4 +35,8 @@ typedef void (^requestFailureBlock)(NSError *error);
 @property(nonatomic,strong) NSString *ServerAddress;    // 公网服务器地址
 @property(nonatomic,strong) NSString *SocketAddress;    // Socket服务器地址
 @property(nonatomic,assign) ServerType serverType;      // 服务器类型 北京服务器或者广州服务器
+@property(nonatomic,strong) NSString *WebServicePath;   // WebServicePath
+@property(nonatomic,strong) NSString *NameSpace;        // WebService的命名空间
+@property(nonatomic,strong) NSString *HttpPath;         // http路径
+
 @end

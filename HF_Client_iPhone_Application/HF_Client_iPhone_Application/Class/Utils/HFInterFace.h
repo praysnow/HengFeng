@@ -12,6 +12,13 @@
 
 #define HOST [HFNetwork network].ServerAddress
 
+/*NAME_SPACE : GZ_NAME_SPACE;
+ }
+ 
+ #pragma mark HttpPath
+ - (NSString *)HttpPath{
+ return self.serverType == ServerTypeBeiJing ? HTTP_PATH*/
+
 /* Login InterFace */
 #define LOGIN_INTERFACE @"/webService/WisdomClassWS.asmx?op=CheckUser"
 #define DAOXUEAN_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetDaoXueRenWuByTpID"
@@ -19,6 +26,16 @@
 #define DAOXUETANG_INTERFACE @"/webService/WisdomClassWS.asmx?op=GetCourseResByTpID"
 #define GETTASKLIST @"/webService/HuDongKeTang/TeacherInfo.asmx?op=getTaskList"
 
+#define GZ_DAOXUEAN_INTERFACE @"/zhpt/AspServicePort.asmx?op=GetDaoXueRenWuByTpID"
+#define GZ_CLASSID_INTERFACE @"/zhpt/WisdomClassWS.asmx?op=GetClassExamByTpID"
+
+#define NAME_SPACE @"http://tempuri.org/"
+#define GZ_NAME_SPACE @"http://ui.asp.zhpt.header.com/"
+
+#define WEB_SERVCE_PATH @"/webService/WisdomClassWS.asmx?op="
+#define GZ_WEB_SERVCE_PATH @"/zhpt/AspServicePort?wsdl"
+
+/* 广州服务器 */
 /*
  Notification
  //开始侧滑

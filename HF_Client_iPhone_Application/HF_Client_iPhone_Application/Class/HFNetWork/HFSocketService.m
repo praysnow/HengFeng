@@ -44,9 +44,7 @@
     NSError *error = nil;
     [self.socket connectToHost:[HFNetwork network].SocketAddress onPort:1001 error:&error];
     [self.socket readDataWithTimeout:-1 tag:0];
-    
 }
-
 
 // 连接成功
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -218,6 +216,9 @@
      NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSLog(@"iOS 接收UTF-8命令:%zd  %@",data.length,receviedMessage);
     NSLog(@"iOS 接收ASII命令:%zd  %@",data.length,receviedAsiiMessage);
+    if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
+        [self teacherInfo: receviedAsiiMessage];
+    }
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }

@@ -30,6 +30,7 @@
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) HFDaoxueModel *object;
 @property (nonatomic, strong) UIImageView *coverImageView;
+@property (nonatomic, copy) NSMutableString *daoxueString;
 
 @end
 
@@ -52,53 +53,51 @@
 - (void)isShowCoverImage
 {
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
-//    AppDelegate *myAppDelegate=[UIApplication sharedApplication].delegate;
-//    myAppDelegate.centerVC.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
-//    self.view.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
 - (void)loadData
 {
-    //    HFCacheObject *object = [HFCacheObject shardence];
-    NSString *soapString = [NSString stringWithFormat: @"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
-                            <soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\
-                            <soap:Body>\
-                            <GetDaoXueRenWuByTpID xmlns=\"http://tempuri.org/\">\
-                            <tpID>%@</tpID>\
-                            </GetDaoXueRenWuByTpID>\
-                            </soap:Body>\
-                            </soap:Envelope>", [HFCacheObject shardence].courseId];
-    _host = [NSString stringWithFormat: @"%@%@", HOST, DAOXUEAN_INTERFACE];
-    [[HFNetwork network] xmlSOAPDataWithUrl: _host soapBody: soapString success:^(id responseObject){
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"GetDaoXueRenWuByTpID";
+    NSString *url = nil;
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        model.params = @{@"tpID" : [HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    }
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
         [responseObject setDelegate:self];
-        [responseObject parse];
-        NSLog(@"我的资源请求结果成功");
-        [self loadClassData];
+                [responseObject parse];
+                NSLog(@"我的资源请求结果成功");
+                [self loadClassData];
     } failure:^(NSError *error) {
         NSLog(@"我的资源  请求结果失败");
-        NSLog(@"loadData faild %@",error.userInfo);
     }];
 }
 
 - (void)loadClassData
 {
-    //    HFCacheObject *object = [HFCacheObject shardence];
-    NSString *soapString = [NSString stringWithFormat: @"<soap:Envelope   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\
-                            <soap:Header xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\" />\
-                            <soap:Body>\
-                            <GetCourseResByTpID xmlns=\"http://tempuri.org/\">\
-                            <tpID>%@</tpID>\
-                            </GetCourseResByTpID>\
-                            </soap:Body>\
-                            </soap:Envelope>", [HFCacheObject shardence].courseId];
-    _host = [NSString stringWithFormat: @"%@%@", HOST, CLASSID_INTERFACE];
-    [[HFNetwork network] xmlSOAPDataWithUrl: _host soapBody: soapString success:^(id responseObject){
+    
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"GetCourseResByTpID";
+    NSString *url = nil;
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        model.params = @{@"tpID" : [HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    }
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
         [responseObject setDelegate:self];
         [responseObject parse];
-        NSLog(@"课堂资源请求成功");
+        NSLog(@"导学堂请求结果成功");
     } failure:^(NSError *error) {
+        NSLog(@"导学堂  请求结果失败");
     }];
 }
 
@@ -113,44 +112,79 @@
 // 获取节点头
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     self.currentElementName = elementName;
-    if ([_host containsString: DAOXUEAN_INTERFACE]) {
-        if ([elementName isEqualToString:@"Table1"]) {
-            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
-            if (self.studentArray.count == 0) {
-                [self.allInfoArray addObject: self.studentArray];
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        if ([_host containsString: DAOXUEAN_INTERFACE]) {
+            if ([elementName isEqualToString:@"Table1"]) {
+                HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+                if (self.studentArray.count == 0) {
+                    [self.allInfoArray addObject: self.studentArray];
+                }
+                [self.studentArray addObject: stu];
             }
-            [self.studentArray addObject: stu];
-        }
-    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
-        if ([elementName isEqualToString:@"Table1"]) {
-            HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
-            if (self.classArray.count == 0) {
-                [self.allInfoArray addObject: self.classArray];
+        } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
+            if ([elementName isEqualToString:@"Table1"]) {
+                HFDaoxueModel *stu = [[HFDaoxueModel alloc] init];
+                if (self.classArray.count == 0) {
+                    [self.allInfoArray addObject: self.classArray];
+                }
+                [self.classArray addObject: stu];
             }
-            [self.classArray addObject: stu];
         }
+    } else {
+        //广州服务器
+         if ([elementName isEqualToString:@"return"]) {
+             _currentElementName = elementName;
     }
+  }
 }
 
 // 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    
-    if ([_host containsString: DAOXUEAN_INTERFACE]) {
-        if (_currentElementName != nil) {
-            HFDaoxueModel *stu = [self.studentArray lastObject];
-            [stu setValue:string forKey:_currentElementName];
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        if ([_host containsString: DAOXUEAN_INTERFACE]) {
+            if (_currentElementName != nil) {
+                HFDaoxueModel *stu = [self.studentArray lastObject];
+                [stu setValue:string forKey:_currentElementName];
+            }
+        } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
+            if (_currentElementName != nil) {
+                HFDaoxueModel *stu = [self.classArray lastObject];
+                [stu setValue:string forKey:_currentElementName];
+            }
         }
-        
-    } else if ([_host containsString: DAOXUETANG_INTERFACE]) {
-        if (_currentElementName != nil) {
-            HFDaoxueModel *stu = [self.classArray lastObject];
-            [stu setValue:string forKey:_currentElementName];
+    } else {
+        if ([_currentElementName isEqualToString: @"return"]) {
+            [self.daoxueString appendString: string];
         }
     }
+    
 }
 
 // 获取节点尾
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    if ([_currentElementName isEqualToString: @"return"]) {
+        NSLog(@"返回数组: %@", self.daoxueString);
+        NSArray *array = [HFUtils jsonStringToObject: self.daoxueString];
+        if (array.count > 0) {
+            if (self.studentArray.count == 0) {
+                [self.allInfoArray addObject: self.studentArray];
+            }
+            for (NSDictionary *dictionary in array) {
+                NSLog(@"字典： %@", dictionary);
+                HFDaoxueModel *object = [HFDaoxueModel new];
+                object.Dxa_ID = [dictionary objectForKey: @"dxa_ID"];
+                object.Dxa_Name = [dictionary objectForKey: @"dxa_Name"];
+                object.ZJCount = [dictionary objectForKey: @"ZJCount"];
+                object.WeiWanZJCount = [dictionary objectForKey: @"WeiWanZJCount"];
+                object.resName = [dictionary objectForKey: @"resName"];
+                object.resUrl = [dictionary objectForKey: @"resUrl"];
+                object.resType = [dictionary objectForKey: @"resType"];
+                object.resID = [dictionary objectForKey: @"resID"];
+                object.image = [dictionary objectForKey: @"image"];
+                [self.studentArray addObject: object];
+            }
+        }
+    }
     _currentElementName = nil;
 }
 
@@ -339,6 +373,14 @@
         _coverImageView.hidden = YES;
     }
     return _coverImageView;
+}
+
+- (NSMutableString *)daoxueString
+{
+    if (!_daoxueString) {
+        _daoxueString = [NSMutableString string];
+    }
+    return _daoxueString;
 }
 
 @end
