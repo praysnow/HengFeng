@@ -76,7 +76,7 @@
     
     CGFloat duration = 0.25; // 0.25是键盘弹出的时间
     [UIView animateWithDuration:duration animations:^{
-        self.y = self.y - 200;
+        self.y = self.y - 150;
     }];
     
     return YES;
@@ -86,7 +86,7 @@
     
     CGFloat duration = 0.25; // 0.25是键盘弹出的时间
     [UIView animateWithDuration:duration animations:^{
-        self.y = self.y + 200;
+        self.y = self.y + 150;
     }];
     return YES;
 }
