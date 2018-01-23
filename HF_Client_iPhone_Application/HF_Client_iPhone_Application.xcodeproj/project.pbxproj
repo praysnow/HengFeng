@@ -10,6 +10,8 @@
 		3902AED31FE2B078004EC969 /* HFMySourcesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */; };
 		3902AED41FE2B078004EC969 /* HFMySourcesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */; };
 		3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */; };
+		3904CCCB20177B1200FABC42 /* HFClassTestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904CCC920177B1200FABC42 /* HFClassTestCollectionViewCell.m */; };
+		3904CCCC20177B1200FABC42 /* HFClassTestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3904CCCA20177B1200FABC42 /* HFClassTestCollectionViewCell.xib */; };
 		391787BB1FC407C10073BD51 /* backGroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 391787BA1FC407C10073BD51 /* backGroundImage.png */; };
 		39181E861FB574DF00A364AB /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E661FB574DF00A364AB /* 1.png */; };
 		39181E871FB574DF00A364AB /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 39181E671FB574DF00A364AB /* 2.png */; };
@@ -203,6 +205,9 @@
 		3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFMySourcesDetailViewController.xib; sourceTree = "<group>"; };
 		3902AED51FE2B215004EC969 /* UIViewController+ConfigureCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ConfigureCategory.h"; sourceTree = "<group>"; };
 		3902AED61FE2B216004EC969 /* UIViewController+ConfigureCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ConfigureCategory.m"; sourceTree = "<group>"; };
+		3904CCC820177B1200FABC42 /* HFClassTestCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestCollectionViewCell.h; sourceTree = "<group>"; };
+		3904CCC920177B1200FABC42 /* HFClassTestCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFClassTestCollectionViewCell.m; sourceTree = "<group>"; };
+		3904CCCA20177B1200FABC42 /* HFClassTestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFClassTestCollectionViewCell.xib; sourceTree = "<group>"; };
 		391787BA1FC407C10073BD51 /* backGroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundImage.png; sourceTree = "<group>"; };
 		39181E661FB574DF00A364AB /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		39181E671FB574DF00A364AB /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -362,11 +367,11 @@
 		39E06212200F00B2005E89D6 /* HFTeacherCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeacherCaptureViewController.h; sourceTree = "<group>"; };
 		39E06213200F00B2005E89D6 /* HFTeacherCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeacherCaptureViewController.m; sourceTree = "<group>"; };
 		39E06214200F00B2005E89D6 /* HFTeacherCaptureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeacherCaptureViewController.xib; sourceTree = "<group>"; };
-		39E06217200F919D005E89D6 /* HFClassTestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFClassTestObject.h; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/HFClassTestObject.h; sourceTree = SOURCE_ROOT; };
-		39E06218200F919D005E89D6 /* HFClassTestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFClassTestObject.m; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/HFClassTestObject.m; sourceTree = SOURCE_ROOT; };
-		39E0621A200FB24D005E89D6 /* HFClassTestDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFClassTestDetailCell.h; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/HFClassTestDetailCell.h; sourceTree = SOURCE_ROOT; };
-		39E0621B200FB24D005E89D6 /* HFClassTestDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFClassTestDetailCell.m; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/HFClassTestDetailCell.m; sourceTree = SOURCE_ROOT; };
-		39E0621C200FB24D005E89D6 /* HFClassTestDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HFClassTestDetailCell.xib; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/HFClassTestDetailCell.xib; sourceTree = SOURCE_ROOT; };
+		39E06217200F919D005E89D6 /* HFClassTestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFClassTestObject.h; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/model/HFClassTestObject.h; sourceTree = SOURCE_ROOT; };
+		39E06218200F919D005E89D6 /* HFClassTestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFClassTestObject.m; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/model/HFClassTestObject.m; sourceTree = SOURCE_ROOT; };
+		39E0621A200FB24D005E89D6 /* HFClassTestDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFClassTestDetailCell.h; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/view/HFClassTestDetailCell.h; sourceTree = SOURCE_ROOT; };
+		39E0621B200FB24D005E89D6 /* HFClassTestDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFClassTestDetailCell.m; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/view/HFClassTestDetailCell.m; sourceTree = SOURCE_ROOT; };
+		39E0621C200FB24D005E89D6 /* HFClassTestDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HFClassTestDetailCell.xib; path = HF_Client_iPhone_Application/Class/HFClassTest/controller/view/HFClassTestDetailCell.xib; sourceTree = SOURCE_ROOT; };
 		39F088A21FC7AFE500AB30F6 /* HFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFUtils.h; sourceTree = "<group>"; };
 		39F088A31FC7AFE500AB30F6 /* HFUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFUtils.m; sourceTree = "<group>"; };
 		39F088A51FC7C51E00AB30F6 /* HFInterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFInterFace.h; sourceTree = "<group>"; };
@@ -520,6 +525,30 @@
 				DEA6CEC31224C5E2AA6F245B /* libPods-HF_Client_iPhone_ApplicationUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3904CCC620177AD800FABC42 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				39E06217200F919D005E89D6 /* HFClassTestObject.h */,
+				39E06218200F919D005E89D6 /* HFClassTestObject.m */,
+			);
+			name = model;
+			path = controller/model;
+			sourceTree = "<group>";
+		};
+		3904CCC720177AD800FABC42 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				39E0621A200FB24D005E89D6 /* HFClassTestDetailCell.h */,
+				39E0621B200FB24D005E89D6 /* HFClassTestDetailCell.m */,
+				39E0621C200FB24D005E89D6 /* HFClassTestDetailCell.xib */,
+				3904CCC820177B1200FABC42 /* HFClassTestCollectionViewCell.h */,
+				3904CCC920177B1200FABC42 /* HFClassTestCollectionViewCell.m */,
+				3904CCCA20177B1200FABC42 /* HFClassTestCollectionViewCell.xib */,
+			);
+			name = view;
+			path = controller/view;
 			sourceTree = "<group>";
 		};
 		39181E651FB574DF00A364AB /* loginImage */ = {
@@ -833,8 +862,8 @@
 			isa = PBXGroup;
 			children = (
 				82E62FCD1FE911D600B90E69 /* controller */,
-				82E62FD21FE911D600B90E69 /* model */,
-				82E62FD11FE911D600B90E69 /* view */,
+				3904CCC620177AD800FABC42 /* model */,
+				3904CCC720177AD800FABC42 /* view */,
 			);
 			path = HFClassTest;
 			sourceTree = "<group>";
@@ -1074,25 +1103,6 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		82E62FD11FE911D600B90E69 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				39E0621A200FB24D005E89D6 /* HFClassTestDetailCell.h */,
-				39E0621B200FB24D005E89D6 /* HFClassTestDetailCell.m */,
-				39E0621C200FB24D005E89D6 /* HFClassTestDetailCell.xib */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		82E62FD21FE911D600B90E69 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				39E06217200F919D005E89D6 /* HFClassTestObject.h */,
-				39E06218200F919D005E89D6 /* HFClassTestObject.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		A92E0E17AFDCB6BFFBACC06F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1282,7 @@
 				39C94A391FDE81EE003641C9 /* HFLoginConfigueView.xib in Resources */,
 				39181E901FB574DF00A364AB /* ic_pwd_normal.png in Resources */,
 				39181E9F1FB574DF00A364AB /* wifi1.png in Resources */,
+				3904CCCC20177B1200FABC42 /* HFClassTestCollectionViewCell.xib in Resources */,
 				39181EA01FB574DF00A364AB /* wifi2.png in Resources */,
 				39181EA11FB574DF00A364AB /* wifi3.png in Resources */,
 				8226AADC1FFE479800C9BDB4 /* 排行@3x.png in Resources */,
@@ -1414,6 +1425,7 @@
 				8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */,
 				82BFF3312004B353005C28DB /* HFClassSituationViewController.m in Sources */,
 				8226AAF31FFF7C1600C9BDB4 /* ZSSelectViewCell.m in Sources */,
+				3904CCCB20177B1200FABC42 /* HFClassTestCollectionViewCell.m in Sources */,
 				39D4888B1FCD5CFA00F36D16 /* HFHearBeat.m in Sources */,
 				39181EB01FB5AAEF00A364AB /* HFMyResourceViewController.m in Sources */,
 				3972CB2C1FB198D40017DFE9 /* ViewController.m in Sources */,

@@ -219,6 +219,14 @@
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
+    if ([receviedAsiiMessage containsString: @"PadViewImage?folder="]) {
+        [self reveviedPadViewImageView];
+    }
+    
+    if ([receviedAsiiMessage containsString: @"CommitViewImage="]) {
+        [self reveviedCommitViewImage:receviedAsiiMessage];
+    }
+    
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
@@ -247,6 +255,17 @@
 - (void)lockScreen
 {
     NSLog(@"\n锁定屏幕中...");
+}
+
+- (void)reveviedPadViewImageView
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"reveviedPadViewImageView" object: nil];
+}
+
+//接收学生测评提交通知
+- (void)reveviedCommitViewImage:(NSString *)string
+{
+    [HFCacheObject sendArrayWithString: string];
 }
 
 - (void)teacherInfo:(NSString*)receviedMessage

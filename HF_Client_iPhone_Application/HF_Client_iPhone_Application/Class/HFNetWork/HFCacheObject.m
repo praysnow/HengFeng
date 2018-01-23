@@ -7,6 +7,7 @@
 //
 
 #import "HFCacheObject.h"
+#import "HFClassTestObject.h"
 
 @implementation HFCacheObject
 
@@ -140,6 +141,31 @@
     _imageUrl = [_imageUrl stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
 //    NSLog(@"图片地址为: %@", _imageUrl);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"imageUrl" object: nil];
+}
+
++ (void)setArrayWithString:(NSString *)string
+{
+    if (string.length > 0) {
+        NSLog(@"学生提交测评: %@", string);
+    }
+    HFClassTestObject *object = [HFClassTestObject new];
+    object.fileName = [HFUtils regulexFromString: string andStartString: @"&name=" andEndString: @"&fileName"];
+    object.Name = [HFUtils regulexFromString: string andStartString: @"fileName=" andEndString: @"jpeg"];
+    
+    //最后需要通过姓名去班级里面渠道USerid 存入name
+    
+    NSLog(@"正则取学生提交命令成功: %@\n%@", object.fileName, object.Name);
+//    [[HFCacheObject shardence].commitViewArray addObject: string];
+    //通知测评页面更新 UI
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"CommitViewImage=" object: nil];
+}
+//学生提交测评数组
+- (NSMutableArray *)commitViewArray
+{
+    if (!_commitViewArray) {
+        _commitViewArray = [NSMutableArray array];
+    }
+    return _commitViewArray;
 }
 
 @end

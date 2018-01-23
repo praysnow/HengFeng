@@ -9,6 +9,7 @@
 #import "HFClassTestDetailViewController.h"
 #import "HFClassTestObject.h"
 #import "HFClassTestDetailCell.h"
+#import "WebServiceModel.h"
 
 @interface HFClassTestDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *showResult;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (nonatomic, strong) NSString *nameId;
+@property (nonatomic, copy) NSMutableString *mutableString;
 
 @end
 
@@ -34,7 +36,25 @@
     
     self.dataArray = [NSMutableArray array];
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFClassTestDetailCell class]) bundle: nil] forCellReuseIdentifier: @"cell"];
-    [self loadData];
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        [self loadData];
+    } else {
+        [self gz_loadData];
+    }
+}
+
+- (void)gz_loadData
+{
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"GetClassExamByTpID";
+    NSString *url = nil;
+    model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+    url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
+        [responseObject setDelegate:self];
+        [responseObject parse];
+    } failure:^(NSError *error) {
+    }];
 }
 
 #pragma mark - UITableViewDelegate
@@ -95,9 +115,9 @@
 
 // 获取节点头
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
-    self.currentElementName = elementName;
     NSLog(@"请求回来的数据: %@\n", elementName);
-    if ([elementName isEqualToString:@"Table1"]) {
+    self.currentElementName = elementName;
+    if ([elementName isEqualToString: @"Table1"]) {
         HFClassTestObject *object = [[HFClassTestObject alloc] init];
             [self.dataArray addObject: object];
     }
@@ -105,18 +125,41 @@
 
 // 获取节点的值 (这个方法在获取到节点头和节点尾后，会分别调用一次)
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-        if (_currentElementName != nil) {
+    if ([_currentElementName isEqualToString: @"Table1"]) {
             HFClassTestObject *stu = [self.dataArray lastObject];
             [stu setValue: string forKey: _currentElementName];
-            NSLog(@"key= %@ value=%@", _currentElementName,string);
         }
+    if ([_currentElementName isEqualToString: @"return"]) {
+        [self.mutableString appendString: string];
+    }
 }
 
 // 获取节点尾
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if ([_currentElementName isEqualToString: @"return"]) {
+        NSArray *array = [HFUtils jsonStringToObject: self.mutableString];
+        if (array.count > 0) {
+            for (NSDictionary *dictionary in array) {
+                HFClassTestObject *stu = [HFClassTestObject new];
+                stu.Name = [dictionary objectForKey: @"fileName"];
+                stu.fileUrl = [dictionary objectForKey: @"fileUrl"];
+                stu.ID = [dictionary objectForKey: @"id"];
+                [self.dataArray addObject: stu];
+            }
+        }
+    }
     _currentElementName = nil;
 }
+
+// 结束
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    NSLog(@"结束时为: %@", self.mutableString);
+    [self.tableView reloadData];
+    NSLog(@"结束是数量为：%zi", self.dataArray.count);
+}
+
 - (IBAction)sentMsgButton:(UIButton *)sender
 {
     if ([self isSelectedObject])
@@ -154,12 +197,12 @@
     return self.nameId.length != 0;
 }
 
-
-// 结束
-- (void)parserDidEndDocument:(NSXMLParser *)parser
+- (NSMutableString *)mutableString
 {
-    [self.tableView reloadData];
-    NSLog(@"结束是数量为：%zi", self.dataArray.count);
+    if (!_mutableString) {
+        _mutableString = [NSMutableString string];
+    }
+    return _mutableString;
 }
 
 @end

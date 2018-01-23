@@ -21,6 +21,8 @@
 + (NSString *)getPassWord:(NSString *)value andKey:(NSString *)key;
 
 + (instancetype)shardence;
+//接收学生举手
++ (void)sendArrayWithString:(NSString *)string;
 
 // TeacherInfo
 
@@ -42,5 +44,8 @@
 @property (nonatomic, copy) NSString *iosLookScreen;
 @property (nonatomic, copy) NSString *voteMsg;
 @property (nonatomic, copy) NSString *imageUrl;
+
+//学生提交的数据
+@property (nonatomic, strong) NSMutableArray *commitViewArray;
 
 @end
