@@ -10,6 +10,7 @@ target 'HF_Client_iPhone_Application' do
     pod 'MBProgressHUD', '~> 1.1.0'
     pod 'BlocksKit', '~> 2.2.5'
     pod 'Realm', '~> 3.0.2'
+    pod 'MJExtension', '~> 3.0.13'
     pod 'TXLiteAVSDK_Smart', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Smart.podspec'
     #pod 'SDCycleScrollView','~> 1.64'
     #pod 'UMengAnalytics'

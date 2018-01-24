@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HFStudentModel.h"
 
 @interface HFCacheObject : NSObject
 
@@ -21,6 +22,9 @@
 + (NSString *)getPassWord:(NSString *)value andKey:(NSString *)key;
 
 + (instancetype)shardence;
+
+// 请求学生信息
+- (void)GetStudentListByClassID;
 
 // TeacherInfo
 
@@ -42,5 +46,6 @@
 @property (nonatomic, copy) NSString *iosLookScreen;
 @property (nonatomic, copy) NSString *voteMsg;
 @property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, strong) NSMutableArray<HFStudentModel *> *studentArray;
 
 @end

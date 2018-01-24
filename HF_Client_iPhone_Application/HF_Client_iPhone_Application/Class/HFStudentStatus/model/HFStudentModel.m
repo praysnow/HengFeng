@@ -7,6 +7,7 @@
 //
 
 #import "HFStudentModel.h"
+#import "MJExtension.h"
 
 @interface HFStudentModel() <NSXMLParserDelegate>
 
@@ -17,6 +18,7 @@
 
 @implementation HFStudentModel
 
+#pragma mark - realm数据库相关
 // 指定主键
 + (NSString *)primaryKey {
     return @"userID";
@@ -32,6 +34,16 @@
     return @{@"point" : @0};
 }
 
+#pragma mark - MJExtension相关
+// MJMJExtension的模型中的属性名和字典中的key不相同
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"userID" : @"id",
+             @"userRealName" : @"truename"
+             };
+}
+
 - (NSMutableArray<HFStudentModel *> *)studentArray{
     if (_studentArray == nil) {
         _studentArray = [NSMutableArray array];
@@ -41,10 +53,24 @@
 
 - (NSMutableArray<HFStudentModel *> *)getStudentGroup:(NSXMLParser *)xmlParser{
     
-    [xmlParser setDelegate:self];
-    [xmlParser parse];
+
     
-    return self.studentArray;
+    
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) { // 北京
+        [xmlParser setDelegate:self];
+        [xmlParser parse];
+        
+        return self.studentArray;
+    }else{  // 广州
+        
+        // 先提取json中的字符串
+        NSString *string = [[HFNetwork network] stringInNSXMLParser:xmlParser];
+        // json字符串转模型数组
+        NSMutableArray *array = [HFStudentModel mj_objectArrayWithKeyValuesArray:string];
+        return array;
+    }
+    
+   
 }
 
 # pragma mark - NSXMLParserDelegate

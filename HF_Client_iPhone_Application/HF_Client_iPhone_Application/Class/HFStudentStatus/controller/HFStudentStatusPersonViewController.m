@@ -50,6 +50,13 @@
 
 - (void)GetStudentListByClassID{
     
+    if ([HFCacheObject shardence].studentArray != nil) {
+        self.studentArray = [HFCacheObject shardence].studentArray;
+        [self.collectionView reloadData];
+        
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     WebServiceModel *model = [WebServiceModel new];
@@ -63,26 +70,30 @@
         
     }
     
-    if (classId.length >= 3) {
+    if ([HFNetwork network].serverType == ServerTypeBeiJing && classId.length >= 3) {
         classId =  [classId substringWithRange:NSMakeRange(0,3)];
     }
     
-    if (classId.length != 0) {
-        model.params = @{@"ClassID":classId}.mutableCopy;
+    NSString *url = nil;
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        model.params = @{@"ClassID" : classId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        model.params = @{@"arg0":classId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     }
-    
-    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
-    [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
-        
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
+       
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         self.studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
         [self.collectionView reloadData];
         
+       
     } failure:^(NSError *error) {
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+    
 }
 
 #pragma mark - UICollectionViewDelegate

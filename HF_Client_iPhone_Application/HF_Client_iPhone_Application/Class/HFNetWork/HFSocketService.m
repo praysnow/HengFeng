@@ -10,6 +10,7 @@
 #import "WebServiceModel.h"
 #import "HFNetwork.h"
 
+
 #define NORMOR_INFO_FIRST_BYTE (Byte)(0x99)
 #define HEADER_INFO_FIRST_BYTE (Byte)(0x00)
 
@@ -75,7 +76,10 @@
     self.isSocketed = state;
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     
+    
+    
 }
+
 
 // 断开连接
 -(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
