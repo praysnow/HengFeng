@@ -33,6 +33,7 @@
 @property (nonatomic, copy) NSString *courseId;
 @property (nonatomic, copy) NSString *subjectId;
 @property (nonatomic, copy) NSString *classId;
+@property (nonatomic, copy) NSString *teachName;
 
 @property (nonatomic, copy) NSString *teacherName;
 @property (nonatomic, copy) NSString *handUpUsersList;
