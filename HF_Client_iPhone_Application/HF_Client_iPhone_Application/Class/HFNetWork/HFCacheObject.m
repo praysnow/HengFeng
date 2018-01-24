@@ -8,6 +8,7 @@
 
 #import "HFCacheObject.h"
 #import "HFClassTestObject.h"
+#import "WebServiceModel.h"
 
 @implementation HFCacheObject
 
@@ -57,7 +58,50 @@
     if (_classId.length > 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName: @"TEACHER_CTROL" object: nil];
     }
+    
+    [self GetStudentListByClassID];
 }
+
+- (void)GetStudentListByClassID{
+    
+
+    WebServiceModel *model = [WebServiceModel new];
+    model.method = @"GetStudentListByClassID";
+    
+    NSString *classId = [HFCacheObject shardence].classId;
+    
+    if (classId == nil) {
+        NSLog(@"%@",@"classId为空");
+        return;
+        
+    }
+    
+    if ([HFNetwork network].serverType == ServerTypeBeiJing && classId.length >= 3) {
+        classId =  [classId substringWithRange:NSMakeRange(0,3)];
+    }
+    
+    NSString *url = nil;
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        model.params = @{@"ClassID" : classId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        model.params = @{@"arg0":classId}.mutableCopy;
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    }
+    [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
+        
+        
+        NSLog(@"获取学生信息成功");
+        [HFCacheObject shardence].studentArray = [[HFStudentModel new] getStudentGroup:responseObject];
+        
+        
+        
+    } failure:^(NSError *error) {
+        NSLog(@"获取学生信息失败");
+    }];
+    
+}
+
 
 - (void)setTeacherName:(NSString *)teacherName
 {

@@ -103,7 +103,7 @@
     }else if ([name isEqualToString:@"系统配置"]){
         SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
         self.systemSettingView = systemSettingView;
-        systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2);
+        systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2 + 35);
         [systemSettingView.layer setCornerRadius:10];
         systemSettingView.layer.masksToBounds = YES;
         [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
