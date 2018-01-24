@@ -39,6 +39,7 @@
     self.hf_vagationcontroller = self.navigationController;
     [self setUpTKImageView];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedImageFromNotifaiction) name: @"imageUrl" object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedPadViewImageView) name: @"reveviedPadViewImageView" object: nil];
     self.imageVIew.contentMode = UIViewContentModeCenter;
     [self.imageVIew sd_setImageWithURL: nil placeholderImage: [UIImage imageNamed: @"guide_capture"]];
 }
@@ -61,7 +62,6 @@
 
 - (void)setUpTKImageView
 {
-    //    _rightButton setImage: [] forState:<#(UIControlState)#>
     _tkImageView.showMidLines = YES;
     _tkImageView.needScaleCrop = YES;
     _tkImageView.showCrossLines = YES;
@@ -106,6 +106,13 @@
     [self.navigationController popViewControllerAnimated: YES];
 }
 
+#pragma mark - notifacation
+
+- (void)reveviedPadViewImageView
+{
+    [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFClassTestShowViewController) animated: YES];
+}
+
 - (void)reveviedImageFromNotifaiction
 {
     [self.imageVIew sd_setImageWithURL: [NSURL URLWithString: [HFCacheObject shardence].imageUrl]
@@ -137,20 +144,16 @@
 
 - (IBAction)captureScreen:(UIButton *)sender
 {
-    [HF_MBPregress mbpregress];
+//    [HF_MBPregress mbpregress];
     self.tkImageView.hidden = YES;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[SCREEN_CAPTURE]];
 }
 
 - (void)openShowViewController
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"reveviedPadViewImageView" object: nil];
+    NSLog(@"测试发通知跳转，正式删掉");
     [CBAlertWindow jz_hide];
-    if (self.navigationController) {
-        NSLog(@"不为空");
-    } else {
-        NSLog(@"为空");
-    }
-    [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFClassTestShowViewController) animated: YES];
 }
 
 - (IBAction)ensureButton:(UIButton *)sender
@@ -200,16 +203,22 @@
 
 - (void)limitTimeSend:(NSString *)count
 {
-    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 60 + 1;
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
+
+    
+    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
+    //+1 是否需要录制、
     [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point)]];
     [self openShowViewController];
 }
 
 - (void)unlimitTimeSend:(NSString *)count
 {
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
+
     int point = [SCREEN_CAPTURE_UNTIME intValue] * 10000 + 1;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point)]];
-    [CBAlertWindow jz_hide];
+    [self openShowViewController];
 }
 
 #pragma mark - SCRFTPRequestDelegate
@@ -221,7 +230,6 @@
     
     // 发送指令
     NSString *filePath = [NSString stringWithFormat:@"/root/uploadtemp/classTestiOS.jpg"];
-    
     NSLog(@"ftp路径%@",filePath);
 }
 
@@ -232,7 +240,7 @@
 
 - (void)ftpRequestWillStart:(SCRFTPRequest *)request
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)dealloc

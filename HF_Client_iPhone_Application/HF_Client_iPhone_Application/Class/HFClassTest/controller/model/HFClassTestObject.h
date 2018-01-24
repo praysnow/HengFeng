@@ -12,5 +12,8 @@
 
 @property (nonatomic, copy) NSString *Name;
 @property (nonatomic, copy) NSString *ID;
+@property (nonatomic, copy) NSString *fileUrl;
+@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *fileId;
 
 @end

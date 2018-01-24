@@ -22,6 +22,8 @@
 + (NSString *)getPassWord:(NSString *)value andKey:(NSString *)key;
 
 + (instancetype)shardence;
+//接收学生举手
++ (void)sendArrayWithString:(NSString *)string;
 
 // 请求学生信息
 - (void)GetStudentListByClassID;
@@ -47,5 +49,8 @@
 @property (nonatomic, copy) NSString *voteMsg;
 @property (nonatomic, copy) NSString *imageUrl;
 @property (nonatomic, strong) NSMutableArray<HFStudentModel *> *studentArray;
+
+//学生提交的数据
+@property (nonatomic, strong) NSMutableArray *commitViewArray;
 
 @end

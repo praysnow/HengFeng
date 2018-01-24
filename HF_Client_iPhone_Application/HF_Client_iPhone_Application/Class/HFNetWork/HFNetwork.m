@@ -201,7 +201,8 @@
 }
 
 #pragma mark NameSpace
-- (NSString *)NameSpace{
+- (NSString *)NameSpace
+{
     return self.serverType == ServerTypeBeiJing ? NAME_SPACE : GZ_NAME_SPACE;
 }
 

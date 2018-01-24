@@ -81,7 +81,6 @@
 
 - (void)loadClassData
 {
-    
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetCourseResByTpID";
     NSString *url = nil;

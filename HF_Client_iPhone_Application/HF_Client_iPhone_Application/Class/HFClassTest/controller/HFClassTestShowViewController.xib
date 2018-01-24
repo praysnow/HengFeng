@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFClassTestShowViewController">
             <connections>
+                <outlet property="collectionView" destination="9cE-hX-5JT" id="2Zn-eW-pVr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -68,12 +69,18 @@
                             <state key="normal" title="打开图片">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="openImageView:" destination="-1" eventType="touchUpInside" id="3Jf-Ho-FJb"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEy-10-Xjs">
                             <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
                             <state key="normal" title="打开视频">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                             </state>
+                            <connections>
+                                <action selector="openVideoView:" destination="-1" eventType="touchUpInside" id="e5v-DT-78L"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efe-xt-uMK">
                             <rect key="frame" x="187" y="0.0" width="0.5" height="40"/>
