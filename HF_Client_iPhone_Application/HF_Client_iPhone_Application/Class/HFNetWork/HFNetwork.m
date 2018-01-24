@@ -103,10 +103,12 @@
 //    if ([[HFNetwork network].ServerAddress containsString: @"222"]) {
 //        [manager.requestSerializer setValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 //    } else {
-    [manager.requestSerializer setValue: @"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    [manager.requestSerializer setValue: @"text/html;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 //        }
-    [manager.requestSerializer setValue: @"http://tempuri.org/GetDaoXueRenWuByTpID" forHTTPHeaderField:@"action"];
+//    [manager.requestSerializer setValue: @"http://tempuri.org/GetDaoXueRenWuByTpID" forHTTPHeaderField:@"action"];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/html; charset=us-ascii" @"text/javascript", @"text/html", nil];
+    
+     [manager.requestSerializer setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
