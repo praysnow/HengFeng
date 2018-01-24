@@ -51,7 +51,7 @@
 - (void)setdata
 {
     NSString *className = [HFCacheObject shardence].className;
-    className = className == nil?  @"未获取到课程信息":className;
+    className = className == nil ?  @"未获取到课程信息": className;
     self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : className},
 //                   @{@"name":@"班级学情", @"image" : @"back"},
 // 暂时去掉                  @{@"name":@"我的备课", @"image" : @"back"},

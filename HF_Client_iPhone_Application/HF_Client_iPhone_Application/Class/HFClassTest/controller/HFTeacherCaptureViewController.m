@@ -24,6 +24,7 @@
 @property (strong, nonatomic)  NSString *filePath;
 @property (nonatomic, strong) HFCountTimeView *countView;
 @property (nonatomic, strong) UINavigationController *hf_vagationcontroller;
+@property (nonatomic, copy) NSString *updatePath;
 
 @property (strong, nonatomic)  SCRFTPRequest *ftpRequest;
 
@@ -191,10 +192,10 @@
     // 上传到ftp
     NSString *urlString = [NSString stringWithFormat:@"ftp://%@/root/uploadtemp/",[HFNetwork network].SocketAddress];
     ;
+    _updatePath = [NSString stringWithFormat: @"root/uploadtemp/%@", @"classTestiOS.jpg"];
     _ftpRequest = [[SCRFTPRequest alloc] initWithURL:[NSURL URLWithString:urlString] toUploadFile:_filePath];
     
     _ftpRequest.delegate = self;
-    
     [_ftpRequest startRequest];
     
 }
@@ -205,25 +206,32 @@
 {
     [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
 
-    
+    if (_updatePath.length == 0) {
+        [HF_MBPregress showMessag: @"请先提交截屏"];
+    } else {
     int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
     //+1 是否需要录制、
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point)]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
     [self openShowViewController];
+    }
 }
 
 - (void)unlimitTimeSend:(NSString *)count
 {
     [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
-
+    if (_updatePath.length == 0) {
+        [HF_MBPregress showMessag: @"请先提交截屏"];
+    } else {
     int point = [SCREEN_CAPTURE_UNTIME intValue] * 10000 + 1;
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point)]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
     [self openShowViewController];
+    }
 }
 
 #pragma mark - SCRFTPRequestDelegate
 - (void)ftpRequestDidFinish:(SCRFTPRequest *)request{
     NSLog(@"上传成功");
+    [HF_MBPregress showMessag: @"截屏提交成功"];
     [HF_MBPregress hide_mbpregress];
     //    [self showText:@"上传成功"];
     // 删掉本地图片
