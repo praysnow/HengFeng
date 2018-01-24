@@ -230,7 +230,9 @@
     if ([receviedAsiiMessage containsString: @"CommitViewImage="]) {
         [self reveviedCommitViewImage:receviedAsiiMessage];
     }
-    
+    if ([receviedMessage containsString: @"teacher="]) {
+        [self reveviedTeaclerName: receviedMessage];
+    }
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
@@ -259,6 +261,12 @@
 - (void)lockScreen
 {
     NSLog(@"\n锁定屏幕中...");
+}
+
+- (void)reveviedTeaclerName:(NSString *)string
+{
+    NSRange range = [string rangeOfString:@"teacher="];
+    [HFCacheObject shardence].teachName = [[string substringFromIndex: range.location] stringByReplacingOccurrencesOfString: @"teacher=" withString: @""];
 }
 
 - (void)reveviedPadViewImageView
