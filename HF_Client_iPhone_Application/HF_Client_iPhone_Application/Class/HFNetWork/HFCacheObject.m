@@ -7,6 +7,7 @@
 //
 
 #import "HFCacheObject.h"
+#import "HFClassTestObject.h"
 #import "WebServiceModel.h"
 
 @implementation HFCacheObject
