@@ -186,11 +186,11 @@
     HFStudentModel *model =  self.studentArray[self.indexPath.item];
     NSLog(@"%@",model.userRealName);
     
-//    "stu_first" + "&" + student.ID + "&" + student.Name + "&" + evaluateScore.ToString();
-//    NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.userID,model.userRealName,@2];
-//    [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
 
-    [[HFSocketService sharedInstance] sendCtrolMessage:@[getEvaluateRank]];
+    NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.userID,model.userRealName,@(point)];
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
+
+//    [[HFSocketService sharedInstance] sendCtrolMessage:@[getEvaluateRank]];
     // 先查询数据库
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];  // 开放RLMRealm事务
@@ -201,6 +201,12 @@
     if(models.count > 0){
         HFStudentModel *data = models[0];
         model.point = data.point;
+        
+        NSString *message = [NSString stringWithFormat:@"stu_unfirst&%@&%@&%@",model.userID,model.userRealName,@(point)];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
+    }else{
+        NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.userID,model.userRealName,@(point)];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
     }
     model.point += point;
     

@@ -77,7 +77,7 @@ static NSString *ID = @"ID";
     [super layoutSubviews];
     
     
-    CGFloat viewW = 80;
+    CGFloat viewW = SCREEN_WIDTH / 4;
     CGFloat viewH = _contentArray.count * 50;
     
     self.tableViewVC.tableView.frame = CGRectMake(_point.x, _point.y, viewW, viewH);

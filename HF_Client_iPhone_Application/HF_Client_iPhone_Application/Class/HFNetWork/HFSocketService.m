@@ -120,12 +120,16 @@
     NSData *typeData = [NSData dataWithBytes: &type length: 1];
     NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
     NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
-    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"e1963ff6-0c5e-4ad1-a523-4b9dadf50b19\" />";
+    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" From=\"TeacherCtrl\" To=\"=\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"92cff518-503a-45c2-9b51-884e34d6c70c\" />";
+    // 92cff518-503a-45c2-9b51-884e34d6c70c
+    // e1963ff6-0c5e-4ad1-a523-4b9dadf50b19
     NSMutableString *string = [NSMutableString stringWithString: loginStatus];
     for (NSString *key in array) {
         NSLog(@"key: %@",key);
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
+    
+    NSLog(@"发送socket命令   %@",string);
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];

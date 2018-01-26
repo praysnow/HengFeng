@@ -824,8 +824,8 @@
 			children = (
 				82BFF31C20037E47005C28DB /* YZDisplayViewController */,
 				8226AAEE1FFF7C1500C9BDB4 /* ZSSelectView.h */,
-				8226AAF01FFF7C1500C9BDB4 /* ZSSelectViewCell.h */,
 				8226AAED1FFF7C1500C9BDB4 /* ZSSelectView.m */,
+				8226AAF01FFF7C1500C9BDB4 /* ZSSelectViewCell.h */,
 				8226AAEF1FFF7C1500C9BDB4 /* ZSSelectViewCell.m */,
 				8226AAEC1FFF7C1500C9BDB4 /* ZSSelectViewCell.xib */,
 				8226AAD51FFE463E00C9BDB4 /* HFVerticalButton.h */,
@@ -1619,6 +1619,7 @@
 			baseConfigurationReference = 33EA0AF723B55030AA316581 /* Pods-HF_Client_iPhone_Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U86FP276EQ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1642,6 +1643,7 @@
 			baseConfigurationReference = 1CF82E6AEC219A3F034AC0AD /* Pods-HF_Client_iPhone_Application.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U86FP276EQ;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -40,9 +40,14 @@
 {
     return @{
              @"userID" : @"id",
-             @"userRealName" : @"truename"
+             @"userRealName" : @[@"truename",@"userRealName"],
+             @"PeopleGroupNum" : @"peopleGroupNum",
+             @"PeopleGroupID" : @"peopleGroupUserID",
              };
 }
+
+//@property (nonatomic,strong) NSString *PeopleGroupNum;
+//@property (nonatomic,strong) NSString *PeopleGroupID;
 
 - (NSMutableArray<HFStudentModel *> *)studentArray{
     if (_studentArray == nil) {

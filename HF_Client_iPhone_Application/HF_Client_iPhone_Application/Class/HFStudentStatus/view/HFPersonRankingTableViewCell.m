@@ -23,7 +23,7 @@
 - (void)setStudentModel:(HFStudentModel *)studentModel{
     _studentModel = studentModel;
     
-    _nameLabel.text = [NSString stringWithFormat:@"%@ [%@]", studentModel.userRealName,studentModel.userID];
+    _nameLabel.text = [NSString stringWithFormat:@"%@ [%@]", studentModel.userRealName,studentModel.userLoginName];
     
     _pointLabel.text = [NSString stringWithFormat:@"%zd积分",studentModel.point];
     

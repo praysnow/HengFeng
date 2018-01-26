@@ -7,6 +7,7 @@
 //
 
 #import "HFGroupModel.h"
+#import "MJExtension.h"
 
 @interface HFGroupModel() <NSXMLParserDelegate>
 
@@ -16,6 +17,22 @@
 @end
 
 @implementation HFGroupModel
+
+
+#pragma mark - MJExtension相关
+// MJMJExtension的模型中的属性名和字典中的key不相同
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"PeopleGroupID" : @"peopleGroupID",
+             @"PeopleGroupName" : @"peopleGroupName",
+             @"PeopleGroupType" : @"peopleGroupType",
+             @"PeopleGroupMode" : @"peopleGroupMode",
+             @"PeopleGroupCount" : @"peopleGroupCount",
+             };
+}
+
+
 
 - (NSMutableArray *)groupArray{
     if (_groupArray== nil) {
@@ -28,11 +45,22 @@
 // 返回模型数组的方法
 - (NSMutableArray<HFGroupModel *> *)getGroupModelArray:(NSXMLParser *)xmlParser{
     
+    
+    
+    
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) { // 北京
         [xmlParser setDelegate:self];
         [xmlParser parse];
-    
+        
         return self.groupArray;
-    
+    }else{  // 广州
+        
+        // 先提取json中的字符串
+        NSString *string = [[HFNetwork network] stringInNSXMLParser:xmlParser];
+        // json字符串转模型数组
+        NSMutableArray *array = [HFGroupModel mj_objectArrayWithKeyValuesArray:string];
+        return array;
+    }
     
     
 }
