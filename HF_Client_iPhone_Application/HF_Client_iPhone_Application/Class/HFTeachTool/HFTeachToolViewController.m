@@ -221,6 +221,4 @@
     [self changeButtonStatus: sender];
 }
 
-
-
 @end
