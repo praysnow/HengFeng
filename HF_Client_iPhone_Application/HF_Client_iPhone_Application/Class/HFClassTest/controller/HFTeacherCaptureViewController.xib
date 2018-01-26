@@ -115,10 +115,10 @@
                         <constraint firstItem="ab8-jY-GWz" firstAttribute="height" secondItem="bum-lu-Jq5" secondAttribute="height" id="yd7-Oi-lKJ"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yBF-1J-bbJ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yBF-1J-bbJ">
                     <rect key="frame" x="0.0" y="0.0" width="603" height="375"/>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfc-nP-a9I" customClass="TKImageView">
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfc-nP-a9I" customClass="TKImageView">
                     <rect key="frame" x="0.0" y="0.0" width="603" height="375"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>

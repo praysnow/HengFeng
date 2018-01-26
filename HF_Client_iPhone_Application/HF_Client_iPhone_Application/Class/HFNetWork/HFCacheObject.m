@@ -198,13 +198,17 @@
         NSLog(@"学生提交测评: %@", string);
     }
     HFClassTestObject *object = [HFClassTestObject new];
-    object.fileName = [HFUtils regulexFromString: string andStartString: @"&name=" andEndString: @"&fileName"];
-    object.Name = [HFUtils regulexFromString: string andStartString: @"fileName=" andEndString: @"jpeg"];
-    
+    object.Name = [HFUtils regulexFromString: string andStartString: @"&name=" andEndString: @"&fileName"];
+    object.fileName = [HFUtils regulexFromString: string andStartString: @"fileName=" andEndString: @"jpeg"];
+    for (HFStudentModel *model in [HFCacheObject shardence].studentArray) {
+        if ([model.userRealName isEqualToString: object.Name]) {
+            object.Name = model.userID;
+            NSLog(@"替换ID成功");
+        }
+    }
     //最后需要通过姓名去班级里面渠道USerid 存入name
-    
     NSLog(@"正则取学生提交命令成功: %@\n%@", object.fileName, object.Name);
-//    [[HFCacheObject shardence].commitViewArray addObject: string];
+    [[HFCacheObject shardence].commitViewArray addObject: object];
     //通知测评页面更新 UI
     [[NSNotificationCenter defaultCenter] postNotificationName: @"CommitViewImage=" object: nil];
 }
@@ -214,6 +218,7 @@
     if (!_commitViewArray) {
         _commitViewArray = [NSMutableArray array];
     }
+    
     return _commitViewArray;
 }
 

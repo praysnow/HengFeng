@@ -218,13 +218,16 @@
 {
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
      NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
-    NSLog(@"iOS 接收UTF-8命令:%zd  %@",data.length,receviedMessage);
-    NSLog(@"iOS 接收ASII命令:%zd  %@",data.length,receviedAsiiMessage);
+    NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
+    NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
     if ([receviedAsiiMessage containsString: @"PadViewImage?folder="]) {
         [self reveviedPadViewImageView];
+    }
+    if ([receviedAsiiMessage containsString: @"ForceCloseScreenTest"]) {
+        [self reveviedForceCloseScreenTest];
     }
     
     if ([receviedAsiiMessage containsString: @"CommitViewImage="]) {
@@ -261,6 +264,11 @@
 - (void)lockScreen
 {
     NSLog(@"\n锁定屏幕中...");
+}
+
+- (void)reveviedForceCloseScreenTest
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"reveviedForceCloseScreenTest" object: nil];
 }
 
 - (void)reveviedTeaclerName:(NSString *)string

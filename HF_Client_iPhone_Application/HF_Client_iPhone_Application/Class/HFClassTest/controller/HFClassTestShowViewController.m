@@ -9,11 +9,13 @@
 #import "HFClassTestShowViewController.h"
 #import "HFClassTestCollectionViewCell.h"
 #import "HFClassTestObject.h"
+#import "UIImageView+WebCache.h"
 
 @interface HFClassTestShowViewController () <UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout, HFClassTestCollectionViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) HFClassTestObject *object;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -28,6 +30,8 @@
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFClassTestCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
 
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receviedCommitViewImage) name: @"CommitViewImage=" object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedForceCloseScreenTest) name: @"reveviedForceCloseScreenTest" object: nil];
+    
 }
 
 - (void)setupLayout
@@ -37,11 +41,16 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(SCREEN_WIDTH / 2 - 14 * 3, 80);
+    layout.itemSize = CGSizeMake((SCREEN_HEIGHT - 14 * 3) / 2, (SCREEN_HEIGHT - 14 * 3) / 2);
     self.collectionView.collectionViewLayout = layout;
 }
 
-#pragma mark - CommitViewImage
+#pragma mark - Notification
+
+- (void)reveviedForceCloseScreenTest
+{
+    [self.navigationController popViewControllerAnimated: YES];
+}
 
 - (void)receviedCommitViewImage
 {
@@ -56,10 +65,6 @@
 }
 
 #pragma mark - UICollectionViewDeledate
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(SCREEN_WIDTH, 50);
-}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
     return CGSizeMake(0,FLT_MIN);
@@ -84,14 +89,14 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     HFClassTestCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell" forIndexPath: indexPath];
-//    cell.object = [HFCacheObject shardence].commitViewArray[indexPath.row];
+    cell.delegate = self;
+    cell.object = [HFCacheObject shardence].commitViewArray[indexPath.row];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return [HFCacheObject shardence].commitViewArray.count;
-    return 12;
+    return [HFCacheObject shardence].commitViewArray.count;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -102,27 +107,58 @@
     HFClassTestCollectionViewCell *cell = (HFClassTestCollectionViewCell *)[collectionView cellForItemAtIndexPath: indexPath];
     self.object = cell.object;
     cell.contentView.layer.borderColor = UICOLOR_ARGB(0xff53baa6).CGColor;
+    NSLog(@"点击了哪个%zi", indexPath.row);
+}
+
+- (void)creatbuttonWhenClick
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.collectionView.width, self.collectionView.height)];
+    [self.collectionView addSubview: imageView];
+    [self.imageView sd_setImageWithURL: [NSURL URLWithString: [NSString stringWithFormat: @"http://%@%@", [HFNetwork network].SocketAddress, self.object.fileName]]];
+    self.imageView = imageView;
+    imageView.backgroundColor = [UIColor clearColor];
+    imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addGestureWithImageView)];
+    [imageView addGestureRecognizer: singleTap];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self addGestureWithImageView];
+}
+
+- (void)addGestureWithImageView
+{
+    [self.imageView removeFromSuperview];
+    self.imageView = nil;
 }
 
 #pragma Cell Delegate
 
 - (void)doubleClickCell:(HFClassTestObject *)object
 {
-    //    HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
-    //    vc.object = object;
-    //    [self.navigationController pushViewController: vc animated: YES];
+    [self creatbuttonWhenClick];
 }
 
 #pragma mark - button click
 
 - (IBAction)openImageView:(UIButton *)sender
 {
-    
+    [self openImage];
 }
 
 - (IBAction)openVideoView:(UIButton *)sender
 {
-    
+    [self openImage];
+}
+
+- (void)openImage
+{
+    if (self.imageView) {
+        [self addGestureWithImageView];
+    } else {
+        [self creatbuttonWhenClick];
+    }
 }
 
 @end

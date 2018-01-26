@@ -152,8 +152,8 @@
 
 - (void)openShowViewController
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"reveviedPadViewImageView" object: nil];
-    NSLog(@"测试发通知跳转，正式删掉");
+//    [[NSNotificationCenter defaultCenter] postNotificationName: @"reveviedPadViewImageView" object: nil];
+//    NSLog(@"测试发通知跳转，正式删掉");
     [CBAlertWindow jz_hide];
 }
 
@@ -205,15 +205,15 @@
 - (void)limitTimeSend:(NSString *)count
 {
     [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
-
-    if (_updatePath.length == 0) {
-        [HF_MBPregress showMessag: @"请先提交截屏"];
-    } else {
-    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
-    //+1 是否需要录制、
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
     [self openShowViewController];
-    }
+//    if (_updatePath.length == 0) {
+//        [HF_MBPregress showMessag: @"请先提交截屏"];
+//    } else {
+//    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
+//    //+1 是否需要录制、
+//    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
+//    [self openShowViewController];
+//    }
 }
 
 - (void)unlimitTimeSend:(NSString *)count
@@ -231,7 +231,7 @@
 #pragma mark - SCRFTPRequestDelegate
 - (void)ftpRequestDidFinish:(SCRFTPRequest *)request{
     NSLog(@"上传成功");
-    [HF_MBPregress showMessag: @"截屏提交成功"];
+    [HF_MBPregress showMessag: @"请先提交截屏"];
     [HF_MBPregress hide_mbpregress];
     //    [self showText:@"上传成功"];
     // 删掉本地图片
