@@ -92,37 +92,52 @@
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetGroupList";
     
-    NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
     NSString *classID = [HFCacheObject shardence].classId;
-    if (classID.length >= 3) {
+    if ([HFNetwork network].serverType == ServerTypeBeiJing && classID.length >= 3) {
         classID =  [classID substringWithRange:NSMakeRange(0,3)];
     }
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"tpID"] = [HFCacheObject shardence].courseId;
-    param[@"SubjectID"] = [HFCacheObject shardence].subjectId;
-    param[@"ClassID"] = classID;
-    param[@"userLoginName"] = @"wanglixia";
+    NSString *url = nil;
     
-    NSLog(@"classID:  %@",[HFCacheObject shardence].classId);
+    if ([HFNetwork network].serverType == ServerTypeBeiJing) {
+        
+        param[@"tpID"] = [HFCacheObject shardence].courseId;
+        param[@"SubjectID"] = [HFCacheObject shardence].subjectId;
+        param[@"ClassID"] = classID;
+        param[@"userLoginName"] = @"wanglixia";
+        
+        url = [NSString stringWithFormat: @"%@%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath, model.method];
+    }else{
+        
+        param[@"arg0"] = @"tea01";
+        param[@"arg1"] = classID;
+        param[@"arg2"] =  [HFCacheObject shardence].subjectId;
+        param[@"arg3"] = [HFCacheObject shardence].courseId;
+        
+        url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
+    }
+
     model.params = param;
     
-    NSString *url = [NSString stringWithFormat: @"%@%@", HOST, @"/webService/WisdomClassWS.asmx"];
+    
     [[HFNetwork network] xmlSOAPDataWithUrl:url soapBody:[model getRequestParams] success:^(id responseObject) {
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        self.groupModelArray = [[HFGroupModel new] getGroupModelArray:responseObject];
-        
-        // 请求最后一个分组
-        if (self.groupModelArray.count > 0) {
-            [self GetGroupPeopleList:[self.groupModelArray lastObject].PeopleGroupID];
-            [self.groupButton setTitle:[self.groupModelArray lastObject].PeopleGroupName forState:UIControlStateNormal];
-            
-            // 保存数据
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupID forKey:@"PeopleGroupID"];
-            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupName forKey:@"PeopleGroupName"];
-        }
+        NSString *string = [[HFNetwork network] stringInNSXMLParser:responseObject];
+        NSLog(@"%@",string);
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        self.groupModelArray = [[HFGroupModel new] getGroupModelArray:responseObject];
+//
+//        // 请求最后一个分组
+//        if (self.groupModelArray.count > 0) {
+//            [self GetGroupPeopleList:[self.groupModelArray lastObject].PeopleGroupID];
+//            [self.groupButton setTitle:[self.groupModelArray lastObject].PeopleGroupName forState:UIControlStateNormal];
+//
+//            // 保存数据
+//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupID forKey:@"PeopleGroupID"];
+//            [defaults setValue:[self.groupModelArray lastObject].PeopleGroupName forKey:@"PeopleGroupName"];
+//        }
         
     } failure:^(NSError *error) {
         
