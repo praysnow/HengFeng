@@ -93,7 +93,7 @@
         url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     }
     [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
-        
+        [self removeAllObject];
         [responseObject setDelegate:self];
         [responseObject parse];
         NSLog(@"我的资源请求结果成功");
@@ -101,6 +101,13 @@
     } failure:^(NSError *error) {
         NSLog(@"我的资源  请求结果失败");
     }];
+}
+
+- (void)removeAllObject
+{
+    [self.allInfoArray removeAllObjects];
+    [self.classArray removeAllObjects];
+    [self.studentArray removeAllObjects];
 }
 
 - (void)loadClassData
