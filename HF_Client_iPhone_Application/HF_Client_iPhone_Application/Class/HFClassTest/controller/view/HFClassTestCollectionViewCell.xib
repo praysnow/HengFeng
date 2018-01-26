@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="126" height="134"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u7-Sg-Ny3">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u7-Sg-Ny3">
                         <rect key="frame" x="0.0" y="104" width="126" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nJq-AM-dCM"/>
@@ -45,6 +45,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="126" height="134"/>
+            <connections>
+                <outlet property="hf_titleLabel" destination="3u7-Sg-Ny3" id="t0w-Tg-bJB"/>
+                <outlet property="imageView" destination="5Hn-6Z-f9a" id="KHK-Np-g3z"/>
+            </connections>
             <point key="canvasLocation" x="-113" y="-59"/>
         </collectionViewCell>
     </objects>

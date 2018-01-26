@@ -8,7 +8,30 @@
 
 #import "HFMyResourceHeaderFootView.h"
 
+@interface HFMyResourceHeaderFootView ()
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *clickButtonArray;
+
+@end
+
 @implementation HFMyResourceHeaderFootView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    [self setupButtonArray];
+}
+
+- (void)setupButtonArray
+{
+    for (UIButton *button in self.clickButtonArray) {
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = 4;
+        button.layer.borderColor = UICOLOR_RGB(0xffe0e0e0).CGColor;
+        button.layer.borderWidth = 1;
+    }
+}
 
 - (IBAction)sendAway:(id)sender
 {

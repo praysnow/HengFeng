@@ -31,6 +31,7 @@
 @property (nonatomic, strong) HFDaoxueModel *object;
 @property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, copy) NSMutableString *daoxueString;
+@property (nonatomic, strong) WebServiceModel *model;
 
 @end
 
@@ -60,7 +61,8 @@
 - (void)loadData
 {
     WebServiceModel *model = [WebServiceModel new];
-    model.method = @"GetDaoXueRenWuByTpID";
+    self.model = model;
+    self.model.method = @"GetDaoXueRenWuByTpID";
     NSString *url = nil;
     if ([HFNetwork network].serverType == ServerTypeBeiJing) {
         model.params = @{@"tpID" : [HFCacheObject shardence].courseId}.mutableCopy;
@@ -82,7 +84,8 @@
 - (void)loadClassData
 {
     WebServiceModel *model = [WebServiceModel new];
-    model.method = @"GetCourseResByTpID";
+    self.model = model;
+    self.model.method = @"GetCourseResByTpID";
     NSString *url = nil;
     if ([HFNetwork network].serverType == ServerTypeBeiJing) {
         model.params = @{@"tpID" : [HFCacheObject shardence].courseId}.mutableCopy;
@@ -163,28 +166,52 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if ([_currentElementName isEqualToString: @"return"]) {
         NSLog(@"返回数组: %@", self.daoxueString);
-        NSArray *array = [HFUtils jsonStringToObject: self.daoxueString];
-        if (array.count > 0) {
-            if (self.studentArray.count == 0) {
-                [self.allInfoArray addObject: self.studentArray];
+        if ([self.model.method isEqualToString: @"GetDaoXueRenWuByTpID"]) {
+            NSArray *array = [HFUtils jsonStringToObject: self.daoxueString];
+            if (array.count > 0) {
+                if (self.studentArray.count == 0) {
+                    [self.allInfoArray addObject: self.studentArray];
+                }
+                for (NSDictionary *dictionary in array) {
+                    NSLog(@"字典： %@", dictionary);
+                    HFDaoxueModel *object = [HFDaoxueModel new];
+                    object.Dxa_ID = [dictionary objectForKey: @"dxa_ID"];
+                    object.Dxa_Name = [dictionary objectForKey: @"dxa_Name"];
+                    object.ZJCount = [dictionary objectForKey: @"ZJCount"];
+                    object.WeiWanZJCount = [dictionary objectForKey: @"WeiWanZJCount"];
+                    object.resName = [dictionary objectForKey: @"resName"];
+                    object.resUrl = [dictionary objectForKey: @"resUrl"];
+                    object.resType = [dictionary objectForKey: @"resType"];
+                    object.resID = [dictionary objectForKey: @"resID"];
+                    object.image = [dictionary objectForKey: @"image"];
+                    [self.studentArray addObject: object];
+                }
             }
-            for (NSDictionary *dictionary in array) {
-                NSLog(@"字典： %@", dictionary);
-                HFDaoxueModel *object = [HFDaoxueModel new];
-                object.Dxa_ID = [dictionary objectForKey: @"dxa_ID"];
-                object.Dxa_Name = [dictionary objectForKey: @"dxa_Name"];
-                object.ZJCount = [dictionary objectForKey: @"ZJCount"];
-                object.WeiWanZJCount = [dictionary objectForKey: @"WeiWanZJCount"];
-                object.resName = [dictionary objectForKey: @"resName"];
-                object.resUrl = [dictionary objectForKey: @"resUrl"];
-                object.resType = [dictionary objectForKey: @"resType"];
-                object.resID = [dictionary objectForKey: @"resID"];
-                object.image = [dictionary objectForKey: @"image"];
-                [self.studentArray addObject: object];
+        } else {
+            NSArray *array = [HFUtils jsonStringToObject: self.daoxueString];
+            if (array.count > 0) {
+                if (self.classArray.count == 0) {
+                    [self.allInfoArray addObject: self.classArray];
+                }
+                for (NSDictionary *dictionary in array) {
+                    NSLog(@"导学堂字典： %@", dictionary);
+                    HFDaoxueModel *object = [HFDaoxueModel new];
+                    object.ZJCount = [dictionary objectForKey: @"ZJCount"];
+                    object.WeiWanZJCount = [dictionary objectForKey: @"WeiWanZJCount"];
+                    object.resName = [dictionary objectForKey: @"resName"];
+                    object.resUrl = [dictionary objectForKey: @"resUrl"];
+                    object.resType = [dictionary objectForKey: @"resType"];
+                    object.resID = [dictionary objectForKey: @"resID"];
+                    object.image = [dictionary objectForKey: @"image"];
+                    object.Dxa_Name = [dictionary objectForKey: @"fileName"];
+                    object.Dxa_ID = [dictionary objectForKey: @"id"];
+                    [self.classArray addObject: object];
+                }
             }
         }
     }
     _currentElementName = nil;
+    self.daoxueString = nil;
 }
 
 // 结束

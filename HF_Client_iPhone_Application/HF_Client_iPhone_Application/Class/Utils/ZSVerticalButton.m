@@ -23,16 +23,14 @@
 
 - (void)setup
 {
-    self.titleLabel.hidden = YES;
-    self.hfTitleLabel.text = self.titleLabel.text;
-    self.hfTitleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, self.imageView.bottom + 20, self.width, 40)];
+//    self.hfTitleLabel.text = self.titleLabel.text;
+//    self.titleLabel.frame = CGRectMake(0, self.imageView.bottom + 20, self.width, 40);
     [self addSubview: self.hfTitleLabel];
 //    self.titleLabel.x = self.x;
 //    self.titleLabel.width = self.width;
-    self.hfTitleLabel.textAlignment = NSTextAlignmentCenter;
-    self.hfTitleLabel.font = [UIFont systemFontOfSize: 16];
-    
-    [self.hfTitleLabel sizeToFit];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont systemFontOfSize: 16];
+//    [self.titleLabel sizeToFit];
     self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - 25, 25, 20, 20)];
     self.pointView.hidden = YES;
     self.pointView.backgroundColor = [UIColor redColor];
@@ -44,7 +42,6 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self setup];
     }
     return self;
 }
@@ -53,16 +50,18 @@
 {
     [super awakeFromNib];
     
-    [self setup];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
+    [self setup];
     // 调整图片
     self.imageView.x = self.x;
     self.imageView.y = (self.height - self.imageView.height) * 0.5 - 5;
+    self.titleLabel.width = self.width;
+    self.titleLabel.x = self.x;
 //    self.imageView.y = 30;
 
 //    self.imageView.width = self.width;

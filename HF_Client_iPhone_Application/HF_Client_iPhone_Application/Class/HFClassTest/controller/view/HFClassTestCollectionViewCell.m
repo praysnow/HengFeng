@@ -7,6 +7,15 @@
 //
 
 #import "HFClassTestCollectionViewCell.h"
+#import "UIImageView+WebCache.h"
+
+@interface HFClassTestCollectionViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *hf_titleLabel;
+
+@end
 
 @implementation HFClassTestCollectionViewCell
 
@@ -20,6 +29,14 @@
     UITapGestureRecognizer *doubleTabGesture=[[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(handleDoubleTap:)];
     [doubleTabGesture setNumberOfTapsRequired:2];
     [self addGestureRecognizer: doubleTabGesture];
+}
+
+- (void)setObject:(HFClassTestObject *)object
+{
+    self.hf_titleLabel.text = object.Name;
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"%@%@", [HFNetwork network].SocketAddress, object.fileName]];
+    [self.imageView sd_setImageWithURL: url];
+    _object = object;
 }
 
 - (void)handleDoubleTap: (UITapGestureRecognizer *)gesture

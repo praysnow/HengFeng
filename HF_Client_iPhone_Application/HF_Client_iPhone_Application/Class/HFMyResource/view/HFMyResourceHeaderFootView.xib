@@ -34,7 +34,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-90-sWa">
-                    <rect key="frame" x="246" y="336" width="50" height="15"/>
+                    <rect key="frame" x="260" y="336" width="50" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="MQa-a9-96e"/>
                         <constraint firstAttribute="height" constant="15" id="OWq-Nd-A4t"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI1-D0-bsP">
-                    <rect key="frame" x="307" y="333.5" width="64" height="20"/>
+                    <rect key="frame" x="321" y="336" width="50" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="下发" image="my_source_sent_away">
@@ -60,7 +60,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-BZ-kMU">
-                    <rect key="frame" x="185" y="336" width="50" height="15"/>
+                    <rect key="frame" x="199" y="336" width="50" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="3qg-9b-yiY"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Ohn-AM-EwO"/>
@@ -82,8 +82,8 @@
             <constraints>
                 <constraint firstItem="ulz-Y2-wZD" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="5MB-w6-0Yz"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="GCZ-kN-eXZ"/>
-                <constraint firstItem="LI1-D0-bsP" firstAttribute="height" secondItem="64T-90-sWa" secondAttribute="height" constant="5" id="GDN-0S-YZ3"/>
-                <constraint firstItem="LI1-D0-bsP" firstAttribute="width" secondItem="64T-90-sWa" secondAttribute="width" constant="14" id="TvZ-rN-BH8"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="height" secondItem="64T-90-sWa" secondAttribute="height" id="GDN-0S-YZ3"/>
+                <constraint firstItem="LI1-D0-bsP" firstAttribute="width" secondItem="64T-90-sWa" secondAttribute="width" id="TvZ-rN-BH8"/>
                 <constraint firstItem="ulz-Y2-wZD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="XKH-mh-MOq"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Y6m-YU-xa9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f0w-du-2sg" secondAttribute="trailing" id="amz-rP-Yor"/>
@@ -98,6 +98,9 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="titleLabel" destination="f0w-du-2sg" id="nbX-Ak-4oi"/>
+                <outletCollection property="clickButtonArray" destination="LI1-D0-bsP" id="zBW-tW-ewS"/>
+                <outletCollection property="clickButtonArray" destination="64T-90-sWa" id="rTd-k2-oad"/>
+                <outletCollection property="clickButtonArray" destination="ID6-BZ-kMU" id="fXx-no-wUD"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

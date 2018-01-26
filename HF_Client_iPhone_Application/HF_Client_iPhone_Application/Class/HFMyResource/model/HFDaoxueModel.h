@@ -18,7 +18,10 @@
 @property (nonatomic, copy) NSString *resUrl;
 @property (nonatomic, copy) NSString *resType;
 @property (nonatomic, copy) NSString *resID;
+@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *fileUrl;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSString *classId;
 @property (nonatomic, assign) BOOL type;
 
 @end
