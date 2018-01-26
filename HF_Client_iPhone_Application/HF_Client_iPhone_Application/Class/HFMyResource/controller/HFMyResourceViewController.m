@@ -16,6 +16,7 @@
 #import "XMLReader.h"
 #import "HFDaoxueModel.h"
 #import "HFMySourcesDetailViewController.h"
+#import "MainTabViewController.h"
 
 @interface HFMyResourceViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout, GCDAsyncSocketDelegate, NSXMLParserDelegate, HFMyResourceCollectionViewCellDelegate, HFMyResourceHeaderFootViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
@@ -41,6 +42,8 @@
 {
     [super viewDidLoad];
     
+   
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFMyResourceCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
@@ -49,6 +52,19 @@
     [self setupLayout];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(isShowCoverImage) name: @"isShowCoverImage" object: nil];
+ 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    // 默认是连接错误的状态
+    self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
+    self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    MainTabViewController *mainVC = appDelegate.centerVC;
+    mainVC.tabBar.userInteractionEnabled = NO;
 }
 
 - (void)isShowCoverImage
@@ -56,10 +72,15 @@
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    MainTabViewController *mainVC = appDelegate.centerVC;
+    mainVC.tabBar.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
 - (void)loadData
 {
+    
     WebServiceModel *model = [WebServiceModel new];
     self.model = model;
     self.model.method = @"GetDaoXueRenWuByTpID";
@@ -72,10 +93,11 @@
         url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     }
     [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
+        
         [responseObject setDelegate:self];
-                [responseObject parse];
-                NSLog(@"我的资源请求结果成功");
-                [self loadClassData];
+        [responseObject parse];
+        NSLog(@"我的资源请求结果成功");
+        [self loadClassData];
     } failure:^(NSError *error) {
         NSLog(@"我的资源  请求结果失败");
     }];

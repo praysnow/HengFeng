@@ -53,21 +53,16 @@
     BOOL state = [self.socket isConnected];
     if (state) {
         NSLog(@"socket 已连接");
-    
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            if (@available(iOS 10.0, *)) {
-                [self sendLoginInfo];
-                [self sendCheckStatus];
-                
-                // 开启定时器
-                self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
-                    [self headSocketInfoSent];
-                }];
-                [self sendCtrolMessage: @[@"111"]];
-            } else {
-            }
-        });
+        
+        [self sendLoginInfo];
+        [self sendCheckStatus];
+        
+        // 开启定时器
+        self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
+            [self headSocketInfoSent];
+        }];
+        [self sendCtrolMessage: @[@"111"]];
+        
     }else{
         NSLog(@"socket 没有连接");
     }
@@ -86,15 +81,11 @@
 {
     BOOL state = [sock isConnected];   // 判断当前socket的连接状态
     self.isSocketed = state;
-//    NSLog(@"连接状态: %d",state);
-//    if (!state) {
-////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-////            [self socketConnectHost];
-////        });
-//        NSLog(@"增加遮罩");
-//    } else {
-//        NSLog(@"通知UI改变移除");
-//    }
+    
+    // 停掉定时器
+    if ([self.timer isValid]) {
+        [self.timer  invalidate];
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     if (self.userData == SocketOfflineByServer) {
@@ -179,6 +170,8 @@
     [mutableData appendData: steamIdData];
     [mutableData appendData: bodyData];
     [self.socket writeData: mutableData withTimeout:-1 tag:0];
+    
+
 }
 
 - (void)teacherSendingSocket:(Byte)body
