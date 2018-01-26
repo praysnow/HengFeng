@@ -349,6 +349,12 @@
     if(models.count > 0){
         HFStudentArrayModel *data = models[0];
         model.point = data.point;
+        
+        NSString *message = [NSString stringWithFormat:@"stu_unfirst&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[sendGroupScoreToTeacher,message]];
+    }else{
+        NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[sendGroupScoreToTeacher,message]];
     }
     model.point += point;
     

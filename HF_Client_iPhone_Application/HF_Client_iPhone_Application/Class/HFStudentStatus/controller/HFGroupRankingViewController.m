@@ -29,6 +29,8 @@ static NSString *ID = @"ID";
     [self initUI];
     
     [self getData];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[getEvaluateRank]];
 
 }
 
