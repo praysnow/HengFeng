@@ -223,6 +223,7 @@
                     object.resName = [dictionary objectForKey: @"resName"];
                     object.resUrl = [dictionary objectForKey: @"resUrl"];
                     object.resType = [dictionary objectForKey: @"resType"];
+                    object.fileUrl = [dictionary objectForKey: @"fileUrl"];
                     object.resID = [dictionary objectForKey: @"resID"];
                     object.image = [dictionary objectForKey: @"image"];
                     object.Dxa_Name = [dictionary objectForKey: @"fileName"];
