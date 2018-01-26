@@ -10,8 +10,6 @@
 
 @interface ZSVerticalButton ()
 
-@property (nonatomic, strong) UIView *pointView;
-
 @end
 
 @implementation ZSVerticalButton
@@ -23,25 +21,18 @@
 
 - (void)setup
 {
-//    self.hfTitleLabel.text = self.titleLabel.text;
-//    self.titleLabel.frame = CGRectMake(0, self.imageView.bottom + 20, self.width, 40);
-    [self addSubview: self.hfTitleLabel];
-//    self.titleLabel.x = self.x;
-//    self.titleLabel.width = self.width;
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.font = [UIFont systemFontOfSize: 16];
-//    [self.titleLabel sizeToFit];
-    self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - 25, 25, 20, 20)];
+    self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - FLEXIBLE_WIDTH(35), FLEXIBLE_HEIGHT(25), FLEXIBLE_WIDTH(20), FLEXIBLE_WIDTH(20))];
     self.pointView.hidden = YES;
     self.pointView.backgroundColor = [UIColor redColor];
     self.pointView.layer.masksToBounds = YES;
+        [self addSubview: self.pointView];
     self.pointView.layer.cornerRadius = self.pointView.width / 2;
-    [self addSubview: self.pointView];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+//        [self setup];
     }
     return self;
 }
@@ -50,13 +41,16 @@
 {
     [super awakeFromNib];
     
+    [self setup];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self setup];
+    [self addSubview: self.hfTitleLabel];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont systemFontOfSize: 16];
     // 调整图片
     self.imageView.x = self.x;
     self.imageView.y = (self.height - self.imageView.height) * 0.5 - 5;

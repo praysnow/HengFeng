@@ -80,7 +80,6 @@
 
 - (void)loadData
 {
-    
     WebServiceModel *model = [WebServiceModel new];
     self.model = model;
     self.model.method = @"GetDaoXueRenWuByTpID";
@@ -92,6 +91,7 @@
         model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
         url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     }
+    
     [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
         [self removeAllObject];
         [responseObject setDelegate:self];
@@ -296,6 +296,7 @@
     }
     HFMyResourceCollectionViewCell *cell = (HFMyResourceCollectionViewCell *)[collectionView cellForItemAtIndexPath: indexPath];
     self.object = cell.object;
+    self.selectedIndex = indexPath.row;
     cell.contentView.layer.borderColor = UICOLOR_ARGB(0xff53baa6).CGColor;
 }
 
@@ -371,7 +372,7 @@
         HFMyResourceHeaderFootView *headerFooterView = [collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier: @"HeaderView" forIndexPath: indexPath];
                 headerFooterView.delegate = self;
         if (indexPath.section == 1) {
-            headerFooterView.titleLabel.text = @"导学堂";
+            headerFooterView.titleLabel.text = @"课时素材";
         } else {
             headerFooterView.titleLabel.text = @"导学案";
         }
