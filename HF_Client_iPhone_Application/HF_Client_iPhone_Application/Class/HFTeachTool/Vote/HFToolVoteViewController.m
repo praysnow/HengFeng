@@ -10,6 +10,8 @@
 
 @interface HFToolVoteViewController ()
 
+@property (nonatomic,strong) UIImageView *coverImageView;
+
 @end
 
 @implementation HFToolVoteViewController
@@ -19,13 +21,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"教学工具-投票";
-    [self showBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
     
+    self.coverImageView.hidden = NO;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND_VOTE]];
 }
 
@@ -64,5 +66,17 @@
     }
 }
 
+- (UIImageView *)coverImageView
+{
+    if (!_coverImageView) {
+        _coverImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"尚未投票"]];
+        _coverImageView.contentMode = UIViewContentModeCenter;
+        _coverImageView.backgroundColor = [UIColor whiteColor];
+        _coverImageView.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 60);
+        [self.view addSubview: _coverImageView];
+        _coverImageView.hidden = YES;
+    }
+    return _coverImageView;
+}
 
 @end

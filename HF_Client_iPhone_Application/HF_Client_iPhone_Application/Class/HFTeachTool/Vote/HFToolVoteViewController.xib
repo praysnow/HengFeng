@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,68 +38,85 @@
                                 <constraint firstAttribute="height" constant="0.5" id="9Zj-Wv-jZh"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwo-92-qrd">
-                            <rect key="frame" x="94" y="1" width="93.5" height="59"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <state key="normal" title="启用多选">
-                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhF-tR-XDO">
+                            <rect key="frame" x="300" y="1" width="75" height="59"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-20" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16.5" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="结束投票" image="结束投票">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <connections>
-                                <action selector="tappedToolButton:" destination="-1" eventType="touchUpInside" id="1R3-qj-3tn"/>
-                            </connections>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3Q-EQ-kwA">
-                            <rect key="frame" x="281.5" y="1" width="93.5" height="59"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <state key="normal" title="结束投票">
-                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIu-Oz-Krs">
+                            <rect key="frame" x="225" y="0.0" width="75" height="60"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-20" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16.5" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="开始投票" image="开始投票">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <connections>
-                                <action selector="tappedToolButton:" destination="-1" eventType="touchUpInside" id="R0p-ZI-atu"/>
-                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aza-Ki-zbO">
-                            <rect key="frame" x="0.0" y="1" width="94" height="59"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="启用单选">
-                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uA8-Ji-ttS">
+                            <rect key="frame" x="299" y="1" width="1" height="59"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="jja-Zq-uok"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-Hi-W4b">
+                            <rect key="frame" x="224" y="1" width="1" height="59"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="2fa-aL-A14"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wz-E9-dHR">
+                            <rect key="frame" x="75" y="1" width="1" height="59"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="1i7-bS-jx4"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46v-TL-drh">
+                            <rect key="frame" x="120" y="15" width="67" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6h-g9-9RU">
+                            <rect key="frame" x="0.0" y="1" width="75" height="59"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-20" minY="30" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="16.5" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="单选题" image="开始投票">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <connections>
-                                <action selector="tappedToolButton:" destination="-1" eventType="touchUpInside" id="gbe-jn-uSE"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-6f-PrU">
-                            <rect key="frame" x="187.5" y="1" width="94" height="59"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <state key="normal" title="开始投票">
-                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="tappedToolButton:" destination="-1" eventType="touchUpInside" id="ygc-QL-B79"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="aza-Ki-zbO" secondAttribute="bottom" id="2U0-de-vap"/>
-                        <constraint firstItem="hwo-92-qrd" firstAttribute="leading" secondItem="aza-Ki-zbO" secondAttribute="trailing" id="8Hz-5m-GVT"/>
+                        <constraint firstItem="rhF-tR-XDO" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="16K-o7-rTD"/>
+                        <constraint firstItem="0Wz-E9-dHR" firstAttribute="leading" secondItem="t6h-g9-9RU" secondAttribute="trailing" id="2KW-FD-95L"/>
+                        <constraint firstAttribute="bottom" secondItem="uA8-Ji-ttS" secondAttribute="bottom" id="4lB-Hv-4fE"/>
+                        <constraint firstItem="rhF-tR-XDO" firstAttribute="width" secondItem="cyi-4E-ohF" secondAttribute="width" multiplier="0.2" id="4w0-ZE-KkN"/>
+                        <constraint firstItem="QD5-Hi-W4b" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="6g4-c5-zuv"/>
+                        <constraint firstItem="t6h-g9-9RU" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="7mZ-0Z-wco"/>
                         <constraint firstItem="kQU-CH-Cvn" firstAttribute="top" secondItem="cyi-4E-ohF" secondAttribute="top" id="9HQ-F3-HMH"/>
-                        <constraint firstItem="aza-Ki-zbO" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="AIk-oJ-fz9"/>
+                        <constraint firstItem="t6h-g9-9RU" firstAttribute="leading" secondItem="cyi-4E-ohF" secondAttribute="leading" id="9TU-hG-cyd"/>
                         <constraint firstItem="kQU-CH-Cvn" firstAttribute="leading" secondItem="cyi-4E-ohF" secondAttribute="leading" id="Bww-1T-NCh"/>
-                        <constraint firstItem="K3Q-EQ-kwA" firstAttribute="centerY" secondItem="aza-Ki-zbO" secondAttribute="centerY" id="FkL-c5-k4e"/>
-                        <constraint firstItem="aza-Ki-zbO" firstAttribute="leading" secondItem="cyi-4E-ohF" secondAttribute="leading" id="FqO-O9-ozV"/>
-                        <constraint firstItem="hwo-92-qrd" firstAttribute="height" secondItem="aza-Ki-zbO" secondAttribute="height" id="Jjc-vb-aU1"/>
-                        <constraint firstItem="XYo-6f-PrU" firstAttribute="leading" secondItem="hwo-92-qrd" secondAttribute="trailing" id="JyI-5v-58x"/>
-                        <constraint firstItem="XYo-6f-PrU" firstAttribute="height" secondItem="aza-Ki-zbO" secondAttribute="height" id="KU7-fv-NXS"/>
-                        <constraint firstItem="hwo-92-qrd" firstAttribute="width" secondItem="aza-Ki-zbO" secondAttribute="width" id="LbA-fz-bDh"/>
-                        <constraint firstItem="K3Q-EQ-kwA" firstAttribute="leading" secondItem="XYo-6f-PrU" secondAttribute="trailing" id="cbc-Yb-WW4"/>
+                        <constraint firstAttribute="bottom" secondItem="rhF-tR-XDO" secondAttribute="bottom" id="FRC-Rp-HqE"/>
+                        <constraint firstItem="rhF-tR-XDO" firstAttribute="leading" secondItem="aIu-Oz-Krs" secondAttribute="trailing" id="Hbp-Ox-5an"/>
+                        <constraint firstItem="aIu-Oz-Krs" firstAttribute="top" secondItem="cyi-4E-ohF" secondAttribute="top" id="Hka-bY-SSW"/>
+                        <constraint firstItem="0Wz-E9-dHR" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="J5I-Gy-yID"/>
+                        <constraint firstItem="aIu-Oz-Krs" firstAttribute="leading" secondItem="QD5-Hi-W4b" secondAttribute="trailing" id="Jgo-fL-FAl"/>
+                        <constraint firstAttribute="bottom" secondItem="aIu-Oz-Krs" secondAttribute="bottom" id="LGL-Te-Pys"/>
+                        <constraint firstItem="rhF-tR-XDO" firstAttribute="leading" secondItem="uA8-Ji-ttS" secondAttribute="trailing" id="OkL-ao-Kvz"/>
+                        <constraint firstAttribute="bottom" secondItem="0Wz-E9-dHR" secondAttribute="bottom" id="U2b-H9-53a"/>
+                        <constraint firstAttribute="bottom" secondItem="QD5-Hi-W4b" secondAttribute="bottom" id="UFB-fP-kIj"/>
+                        <constraint firstItem="uA8-Ji-ttS" firstAttribute="top" secondItem="kQU-CH-Cvn" secondAttribute="bottom" id="XTX-ph-68u"/>
+                        <constraint firstItem="aIu-Oz-Krs" firstAttribute="width" secondItem="rhF-tR-XDO" secondAttribute="width" id="Xct-m0-Ka8"/>
+                        <constraint firstItem="t6h-g9-9RU" firstAttribute="width" secondItem="rhF-tR-XDO" secondAttribute="width" id="eVg-jI-obR"/>
                         <constraint firstAttribute="trailing" secondItem="kQU-CH-Cvn" secondAttribute="trailing" id="fkJ-X5-dZm"/>
-                        <constraint firstItem="K3Q-EQ-kwA" firstAttribute="height" secondItem="aza-Ki-zbO" secondAttribute="height" id="hcb-PT-WG7"/>
-                        <constraint firstItem="XYo-6f-PrU" firstAttribute="width" secondItem="aza-Ki-zbO" secondAttribute="width" id="msU-jd-1mx"/>
-                        <constraint firstItem="XYo-6f-PrU" firstAttribute="centerY" secondItem="aza-Ki-zbO" secondAttribute="centerY" id="q2b-qZ-ayo"/>
-                        <constraint firstItem="K3Q-EQ-kwA" firstAttribute="width" secondItem="aza-Ki-zbO" secondAttribute="width" id="qG6-cg-BzH"/>
-                        <constraint firstAttribute="trailing" secondItem="K3Q-EQ-kwA" secondAttribute="trailing" id="rPe-fg-vqj"/>
-                        <constraint firstItem="hwo-92-qrd" firstAttribute="centerY" secondItem="aza-Ki-zbO" secondAttribute="centerY" id="vTC-TZ-N5T"/>
+                        <constraint firstAttribute="trailing" secondItem="rhF-tR-XDO" secondAttribute="trailing" id="hf1-Wr-IGv"/>
+                        <constraint firstAttribute="bottom" secondItem="t6h-g9-9RU" secondAttribute="bottom" id="iR3-6S-2dS"/>
                         <constraint firstAttribute="height" constant="60" id="xn7-GV-hmN"/>
                     </constraints>
                 </view>
@@ -186,4 +204,8 @@
             <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="开始投票" width="22" height="21"/>
+        <image name="结束投票" width="22" height="22"/>
+    </resources>
 </document>

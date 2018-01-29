@@ -64,18 +64,21 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     MainTabViewController *mainVC = appDelegate.centerVC;
-    mainVC.tabBar.userInteractionEnabled = NO;
+    mainVC.tabBar.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
 - (void)isShowCoverImage
 {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    MainTabViewController *mainVC = appDelegate.centerVC;
+    mainVC.selectedIndex = 0;
+    mainVC.tabBar.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
+    
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
     
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    MainTabViewController *mainVC = appDelegate.centerVC;
-    mainVC.tabBar.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
+   
 }
 
 - (void)loadData

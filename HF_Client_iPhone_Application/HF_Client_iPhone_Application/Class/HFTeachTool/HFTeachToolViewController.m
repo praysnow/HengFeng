@@ -147,7 +147,7 @@
                 break;
             case 1:
             {
-                //            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
+                //  [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
                 sender.selected = !sender.selected;
                 if (sender.selected) {
                     [self setUpShowStatus: @"停止教学分享" andDetail: @"教学分享中..."];
