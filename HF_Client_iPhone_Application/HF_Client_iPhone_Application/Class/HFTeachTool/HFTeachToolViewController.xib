@@ -15,6 +15,15 @@
                 <outlet property="statusLabel" destination="isa-be-Iej" id="7he-bZ-dPb"/>
                 <outlet property="stopButton" destination="vEe-AL-7S4" id="Gbp-46-z33"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="buttonArray" destination="v5C-jh-3cO" id="quT-Ai-v6x"/>
+                <outletCollection property="buttonArray" destination="cJL-Hr-T3t" id="Uqt-Dq-JNT"/>
+                <outletCollection property="buttonArray" destination="AnW-hQ-BmC" id="yTp-Zk-oEU"/>
+                <outletCollection property="buttonArray" destination="Iap-3C-SPI" id="Rvy-zZ-4Rj"/>
+                <outletCollection property="buttonArray" destination="s7S-0Z-HUz" id="icy-Mm-gYG"/>
+                <outletCollection property="buttonArray" destination="deq-AT-Aev" id="ytu-ue-1tN"/>
+                <outletCollection property="buttonArray" destination="deL-fh-Z33" id="WGu-L2-dfQ"/>
+                <outletCollection property="buttonArray" destination="Dfa-Cc-9Tp" id="ZJn-t1-F5z"/>
+                <outletCollection property="buttonArray" destination="ly6-lr-kaE" id="tvQ-6m-Ucj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

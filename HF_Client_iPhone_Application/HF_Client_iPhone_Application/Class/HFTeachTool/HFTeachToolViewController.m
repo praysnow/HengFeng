@@ -16,12 +16,11 @@
 #import "HFTeachToolLiveViewController.h"
 #import "HFFileUploadViewController.h"
 
-
 @interface HFTeachToolViewController ()
 
 @property (nonatomic, assign) BOOL isBuzing;
+@property (nonatomic, assign) BOOL allowClick;
 @property (strong, nonatomic) IBOutletCollection(ZSVerticalButton) NSArray *buttonArray;
-
 
 @end
 
@@ -35,8 +34,6 @@
     self.stopButton.layer.cornerRadius = self.stopButton.height / 2;
     
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(changeTescherStatus) name: CHANGE_TEACHER_STATUS object: nil];
-    
-   
 }
 
 
@@ -47,8 +44,31 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 
+//是否可以点击
+
+- (BOOL)allowClick:(ZSVerticalButton *)button
+{
+    self.allowClick = YES;
+    //判断是否为锁屏
+    for (ZSVerticalButton *themButton in self.buttonArray)
+    {
+        if (themButton.selected == YES && themButton.tag != 2) {
+            self.allowClick = NO;
+        }
+    }
+    if (button.selected) {
+            self.allowClick = YES;
+    }
+    if (button.tag == 2) {
+        self.allowClick = YES;
+    }
+   
+    return self.allowClick;
+}
+
 - (void)changeTescherStatus
 {
+    
     for (ZSVerticalButton *button in self.buttonArray) {
         switch (button.tag) {
             case 0:
@@ -118,94 +138,101 @@
 
 - (void)changeButtonStatus:(ZSVerticalButton *)sender
 {
-    switch (sender.tag) {
-        case 0:
-        {
-            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFToolVoteViewController) animated: YES];
-        }
-            break;
-        case 1:
-        {
-//            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
-            sender.selected = !sender.selected;
-            if (sender.selected) {
-                [self setUpShowStatus: @"停止教学分享" andDetail: @"教学分享中..."];
-            } else {
-                [self setUpShowStatus: nil andDetail: nil];
+    if ([self allowClick: sender]) {
+        switch (sender.tag) {
+            case 0:
+            {
+                [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFToolVoteViewController) animated: YES];
             }
-        }
-            break;
-        case 2:
-        {
-            sender.selected = !sender.selected;
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
-            if (sender.selected) {
-                [self setUpShowStatus: @"解锁" andDetail: @"锁屏中..."];
-            } else {
-                [self setUpShowStatus: nil andDetail: nil];
+                break;
+            case 1:
+            {
+                //            [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeachShareViewController) animated: YES];
+                sender.selected = !sender.selected;
+                if (sender.selected) {
+                    [self setUpShowStatus: @"停止教学分享" andDetail: @"教学分享中..."];
+                } else {
+                    [self setUpShowStatus: nil andDetail: nil];
+                }
             }
-        }
-            break;
-        case 3:
-        {
-            NSLog(@"录屏");
-            sender.selected = !sender.selected;
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? START_RECORDING : END_RECORDING]];
-            if (sender.selected) {
-                [self setUpShowStatus: @"停止录屏" andDetail: @"录屏中..."];
-            } else {
-                [self setUpShowStatus: nil andDetail: nil];
+                break;
+            case 2:
+            {
+                sender.selected = !sender.selected;
+                [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
+                if (sender.selected) {
+                    [self setUpShowStatus: @"解锁" andDetail: @"锁屏中..."];
+                } else {
+                    [self setUpShowStatus: nil andDetail: nil];
+                }
             }
-        }
-            break;
-        case 4:
-        {
-            sender.selected = !sender.selected;
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_ASK_RANDOM : START_ASK_RANDOM]];
-            if (sender.selected) {
-                [self setUpShowStatus: @"停止" andDetail: @"随机提问中..."];
-            } else {
-                [self setUpShowStatus: nil andDetail: nil];
+                break;
+            case 3:
+            {
+                NSLog(@"录屏");
+                sender.selected = !sender.selected;
+                [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? START_RECORDING : END_RECORDING]];
+                if (sender.selected) {
+                    [self setUpShowStatus: @"停止录屏" andDetail: @"录屏中..."];
+                } else {
+                    [self setUpShowStatus: nil andDetail: nil];
+                }
             }
-        }
-            break;
-        case 5:
-        {
-            sender.selected = !sender.selected;
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_AWSER : START_AWSER]];
-            if (sender.selected) {
-                [self setUpShowStatus: @"停止" andDetail: @"抢答中..."];
-            } else {
-                [self setUpShowStatus: nil andDetail: nil];
+                break;
+            case 4:
+            {
+                sender.selected = !sender.selected;
+                [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_ASK_RANDOM : START_ASK_RANDOM]];
+                if (sender.selected) {
+                    [self setUpShowStatus: @"停止" andDetail: @"随机提问中..."];
+                } else {
+                    [self setUpShowStatus: nil andDetail: nil];
+                }
             }
+                break;
+            case 5:
+            {
+                sender.selected = !sender.selected;
+                [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_AWSER : START_AWSER]];
+                if (sender.selected) {
+                    [self setUpShowStatus: @"停止" andDetail: @"抢答中..."];
+                } else {
+                    [self setUpShowStatus: nil andDetail: nil];
+                }
+            }
+                break;
+            case 6:
+            {
+                NSLog(@"移动直播");
+                HFTeachToolLiveViewController *vc = [[HFTeachToolLiveViewController alloc] init];
+                [self.navigationController pushViewController: vc animated: YES];
+            }
+                break;
+            case 7:
+            {
+                NSLog(@"文件上传");
+                HFFileUploadViewController *vc = [HFFileUploadViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }
+                break;
+            case 8:
+            {
+                HFPPTViewController *vc = [[HFPPTViewController alloc] init];
+                //            [self.navigationController pushViewController: vc animated: YES];
+                [self presentViewController:vc animated:YES completion:nil];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case 6:
-        {
-            NSLog(@"移动直播");
-            HFTeachToolLiveViewController *vc = [[HFTeachToolLiveViewController alloc] init];
-            [self.navigationController pushViewController: vc animated: YES];
+        if ([sender respondsToSelector: @selector(isShowPointView:)]) {
+            [sender isShowPointView: !sender.selected];
         }
-            break;
-        case 7:
-        {
-            NSLog(@"文件上传");
-            HFFileUploadViewController *vc = [HFFileUploadViewController new];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-            break;
-        case 8:
-        {
-            HFPPTViewController *vc = [[HFPPTViewController alloc] init];
-//            [self.navigationController pushViewController: vc animated: YES];
-            [self presentViewController:vc animated:YES completion:nil];
-        }
-            break;
-        default:
-            break;
+        self.allowClick = NO;
+    } else {
+        [HF_MBPregress showMessag: @"请先结束上一个指令"];
     }
-    [sender isShowPointView: !sender.selected];
 }
 
 - (void)setUpShowStatus:(NSString *)title andDetail:(NSString *)detail
