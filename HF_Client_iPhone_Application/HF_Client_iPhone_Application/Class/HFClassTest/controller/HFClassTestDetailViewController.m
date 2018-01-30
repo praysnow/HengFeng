@@ -48,7 +48,9 @@
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetClassExamByTpID";
     NSString *url = nil;
-    model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+    if ([HFCacheObject shardence].courseId.length > 0) {
+         model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
+    }
     url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
         [responseObject setDelegate:self];
