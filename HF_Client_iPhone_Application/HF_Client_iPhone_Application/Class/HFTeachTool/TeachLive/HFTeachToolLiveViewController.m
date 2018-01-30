@@ -68,11 +68,15 @@
     [backButton setTitle: @"<" forState: UIControlStateNormal];
     self.backButton = backButton;
 
-    UIButton *stopButton = [[UIButton alloc] initWithFrame: CGRectMake(SCREEN_WIDTH / 2 - 80,  SCREEN_HEIGHT - 80 - 20, 80 + 40 + 20, 40)];
+    UIButton *stopButton = [[UIButton alloc] initWithFrame: CGRectMake(0,  SCREEN_HEIGHT - 80 - 20, 80, 80)];
+    stopButton.x = SCREEN_WIDTH / 2;
     [stopButton addTarget: self action: @selector(closeLive:) forControlEvents: UIControlEventTouchUpInside];
-    stopButton.backgroundColor = [UIColor greenColor];
+    stopButton.backgroundColor = [UIColor clearColor];
+    stopButton.layer.masksToBounds = YES;
+    stopButton.layer.cornerRadius = stopButton.height / 2;
     self.stopButton = stopButton;
-    [stopButton setTitle: @"关闭" forState: UIControlStateNormal];
+    [self.stopButton setImage: [UIImage imageNamed: @"start_live"] forState: UIControlStateNormal];
+    [self.stopButton setImage: [UIImage imageNamed: @"end_live"] forState: UIControlStateSelected];
     
     [self.backView addSubview: openLight];
     [self.backView addSubview: switchButton];
@@ -104,8 +108,6 @@
         [[HFSocketService sharedInstance] sendCtrolMessage: @[END_LIVE]];
         [_txLivePush stopPush];
     }
-    [self.stopButton setTitle: @"开始" forState: UIControlStateNormal];
-    [self.stopButton setTitle: @"关闭" forState: UIControlStateSelected];
     sender.selected = !sender.selected;
 }
 

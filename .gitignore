@@ -17,6 +17,10 @@ DerivedData
 .idea/
 *.hmap
 
+ HF_Client_iPhone_Application/Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.release.xcconfig
+HF_Client_iPhone_Application/Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application.debug.xcconfig
+HF_Client_iPhone_Application/HF_Client_iPhone_Application.xcworkspace/xcuserdata/Caesar.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist:wq
+
 # Injection Plugin for Xcode
 iOSInjectionProject
 
