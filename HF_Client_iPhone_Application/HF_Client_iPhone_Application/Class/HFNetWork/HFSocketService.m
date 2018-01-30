@@ -120,7 +120,7 @@
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
     
-    NSLog(@"发送socket命令   %@",string);
+//    NSLog(@"发送socket命令   %@",string);
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
@@ -217,6 +217,8 @@
      NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
     NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
+//    char* a=[data bytes];
+//    NSString * string = [NSString stringWithUTF8String::@"a];
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
@@ -239,13 +241,37 @@
         if ([receviedAsiiMessage containsString: @"}43{"]) {
             [self revieveCaptureImageUrl: receviedAsiiMessage];
         }
+    if ([receviedAsiiMessage containsString: @"CommandCode="]) {
+        [self responseXmlStatsWith: receviedAsiiMessage];
+    }
     
-    if ([receviedMessage containsString: @"LockScreen"]) {
-        [self lockScreen];
-    } else if ([receviedMessage containsString: @"unLockScreen"])
-    {
-        NSLog(@"解除锁屏");
-    } else if ([receviedMessage containsString: @"XmlServerState"]) {
+    if ([receviedAsiiMessage containsString: @"LockScreen"]) {
+        [self responseXmlStatsWith: receviedAsiiMessage];
+    }
+    if ([receviedAsiiMessage containsString: @"CommandCode=\"EndBrocastDesktop"] || [receviedAsiiMessage containsString: @"CommandCode=\"BrocastDesktop"]) {
+//        BOOL change = [HFCacheObject shardence].BrocastDesktop;
+        if ([receviedAsiiMessage containsString: @"BrocastDesktop"] && ![receviedAsiiMessage containsString: @"EndBrocastDesktop"]) {
+            [HFCacheObject shardence].BrocastDesktop = YES;
+            NSLog(@"屏幕广播开始");
+        } else if ([receviedAsiiMessage containsString: @"EndBrocastDesktop"]){
+            [HFCacheObject shardence].BrocastDesktop = NO;
+            NSLog(@"屏幕广播没有开始");
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
+    }
+    if ([receviedAsiiMessage containsString: @"CommandCode=\"BeginRacing"] || [receviedAsiiMessage containsString: @"CommandCode=\"EndRacing"]) {
+        //        BOOL change = [HFCacheObject shardence].BrocastDesktop;
+        if ([receviedAsiiMessage containsString: @"BeginRacing"]) {
+            [HFCacheObject shardence].Racing = YES;
+            NSLog(@"开始抢答");
+        } else if ([receviedAsiiMessage containsString: @"EndRacing"]){
+            [HFCacheObject shardence].Racing = NO;
+            NSLog(@"停止抢答");
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
+    }
+    
+     if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
 //    else if ([receviedMessage containsString: @"SendToCtrl"]) {
@@ -346,7 +372,9 @@
 //    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<MicroClassInfo />" andEndString: @"</ClassName>"];
     [HFCacheObject shardence].isCanQuit = [HFUtils regulexFromString: data andStartString: @"<IsCanQuit>" andEndString: @"</IsCanQuit>"];
     [HFCacheObject shardence].iosLookScreen = [HFUtils regulexFromString: data andStartString: @"<IsLookScreen>" andEndString: @"</IsLookScreen>"];
+    [HFCacheObject shardence].isLockScreen = [data containsString: @"True"] ? true:false;
     [HFCacheObject shardence].voteMsg = [HFUtils regulexFromString: data andStartString: @"<VoteMsg>" andEndString: @"<VoteMsg />"];
+    [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
 //    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
 //    xmlData.delegate = self;
 //    [xmlData parse];

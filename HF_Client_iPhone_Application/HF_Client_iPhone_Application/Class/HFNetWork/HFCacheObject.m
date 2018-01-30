@@ -148,37 +148,31 @@
 - (void)setPaperInfo:(NSString *)paperInfo
 {
     _paperInfo = paperInfo;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"paperInfo" object: nil];
 }
 
 - (void)setPadViewImageMsg:(NSString *)padViewImageMsg
 {
     _padViewImageMsg = padViewImageMsg;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"padViewImageMsg" object: nil];
 }
 
 - (void)setGuidedLearningInfo:(NSString *)guidedLearningInfo
 {
     _guidedLearningInfo = guidedLearningInfo;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"guidedLearningInfo" object: nil];
 }
 
 - (void)setMicroClassInfo:(NSString *)microClassInfo
 {
     _microClassInfo = microClassInfo;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"microClassInfo" object: nil];
 }
 
 - (void)setIosLookScreen:(NSString *)iosLookScreen
 {
     _iosLookScreen = iosLookScreen;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"iosLookScreen" object: nil];
 }
 
 - (void)setVoteMsg:(NSString *)voteMsg
 {
     _voteMsg = voteMsg;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"voteMsg" object: nil];
 }
 
 - (void)setImageUrl:(NSString *)imageUrl

@@ -47,8 +47,11 @@
 @property (nonatomic, copy) NSString *microClassInfo;
 @property (nonatomic, copy) NSString *isCanQuit;
 @property (nonatomic, copy) NSString *iosLookScreen;
+@property (nonatomic, assign) BOOL isLockScreen;
 @property (nonatomic, copy) NSString *voteMsg;
 @property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, assign) BOOL BrocastDesktop;
+@property (nonatomic, assign) BOOL Racing;
 @property (nonatomic, strong) NSMutableArray<HFStudentModel *> *studentArray;
 
 //学生提交的数据
