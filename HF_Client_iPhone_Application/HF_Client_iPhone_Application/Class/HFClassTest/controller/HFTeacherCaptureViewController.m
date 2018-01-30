@@ -122,7 +122,7 @@
                           self.tkImageView.toCropImage = image;
                           [HF_MBPregress hide_mbpregress];
                       }];
-    //    [MBProgressHUD hideHUDForView: self.view animated: YES];
+        [MBProgressHUD hideHUDForView: self.view animated: YES];
 }
 
 #pragma mark - Tapped
@@ -145,7 +145,7 @@
 
 - (IBAction)captureScreen:(UIButton *)sender
 {
-//    [HF_MBPregress mbpregress];
+    [HF_MBPregress mbpregress];
     self.tkImageView.hidden = YES;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[SCREEN_CAPTURE]];
 }

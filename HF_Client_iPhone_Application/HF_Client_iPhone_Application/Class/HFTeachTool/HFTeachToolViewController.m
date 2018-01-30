@@ -93,7 +93,7 @@
 
 - (IBAction)lockButton:(ZSVerticalButton *)sender {
     NSLog(@"锁屏");
-//    [MBProgressHUD showHUDAddedTo: self.view animated: YES];
+    [MBProgressHUD showHUDAddedTo: self.view animated: YES];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? UNLOCK_SCREEN : LOCK_SCREEN]];
 }
 
@@ -116,7 +116,7 @@
 
 - (IBAction)fastAnswerButton:(ZSVerticalButton *)sender {
     NSLog(@"抢答");
-//    [MBProgressHUD showHUDAddedTo: self.view animated: YES];
+    [MBProgressHUD showHUDAddedTo: self.view animated: YES];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_AWSER : START_AWSER]];
 }
 
