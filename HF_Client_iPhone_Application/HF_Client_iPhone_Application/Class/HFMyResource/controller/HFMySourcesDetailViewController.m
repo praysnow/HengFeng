@@ -33,6 +33,8 @@
 
 @implementation HFMySourcesDetailViewController
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,6 +52,9 @@
     } else {
         [self gz_loadData];
     }
+    
+    // 默认是-1
+    self.selectedIndex = -1;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -226,25 +231,7 @@
     }
 }
 
-- (IBAction)sendAway:(UIButton *)sender
-{
-    if (self.listData.count > self.selectedIndex) {
-        HFDaoxueDetailObject *object = [HFDaoxueDetailObject new];
-        NSDictionary *dictionary = self.listData[self.selectedIndex];
-        object.typeName = [dictionary objectForKey: @"typeName"];
-        if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]) {
-            HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
-            configueView.delegate = self;
-            self.configueView = configueView;
-            configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-            configueView.layer.masksToBounds = YES;
-            [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
-        } else {
-            NSLog(@"下发导学案");
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
-        }
-    }
-}
+
 
 - (void)limitTimeSend:(NSString *)count
 {
@@ -265,11 +252,46 @@
 //查看详情
 - (IBAction)startingResource:(UIButton *)sender
 {
-    if (self.listData.count < self.selectedIndex) return;
-    HFWebViewController *webView = [[HFWebViewController alloc] init];
-    NSDictionary *dictioanry = self.listData[self.selectedIndex];
-    webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
-    [self.navigationController pushViewController: webView animated: YES];
+    NSLog(@"下发");
+    if(self.selectedIndex == -1){
+        [self showText:@"请选择一个资源"];
+        return;
+    }
+    
+//    [[HFSocketService sharedInstance] sendCtrolMessage:@[GET_INFO_CLASS,@"",@(self.selectedIndex),@"",@1]];
+    
+        if (self.listData.count > self.selectedIndex) {
+            
+            HFDaoxueDetailObject *object = [HFDaoxueDetailObject new];
+            NSDictionary *dictionary = self.listData[self.selectedIndex];
+            object.typeName = [dictionary objectForKey: @"typeName"];
+            if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]) {
+                HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
+                configueView.delegate = self;
+                self.configueView = configueView;
+                configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+                configueView.layer.masksToBounds = YES;
+                [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+            } else {
+                NSLog(@"下发导学案");
+                [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+            }
+        }
+    
+//    if (self.listData.count < self.selectedIndex) return;
+//    HFWebViewController *webView = [[HFWebViewController alloc] init];
+//    NSDictionary *dictioanry = self.listData[self.selectedIndex];
+//    webView.url = [NSString stringWithFormat: @"%@%@", HOST, [dictioanry objectForKey: @"showUrl"]];
+//    [self.navigationController pushViewController: webView animated: YES];
+}
+
+- (IBAction)sendAway:(UIButton *)sender
+{
+    NSLog(@"停止");
+    
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
+    
+
 }
 
 - (NSMutableArray *)listData

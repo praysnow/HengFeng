@@ -34,6 +34,8 @@
 @property (nonatomic, copy) NSMutableString *daoxueString;
 @property (nonatomic, strong) WebServiceModel *model;
 
+@property (nonatomic, assign) NSInteger selecedSection; // 选中的section
+
 @end
 
 @implementation HFMyResourceViewController
@@ -302,6 +304,7 @@
     HFMyResourceCollectionViewCell *cell = (HFMyResourceCollectionViewCell *)[collectionView cellForItemAtIndexPath: indexPath];
     self.object = cell.object;
     self.selectedIndex = indexPath.row;
+    self.selecedSection = indexPath.section;
     cell.contentView.layer.borderColor = UICOLOR_ARGB(0xff53baa6).CGColor;
 }
 
@@ -309,34 +312,61 @@
 
 - (void)doubleClickCell:(HFDaoxueModel *)object
 {
-    HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
-    vc.object = object;
-    [self.navigationController pushViewController: vc animated: YES];
+
+    
+    if (self.selecedSection == 0) {
+        HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
+        vc.object = object;
+        [self.navigationController pushViewController: vc animated: YES];
+    }else{
+        
+        [self showText:@"正在打开资源..." afterDelay:3];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[OPENPPE_PPE,@(self.selectedIndex)]];
+    }
+    
+    
+    
+
 }
 
 #pragma HeaderFooter Delegate
 
 - (void)headerFooterSend
 {
-    NSLog(@"点击下发");
-    if (self.object) {
-        NSString *string = [NSString stringWithFormat: @"%@%@%@%@%@", GET_INFO_CLASS, @(self.selectedIndex), @"", @"", @"1"];
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @(self.selectedIndex), @"", string, @"3"]];
-    } else {
-        NSLog(@"请选择要下发的课程");
-    }
+    NSLog(@"点击停止");
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
 }
 
 - (void)headerFooterDownLoad
 {
-   NSLog(@"点击下载");
+   NSLog(@"点击下发");
+//    if (self.object) {
+//        NSString *string = [NSString stringWithFormat: @"%@%@%@%@%@", GET_INFO_CLASS, @(self.selectedIndex), @"", @"", @"1"];
+//        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @(self.selectedIndex), @"", string, @"3"]];
+//    } else {
+//        NSLog(@"请选择要下发的课程");
+//        [self showText:@"请选择要下发的课程"];
+//    }
+    
+    if (!self.object) {
+        NSLog(@"请选择要下发的课程");
+        [self showText:@"请选择要下发的课程"];
+        return;
+    }
+    
+    
+    if(self.selecedSection == 0){
+        [self showText:@"正在下发资源..." afterDelay:2];
+        [[HFSocketService sharedInstance] sendCtrolMessage:@[GET_INFO_CLASS,@(self.selectedIndex),@"",@"",@1]];
+    }else{
+         [self showText:@"该资源暂时无法下发"];
+    }
+    
+    
+   
 }
 
-- (void)headerFooterStop
-{
-   [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
-    NSLog(@"点击停止下发");
-}
+
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

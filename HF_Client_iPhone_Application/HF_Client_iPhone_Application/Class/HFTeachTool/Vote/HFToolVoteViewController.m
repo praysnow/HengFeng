@@ -10,6 +10,12 @@
 
 @interface HFToolVoteViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *selectVoteButton;
+@property (weak, nonatomic) IBOutlet UIButton *jianButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *questionNumLabel;
+
 @property (nonatomic,strong) UIImageView *coverImageView;
 
 @end
@@ -21,6 +27,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"教学工具-投票";
+    
+    [self initUI];
+}
+
+- (void)initUI{
+    
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -38,32 +51,93 @@
     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
 }
 
-- (IBAction)tappedToolButton:(UIButton *)sender {
-    switch (sender.tag) {
-        case 0:
-        {
-            [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
-        }
-            break;
-        case 1:
-        {
-                        [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
-        }
-            break;
-        case 2:
-        {
-                        [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE]];
-        }
-            break;
-        case 3:
-        {
-                        [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
-        }
-            break;
-            
-        default:
-            break;
+
+- (IBAction)selectVote:(id)sender {
+    NSLog(@"单选题");
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
+    
+    if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"]){
+        [_selectVoteButton setTitle:@"多选题" forState:UIControlStateNormal];
+        [_selectVoteButton setImage:[UIImage imageNamed:@"多选"] forState:UIControlStateNormal];
+        
+        
+            _questionNumLabel.text = @"4";
+            _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
+        
+    }else{
+        [_selectVoteButton setTitle:@"单选题" forState:UIControlStateNormal];
+        [_selectVoteButton setImage:[UIImage imageNamed:@"单选"] forState:UIControlStateNormal];
+        
+        _questionNumLabel.text = @"2";
+        _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
     }
+}
+
+- (IBAction)jianButton:(id)sender {
+     NSLog(@"减法");
+    
+    NSInteger num = [_questionNumLabel.text integerValue];
+   if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"] && num == 2){
+       return;
+   }
+    
+    if([_selectVoteButton.titleLabel.text isEqualToString:@"多选题"] && num == 4){
+        return;
+    }
+
+    
+    [_addButton setImage:[UIImage imageNamed:@"+"] forState:UIControlStateNormal];
+    
+    
+    num--;
+    _questionNumLabel.text = [NSString stringWithFormat:@"%zd",num];
+    
+    if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"]){
+        if(num == 2){
+            [_jianButton setImage:[UIImage imageNamed:@"_1"] forState:UIControlStateNormal];
+        }
+    }
+    
+    if([_selectVoteButton.titleLabel.text isEqualToString:@"多选题"]){
+        if(num == 4){
+             [_jianButton setImage:[UIImage imageNamed:@"_1"] forState:UIControlStateNormal];
+        }
+    }
+    
+}
+
+- (IBAction)addButton:(id)sender {
+     NSLog(@"加法");
+    
+    NSInteger num = [_questionNumLabel.text integerValue];
+    
+    if(num == 12){
+        return;
+    }
+    
+    [_jianButton setImage:[UIImage imageNamed:@"_"] forState:UIControlStateNormal];
+    
+    num++;
+    _questionNumLabel.text = [NSString stringWithFormat:@"%zd",num];
+    
+    if(num == 12){
+        [_addButton setImage:[UIImage imageNamed:@"+1-1"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)beginVote:(id)sender {
+    NSLog(@"开始投票");
+    
+    NSInteger num = [_questionNumLabel.text integerValue];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE,@(num)]];
+}
+
+- (IBAction)endVote:(id)sender {
+    NSLog(@"结束投票");
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UIImageView *)coverImageView

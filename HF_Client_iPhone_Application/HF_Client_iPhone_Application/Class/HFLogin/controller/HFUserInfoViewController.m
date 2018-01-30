@@ -15,6 +15,10 @@
 #import "HFNavigationViewController.h"
 #import "HFClassSituationViewController.h"
 
+#import<SystemConfiguration/CaptiveNetwork.h>
+#import<SystemConfiguration/SystemConfiguration.h>
+#import<CoreFoundation/CoreFoundation.h>
+
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -52,11 +56,35 @@
 {
     NSString *className = [HFCacheObject shardence].className;
     className = className == nil ?  @"未获取到课程信息": className;
+    
+    
     self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : className},
-//                   @{@"name":@"班级学情", @"image" : @"back"},
-// 暂时去掉                  @{@"name":@"我的备课", @"image" : @"back"},
-                   @{@"name":@"wifi确认", @"image" : @"wifi确认",@"content" : @""},
+                   @{@"name":@"wifi确认", @"image" : @"wifi确认",@"content" : [self GetWifiName]},
                    @{@"name":@"系统配置", @"image" : @"系统配置",@"content" : @""}];
+}
+
+// 获取wifi名称
+- (NSString *)GetWifiName{
+    
+    NSString *wifiName = @"";
+    
+    CFArrayRef myArray = CNCopySupportedInterfaces();
+    
+    if (myArray != nil) {
+        
+        CFDictionaryRef myDict =CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(myArray, 0));
+        
+        if (myDict != nil) {
+            
+            NSDictionary *dict = (NSDictionary*)CFBridgingRelease(myDict);
+            
+            wifiName = [dict valueForKey:@"SSID"];
+            
+        }
+        
+    }
+    
+    return wifiName;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

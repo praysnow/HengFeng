@@ -52,6 +52,34 @@ static MBProgressHUD *HUD = nil;
     return HUD;
 }
 
++ (MBProgressHUD *)showMessag:(NSString *)message delay:(NSUInteger)delay{
+    UIViewController *vc = [self topMostController];
+    
+    if (vc == nil)
+    {
+        return nil;
+    }
+    
+    if (nil == HUD)
+    {
+        HUD = [[MBProgressHUD alloc] initWithView:vc.view];
+    }
+    
+    [vc.view addSubview:HUD];
+    
+    
+    HUD.detailsLabel.text = message;
+    HUD.detailsLabel.font = [UIFont systemFontOfSize:15];
+    HUD.mode = MBProgressHUDModeText;
+    HUD.removeFromSuperViewOnHide = YES;
+    HUD.margin = 10.f;
+    //hud.lineBreakMode = UILineBreakModeWordWrap;
+    
+    [HUD showAnimated:YES];
+    [HUD hideAnimated: YES afterDelay: delay];
+    return HUD;
+}
+
 + (void)mbpregress
 {
     [MBProgressHUD showHUDAddedTo: [HF_MBPregress topMostController].view animated: YES];
