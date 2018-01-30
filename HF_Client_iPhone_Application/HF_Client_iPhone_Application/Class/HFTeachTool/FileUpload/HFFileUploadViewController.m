@@ -40,7 +40,24 @@
 
 - (void)imagePicker{
     NSLog(@"图片选择");
-    [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+//    [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        self.imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        self.imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:self.imagePickerVC animated:YES completion:nil];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)startUpload:(id)sender {
@@ -50,6 +67,7 @@
         [self showText:@"请选择一张图片"];
         return;
     }
+    
     
     [self handleImage:self.imageView.image];
 }
@@ -71,8 +89,8 @@
         [fileManager createDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/portraitPic"] withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    // 存储到沙盒
-    NSData *data = UIImageJPEGRepresentation(image, 1);
+    // 存储到沙盒 压缩0.25
+    NSData *data = UIImageJPEGRepresentation(image, 0.25);
     [fileManager createFileAtPath:_filePath contents:data attributes:nil];
     
     // 上传到ftp
@@ -135,7 +153,7 @@
     if (_imagePickerVC == nil) {
         _imagePickerVC = [[UIImagePickerController alloc] init];
         // 只选择本地图片
-        _imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        _imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         _imagePickerVC.delegate = self;
         _imagePickerVC.allowsEditing = YES;
     }

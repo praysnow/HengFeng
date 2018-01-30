@@ -30,8 +30,17 @@
     self.domainTextField.delegate = self;
     self.IPAdressTextField.delegate = self;
     
-    self.domainTextField.text = [HFNetwork network].ServerAddress; // 公网服务器
-    self.IPAdressTextField.text = [HFNetwork network].SocketAddress;// socket服务器
+    // 设置键盘类型
+//    self.domainTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.IPAdressTextField.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    self.domainTextField.text =
+    [HFNetwork network].ServerAddress == nil ? @"http://192.168.13.238:8080" : [HFNetwork network].ServerAddress; // 公网服务器
+    
+    self.IPAdressTextField.text =
+    [HFNetwork network].SocketAddress == nil ? @"192.168." : [HFNetwork network].SocketAddress;// socket服务器
+    
+    
     
     // 默认隐藏
     self.serverTypeView.hidden = YES;
@@ -45,6 +54,7 @@
     self.serverType.selectedSegmentIndex = [HFNetwork network].serverType;
     
 }
+
 
 - (void)longPress:(UILongPressGestureRecognizer *)tap{
     self.serverTypeView.hidden = NO;

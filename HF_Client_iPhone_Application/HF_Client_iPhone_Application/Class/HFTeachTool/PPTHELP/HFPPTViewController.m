@@ -58,10 +58,12 @@
 - (void)initUI{
     self.muneView.hidden = YES;
     
-    _button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
+    _button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     
     [_button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
     [_button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [_button setBackgroundColor:[UIColor grayColor]];
+    _button.alpha = 0.5;
     [self.view addSubview:_button];
     
     [self buttonInit:self.blackButton];

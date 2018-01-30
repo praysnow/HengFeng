@@ -44,8 +44,9 @@
 
     self.titleLabel.text = object.Dxa_Name;
     if (object.fileUrl.length > 10) {
-        NSString *imageName = [object.fileUrl substringFromIndex: object.fileUrl.length - 3];
-        NSArray *array = @[@"exe", @"flash", @"qita", @"music", @"excel", @"txt", @"word", @"mp4"];
+//        NSString *imageName = [object.fileUrl substringFromIndex: object.fileUrl.length - 3];
+        NSString *imageName = [[object.fileUrl componentsSeparatedByString:@"."] lastObject];
+        NSArray *array = @[@"exe", @"flash", @"qita", @"music", @"excel", @"txt",@"ppt", @"doc",@"docx", @"mp4"];
         if ([array containsObject: imageName]) {
             self.avatarImage.image = [UIImage imageNamed: imageName];
         } else {

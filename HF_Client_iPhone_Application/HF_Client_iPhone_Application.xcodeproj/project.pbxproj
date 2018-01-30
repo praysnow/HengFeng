@@ -1621,7 +1621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74NFF2GH2S;
+				DEVELOPMENT_TEAM = MEM79CB629;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK",
@@ -1632,7 +1632,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1645,7 +1645,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74NFF2GH2S;
+				DEVELOPMENT_TEAM = MEM79CB629;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/TXLiteAVSDK_Smart/TXLiteAVSDK_Smart/SDK",
@@ -1656,7 +1656,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -35,6 +35,7 @@
 
 - (IBAction)sendAway:(id)sender
 {
+    NSLog(@"停止");
     if ([self.delegate respondsToSelector: @selector(headerFooterSend)]) {
         [self.delegate headerFooterSend];
     }
@@ -42,6 +43,7 @@
 
 - (IBAction)downLoad:(id)sender
 {
+    NSLog(@"下发");
     if ([self.delegate respondsToSelector: @selector(headerFooterDownLoad)]) {
         [self.delegate headerFooterDownLoad];
     }

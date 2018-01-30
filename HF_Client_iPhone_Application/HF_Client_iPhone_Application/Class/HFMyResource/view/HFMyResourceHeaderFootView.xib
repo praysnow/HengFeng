@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,14 +34,14 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64T-90-sWa">
-                    <rect key="frame" x="220" y="331" width="70" height="25"/>
+                    <rect key="frame" x="204" y="328.5" width="70" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="MQa-a9-96e"/>
-                        <constraint firstAttribute="height" constant="25" id="OWq-Nd-A4t"/>
+                        <constraint firstAttribute="height" constant="30" id="OWq-Nd-A4t"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="下载" image="my_source_down_load">
+                    <state key="normal" title="下发" image="my_source_down_load">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -49,46 +49,30 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI1-D0-bsP">
-                    <rect key="frame" x="301" y="331" width="70" height="25"/>
+                    <rect key="frame" x="285" y="328.5" width="70" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="下发" image="my_source_sent_away">
+                    <state key="normal" title="停止" image="my_source_sent_away">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="sendAway:" destination="iN0-l3-epB" eventType="touchUpInside" id="mw5-Wd-B0s"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-BZ-kMU">
-                    <rect key="frame" x="139" y="331" width="70" height="25"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="停止" image="my_source_down_load">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="downLoad:" destination="iN0-l3-epB" eventType="touchUpInside" id="OA7-Zh-r6v"/>
-                        <action selector="stopSendDocument:" destination="iN0-l3-epB" eventType="touchUpInside" id="lHy-sN-X96"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ulz-Y2-wZD" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="5MB-w6-0Yz"/>
-                <constraint firstItem="64T-90-sWa" firstAttribute="width" secondItem="ID6-BZ-kMU" secondAttribute="width" id="B5O-Dw-2at"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="GCZ-kN-eXZ"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="height" secondItem="64T-90-sWa" secondAttribute="height" id="GDN-0S-YZ3"/>
-                <constraint firstItem="64T-90-sWa" firstAttribute="height" secondItem="ID6-BZ-kMU" secondAttribute="height" id="S4s-C2-wwE"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="width" secondItem="64T-90-sWa" secondAttribute="width" id="TvZ-rN-BH8"/>
                 <constraint firstItem="ulz-Y2-wZD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="XKH-mh-MOq"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Y6m-YU-xa9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="f0w-du-2sg" secondAttribute="trailing" id="amz-rP-Yor"/>
-                <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="ID6-BZ-kMU" secondAttribute="centerY" id="hiU-bq-XRB"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mKy-I5-vzS"/>
                 <constraint firstItem="LI1-D0-bsP" firstAttribute="leading" secondItem="64T-90-sWa" secondAttribute="trailing" constant="11" id="tcU-P6-kiZ"/>
                 <constraint firstItem="f0w-du-2sg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="vBh-TD-v0r"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LI1-D0-bsP" secondAttribute="trailing" constant="4" id="vIK-1T-0Fz"/>
-                <constraint firstItem="64T-90-sWa" firstAttribute="leading" secondItem="ID6-BZ-kMU" secondAttribute="trailing" constant="11" id="xOS-Mv-6La"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LI1-D0-bsP" secondAttribute="trailing" constant="20" id="vIK-1T-0Fz"/>
                 <constraint firstItem="64T-90-sWa" firstAttribute="centerY" secondItem="f0w-du-2sg" secondAttribute="centerY" id="zBl-Ca-VUF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -96,9 +80,8 @@
                 <outlet property="titleLabel" destination="f0w-du-2sg" id="nbX-Ak-4oi"/>
                 <outletCollection property="clickButtonArray" destination="LI1-D0-bsP" id="zBW-tW-ewS"/>
                 <outletCollection property="clickButtonArray" destination="64T-90-sWa" id="rTd-k2-oad"/>
-                <outletCollection property="clickButtonArray" destination="ID6-BZ-kMU" id="fXx-no-wUD"/>
             </connections>
-            <point key="canvasLocation" x="34.5" y="53.5"/>
+            <point key="canvasLocation" x="-59" y="-348"/>
         </view>
     </objects>
     <resources>
