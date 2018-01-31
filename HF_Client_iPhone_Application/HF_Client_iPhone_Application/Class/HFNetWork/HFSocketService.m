@@ -31,7 +31,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstace = [[self alloc] init];
-
+        
     });
     return sharedInstace;
 }
@@ -90,10 +90,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     if (self.userData == SocketOfflineByServer) {
         // 服务器掉线，重连
-//        NSLog(@"5秒重连");
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self socketConnectHost];
-//        });
+        //        NSLog(@"5秒重连");
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //            [self socketConnectHost];
+        //        });
         [self socketConnectHost];
         
     }else if (self.userData == SocketOfflineByUser) {
@@ -111,7 +111,7 @@
     NSData *typeData = [NSData dataWithBytes: &type length: 1];
     NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
     NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
-    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"  From=\"TeacherCtrl\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"92cff518-503a-45c2-9b51-884e34d6c70c\" />";
+    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" To=\"=\" From=\"TeacherCtrl\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"92cff518-503a-45c2-9b51-884e34d6c70c\" />";
     // 92cff518-503a-45c2-9b51-884e34d6c70c
     // e1963ff6-0c5e-4ad1-a523-4b9dadf50b19
     NSMutableString *string = [NSMutableString stringWithString: loginStatus];
@@ -120,7 +120,7 @@
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
     
-//    NSLog(@"发送socket命令   %@",string);
+    //    NSLog(@"发送socket命令   %@",string);
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
@@ -171,7 +171,7 @@
     [mutableData appendData: bodyData];
     [self.socket writeData: mutableData withTimeout:-1 tag:0];
     
-
+    
 }
 
 - (void)teacherSendingSocket:(Byte)body
@@ -214,11 +214,11 @@
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
-     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
+    NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
     NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
-//    char* a=[data bytes];
-//    NSString * string = [NSString stringWithUTF8String::@"a];
+    //    char* a=[data bytes];
+    //    NSString * string = [NSString stringWithUTF8String::@"a];
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
@@ -235,17 +235,18 @@
     if ([receviedMessage containsString: @"teacher="]) {
         [self reveviedTeaclerName: receviedMessage];
     }
+    //课堂信息
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
     }
-        if ([receviedAsiiMessage containsString: @"}43{"]) {
-            [self revieveCaptureImageUrl: receviedAsiiMessage];
-        }
-    //接收班级姓名
-    if ([receviedMessage containsString: @"<ClassName>"]) {
-        [self receviedClassName: receviedMessage];
+    //获取课堂名称
+    if ([receviedMessage containsString: @"SendTeacherInfo"]) {
+        [self responseClassName: receviedMessage];
     }
-    //接收主机状态
+    
+    if ([receviedAsiiMessage containsString: @"}43{"]) {
+        [self revieveCaptureImageUrl: receviedAsiiMessage];
+    }
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
@@ -254,7 +255,7 @@
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
     if ([receviedAsiiMessage containsString: @"CommandCode=\"EndBrocastDesktop"] || [receviedAsiiMessage containsString: @"CommandCode=\"BrocastDesktop"]) {
-//        BOOL change = [HFCacheObject shardence].BrocastDesktop;
+        //        BOOL change = [HFCacheObject shardence].BrocastDesktop;
         if ([receviedAsiiMessage containsString: @"BrocastDesktop"] && ![receviedAsiiMessage containsString: @"EndBrocastDesktop"]) {
             [HFCacheObject shardence].BrocastDesktop = YES;
             NSLog(@"屏幕广播开始");
@@ -276,13 +277,13 @@
         [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
     }
     
-     if ([receviedMessage containsString: @"XmlServerState"]) {
+    if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
-//    else if ([receviedMessage containsString: @"SendToCtrl"]) {
-//        NSLog(@"截屏图片");
-//        [self image: receviedMessage];
-//    }
+    //    else if ([receviedMessage containsString: @"SendToCtrl"]) {
+    //        NSLog(@"截屏图片");
+    //        [self image: receviedMessage];
+    //    }
 }
 
 - (void)image:(NSString *)receviedMessage{
@@ -366,7 +367,7 @@
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
-- (void)receviedClassName:(NSString *)string
+- (void)responseClassName:(NSString *)string
 {
     [HFCacheObject shardence].className = [HFUtils regulexFromString: string andStartString: @"<ClassName>" andEndString: @"</ClassName>"];
 }
@@ -378,20 +379,20 @@
     [HFCacheObject shardence].isInHandup = [HFUtils regulexFromString: data andStartString: @"<IsInHandup>" andEndString: @"</IsInHandup>"];
     [HFCacheObject shardence].showParamsUrl = [HFUtils regulexFromString: data andStartString: @"<ShowParamsUrl>" andEndString: @"<ShowParamsUrl />"];
     [HFCacheObject shardence].guidedLearningInfo = [HFUtils regulexFromString: data andStartString: @"<GuidedLearningInfo>" andEndString: @"<GuidedLearningInfo />"];
-//    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<MicroClassInfo />" andEndString: @"</ClassName>"];
+    //    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<MicroClassInfo />" andEndString: @"</ClassName>"];
     [HFCacheObject shardence].isCanQuit = [HFUtils regulexFromString: data andStartString: @"<IsCanQuit>" andEndString: @"</IsCanQuit>"];
     [HFCacheObject shardence].iosLookScreen = [HFUtils regulexFromString: data andStartString: @"<IsLookScreen>" andEndString: @"</IsLookScreen>"];
     [HFCacheObject shardence].isLockScreen = [data containsString: @"True"] ? true:false;
     [HFCacheObject shardence].voteMsg = [HFUtils regulexFromString: data andStartString: @"<VoteMsg>" andEndString: @"<VoteMsg />"];
     [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
-//    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
-//    xmlData.delegate = self;
-//    [xmlData parse];
+    //    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
+    //    xmlData.delegate = self;
+    //    [xmlData parse];
 }
 
 - (void)revieveCaptureImageUrl:(NSString *)imageUrl
 {
-        [HFCacheObject shardence].imageUrl = [HFUtils regulexFromString: imageUrl andStartString: @"root" andEndString: @"jpeg"];
+    [HFCacheObject shardence].imageUrl = [HFUtils regulexFromString: imageUrl andStartString: @"root" andEndString: @"jpeg"];
 }
 
 // socket断开连接
@@ -403,6 +404,5 @@
     
     [self.socket disconnect];
 }
-
 
 @end
