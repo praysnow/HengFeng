@@ -1,4 +1,4 @@
- //
+//
 //  HFCacheObject.m
 //  HF_Client_iPhone_Application
 //
@@ -24,7 +24,7 @@
 + (NSString *)getUserName:(NSString *)value andKey:(NSString *)key
 {
     NSString *info = @"";
-   NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey: key];
+    NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey: key];
     if ([dictionary.allKeys containsObject: @"userName"]) {
         info = [dictionary valueForKey: @"userName"];
     }
@@ -64,7 +64,7 @@
 
 - (void)GetStudentListByClassID{
     
-
+    
     WebServiceModel *model = [WebServiceModel new];
     model.method = @"GetStudentListByClassID";
     
@@ -121,16 +121,17 @@
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isInRacing" object: nil];
 }
 
-
 - (void)setClassName:(NSString *)className
 {
-    NSString *result;
-    if (className.length > 0) {
-        NSRange range = [className rangeOfString:@"["];
-        result = [className substringToIndex: range.location];
+    if (!_className) {
+        NSString *result;
+        if (className.length > 0) {
+            NSRange range = [className rangeOfString:@"["];
+            result = [className substringToIndex: range.location];
+            _className = result;
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"className" object: nil];
+        }
     }
-    _className = result;
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"className" object: nil];
 }
 
 - (void)setIsInHandup:(NSString *)isInHandup
@@ -182,7 +183,7 @@
     
     // 转换图片
     _imageUrl = [_imageUrl stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
-//    NSLog(@"图片地址为: %@", _imageUrl);
+    //    NSLog(@"图片地址为: %@", _imageUrl);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"imageUrl" object: nil];
 }
 
