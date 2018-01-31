@@ -119,11 +119,11 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  */
 #define END_TESCHER_SHARE  @"17"
 /**
- * 开始教学分享
+ * 开始录屏
  */
 #define START_RECORDING  @"155"
 /**
- * 结束教学分享
+ * 结束录屏
  */
 #define END_RECORDING  @"156"
 
@@ -477,7 +477,6 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
 #define  DAOXUEAN_Target @"学习目标"
 #define  DAOXUEAN_TeachingReflection @"教师教学反思"
 #define  DAOXUEAN_TopicMap @"教具准备主题图"
-
 
 /*通知*/
 

@@ -19,6 +19,13 @@
     self.pointView.hidden = isShow;
 }
 
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected: selected];
+    
+    self.pointView.hidden = !selected;
+}
+
 - (void)setup
 {
     self.pointView = [[UIView alloc] initWithFrame: CGRectMake(self.width - FLEXIBLE_WIDTH(35), FLEXIBLE_HEIGHT(25), FLEXIBLE_WIDTH(20), FLEXIBLE_WIDTH(20))];
