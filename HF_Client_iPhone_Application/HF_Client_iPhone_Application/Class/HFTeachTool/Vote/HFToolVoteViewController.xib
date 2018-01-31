@@ -105,7 +105,7 @@
                                 <constraint firstAttribute="height" constant="30" id="0Hs-Fc-UUe"/>
                                 <constraint firstAttribute="width" constant="30" id="RFa-bx-Hro"/>
                             </constraints>
-                            <state key="normal" image="_1"/>
+                            <state key="normal" image="_"/>
                             <connections>
                                 <action selector="jianButton:" destination="-1" eventType="touchUpInside" id="NsN-3l-IVt"/>
                             </connections>
@@ -117,7 +117,7 @@
                                 <action selector="addButton:" destination="-1" eventType="touchUpInside" id="aNT-4B-efg"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mf-hi-3Vf">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mf-hi-3Vf">
                             <rect key="frame" x="83.666666666666671" y="1" width="163.66666666666663" height="59"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -247,7 +247,7 @@
     </objects>
     <resources>
         <image name="+" width="23" height="23"/>
-        <image name="_1" width="23" height="23"/>
+        <image name="_" width="23" height="23"/>
         <image name="单选" width="22" height="22"/>
         <image name="开始投票" width="22" height="21"/>
         <image name="结束投票" width="22" height="22"/>
