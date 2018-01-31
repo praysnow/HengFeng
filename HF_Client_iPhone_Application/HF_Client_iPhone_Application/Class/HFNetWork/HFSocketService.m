@@ -120,7 +120,8 @@
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
     
-//    NSLog(@"发送socket命令   %@",string);
+    NSLog(@"发送socket命令   %@",string);
+    
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];

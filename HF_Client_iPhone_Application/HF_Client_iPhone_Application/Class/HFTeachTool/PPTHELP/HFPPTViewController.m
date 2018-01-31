@@ -121,14 +121,15 @@
 }
 
 - (void)sendMessage{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     // 发送截屏指令
     [[HFSocketService sharedInstance] sendCtrolMessage:@[SCREEN_CAPTURE]];
 }
 
 - (void)action:(NSNotification *)notification {
     
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+//    [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     NSLog(@"通知我啦！%@",[HFCacheObject shardence].imageUrl);
     
@@ -175,6 +176,9 @@
     NSLog(@"上一页");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_LEFT_PAGE]];
     
+    // 发送刷新的指令
+    [self sendMessage];
+    
     self.remarkButton.selected = NO;
     self.remarkButton.backgroundColor = [UIColor whiteColor];
 }
@@ -197,6 +201,7 @@
 - (IBAction)refresh:(id)sender {
     NSLog(@"刷新");
     
+    // 发送刷新的指令
     [self sendMessage];
     
    
@@ -204,6 +209,9 @@
 - (IBAction)downPage:(id)sender {
     NSLog(@"下一页");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_RIGHT_PAGE]];
+    
+    // 发送刷新的指令
+    [self sendMessage];
     
     self.remarkButton.selected = NO;
     self.remarkButton.backgroundColor = [UIColor whiteColor];
