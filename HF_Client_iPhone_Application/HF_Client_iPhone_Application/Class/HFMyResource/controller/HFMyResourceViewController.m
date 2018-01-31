@@ -330,7 +330,7 @@
 - (void)headerFooterSend
 {
     NSLog(@"点击停止");
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND_INFO]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_CLOSE_PAGE]];
 }
 
 - (void)headerFooterDownLoad

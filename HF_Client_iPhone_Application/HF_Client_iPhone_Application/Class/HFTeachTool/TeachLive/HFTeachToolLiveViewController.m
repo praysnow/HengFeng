@@ -48,10 +48,10 @@
 - (void)creatBackView
 {
     //切换摄像头按钮
-    UIButton *switchButton = [[UIButton alloc] initWithFrame: CGRectMake(SCREEN_WIDTH - 14 - 40,  40, 40, 40)];
+    UIButton *switchButton = [[UIButton alloc] initWithFrame: CGRectMake(SCREEN_WIDTH - 14 - 60,  60, 60, 60)];
     [switchButton addTarget: self action: @selector(switchMyCamera) forControlEvents: UIControlEventTouchUpInside];
     switchButton.backgroundColor = [UIColor clearColor];
-    [switchButton setTitle: @"O" forState: UIControlStateNormal];
+    [switchButton setImage: [UIImage imageNamed: @"trans_camera"] forState: UIControlStateNormal];
     self.switchButton = switchButton;
     
         //开灯按钮
@@ -61,13 +61,6 @@
     [openLight setTitle: @"灯" forState: UIControlStateNormal];
     self.openLight = openLight;
 
-    //返回按钮
-    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(14, 40, 40, 40)];
-    [backButton addTarget: self action: @selector(backMainView) forControlEvents: UIControlEventTouchUpInside];
-    backButton.backgroundColor = [UIColor clearColor];
-    [backButton setTitle: @"<" forState: UIControlStateNormal];
-    self.backButton = backButton;
-
     UIButton *stopButton = [[UIButton alloc] initWithFrame: CGRectMake(0,  SCREEN_HEIGHT - 80 - 20, 80, 80)];
     stopButton.x = SCREEN_WIDTH / 2;
     [stopButton addTarget: self action: @selector(closeLive:) forControlEvents: UIControlEventTouchUpInside];
@@ -75,10 +68,19 @@
     stopButton.layer.masksToBounds = YES;
     stopButton.layer.cornerRadius = stopButton.height / 2;
     self.stopButton = stopButton;
+    
+    //返回按钮
+    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(stopButton.left - 40 - 40, 0, 40, 40)];
+    backButton.y = stopButton.y;
+    [backButton addTarget: self action: @selector(backMainView) forControlEvents: UIControlEventTouchUpInside];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton setImage: [UIImage imageNamed: @"exit_image"] forState: UIControlStateNormal];
+    self.backButton = backButton;
+    
     [self.stopButton setImage: [UIImage imageNamed: @"start_live"] forState: UIControlStateNormal];
     [self.stopButton setImage: [UIImage imageNamed: @"end_live"] forState: UIControlStateSelected];
     
-    [self.backView addSubview: openLight];
+//    [self.backView addSubview: openLight];
     [self.backView addSubview: switchButton];
     [self.backView addSubview: backButton];
     [self.backView addSubview: stopButton];

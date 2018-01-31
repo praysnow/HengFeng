@@ -111,7 +111,7 @@
     NSData *typeData = [NSData dataWithBytes: &type length: 1];
     NSData *steamIdData = [NSData dataWithBytes:&steamId length: sizeof(steamId)];
     NSString *loginStatus = @"<?xml version=\"1.0\" encoding=\"utf-16\"?>\
-    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" To=\"=\" From=\"TeacherCtrl\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"92cff518-503a-45c2-9b51-884e34d6c70c\" />";
+    <XmlPkHeader xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"  From=\"TeacherCtrl\" CommandCode=\"CtrlCmd\" Channel=\"\" PKID=\"92cff518-503a-45c2-9b51-884e34d6c70c\" />";
     // 92cff518-503a-45c2-9b51-884e34d6c70c
     // e1963ff6-0c5e-4ad1-a523-4b9dadf50b19
     NSMutableString *string = [NSMutableString stringWithString: loginStatus];
@@ -241,6 +241,11 @@
         if ([receviedAsiiMessage containsString: @"}43{"]) {
             [self revieveCaptureImageUrl: receviedAsiiMessage];
         }
+    //接收班级姓名
+    if ([receviedMessage containsString: @"<ClassName>"]) {
+        [self receviedClassName: receviedMessage];
+    }
+    //接收主机状态
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
@@ -361,9 +366,13 @@
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
+- (void)receviedClassName:(NSString *)string
+{
+    [HFCacheObject shardence].className = [HFUtils regulexFromString: string andStartString: @"<ClassName>" andEndString: @"</ClassName>"];
+}
+
 - (void)responseXmlStatsWith:(NSString *)data
 {
-    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<ClassName>" andEndString: @"</ClassName>"];
     [HFCacheObject shardence].handUpUsersList = [HFUtils regulexFromString: data andStartString: @"<HandUpUsersList>" andEndString: @"<HandUpUsersList />"];
     [HFCacheObject shardence].isInRacing = [HFUtils regulexFromString: data andStartString: @"<IsInRacing>" andEndString: @"</IsInRacing>"];
     [HFCacheObject shardence].isInHandup = [HFUtils regulexFromString: data andStartString: @"<IsInHandup>" andEndString: @"</IsInHandup>"];
