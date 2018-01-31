@@ -323,10 +323,6 @@
         [self showText:@"正在打开资源..." afterDelay:3];
         [[HFSocketService sharedInstance] sendCtrolMessage:@[OPENPPE_PPE,@(self.selectedIndex)]];
     }
-    
-    
-    
-
 }
 
 #pragma HeaderFooter Delegate
@@ -334,7 +330,7 @@
 - (void)headerFooterSend
 {
     NSLog(@"点击停止");
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_CLOSE_PAGE]];
 }
 
 - (void)headerFooterDownLoad

@@ -243,7 +243,7 @@
 {
     NSLog(@"不计时下发");
     NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), _object.Dxa_Name];
-     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"",  @"", string, @"1"]];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
 }
 
@@ -272,7 +272,7 @@
                 [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
             } else {
                 NSLog(@"下发导学案");
-                [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @(self.selectedIndex), @"", @"", @"1"]];
+                [HF_MBPregress showMessag: @"当前资源不允许下发"];
             }
         }
     
