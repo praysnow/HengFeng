@@ -90,6 +90,7 @@
 		398CDBF61FE76598008816CD /* HFDaoxueDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBF51FE76598008816CD /* HFDaoxueDetailObject.m */; };
 		398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBFB1FE77197008816CD /* HFWebViewController.m */; };
 		398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBFC1FE77197008816CD /* HFWebViewController.xib */; };
+		399052902021E259004C93EE /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990528F2021E259004C93EE /* MZTimerLabel.m */; };
 		39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */; };
 		39A0C2281FF0AD9900F3B681 /* HFTeachShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */; };
 		39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */; };
@@ -315,6 +316,8 @@
 		398CDBFA1FE77197008816CD /* HFWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFWebViewController.h; sourceTree = "<group>"; };
 		398CDBFB1FE77197008816CD /* HFWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFWebViewController.m; sourceTree = "<group>"; };
 		398CDBFC1FE77197008816CD /* HFWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFWebViewController.xib; sourceTree = "<group>"; };
+		3990528E2021E259004C93EE /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		3990528F2021E259004C93EE /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
 		39A0C2241FF0AD9900F3B681 /* HFTeachShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachShareViewController.h; sourceTree = "<group>"; };
 		39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachShareViewController.m; sourceTree = "<group>"; };
 		39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachShareViewController.xib; sourceTree = "<group>"; };
@@ -960,6 +963,8 @@
 		39F088A01FC7AFC800AB30F6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3990528E2021E259004C93EE /* MZTimerLabel.h */,
+				3990528F2021E259004C93EE /* MZTimerLabel.m */,
 				39A0C22A1FF1065400F3B681 /* ZSVerticalButton.h */,
 				39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */,
 				39F088A21FC7AFE500AB30F6 /* HFUtils.h */,
@@ -1442,6 +1447,7 @@
 				82E6097B201048710079AF3B /* UIDevice+TFDevice.m in Sources */,
 				82BFF32720037E47005C28DB /* YZDisplayTitleLabel.m in Sources */,
 				82BFF32620037E47005C28DB /* UIView+Frame.m in Sources */,
+				399052902021E259004C93EE /* MZTimerLabel.m in Sources */,
 				39B7190C1FBE87DC0088C348 /* WebServiceModel.m in Sources */,
 				39C94A291FDE79D7003641C9 /* JZAlertViewController.m in Sources */,
 				39E0621D200FB24D005E89D6 /* HFClassTestDetailCell.m in Sources */,

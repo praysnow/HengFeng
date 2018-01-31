@@ -10,8 +10,9 @@
 #import "TXLiteAVSDK_Smart/TXLivePush.h"
 #import "TXLiteAVSDK_Smart/TXLiveBase.h"
 #import "HFNetwork.h"
+#import "MZTimerLabel.h"
 
-@interface HFTeachToolLiveViewController ()
+@interface HFTeachToolLiveViewController () <MZTimerLabelDelegate>
 
 @property (nonatomic, strong) TXLivePushConfig* config;
 @property (nonatomic, strong) TXLivePush* txLivePush;
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, copy)  NSString* rtmpUrl;
 @property (nonatomic, strong) UIButton *openLight;
+@property (nonatomic, strong) MZTimerLabel *timeLable;
 @property (nonatomic, assign) BOOL bEnable;
 
 @end
@@ -69,6 +71,19 @@
     stopButton.layer.cornerRadius = stopButton.height / 2;
     self.stopButton = stopButton;
     
+//    MZTimerLabel *timeLabel = [[MZTimerLabel alloc] initWithFrame: CGRectMake(0, SCREEN_HEIGHT - 160, SCREEN_WIDTH, 40) label: [UILabel new] andTimerType: MZTimerLabelTypeTimer];
+//    timeLabel.delegate = self;
+//    self.timeLable = timeLabel;
+//    timeLabel.textColor = [UIColor redColor];
+//    timeLabel.backgroundColor = [UIColor greenColor];
+    MZTimerLabel *timer2 = [[MZTimerLabel alloc] initWithFrame: CGRectMake(0, SCREEN_HEIGHT - 160, SCREEN_WIDTH, 40)];
+    timer2.timerType = MZTimerLabelTypeStopWatch;
+    timer2.textAlignment = NSTextAlignmentCenter;
+    timer2.font = [UIFont systemFontOfSize: 16.0f];
+    timer2.textColor = [UIColor whiteColor];
+    self.timeLable = timer2;
+    [self.backView addSubview: timer2];
+    
     //返回按钮
     UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(stopButton.left - 40 - 40, 0, 40, 40)];
     backButton.y = stopButton.y;
@@ -106,9 +121,11 @@
     if (!sender.selected) {
         [[HFSocketService sharedInstance] sendCtrolMessage: @[START_LIVE]];
         [self startPush];
+        [self.timeLable start];
     } else {
         [[HFSocketService sharedInstance] sendCtrolMessage: @[END_LIVE]];
         [_txLivePush stopPush];
+        [self.timeLable reset];
     }
     sender.selected = !sender.selected;
 }
