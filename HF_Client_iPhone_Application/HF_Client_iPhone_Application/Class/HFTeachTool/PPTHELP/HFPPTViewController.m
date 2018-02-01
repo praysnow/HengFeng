@@ -216,6 +216,8 @@
 - (IBAction)downPage:(id)sender {
     NSLog(@"下一页");
     
+    
+    
     // 发送结束批注的指令
     [[HFSocketService sharedInstance] sendCtrolMessage:@[CLOSE_RECOMMEND]];
     

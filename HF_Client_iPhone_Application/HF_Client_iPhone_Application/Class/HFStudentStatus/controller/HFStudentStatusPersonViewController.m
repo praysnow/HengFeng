@@ -187,9 +187,6 @@
     NSLog(@"%@",model.userRealName);
     
 
-    NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.userID,model.userRealName,@(point)];
-    [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
-
 //    [[HFSocketService sharedInstance] sendCtrolMessage:@[getEvaluateRank]];
     // 先查询数据库
     RLMRealm *realm = [RLMRealm defaultRealm];

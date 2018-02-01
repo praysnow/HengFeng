@@ -334,6 +334,7 @@
 - (void)headerFooterSend
 {
     NSLog(@"点击停止");
+     [self showText:@"停止下发资源..." afterDelay:2];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
 }
 
