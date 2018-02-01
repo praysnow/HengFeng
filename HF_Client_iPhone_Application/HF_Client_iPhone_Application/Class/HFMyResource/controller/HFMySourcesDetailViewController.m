@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) HFCountTimeView *configueView;
+@property (nonatomic, copy) NSString *dxa_Name;
 
 @end
 
@@ -137,6 +138,7 @@
 //    [tableView deselectRowAtIndexPath: indexPath animated: YES];
     
     self.selectedIndex = indexPath.row;
+    self.dxa_Name = [self.listData[indexPath.row] valueForKey: @"DxaZj_Title"];
     NSLog(@"单击");
 }
 
@@ -234,7 +236,7 @@
 - (void)limitTimeSend:(NSString *)count
 {
     NSLog(@"计时下发");
-    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @([count integerValue] * 60), _object.Dxa_Name];
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @([count integerValue] * 60), self.dxa_Name];
      [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
 }
@@ -242,7 +244,7 @@
 -(void)unlimitTimeSend:(NSString *)count
 {
     NSLog(@"不计时下发");
-    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), _object.Dxa_Name];
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), self.dxa_Name];
      [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
 }
@@ -263,7 +265,7 @@
             HFDaoxueDetailObject *object = [HFDaoxueDetailObject new];
             NSDictionary *dictionary = self.listData[self.selectedIndex];
             object.typeName = [dictionary objectForKey: @"typeName"];
-            if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]) {
+            if ([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]|| [object.typeName containsString: DAOXUEAN_InClassMicrolecture]) {
                 HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
                 configueView.delegate = self;
                 self.configueView = configueView;
@@ -287,9 +289,7 @@
 {
     NSLog(@"停止");
     
-     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
-    
-
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
 }
 
 - (NSMutableArray *)listData

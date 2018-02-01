@@ -80,7 +80,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="25" maxX="20" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="15"/>
-                            <state key="normal" title="下发" image="send_away">
+                            <state key="normal" title="停止" image="stop_button">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -128,7 +128,7 @@
         </view>
     </objects>
     <resources>
-        <image name="send_away" width="22" height="22"/>
         <image name="start_image" width="22" height="22"/>
+        <image name="stop_button" width="22" height="22"/>
     </resources>
 </document>
