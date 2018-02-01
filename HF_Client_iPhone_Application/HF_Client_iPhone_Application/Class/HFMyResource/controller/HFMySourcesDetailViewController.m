@@ -287,7 +287,7 @@
 {
     NSLog(@"停止");
     
-     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
+     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
     
 
 }

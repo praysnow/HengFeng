@@ -785,7 +785,6 @@
 				39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */,
 				39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */,
 				39B718F11FBC20340088C348 /* HFMyResourceHeaderFootView.h */,
-				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
 				39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */,
 				398CDBEF1FE764D7008816CD /* HFMYResourCeDetailTableViewCell.h */,
 				398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */,
@@ -806,6 +805,7 @@
 				39D488891FCD5CFA00F36D16 /* HFHearBeat.h */,
 				39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */,
 				3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */,
+				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
 				3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */,
 				3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */,
 			);

@@ -52,12 +52,14 @@
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"imageUrl" object:nil];
     
+   
     
 }
 
 - (void)initUI{
     self.muneView.hidden = YES;
     
+    // 左上角的退出按钮
     _button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     
     [_button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
@@ -121,7 +123,8 @@
 }
 
 - (void)sendMessage{
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.userInteractionEnabled = NO;
     
     // 发送截屏指令
     [[HFSocketService sharedInstance] sendCtrolMessage:@[SCREEN_CAPTURE]];
@@ -129,23 +132,37 @@
 
 - (void)action:(NSNotification *)notification {
     
-//    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     NSLog(@"通知我啦！%@",[HFCacheObject shardence].imageUrl);
     
     NSString *string = [HFCacheObject shardence].imageUrl;
 
-//    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"black.jpg"]];
-    self.imageView.image = nil;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string]  completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
-        NSLog(@"图片大小 %f %f",image.size.width,image.size.height);
-        
+
+    [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:string] options:nil progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+
         _XRatio = image.size.width / (SCREEN_WIDTH - 44);
         _YRatio = image.size.height / SCREEN_HEIGHT;
-        
-        NSLog(@"图片比例 %f %f",_XRatio,_YRatio);
+
+        // 压缩图片
+        NSData *udata = UIImageJPEGRepresentation(image, 0.25);
+        UIImage *uimage = [UIImage imageWithData:udata];
+        self.imageView.image = uimage;
+
     }];
+    
+//    self.imageView.image = nil;
+//    [self.imageView sd_setImageWithURL:[NSURL URLWithString:string]  completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//
+//        NSLog(@"图片大小 %f %f",image.size.width,image.size.height);
+//
+//        _XRatio = image.size.width / (SCREEN_WIDTH - 44);
+//        _YRatio = image.size.height / SCREEN_HEIGHT;
+//
+//        NSLog(@"图片比例 %f %f",_XRatio,_YRatio);
+//    }];
 }
 
 // 旋转屏幕
@@ -176,22 +193,65 @@
     NSLog(@"上一页");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_LEFT_PAGE]];
     
-    // 发送刷新的指令
-    [self sendMessage];
+    self.imageView.brush = nil;
+    
+    // 撤销所有笔画
+    while ([self.imageView canRevoke]){
+        [self.imageView revoke];
+    }
+    
+    // 发送结束批注的指令
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[CLOSE_RECOMMEND]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 发送刷新的指令
+        [self sendMessage];
+    });
+    
     
     self.remarkButton.selected = NO;
     self.remarkButton.backgroundColor = [UIColor whiteColor];
 }
+
+- (IBAction)downPage:(id)sender {
+    NSLog(@"下一页");
+    
+    // 发送结束批注的指令
+    [[HFSocketService sharedInstance] sendCtrolMessage:@[CLOSE_RECOMMEND]];
+    
+    // 发送下一步的指令
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_RIGHT_PAGE]];
+    
+    self.imageView.brush = nil;
+    
+    // 撤销所有笔画
+    while ([self.imageView canRevoke]){
+        [self.imageView revoke];
+    }
+        
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 发送刷新的指令
+        [self sendMessage];
+    });
+    
+    self.remarkButton.selected = NO;
+    self.remarkButton.backgroundColor = [UIColor whiteColor];
+}
+
+
 - (IBAction)remark:(id)sender {
     NSLog(@"批注");
     
     [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND]];
 
+    if(self.imageView.brush == nil){
+        self.imageView.brush = [LXFPencilBrush new];
+        self.imageView.style.lineColor = [UIColor redColor]; // 默认是红色
+        self.imageView.style.lineWidth = 2;
+        self.imageView.delegate = self;
+    }
     
-    self.imageView.brush = [LXFPencilBrush new];
-    self.imageView.style.lineColor = [UIColor redColor]; // 默认是红色
-    self.imageView.style.lineWidth = 2;
-    self.imageView.delegate = self;
+   
     
     self.remarkButton.selected = YES;
     self.remarkButton.backgroundColor = MainColor;
@@ -205,16 +265,6 @@
     [self sendMessage];
     
    
-}
-- (IBAction)downPage:(id)sender {
-    NSLog(@"下一页");
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_RIGHT_PAGE]];
-    
-    // 发送刷新的指令
-    [self sendMessage];
-    
-    self.remarkButton.selected = NO;
-    self.remarkButton.backgroundColor = [UIColor whiteColor];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -246,7 +296,7 @@
     
 }
 - (void)touchesBeganWithLXFDrawBoard:(LXFDrawBoard *)drawBoard{
-    NSLog(@"开始触摸");
+//    NSLog(@"开始触摸");
     
     self.pointArray = nil;
 
@@ -254,7 +304,7 @@
 }
 
 - (void)touchesMovedWithLXFDrawBoard:(LXFDrawBoard *)drawBoard{
-    NSLog(@"开始移动");
+//    NSLog(@"开始移动");
     if (self.imageView.brush != nil) {
         LXFBaseBrush *brush =  self.imageView.brush;
         [self.pointArray addObject:@"1"];
@@ -263,11 +313,11 @@
         [self.pointArray addObject:@"0.5"];
     }
     
-    self.muneView.hidden = YES;
+//    self.muneView.hidden = YES;
 }
 
 - (void)touchesEndedWithLXFDrawBoard:(LXFDrawBoard *)drawBoard{
-    NSLog(@"停止移动");
+//    NSLog(@"停止移动");
     if (self.imageView.brush != nil) {
         LXFBaseBrush *brush =  self.imageView.brush;
         [self.pointArray addObject:@"1"];
@@ -282,7 +332,7 @@
         [[HFSocketService sharedInstance] sendCtrolMessage: messageArray];
     }
     
-    self.muneView.hidden = NO;
+//    self.muneView.hidden = NO;
 }
 
 

@@ -38,6 +38,12 @@
     [self imagePicker];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_UP_SCREEN ]];
+}
+
 - (void)imagePicker{
     NSLog(@"图片选择");
 //    [self presentViewController:self.imagePickerVC animated:YES completion:nil];

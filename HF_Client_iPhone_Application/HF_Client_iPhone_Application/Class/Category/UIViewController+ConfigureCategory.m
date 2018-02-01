@@ -163,6 +163,7 @@ NSString * const viewControllerHasViewDidAppearedKey = @"viewControllerHasViewDi
     // Set the text mode to show only text.
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
+    
     // Move to bottm center.
     //    hud.offset = CGPointMake(0.f, 100);
     

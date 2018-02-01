@@ -214,12 +214,19 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
+     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
-    NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
+   
     NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
     NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
     //    char* a=[data bytes];
     //    NSString * string = [NSString stringWithUTF8String::@"a];
+    
+    // 截屏图片
+    if ([receviedAsiiMessage containsString: @"}43{"]) {
+        [self revieveCaptureImageUrl: receviedAsiiMessage];
+    }
+    
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
@@ -240,10 +247,7 @@
         [self teacherInfo: receviedMessage];
     }
     
-    if ([receviedAsiiMessage containsString: @"}43{"]) {
-        [self revieveCaptureImageUrl: receviedAsiiMessage];
-    }
-        //课堂信息
+    //课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
