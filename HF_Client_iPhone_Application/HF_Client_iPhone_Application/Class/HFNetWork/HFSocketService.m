@@ -236,20 +236,20 @@
     if ([receviedMessage containsString: @"teacher="]) {
         [self reveviedTeaclerName: receviedMessage];
     }
-    //课堂信息
     if ([receviedMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedMessage];
-    }
-    //获取课堂名称
-    if ([receviedMessage containsString: @"SendTeacherInfo"]) {
-        [self responseClassName: receviedMessage];
     }
     
     if ([receviedAsiiMessage containsString: @"}43{"]) {
         [self revieveCaptureImageUrl: receviedAsiiMessage];
     }
+        //课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
+    }
+    //获取课堂名称
+    if ([receviedMessage containsString: @"CommandCode="]) {
+        [self responseClassName: receviedMessage];
     }
     
     if ([receviedAsiiMessage containsString: @"LockScreen"]) {
@@ -380,15 +380,11 @@
     [HFCacheObject shardence].isInHandup = [HFUtils regulexFromString: data andStartString: @"<IsInHandup>" andEndString: @"</IsInHandup>"];
     [HFCacheObject shardence].showParamsUrl = [HFUtils regulexFromString: data andStartString: @"<ShowParamsUrl>" andEndString: @"<ShowParamsUrl />"];
     [HFCacheObject shardence].guidedLearningInfo = [HFUtils regulexFromString: data andStartString: @"<GuidedLearningInfo>" andEndString: @"<GuidedLearningInfo />"];
-    //    [HFCacheObject shardence].className = [HFUtils regulexFromString: data andStartString: @"<MicroClassInfo />" andEndString: @"</ClassName>"];
     [HFCacheObject shardence].isCanQuit = [HFUtils regulexFromString: data andStartString: @"<IsCanQuit>" andEndString: @"</IsCanQuit>"];
     [HFCacheObject shardence].iosLookScreen = [HFUtils regulexFromString: data andStartString: @"<IsLookScreen>" andEndString: @"</IsLookScreen>"];
     [HFCacheObject shardence].isLockScreen = [data containsString: @"True"] ? true:false;
     [HFCacheObject shardence].voteMsg = [HFUtils regulexFromString: data andStartString: @"<VoteMsg>" andEndString: @"<VoteMsg />"];
     [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
-    //    NSXMLParser *xmlData = [[NSXMLParser alloc]initWithData: data];
-    //    xmlData.delegate = self;
-    //    [xmlData parse];
 }
 
 - (void)revieveCaptureImageUrl:(NSString *)imageUrl
