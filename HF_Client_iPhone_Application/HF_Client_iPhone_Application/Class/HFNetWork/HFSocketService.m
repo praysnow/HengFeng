@@ -244,7 +244,15 @@
         [self teacherInfo: receviedMessage];
     }
     
-    //课堂信息
+    //单点登录
+    if ([receviedAsiiMessage containsString: @"BeLogout"]) {
+        [self logOut];
+    }
+    
+    if ([receviedAsiiMessage containsString: @"}43{"]) {
+        [self revieveCaptureImageUrl: receviedAsiiMessage];
+    }
+        //课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
