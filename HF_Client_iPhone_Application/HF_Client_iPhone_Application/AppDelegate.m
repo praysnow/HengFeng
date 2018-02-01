@@ -58,7 +58,6 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startSlide) name: START_SLIDE object: nil];
     self.window.rootViewController = self.drawerController;
     
-    
 //    self.window.rootViewController = [NSClassFromString(@"HFPPTViewController") new];
     return YES;
 }
@@ -83,13 +82,10 @@
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
-
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-//    NSLog(@"程序变为活跃");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

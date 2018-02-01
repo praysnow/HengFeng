@@ -18,8 +18,6 @@
 
 @property (strong, nonatomic)NSTimer *timer;
 
-
-
 @end
 
 @implementation HFSocketService
@@ -31,7 +29,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstace = [[self alloc] init];
-        
     });
     return sharedInstace;
 }
@@ -44,7 +41,7 @@
     // 2.连接指定主机的对应端口.
     NSError *error = nil;
     [self.socket connectToHost:[HFNetwork network].SocketAddress onPort:1001 error:&error];
-    [self.socket readDataWithTimeout:-1 tag:0];
+    [self.socket readDataWithTimeout: -1 tag:0];
 }
 
 // 连接成功
@@ -239,6 +236,11 @@
         [self teacherInfo: receviedMessage];
     }
     
+    //单点登录
+    if ([receviedAsiiMessage containsString: @"BeLogout"]) {
+        [self logOut];
+    }
+    
     if ([receviedAsiiMessage containsString: @"}43{"]) {
         [self revieveCaptureImageUrl: receviedAsiiMessage];
     }
@@ -284,6 +286,13 @@
     //        NSLog(@"截屏图片");
     //        [self image: receviedMessage];
     //    }
+}
+
+- (void)logOut
+{
+    NSLog(@"单点登录启用，本次已退出");
+    [HF_MBPregress showMessag: @"有其他用户登录，请重新连接"];
+    [self cutOffSocket];
 }
 
 - (void)image:(NSString *)receviedMessage{
