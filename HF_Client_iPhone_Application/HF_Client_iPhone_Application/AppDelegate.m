@@ -58,7 +58,6 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startSlide) name: START_SLIDE object: nil];
     self.window.rootViewController = self.drawerController;
     
-    
 //    self.window.rootViewController = [NSClassFromString(@"HFPPTViewController") new];
     return YES;
 }
@@ -92,7 +91,6 @@
     [[HFSocketService sharedInstance] socketConnectHost];
     
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

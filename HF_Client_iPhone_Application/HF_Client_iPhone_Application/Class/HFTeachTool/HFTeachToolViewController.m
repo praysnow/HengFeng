@@ -107,7 +107,7 @@
     NSLog(@"随机提问");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[sender.selected ? END_ASK_RANDOM : START_ASK_RANDOM]];
     sender.selected = !sender.selected;
-    if (self.fastButton.selected) {
+    if (sender.selected) {
         [self setUpShowStatus: @"停止抢答" andDetail: @"抢答中..."];
     } else {
         [self setUpShowStatus: nil andDetail: nil];
