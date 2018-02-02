@@ -378,7 +378,7 @@
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
     // Move to bottm center.
-    //    hud.offset = CGPointMake(0.f, 100);
+    // hud.offset = CGPointMake(0.f, 100);
     
     [hud hideAnimated:YES afterDelay:2.f];
 }
