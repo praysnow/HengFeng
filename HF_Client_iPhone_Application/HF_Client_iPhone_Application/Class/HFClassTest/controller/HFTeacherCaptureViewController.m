@@ -51,6 +51,9 @@
     
     [self rotationScreen: YES];
     [self.navigationController setNavigationBarHidden: YES animated: animated];
+//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
+    self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeNone;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -59,6 +62,13 @@
     
     [self rotationScreen: NO];
     [self.navigationController setNavigationBarHidden: NO animated: animated];
+    
+    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+        [self.mm_drawerController setRightDrawerViewController:nil];
+    }];
+    self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+
 }
 
 - (void)setUpTKImageView
@@ -206,14 +216,14 @@
 {
     [[HFSocketService sharedInstance] sendCtrolMessage: @[CLOSE_CAPTURE_WINDOW]];
     [self openShowViewController];
-//    if (_updatePath.length == 0) {
-//        [HF_MBPregress showMessag: @"请先提交截屏"];
-//    } else {
-//    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
-//    //+1 是否需要录制、
-//    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
-//    [self openShowViewController];
-//    }
+    if (_updatePath.length == 0) {
+        [HF_MBPregress showMessag: @"请先提交截屏"];
+    } else {
+    int point = [SCREEN_CAPTURE_TIME intValue] * 10000 + [count intValue] * 10 + 1;
+    //+1 是否需要录制、
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[@(point), _updatePath]];
+    [self openShowViewController];
+    }
 }
 
 - (void)unlimitTimeSend:(NSString *)count

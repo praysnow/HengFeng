@@ -44,8 +44,6 @@
 {
     [super viewDidLoad];
     
-   
-    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([HFMyResourceCollectionViewCell class]) bundle: nil] forCellWithReuseIdentifier: @"Cell"];
@@ -57,9 +55,9 @@
  
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-    
     // 默认是连接错误的状态
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
@@ -79,14 +77,10 @@
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
-    
-   
 }
 
 - (void)loadData
 {
-   
-    
     WebServiceModel *model = [WebServiceModel new];
     self.model = model;
     self.model.method = @"GetDaoXueRenWuByTpID";
@@ -98,7 +92,6 @@
         model.params = @{@"arg0":[HFCacheObject shardence].courseId}.mutableCopy;
         url = [NSString stringWithFormat: @"%@%@",[HFNetwork network].ServerAddress, [HFNetwork network].WebServicePath];
     }
-    
     [[HFNetwork network] SOAPDataWithUrl: url soapBody: [model getRequestParams]  success:^(id responseObject) {
         [self removeAllObject];
         [responseObject setDelegate:self];
@@ -312,8 +305,6 @@
 
 - (void)doubleClickCell:(HFDaoxueModel *)object
 {
-
-    
     if (self.selecedSection == 0) {
         HFMySourcesDetailViewController *vc = [[HFMySourcesDetailViewController alloc] init];
         vc.object = object;
@@ -357,12 +348,7 @@
     }else{
          [self showText:@"该资源暂时无法下发"];
     }
-    
-    
-   
 }
-
-
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

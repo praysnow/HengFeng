@@ -214,8 +214,7 @@
     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
     NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
-    //    char* a=[data bytes];
-    //    NSString * string = [NSString stringWithUTF8String::@"a];
+    
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
     }
