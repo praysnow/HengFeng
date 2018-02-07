@@ -10,8 +10,12 @@
 #import "HFClassTestObject.h"
 #import "HFClassTestDetailCell.h"
 #import "WebServiceModel.h"
+#import "HFCountTimeView.h"
+#import "CBAlertWindow.h"
+#import "HFCacheObject.h"
+#import "HFWebViewController.h"
 
-@interface HFClassTestDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface HFClassTestDetailViewController () <NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource, HFCountTimeViewDelegate>
 
 @property (nonatomic, copy) NSString *currentElementName;
 @property (nonatomic, strong) NSMutableArray <HFClassTestObject *> *dataArray;
@@ -22,7 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *showResult;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (nonatomic, strong) NSString *nameId;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, copy) NSMutableString *mutableString;
+@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, strong) HFCountTimeView *configueView;
 
 @end
 
@@ -41,6 +48,13 @@
     } else {
         [self gz_loadData];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
 }
 
 - (void)gz_loadData
@@ -72,6 +86,8 @@
 //    [tableView deselectRowAtIndexPath: indexPath animated: YES];
     
     self.nameId = self.dataArray[indexPath.row].ID;
+    self.name = self.dataArray[indexPath.row].Name;
+    self.selectedIndex = indexPath.row;
 }
 
 #pragma mark - UITableViewDataSource
@@ -166,15 +182,41 @@
 {
     if ([self isSelectedObject])
     {
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, self.nameId]];
+//        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, self.nameId]];
+            
+//            HFClassTestObject *object = self.dataArray[self.selectedIndex];
+                HFCountTimeView *configueView = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass(HFCountTimeView.class) owner: nil options: nil].lastObject;
+                configueView.delegate = self;
+                self.configueView = configueView;
+                configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+                configueView.layer.masksToBounds = YES;
+                [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+    } else {
+        [HF_MBPregress showMessag: @"请先选择一个资源"];
     }
+}
+
+- (void)limitTimeSend:(NSString *)count
+{
+    NSLog(@"计时下发");
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @([count integerValue] * 60), self.name];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @"0", @"", string, @"3"]];
+    [CBAlertWindow jz_hide];
+}
+
+-(void)unlimitTimeSend:(NSString *)count
+{
+    NSLog(@"不计时下发");
+    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @(0), self.name];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
+    [CBAlertWindow jz_hide];
 }
 
 - (IBAction)recommentMsgButton:(UIButton *)sender
 {
     if ([self isSelectedObject])
     {
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, self.nameId]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_TEST_RECOMMEND_ESCH]];
     }
 }
 
@@ -182,7 +224,11 @@
 {
     if ([self isSelectedObject])
     {
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, self.nameId]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_TEST_SHOW_RESULT]];
+            HFWebViewController *webView = [[HFWebViewController alloc] init];
+             NSString *url = self.dataArray[self.selectedIndex].fileUrl;
+            webView.url = [NSString stringWithFormat: @"%@", url];
+            [self.navigationController pushViewController: webView animated: YES];
     }
 }
 
@@ -190,7 +236,7 @@
 {
     if ([self isSelectedObject])
     {
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, self.nameId]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
     }
 }
 
