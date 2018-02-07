@@ -38,5 +38,6 @@ typedef void (^requestFailureBlock)(NSError *error);
 @property(nonatomic,strong) NSString *WebServicePath;   // WebServicePath
 @property(nonatomic,strong) NSString *NameSpace;        // WebService的命名空间
 @property(nonatomic,strong) NSString *HttpPath;         // http路径
+@property (strong, nonatomic)NSMutableArray *studentArray;
 
 @end

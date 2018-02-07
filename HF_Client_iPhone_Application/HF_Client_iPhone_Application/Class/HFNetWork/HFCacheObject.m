@@ -217,4 +217,26 @@
     return _commitViewArray;
 }
 
+- (NSMutableArray *)optionArray
+{
+    if (!_optionArray) {
+        _optionArray = [NSMutableArray array];
+    }
+    
+    return _optionArray;
+}
+
+- (void)setOptionCount:(NSInteger)optionCount
+{
+    _optionCount = optionCount;
+    if (self.optionArray.count != _optionCount) {
+        for (int i =0; i < _optionCount; i ++) {
+            HFVoteObject *object = [HFVoteObject new];
+            object.title = [NSString stringWithFormat:@"%c", 65 + i];
+            [self.optionArray addObject: object];
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"SendFormatQuestion" object: nil];
+    }
+}
+
 @end

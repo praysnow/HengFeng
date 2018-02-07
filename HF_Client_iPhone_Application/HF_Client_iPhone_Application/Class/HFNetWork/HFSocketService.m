@@ -228,6 +228,20 @@
     if ([receviedAsiiMessage containsString: @"CommitViewImage="]) {
         [self reveviedCommitViewImage:receviedAsiiMessage];
     }
+    //开始投票 接收参数
+    if ([receviedAsiiMessage containsString: @"SendFormatQuestion"]) {
+        [self reveviedSendFormatQuestion:receviedAsiiMessage];
+    }
+    
+   //投票提交
+    if ([receviedAsiiMessage containsString: @"SendSelectToCtrl"]) {
+        [self reveviedSendSelectToCtrln:receviedAsiiMessage];
+    }
+    //关闭投票
+    if ([receviedAsiiMessage containsString: @"CloseFormatQuestion"]) {
+        [self reveviedCloseFormatQuestion:receviedAsiiMessage];
+    }
+    
     if ([receviedMessage containsString: @"teacher="]) {
         [self reveviedTeaclerName: receviedMessage];
     }
@@ -296,6 +310,37 @@
 
 - (void)image:(NSString *)receviedMessage{
     
+}
+
+//投票
+
+- (void)reveviedSendFormatQuestion:(NSString *)string
+{
+    [HFCacheObject shardence].optionCount = [[HFUtils regulexFromString: string andStartString: @"Opt=\"" andEndString: @"\""] integerValue];
+    NSLog(@"选项数量为: %zi",  [HFCacheObject shardence].optionCount);
+}
+
+- (void)reveviedCloseFormatQuestion:(NSString *)string
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"CloseFormatQuestion" object: nil];
+}
+
+- (void)reveviedSendSelectToCtrln:(NSString *)string
+{
+    NSArray *array = [string componentsSeparatedByString: @"&"];
+    NSString *themString = [array lastObject];
+    for(int i =0; i < [themString length]; i++)
+    {
+       NSString *temp = [themString substringWithRange: NSMakeRange(i,1)];
+        for (HFVoteObject *object in [HFCacheObject shardence].optionArray) {
+            if ([object.title isEqualToString: temp]) {
+                object.count ++;
+                [HFCacheObject shardence].commitCount ++;
+                NSLog(@"%@增加一个，总数为%zi", temp, object.count );
+            }
+        }
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"SendSelectToCtrl" object: nil];
 }
 
 - (void)lockScreen

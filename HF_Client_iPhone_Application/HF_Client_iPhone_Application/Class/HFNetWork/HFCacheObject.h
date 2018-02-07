@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HFStudentModel.h"
+#import "HFVoteObject.h"
 
 @interface HFCacheObject : NSObject
 
@@ -53,6 +54,11 @@
 @property (nonatomic, assign) BOOL BrocastDesktop;
 @property (nonatomic, assign) BOOL Racing;
 @property (nonatomic, strong) NSMutableArray<HFStudentModel *> *studentArray;
+
+//课堂测验 选项总数
+@property (nonatomic, assign) NSInteger optionCount;
+@property (nonatomic, strong) NSMutableArray *optionArray;
+@property (nonatomic, assign) NSInteger *commitCount;
 
 //学生提交的数据
 @property (nonatomic, strong) NSMutableArray *commitViewArray;

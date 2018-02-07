@@ -7,16 +7,23 @@
 //
 
 #import "HFToolVoteViewController.h"
+#import "HFVoteTableViewCell.h"
+#import "HFNetwork.h"
 
-@interface HFToolVoteViewController ()
+#define OPTION_ARRAY [HFCacheObject shardence].optionArray
+
+@interface HFToolVoteViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *selectVoteButton;
 @property (weak, nonatomic) IBOutlet UIButton *jianButton;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionNumLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UILabel *commitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uncommitLabel;
 
 @end
 
@@ -28,12 +35,61 @@
     
     self.navigationItem.title = @"教学工具-投票";
     
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startVoting) name: @"startVoting" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendFormatQuestion" object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendSelectToCtrl" object: nil];
     [self initUI];
 }
 
-- (void)initUI{
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
     
-   
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
+    [[HFCacheObject shardence].optionArray removeAllObjects];
+    [HFCacheObject shardence].commitCount = 0;
+}
+
+- (void)initUI{
+    [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFVoteTableViewCell class]) bundle: nil] forCellReuseIdentifier: @"Cell"];
+}
+
+#pragma mark - NSNotificationCenter method
+
+- (void)reloadVoteMessage
+{
+    self.commitLabel.text = [NSString stringWithFormat: @"已提交：%zi人", [HFCacheObject shardence].commitCount];
+//    NSInteger count = [HFNetwork network].studentArray.count;
+//    self.uncommitLabel.text = [NSString stringWithFormat: @"未提交：%zi人", count - (NSInteger)[HFCacheObject shardence].commitCount];
+//                               [HFNetwork network].studentArray.count - [HFCacheObject shardence].commitCount];
+
+    self.coverImageView.hidden = YES;
+    [self.tableView reloadData];
+}
+
+- (void)startVoting
+{
+    
+}
+
+#pragma mark - UITableViewDelegate
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HFVoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell"];
+    cell.object = OPTION_ARRAY[indexPath.row];
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return OPTION_ARRAY.count;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -43,14 +99,6 @@
     self.coverImageView.hidden = NO;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND_VOTE]];
 }
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear: animated];
-    
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_VOTE_STATUE]];
-}
-
 
 - (IBAction)selectVote:(id)sender {
     NSLog(@"单选题");
@@ -62,8 +110,8 @@
         [_selectVoteButton setImage:[UIImage imageNamed:@"多选"] forState:UIControlStateNormal];
         
         
-            _questionNumLabel.text = @"4";
-            _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
+        _questionNumLabel.text = @"4";
+        _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
         
     }else{
         [_selectVoteButton setTitle:@"单选题" forState:UIControlStateNormal];
@@ -75,17 +123,17 @@
 }
 
 - (IBAction)jianButton:(id)sender {
-     NSLog(@"减法");
+    NSLog(@"减法");
     
     NSInteger num = [_questionNumLabel.text integerValue];
-   if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"] && num == 2){
-       return;
-   }
+    if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"] && num == 2){
+        return;
+    }
     
     if([_selectVoteButton.titleLabel.text isEqualToString:@"多选题"] && num == 4){
         return;
     }
-
+    
     
     [_addButton setImage:[UIImage imageNamed:@"+"] forState:UIControlStateNormal];
     
@@ -101,14 +149,14 @@
     
     if([_selectVoteButton.titleLabel.text isEqualToString:@"多选题"]){
         if(num == 4){
-             [_jianButton setImage:[UIImage imageNamed:@"_1"] forState:UIControlStateNormal];
+            [_jianButton setImage:[UIImage imageNamed:@"_1"] forState:UIControlStateNormal];
         }
     }
     
 }
 
 - (IBAction)addButton:(id)sender {
-     NSLog(@"加法");
+    NSLog(@"加法");
     
     NSInteger num = [_questionNumLabel.text integerValue];
     
@@ -130,7 +178,8 @@
     NSLog(@"开始投票");
     
     NSInteger num = [_questionNumLabel.text integerValue];
-     [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE,@(num)]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE,@(num)]];
+    self.coverImageView.hidden = YES;
 }
 
 - (IBAction)endVote:(id)sender {

@@ -91,6 +91,9 @@
 		398CDBFD1FE77197008816CD /* HFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398CDBFB1FE77197008816CD /* HFWebViewController.m */; };
 		398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398CDBFC1FE77197008816CD /* HFWebViewController.xib */; };
 		399052902021E259004C93EE /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990528F2021E259004C93EE /* MZTimerLabel.m */; };
+		39905295202A99C7004C93EE /* HFVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39905293202A99C7004C93EE /* HFVoteTableViewCell.m */; };
+		39905296202A99C7004C93EE /* HFVoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39905294202A99C7004C93EE /* HFVoteTableViewCell.xib */; };
+		39905299202AB40F004C93EE /* HFVoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39905298202AB40F004C93EE /* HFVoteObject.m */; };
 		39A0C2271FF0AD9900F3B681 /* HFTeachShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */; };
 		39A0C2281FF0AD9900F3B681 /* HFTeachShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */; };
 		39A0C22B1FF1065400F3B681 /* ZSVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0C2291FF1065400F3B681 /* ZSVerticalButton.m */; };
@@ -318,6 +321,11 @@
 		398CDBFC1FE77197008816CD /* HFWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFWebViewController.xib; sourceTree = "<group>"; };
 		3990528E2021E259004C93EE /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
 		3990528F2021E259004C93EE /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
+		39905292202A99C7004C93EE /* HFVoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFVoteTableViewCell.h; sourceTree = "<group>"; };
+		39905293202A99C7004C93EE /* HFVoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFVoteTableViewCell.m; sourceTree = "<group>"; };
+		39905294202A99C7004C93EE /* HFVoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFVoteTableViewCell.xib; sourceTree = "<group>"; };
+		39905297202AB40F004C93EE /* HFVoteObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFVoteObject.h; sourceTree = "<group>"; };
+		39905298202AB40F004C93EE /* HFVoteObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFVoteObject.m; sourceTree = "<group>"; };
 		39A0C2241FF0AD9900F3B681 /* HFTeachShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFTeachShareViewController.h; sourceTree = "<group>"; };
 		39A0C2251FF0AD9900F3B681 /* HFTeachShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFTeachShareViewController.m; sourceTree = "<group>"; };
 		39A0C2261FF0AD9900F3B681 /* HFTeachShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFTeachShareViewController.xib; sourceTree = "<group>"; };
@@ -628,9 +636,12 @@
 		391979C81FE7FC0300AD478D /* Vote */ = {
 			isa = PBXGroup;
 			children = (
+				39905291202A9971004C93EE /* View */,
 				39C94A3A1FE27B36003641C9 /* HFToolVoteViewController.h */,
 				39C94A3B1FE27B36003641C9 /* HFToolVoteViewController.m */,
 				39C94A3C1FE27B36003641C9 /* HFToolVoteViewController.xib */,
+				39905297202AB40F004C93EE /* HFVoteObject.h */,
+				39905298202AB40F004C93EE /* HFVoteObject.m */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -766,6 +777,16 @@
 				397341041FFCBD80004191BD /* UIViewController+MMDrawerController.m */,
 			);
 			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
+		39905291202A9971004C93EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39905292202A99C7004C93EE /* HFVoteTableViewCell.h */,
+				39905293202A99C7004C93EE /* HFVoteTableViewCell.m */,
+				39905294202A99C7004C93EE /* HFVoteTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		39A0C2231FF0AD5900F3B681 /* TeachShare */ = {
@@ -1293,6 +1314,7 @@
 				8226AADC1FFE479800C9BDB4 /* 排行@3x.png in Resources */,
 				391979D31FEA5FB500AD478D /* HFCountTimeView.xib in Resources */,
 				39181EA51FB574DF00A364AB /* WLANxxbg.png in Resources */,
+				39905296202A99C7004C93EE /* HFVoteTableViewCell.xib in Resources */,
 				397340E11FFB91E2004191BD /* HFUserInfoViewController.xib in Resources */,
 				39181E891FB574DF00A364AB /* configue_ensure.png in Resources */,
 				8226AAD41FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.xib in Resources */,
@@ -1409,6 +1431,7 @@
 				8226AAE51FFF729D00C9BDB4 /* HFStudentModel.m in Sources */,
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				828846ED20109B6300D8DBF5 /* LXFCycleBrush.m in Sources */,
+				39905299202AB40F004C93EE /* HFVoteObject.m in Sources */,
 				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,
@@ -1458,6 +1481,7 @@
 				3972CB371FB198D40017DFE9 /* main.m in Sources */,
 				3972CB291FB198D40017DFE9 /* AppDelegate.m in Sources */,
 				8226AAEB1FFF738D00C9BDB4 /* HFGroupModel.m in Sources */,
+				39905295202A99C7004C93EE /* HFVoteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

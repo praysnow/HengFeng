@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,9 +14,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HFToolVoteViewController">
             <connections>
                 <outlet property="addButton" destination="qIi-31-xag" id="zox-7M-Zia"/>
+                <outlet property="commitLabel" destination="8cC-7O-uFm" id="Lsf-Jx-Hw0"/>
                 <outlet property="jianButton" destination="WiQ-4M-cYe" id="Qhb-8s-B1e"/>
                 <outlet property="questionNumLabel" destination="1mf-hi-3Vf" id="hyV-Bd-qbB"/>
                 <outlet property="selectVoteButton" destination="t6h-g9-9RU" id="q7s-g0-yrt"/>
+                <outlet property="tableView" destination="hJH-eZ-cod" id="bM3-LP-t55"/>
+                <outlet property="uncommitLabel" destination="FkH-gT-Yqf" id="2UE-gI-fDJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -161,18 +164,16 @@
                         <constraint firstItem="QD5-Hi-W4b" firstAttribute="leading" secondItem="qIi-31-xag" secondAttribute="trailing" constant="15" id="zJ3-sj-MkK"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDm-EZ-6rE">
-                    <rect key="frame" x="0.0" y="20" width="414" height="656"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-Df-7NO">
                     <rect key="frame" x="0.0" y="20" width="414" height="656"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJH-eZ-cod">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                            <rect key="frame" x="14" y="40" width="386" height="558"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="295" id="swK-Aw-kyE"/>
-                            </constraints>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Ndx-1A-7Br"/>
+                                <outlet property="delegate" destination="-1" id="BPW-Du-zl4"/>
+                            </connections>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQO-ee-JMm">
                             <rect key="frame" x="0.0" y="638" width="414" height="17"/>
@@ -213,13 +214,13 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="hJH-eZ-cod" firstAttribute="top" secondItem="MVH-Df-7NO" secondAttribute="top" id="Gfe-w9-OgU"/>
+                        <constraint firstItem="hJH-eZ-cod" firstAttribute="top" secondItem="MVH-Df-7NO" secondAttribute="top" constant="40" id="Gfe-w9-OgU"/>
                         <constraint firstItem="MQO-ee-JMm" firstAttribute="leading" secondItem="MVH-Df-7NO" secondAttribute="leading" id="II0-gh-Nij"/>
                         <constraint firstAttribute="trailing" secondItem="MQO-ee-JMm" secondAttribute="trailing" id="RIw-iX-1s3"/>
-                        <constraint firstAttribute="trailing" secondItem="hJH-eZ-cod" secondAttribute="trailing" id="lt5-Rk-fsh"/>
-                        <constraint firstItem="hJH-eZ-cod" firstAttribute="leading" secondItem="MVH-Df-7NO" secondAttribute="leading" id="sh1-Gd-NdQ"/>
+                        <constraint firstItem="MQO-ee-JMm" firstAttribute="top" secondItem="hJH-eZ-cod" secondAttribute="bottom" constant="40" id="WNX-rj-xnG"/>
+                        <constraint firstAttribute="trailing" secondItem="hJH-eZ-cod" secondAttribute="trailing" constant="14" id="lt5-Rk-fsh"/>
+                        <constraint firstItem="hJH-eZ-cod" firstAttribute="leading" secondItem="MVH-Df-7NO" secondAttribute="leading" constant="14" id="sh1-Gd-NdQ"/>
                         <constraint firstAttribute="bottom" secondItem="MQO-ee-JMm" secondAttribute="bottom" constant="1" id="zum-R8-hZc"/>
                     </constraints>
                 </view>
@@ -229,15 +230,11 @@
                 <constraint firstItem="QER-Cv-oBZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="0VN-6C-mN7"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="QER-Cv-oBZ" secondAttribute="trailing" id="3S8-Be-mfA"/>
                 <constraint firstItem="cyi-4E-ohF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="5dt-By-xNW"/>
-                <constraint firstItem="cyi-4E-ohF" firstAttribute="top" secondItem="rDm-EZ-6rE" secondAttribute="bottom" id="94S-1a-y42"/>
-                <constraint firstItem="rDm-EZ-6rE" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="9kB-kl-Wzn"/>
                 <constraint firstItem="MVH-Df-7NO" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Cz5-8u-6aH"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="rDm-EZ-6rE" secondAttribute="trailing" id="O1l-vi-ISW"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="MVH-Df-7NO" secondAttribute="trailing" id="Rxi-MN-o4v"/>
                 <constraint firstItem="MVH-Df-7NO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="WQf-hh-qSP"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="cyi-4E-ohF" secondAttribute="bottom" id="gle-Re-73C"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="QER-Cv-oBZ" secondAttribute="bottom" id="vBO-xZ-ych"/>
-                <constraint firstItem="rDm-EZ-6rE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="wYZ-7c-Gjg"/>
                 <constraint firstItem="cyi-4E-ohF" firstAttribute="top" secondItem="MVH-Df-7NO" secondAttribute="bottom" id="xPz-TW-4yZ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="cyi-4E-ohF" secondAttribute="trailing" id="z6w-Sm-mJZ"/>
             </constraints>

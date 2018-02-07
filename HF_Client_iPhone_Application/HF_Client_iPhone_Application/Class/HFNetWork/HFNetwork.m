@@ -16,7 +16,6 @@
 @property(strong,nonatomic)AFHTTPSessionManager *manager;
 
 @property(strong, nonatomic)NSString *resultString;
-@property (strong, nonatomic)NSMutableArray *studentArray;
 @property(strong, nonatomic)NSMutableString *mutableString;
 @property(strong, nonatomic)NSString *currentElementName;
 
