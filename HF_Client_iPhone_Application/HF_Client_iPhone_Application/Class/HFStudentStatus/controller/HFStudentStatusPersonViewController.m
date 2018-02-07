@@ -198,7 +198,7 @@
     if(models.count > 0){
         HFStudentModel *data = models[0];
         model.point = data.point;
-        
+
         NSString *message = [NSString stringWithFormat:@"stu_unfirst&%@&%@&%@",model.userID,model.userRealName,@(point)];
         [[HFSocketService sharedInstance] sendCtrolMessage:@[sendStuScoreToTeacher,message]];
     }else{
