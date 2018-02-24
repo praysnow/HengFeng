@@ -86,7 +86,6 @@
     return OPTION_ARRAY.count;
 }
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath: indexPath animated: YES];
@@ -97,6 +96,8 @@
     [super viewWillAppear: animated];
     
     self.coverImageView.hidden = NO;
+    //切换为单选
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[RECOMMEND_VOTE]];
 }
 
@@ -179,6 +180,8 @@
     
     NSInteger num = [_questionNumLabel.text integerValue];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE,@(num)]];
+    [OPTION_ARRAY removeAllObjects];
+    [self.tableView reloadData];
     self.coverImageView.hidden = YES;
 }
 
