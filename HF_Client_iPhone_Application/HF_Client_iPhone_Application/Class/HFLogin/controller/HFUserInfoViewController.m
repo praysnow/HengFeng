@@ -66,6 +66,7 @@
     
     
     NSString *className = [HFCacheObject shardence].className;
+    
 //    className = className == nil ?  @"未获取到课程信息": className;
     if(![HFSocketService sharedInstance].isSocketed || className == nil){
         className = @"未获取到课程信息";
