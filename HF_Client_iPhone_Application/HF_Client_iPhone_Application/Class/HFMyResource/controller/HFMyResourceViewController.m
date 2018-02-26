@@ -311,8 +311,12 @@
         [self.navigationController pushViewController: vc animated: YES];
     }else{
         
-        [self showText:@"正在打开资源..." afterDelay:3];
-        [[HFSocketService sharedInstance] sendCtrolMessage:@[OPENPPE_PPE,@(self.selectedIndex)]];
+        // 只打开PPT类型的资源
+        if ([object.fileUrl containsString:@"ppt"]) {
+            [self showText:@"正在打开资源..." afterDelay:4];
+            [[HFSocketService sharedInstance] sendCtrolMessage:@[OPENPPE_PPE,@(self.selectedIndex)]];
+        }
+        
     }
 }
 
@@ -321,6 +325,7 @@
 - (void)headerFooterSend
 {
     NSLog(@"点击停止");
+     [self showText:@"停止下发资源..." afterDelay:2];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_MY_SOURCE_SEND]];
 }
 

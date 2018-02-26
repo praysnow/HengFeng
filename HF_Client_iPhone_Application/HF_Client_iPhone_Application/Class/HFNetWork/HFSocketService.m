@@ -87,11 +87,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     if (self.userData == SocketOfflineByServer) {
-        // 服务器掉线，重连
-        //        NSLog(@"5秒重连");
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //            [self socketConnectHost];
-        //        });
+        
         [self socketConnectHost];
         
     }else if (self.userData == SocketOfflineByUser) {
@@ -100,6 +96,7 @@
     }
 }
 
+// 发送socket命令的封装
 - (void)sendCtrolMessage:(NSArray *)array
 {
     if (array.count == 0) return;
@@ -118,7 +115,8 @@
         [string appendString: [NSString stringWithFormat: @"%@%@", @"{7A76F682-6058-4EBC-A5AF-013A4369EE0E}", key]];
     }
     
-    //    NSLog(@"发送socket命令   %@",string);
+    NSLog(@"发送socket命令   %@",string);
+    
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
@@ -153,7 +151,7 @@
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
-//心跳包
+// 心跳包
 - (void)headSocketInfoSent
 {
     Byte type= HEADER_INFO_FIRST_BYTE;
@@ -211,10 +209,23 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
+    [self.socket readDataWithTimeout: -1 tag:0];
+    
+     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
-    NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
+   
     NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
     NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
+    //    char* a=[data bytes];
+    //    NSString * string = [NSString stringWithUTF8String::@"a];
+    
+
+    // 截屏图片
+    if ([receviedAsiiMessage containsString: @"}43{"]) {
+        [self revieveCaptureImageUrl: receviedAsiiMessage];
+    }
+    
+    
     
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
@@ -255,15 +266,17 @@
         [self logOut];
     }
     
-    if ([receviedAsiiMessage containsString: @"}43{"]) {
-        [self revieveCaptureImageUrl: receviedAsiiMessage];
-    }
-        //课堂信息
+//    if ([receviedAsiiMessage containsString: @"}43{"]) {
+//        [self revieveCaptureImageUrl: receviedAsiiMessage];
+//    }
+    
+    // 课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
     //获取课堂名称
     if ([receviedMessage containsString: @"CommandCode="]) {
+        
         [self responseClassName: receviedMessage];
     }
     //锁屏指令
@@ -314,7 +327,6 @@
 }
 
 //投票
-
 - (void)reveviedSendFormatQuestion:(NSString *)string
 {
     [HFCacheObject shardence].optionCount = [[HFUtils regulexFromString: string andStartString: @"Opt=\"" andEndString: @"\""] integerValue];
@@ -404,6 +416,8 @@
 
 - (void)sendLoginInfo
 {
+    NSLog(@"发送登录状态");
+    
     NSString *loginStatus = @"Login?name=TeacherCtrl&os=android&class=defaultEx";
     NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
@@ -417,7 +431,6 @@
     [mutableData appendData: lengthData];
     [mutableData appendData: steamIdData];
     [mutableData appendData: data];
-    NSLog(@"发送登录状态");
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 

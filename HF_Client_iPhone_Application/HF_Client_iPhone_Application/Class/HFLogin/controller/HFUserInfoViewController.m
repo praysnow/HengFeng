@@ -43,7 +43,16 @@
     
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"className" object:nil];
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(setdata) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//
+//    [self setdata];
+//}
 
 - (void)action:(NSNotification *)notification {
     NSLog(@"通知我啦！");
@@ -54,19 +63,27 @@
 
 - (void)setdata
 {
-    NSString *className = [HFCacheObject shardence].className;
-    className = className == nil ?  @"未获取到课程信息": className;
     
+    
+    NSString *className = [HFCacheObject shardence].className;
+    
+//    className = className == nil ?  @"未获取到课程信息": className;
+    if(![HFSocketService sharedInstance].isSocketed || className == nil){
+        className = @"未获取到课程信息";
+    }
     
     self.array = @[@{@"name":@"课程", @"image" : @"课程",@"content" : className},
                    @{@"name":@"wifi确认", @"image" : @"wifi确认",@"content" : [self GetWifiName]},
-                   @{@"name":@"系统配置", @"image" : @"系统配置",@"content" : @""}];
+                   @{@"name":@"系统配置", @"image" : @"系统配置",@"content" : @""},
+                   @{@"name":@"扫码配置", @"image" : @"系统配置",@"content" : @""}];
+    
+    [self.tableView reloadData];
 }
 
 // 获取wifi名称
 - (NSString *)GetWifiName{
     
-    NSString *wifiName = @"";
+    NSString *wifiName = @"未连接";
     
     CFArrayRef myArray = CNCopySupportedInterfaces();
     

@@ -53,7 +53,6 @@
 		391B4DD41FF24E7A00FA55D8 /* UIView+FrameCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B4DD21FF24E7A00FA55D8 /* UIView+FrameCategory.m */; };
 		392465122010C9BF0095744A /* TKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 392465112010C9BF0095744A /* TKImageView.m */; };
 		392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392BB3B81FB5B40A00444EAF /* MainTabViewController.m */; };
-		392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */; };
 		393051E020112C1C001BA5E4 /* HF_MBPregress.m in Sources */ = {isa = PBXBuildFile; fileRef = 393051DF20112C1C001BA5E4 /* HF_MBPregress.m */; };
 		393051E42013738D001BA5E4 /* HFClassTestShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393051E22013738D001BA5E4 /* HFClassTestShowViewController.m */; };
 		393051E52013738D001BA5E4 /* HFClassTestShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393051E32013738D001BA5E4 /* HFClassTestShowViewController.xib */; };
@@ -260,7 +259,6 @@
 		3928791E1FB3E0B7006E3ED4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		392BB3B71FB5B40A00444EAF /* MainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		392BB3B81FB5B40A00444EAF /* MainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
-		392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTabViewController.xib; sourceTree = "<group>"; };
 		393051DE20112C1C001BA5E4 /* HF_MBPregress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HF_MBPregress.h; sourceTree = "<group>"; };
 		393051DF20112C1C001BA5E4 /* HF_MBPregress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HF_MBPregress.m; sourceTree = "<group>"; };
 		393051E12013738D001BA5E4 /* HFClassTestShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFClassTestShowViewController.h; sourceTree = "<group>"; };
@@ -616,7 +614,6 @@
 			children = (
 				392BB3B71FB5B40A00444EAF /* MainTabViewController.h */,
 				392BB3B81FB5B40A00444EAF /* MainTabViewController.m */,
-				392BB3B91FB5B40A00444EAF /* MainTabViewController.xib */,
 				82E62FE01FE91E3000B90E69 /* HFNavigationViewController.h */,
 				82E62FE11FE91E3000B90E69 /* HFNavigationViewController.m */,
 			);
@@ -806,7 +803,6 @@
 				39B718ED1FBC20050088C348 /* HFMyResourceCollectionViewCell.m */,
 				39B718EE1FBC20050088C348 /* HFMyResourceCollectionViewCell.xib */,
 				39B718F11FBC20340088C348 /* HFMyResourceHeaderFootView.h */,
-				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
 				39B718F41FBC203E0088C348 /* HFMyResourceHeaderFootView.xib */,
 				398CDBEF1FE764D7008816CD /* HFMYResourCeDetailTableViewCell.h */,
 				398CDBF01FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m */,
@@ -827,6 +823,7 @@
 				39D488891FCD5CFA00F36D16 /* HFHearBeat.h */,
 				39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */,
 				3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */,
+				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
 				3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */,
 				3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */,
 			);
@@ -1250,7 +1247,6 @@
 				825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */,
 				39181E871FB574DF00A364AB /* 2.png in Resources */,
 				398CDBFE1FE77197008816CD /* HFWebViewController.xib in Resources */,
-				392BB3BB1FB5B40A00444EAF /* MainTabViewController.xib in Resources */,
 				82E62FD41FE911D700B90E69 /* HFClassTestViewController.xib in Resources */,
 				39181E8E1FB574DF00A364AB /* ic_exit.png in Resources */,
 				39B718F51FBC203E0088C348 /* HFMyResourceHeaderFootView.xib in Resources */,
@@ -1662,7 +1658,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test22";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1686,7 +1682,7 @@
 				INFOPLIST_FILE = HF_Client_iPhone_Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.header.www.hengfeng.HF-Client-iPhone-Application-test22";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -38,9 +38,10 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <inset key="titleEdgeInsets" minX="-25" minY="40" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="10" minY="-10" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="上一页" image="上一页2">
+                            <state key="normal" title="上一步" image="上一页2">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" backgroundImage="green"/>
                             <connections>
                                 <action selector="upPage:" destination="-1" eventType="touchUpInside" id="0wH-si-6sX"/>
                             </connections>
@@ -64,6 +65,7 @@
                             <state key="selected">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" backgroundImage="green"/>
                             <connections>
                                 <action selector="remark:" destination="-1" eventType="touchUpInside" id="JJe-t1-1gy"/>
                             </connections>
@@ -77,6 +79,7 @@
                             <state key="normal" title="刷新" image="刷新">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" backgroundImage="green"/>
                             <connections>
                                 <action selector="refresh:" destination="-1" eventType="touchUpInside" id="KzL-Ck-MOW"/>
                             </connections>
@@ -101,9 +104,10 @@
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <inset key="titleEdgeInsets" minX="-25" minY="40" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="10" minY="-10" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="下一页" image="下一页2">
+                            <state key="normal" title="下一步" image="下一页2">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" backgroundImage="green"/>
                             <connections>
                                 <action selector="downPage:" destination="-1" eventType="touchUpInside" id="XIB-uu-3UU"/>
                             </connections>
@@ -336,6 +340,7 @@
         </view>
     </objects>
     <resources>
+        <image name="green" width="120" height="91"/>
         <image name="上一页2" width="22" height="22"/>
         <image name="下一页2" width="22" height="22"/>
         <image name="刷新" width="22" height="22"/>

@@ -350,10 +350,10 @@
         HFStudentArrayModel *data = models[0];
         model.point = data.point;
         
-        NSString *message = [NSString stringWithFormat:@"stu_unfirst&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
+        NSString *message = [NSString stringWithFormat:@"group_unfirst&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
         [[HFSocketService sharedInstance] sendCtrolMessage:@[sendGroupScoreToTeacher,message]];
     }else{
-        NSString *message = [NSString stringWithFormat:@"stu_first&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
+        NSString *message = [NSString stringWithFormat:@"group_first&%@&%@&%@",model.PeopleGroupID,model.PeopleGroupNum,@(point)];
         [[HFSocketService sharedInstance] sendCtrolMessage:@[sendGroupScoreToTeacher,message]];
     }
     model.point += point;
@@ -378,7 +378,7 @@
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
     // Move to bottm center.
-    //    hud.offset = CGPointMake(0.f, 100);
+    // hud.offset = CGPointMake(0.f, 100);
     
     [hud hideAnimated:YES afterDelay:2.f];
 }

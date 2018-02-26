@@ -62,7 +62,7 @@
 //    [manager.requestSerializer setValue: @"http://tempuri.org/CheckUser" forHTTPHeaderField:@"action"];
 //    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/soap+xml", @"text/html",nil];
     [manager.requestSerializer setValue: @"text/xml;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/html; charset=us-ascii" @"text/javascript", @"text/html", @"text/xml;charset=utf-8", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/soap+xml",@"application/xml", @"text/xml", @"text/html; charset=us-ascii" @"text/javascript", @"text/html", @"text/xml;charset=utf-8", nil];
     // 设置HTTPBody
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapBody;
