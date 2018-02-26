@@ -209,7 +209,7 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    
+    [self.socket readDataWithTimeout: -1 tag:0];
     
      NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
@@ -224,6 +224,7 @@
     if ([receviedAsiiMessage containsString: @"}43{"]) {
         [self revieveCaptureImageUrl: receviedAsiiMessage];
     }
+    
     
     
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
@@ -268,7 +269,8 @@
 //    if ([receviedAsiiMessage containsString: @"}43{"]) {
 //        [self revieveCaptureImageUrl: receviedAsiiMessage];
 //    }
-        //课堂信息
+    
+    // 课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
