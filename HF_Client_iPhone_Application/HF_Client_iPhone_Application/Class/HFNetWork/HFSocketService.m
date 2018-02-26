@@ -56,6 +56,7 @@
         
         // 开启定时器
         self.timer = [NSTimer scheduledTimerWithTimeInterval: 10 repeats: YES block:^(NSTimer * _Nonnull timer) {
+            //开启心跳包
             [self headSocketInfoSent];
         }];
         [self sendCtrolMessage: @[@"111"]];
@@ -126,6 +127,7 @@
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
+//检查教师端状态
 - (void)sendCheckStatus
 {
     NSMutableData *mutableData = [NSMutableData new];
@@ -166,8 +168,6 @@
     [mutableData appendData: steamIdData];
     [mutableData appendData: bodyData];
     [self.socket writeData: mutableData withTimeout:-1 tag:0];
-    
-    
 }
 
 - (void)teacherSendingSocket:(Byte)body
@@ -277,7 +277,7 @@
         
         [self responseClassName: receviedMessage];
     }
-    
+    //锁屏指令
     if ([receviedAsiiMessage containsString: @"LockScreen"]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }

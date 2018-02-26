@@ -31,7 +31,6 @@
 
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(receviedCommitViewImage) name: @"CommitViewImage=" object: nil];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedForceCloseScreenTest) name: @"reveviedForceCloseScreenTest" object: nil];
-    
 }
 
 - (void)setupLayout
