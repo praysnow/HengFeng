@@ -193,13 +193,19 @@ typedef NS_ENUM(NSUInteger, MATMatchDetailDataLoadedType) {
  */
 #define END_LIVE  @"62"
 /**
- * 计时下发
+ * 课堂测验 计时下发
  */
 #define SEND_DOWN_TIME  @"80"
 /**
- * 不计时下发
+ * 课堂测验  不计时下发
  */
 #define SEND_DOWN_UNTIME  @"81"
+
+/**
+ * 课堂测验  上传成功
+ */
+#define CLASS_UPLOAD_SUCCESS  @"44"
+
 /**
  * 截屏 不计时下发
  */

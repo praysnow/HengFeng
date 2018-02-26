@@ -247,8 +247,9 @@
     // 删掉本地图片
     
     // 发送指令
-    NSString *filePath = [NSString stringWithFormat:@"/root/uploadtemp/classTestiOS.jpg"];
-    NSLog(@"ftp路径%@",filePath);
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_UPLOAD_SUCCESS, @"/root/uploadtemp/classTestiOS.jpg"]];
+//    NSString *filePath = [NSString stringWithFormat:];
+//    NSLog(@"ftp路径%@",filePath);
 }
 
 - (void)ftpRequest:(SCRFTPRequest *)request didFailWithError:(NSError *)error{

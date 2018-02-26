@@ -200,15 +200,15 @@
 {
     NSLog(@"计时下发");
     NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @([count integerValue] * 60), self.name];
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @"0", @"", string, @"3"]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_TIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
 }
 
--(void)unlimitTimeSend:(NSString *)count
+-(void)unlimitTimeSend:(NSString *)countxr
 {
     NSLog(@"不计时下发");
     NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @(0), self.name];
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_UNTIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
 }
 
@@ -222,6 +222,7 @@
 
 - (IBAction)showRusultButton:(UIButton *)sender
 {
+    NSLog(@"查看结果");
     if ([self isSelectedObject])
     {
         [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_TEST_SHOW_RESULT]];
