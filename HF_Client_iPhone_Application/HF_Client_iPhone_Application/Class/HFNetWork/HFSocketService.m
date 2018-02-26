@@ -86,11 +86,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"isShowCoverImage" object: nil];
     if (self.userData == SocketOfflineByServer) {
-        // 服务器掉线，重连
-        //        NSLog(@"5秒重连");
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //            [self socketConnectHost];
-        //        });
+        
         [self socketConnectHost];
         
     }else if (self.userData == SocketOfflineByUser) {
@@ -99,6 +95,7 @@
     }
 }
 
+// 发送socket命令的封装
 - (void)sendCtrolMessage:(NSArray *)array
 {
     if (array.count == 0) return;
@@ -211,6 +208,8 @@
 // 读取数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
+    
+    
      NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
     NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
    
@@ -412,6 +411,8 @@
 
 - (void)sendLoginInfo
 {
+    NSLog(@"发送登录状态");
+    
     NSString *loginStatus = @"Login?name=TeacherCtrl&os=android&class=defaultEx";
     NSData *data = [loginStatus dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
@@ -425,7 +426,6 @@
     [mutableData appendData: lengthData];
     [mutableData appendData: steamIdData];
     [mutableData appendData: data];
-    NSLog(@"发送登录状态");
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 

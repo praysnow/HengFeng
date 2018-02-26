@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"导学案";
+//    self.navigationItem.title = @"导学案";
     self.array  = [NSMutableArray array];
     [self addAllChildViewController];
 }

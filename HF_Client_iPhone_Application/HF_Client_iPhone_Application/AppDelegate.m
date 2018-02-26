@@ -31,15 +31,10 @@
     MainTabViewController *centerVC = [[MainTabViewController alloc]init];
     self.centerVC = centerVC;
     HFUserInfoViewController *leftVC = [[HFUserInfoViewController alloc]init];
-    //2、初始化导航控制器
-//    HFNavigationViewController *centerNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:centerVC];
-//    centerVC.hideNavigationBar = YES;
-//    HFNavigationViewController *leftNvaVC = [[HFNavigationViewController alloc]initWithRootViewController:leftVC];
-//    leftNvaVC.hideNavigationBar = YES;
+    
     
     //3、使用MMDrawerController
-//    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerNvaVC leftDrawerViewController:leftNvaVC rightDrawerViewController: nil];
-        self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:leftVC rightDrawerViewController: nil];
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:leftVC rightDrawerViewController: nil];
     self.drawerController.hideNavigationBar = YES;
     
     //4、设置打开/关闭抽屉的手势
@@ -48,10 +43,6 @@
     //5、设置左右两边抽屉显示的多少
     self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH * 0.8;
     
-//    MainTabViewController *loginView = [[MainTabViewController alloc] init];
-//        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: loginView];
-//    navigationController.navigationBar.hidden = YES;
-//    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController: navigationController leftMenuViewController: nil rightMenuViewController: nil];
     
     // 开启socket连接
     [[HFSocketService sharedInstance] socketConnectHost];
