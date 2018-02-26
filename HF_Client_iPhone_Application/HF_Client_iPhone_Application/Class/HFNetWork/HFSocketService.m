@@ -149,6 +149,7 @@
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
+// 心跳包
 - (void)headSocketInfoSent
 {
     Byte type= HEADER_INFO_FIRST_BYTE;
@@ -218,10 +219,12 @@
     //    char* a=[data bytes];
     //    NSString * string = [NSString stringWithUTF8String::@"a];
     
+
     // 截屏图片
     if ([receviedAsiiMessage containsString: @"}43{"]) {
         [self revieveCaptureImageUrl: receviedAsiiMessage];
     }
+    
     
     if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
         [self teacherInfo: receviedAsiiMessage];
@@ -262,15 +265,16 @@
         [self logOut];
     }
     
-    if ([receviedAsiiMessage containsString: @"}43{"]) {
-        [self revieveCaptureImageUrl: receviedAsiiMessage];
-    }
+//    if ([receviedAsiiMessage containsString: @"}43{"]) {
+//        [self revieveCaptureImageUrl: receviedAsiiMessage];
+//    }
         //课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
     //获取课堂名称
     if ([receviedMessage containsString: @"CommandCode="]) {
+        
         [self responseClassName: receviedMessage];
     }
     
@@ -321,7 +325,6 @@
 }
 
 //投票
-
 - (void)reveviedSendFormatQuestion:(NSString *)string
 {
     [HFCacheObject shardence].optionCount = [[HFUtils regulexFromString: string andStartString: @"Opt=\"" andEndString: @"\""] integerValue];
