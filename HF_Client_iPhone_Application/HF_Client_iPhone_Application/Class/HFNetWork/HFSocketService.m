@@ -266,16 +266,13 @@
         [self logOut];
     }
     
-//    if ([receviedAsiiMessage containsString: @"}43{"]) {
-//        [self revieveCaptureImageUrl: receviedAsiiMessage];
-//    }
     
     // 课堂信息
     if ([receviedAsiiMessage containsString: @"CommandCode="]) {
         [self responseXmlStatsWith: receviedAsiiMessage];
     }
     //获取课堂名称
-    if ([receviedMessage containsString: @"CommandCode="]) {
+    if ([receviedMessage containsString: @"CommandCode=\"ReponseXmlState\""]) {
         
         [self responseClassName: receviedMessage];
     }

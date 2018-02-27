@@ -18,6 +18,9 @@
 #import<SystemConfiguration/CaptiveNetwork.h>
 #import<SystemConfiguration/SystemConfiguration.h>
 #import<CoreFoundation/CoreFoundation.h>
+#import "DIYScanViewController.h"
+#import "StyleDIY.h"
+#import "Global.h"
 
 @interface HFUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -44,21 +47,31 @@
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"className" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DIYScanViewControllerAction:) name:@"DIYScanViewController" object:nil];
+
+    
     NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(setdata) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//
-//    [self setdata];
-//}
 
 - (void)action:(NSNotification *)notification {
     NSLog(@"通知我啦！");
     
     [self setdata];
     [self.tableView reloadData];
+}
+
+- (void)DIYScanViewControllerAction:(NSNotification *)notification {
+    NSLog(@"扫码结果");
+    
+    // 弹出窗口
+    SystemSettingView *systemSettingView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(SystemSettingView.class) owner:nil options:nil].lastObject;
+    self.systemSettingView = systemSettingView;
+    systemSettingView.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT / 2 + 35);
+    [systemSettingView.layer setCornerRadius:10];
+    systemSettingView.layer.masksToBounds = YES;
+    [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
 }
 
 - (void)setdata
@@ -153,6 +166,22 @@
         systemSettingView.layer.masksToBounds = YES;
         [CBAlertWindow jz_showView:systemSettingView animateType:CBShowAnimateTypeCenter];
         
+    }else if ([name isEqualToString:@"扫码配置"]){
+        
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        UIViewController *rootVC = appDelegate.window.rootViewController;
+        
+        
+        DIYScanViewController *vc = [DIYScanViewController new];
+        
+        
+        vc.style = [StyleDIY ZhiFuBaoStyle];
+        vc.isOpenInterestRect = YES;
+        vc.libraryType = [Global sharedManager].libraryType;
+        vc.scanCodeType = [Global sharedManager].scanCodeType;
+        
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [rootVC presentViewController:nav animated:YES completion:nil];
     }
     
 

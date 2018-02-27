@@ -77,9 +77,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"激活状态 重新连接");
     
-    // 先断开后连接
-    [[HFSocketService sharedInstance] cutOffSocket];
-    [[HFSocketService sharedInstance] socketConnectHost];
+    // 如果断开了 就重新连接
+    if( ![HFSocketService sharedInstance].isSocketed ){
+        [[HFSocketService sharedInstance] cutOffSocket];
+        [[HFSocketService sharedInstance] socketConnectHost];
+    }
+   
     
 }
 

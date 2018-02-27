@@ -149,6 +149,9 @@
 		825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */; };
 		825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */; };
 		8277CC2FC17EE332B086E85B /* libPods-HF_Client_iPhone_Application.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADD5A646B3C965CD04C5AEA /* libPods-HF_Client_iPhone_Application.a */; };
+		8283F3C520441D9C000800E1 /* DIYScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8283F3C420441D9C000800E1 /* DIYScanViewController.m */; };
+		8283F3C820441E4C000800E1 /* StyleDIY.m in Sources */ = {isa = PBXBuildFile; fileRef = 8283F3C720441E4C000800E1 /* StyleDIY.m */; };
+		8283F3CB204420EA000800E1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 8283F3CA204420EA000800E1 /* Global.m */; };
 		828846EB20109B6300D8DBF5 /* LXFArrowBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D420109B6300D8DBF5 /* LXFArrowBrush.m */; };
 		828846EC20109B6300D8DBF5 /* LXFBaseBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D620109B6300D8DBF5 /* LXFBaseBrush.m */; };
 		828846ED20109B6300D8DBF5 /* LXFCycleBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 828846D820109B6300D8DBF5 /* LXFCycleBrush.m */; };
@@ -416,6 +419,12 @@
 		825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPersonRankingTableViewCell.xib; sourceTree = "<group>"; };
 		825D9E2A2008C7FC00A46EF4 /* HFGroupRankingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFGroupRankingViewController.h; sourceTree = "<group>"; };
 		825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFGroupRankingViewController.m; sourceTree = "<group>"; };
+		8283F3C320441D9C000800E1 /* DIYScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYScanViewController.h; sourceTree = "<group>"; };
+		8283F3C420441D9C000800E1 /* DIYScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYScanViewController.m; sourceTree = "<group>"; };
+		8283F3C620441E4B000800E1 /* StyleDIY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleDIY.h; sourceTree = "<group>"; };
+		8283F3C720441E4C000800E1 /* StyleDIY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleDIY.m; sourceTree = "<group>"; };
+		8283F3C9204420EA000800E1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		8283F3CA204420EA000800E1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		828846D320109B6300D8DBF5 /* LXFArrowBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFArrowBrush.h; sourceTree = "<group>"; };
 		828846D420109B6300D8DBF5 /* LXFArrowBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXFArrowBrush.m; sourceTree = "<group>"; };
 		828846D520109B6300D8DBF5 /* LXFBaseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXFBaseBrush.h; sourceTree = "<group>"; };
@@ -948,6 +957,12 @@
 				397340DF1FFB91E2004191BD /* HFUserInfoViewController.xib */,
 				82BFF32F2004B353005C28DB /* HFClassSituationViewController.h */,
 				82BFF3302004B353005C28DB /* HFClassSituationViewController.m */,
+				8283F3C320441D9C000800E1 /* DIYScanViewController.h */,
+				8283F3C420441D9C000800E1 /* DIYScanViewController.m */,
+				8283F3C620441E4B000800E1 /* StyleDIY.h */,
+				8283F3C720441E4C000800E1 /* StyleDIY.m */,
+				8283F3C9204420EA000800E1 /* Global.h */,
+				8283F3CA204420EA000800E1 /* Global.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1358,9 +1373,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HF_Client_iPhone_Application/Pods-HF_Client_iPhone_Application-resources.sh",
+				"${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-help.html",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-helpicons.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1393,6 +1415,8 @@
 				39F0DFAC1FD7C97200395908 /* HFDaoxueModel.m in Sources */,
 				39F0DFA91FD6A8AB00395908 /* XMLReader.m in Sources */,
 				8226AAFA200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m in Sources */,
+				8283F3CB204420EA000800E1 /* Global.m in Sources */,
+				8283F3C520441D9C000800E1 /* DIYScanViewController.m in Sources */,
 				82BFF3342005B182005C28DB /* HFPersonRankingViewController.m in Sources */,
 				398CDBF21FE764D7008816CD /* HFMYResourCeDetailTableViewCell.m in Sources */,
 				39C94A281FDE79D7003641C9 /* JZAlertWindow.m in Sources */,
@@ -1428,6 +1452,7 @@
 				82E62FE61FEA17C100B90E69 /* HFStudentStatusPersonViewController.m in Sources */,
 				828846ED20109B6300D8DBF5 /* LXFCycleBrush.m in Sources */,
 				39905299202AB40F004C93EE /* HFVoteObject.m in Sources */,
+				8283F3C820441E4C000800E1 /* StyleDIY.m in Sources */,
 				825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */,
 				8226AAD31FFE2AF000C9BDB4 /* HFStudentStatusGroupViewController.m in Sources */,
 				3902AED71FE2B216004EC969 /* UIViewController+ConfigureCategory.m in Sources */,

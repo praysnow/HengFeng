@@ -64,7 +64,7 @@
     
     [_button addTarget:self action:@selector(dismissController) forControlEvents:UIControlEventTouchUpInside];
     [_button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [_button setBackgroundColor:[UIColor grayColor]];
+    [_button setBackgroundColor:[UIColor blackColor]];
     _button.alpha = 0.5;
     [self.view addSubview:_button];
     

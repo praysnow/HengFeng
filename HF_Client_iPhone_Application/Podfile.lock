@@ -33,6 +33,12 @@ PODS:
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
+  - LBXScan (2.3):
+    - LBXScan/All (= 2.3)
+  - LBXScan/All (2.3):
+    - LBXScan/Types (~> 2.2)
+    - ZBarSDK (~> 1.3.1)
+  - LBXScan/Types (2.3)
   - MBProgressHUD (1.1.0)
   - MJExtension (3.0.13)
   - Realm (3.0.2):
@@ -42,12 +48,14 @@ PODS:
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
   - TXLiteAVSDK_Smart (3.9.2749)
+  - ZBarSDK (1.3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - BlocksKit (~> 2.2.5)
   - CocoaAsyncSocket (~> 7.6.2)
   - FMDB (~> 2.7.2)
+  - LBXScan (~> 2.3)
   - MBProgressHUD (~> 1.1.0)
   - MJExtension (~> 3.0.13)
   - Realm (~> 3.0.2)
@@ -63,12 +71,14 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CocoaAsyncSocket: 3541e024f48c54b251638ef72d51dd42808de932
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   TXLiteAVSDK_Smart: 295f78d46f39bf1b37cad2234e0bf3a2354d0397
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 60a8493b2128eae8e091e52d8672473c7a09fe45
+PODFILE CHECKSUM: f0efbe4a3b9ba5daf6e4fc9652ac8990c168686d
 
 COCOAPODS: 1.3.1
