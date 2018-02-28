@@ -237,7 +237,7 @@
         [self reveviedForceCloseScreenTest];
     }
     
-    if ([receviedAsiiMessage containsString: @"CommitViewImage="]) {
+    if ([receviedAsiiMessage containsString: @"CommitViewImage"]) {
         [self reveviedCommitViewImage:receviedAsiiMessage];
     }
     //开始投票 接收参数
