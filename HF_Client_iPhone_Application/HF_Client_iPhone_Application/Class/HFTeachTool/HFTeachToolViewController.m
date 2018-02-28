@@ -81,8 +81,9 @@
 
 #pragma mark - click button
 - (IBAction)voteButton:(id)sender {
+  NSLog(@"投票");
   [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFToolVoteViewController) animated: YES];
-    NSLog(@"投票");
+    
 }
 
 - (IBAction)shareButton:(ZSVerticalButton *)sender {

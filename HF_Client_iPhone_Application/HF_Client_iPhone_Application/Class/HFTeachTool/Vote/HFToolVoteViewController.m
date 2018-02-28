@@ -35,6 +35,7 @@
     
     self.navigationItem.title = @"教学工具-投票";
     
+    // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startVoting) name: @"startVoting" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendFormatQuestion" object: nil];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendSelectToCtrl" object: nil];
@@ -106,20 +107,31 @@
     
     [[HFSocketService sharedInstance] sendCtrolMessage: @[SINGLE_OR_DOUBLE_CHANGLE]];
     
+    NSInteger num = [_questionNumLabel.text integerValue];
+    
     if([_selectVoteButton.titleLabel.text isEqualToString:@"单选题"]){
         [_selectVoteButton setTitle:@"多选题" forState:UIControlStateNormal];
         [_selectVoteButton setImage:[UIImage imageNamed:@"多选"] forState:UIControlStateNormal];
         
+        if (num <= 4) {
+            _questionNumLabel.text = @"4";
+            _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
+        }
         
-        _questionNumLabel.text = @"4";
-        _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
         
     }else{
         [_selectVoteButton setTitle:@"单选题" forState:UIControlStateNormal];
         [_selectVoteButton setImage:[UIImage imageNamed:@"单选"] forState:UIControlStateNormal];
         
-        _questionNumLabel.text = @"2";
-        _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
+        if (num <= 2) {
+            _questionNumLabel.text = @"2";
+            _jianButton.imageView.image = [UIImage imageNamed:@"_1"];
+        }
+        
+        if (num > 2) {
+            _jianButton.imageView.image = [UIImage imageNamed:@"_"];
+        }
+       
     }
 }
 

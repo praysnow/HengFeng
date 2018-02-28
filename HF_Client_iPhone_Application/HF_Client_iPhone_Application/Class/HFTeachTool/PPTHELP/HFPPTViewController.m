@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *greenButton;
 @property (weak, nonatomic) IBOutlet UIButton *redButton;
 
+@property(nonatomic,strong)NSDate *currentDate; // 按钮点击的当前世界
+
 @end
 
 @implementation HFPPTViewController
@@ -52,7 +54,7 @@
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action:) name:@"imageUrl" object:nil];
     
-   
+    _currentDate = [NSDate new];
     
 }
 
@@ -191,6 +193,7 @@
 
 - (IBAction)upPage:(id)sender {
     NSLog(@"上一页");
+    
     [[HFSocketService sharedInstance] sendCtrolMessage: @[PPT_LEFT_PAGE]];
     
     self.imageView.brush = nil;
@@ -203,9 +206,11 @@
     // 发送结束批注的指令
     [[HFSocketService sharedInstance] sendCtrolMessage:@[CLOSE_RECOMMEND]];
     
+   
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 发送刷新的指令
         [self sendMessage];
+        
     });
     
     

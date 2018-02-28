@@ -54,6 +54,8 @@
 //    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
     self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeNone;
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -68,6 +70,8 @@
     }];
     self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    
+    
 
 }
 

@@ -831,8 +831,8 @@
 				39181EAF1FB5AAEF00A364AB /* HFMyResourceViewController.xib */,
 				39D488891FCD5CFA00F36D16 /* HFHearBeat.h */,
 				39D4888A1FCD5CFA00F36D16 /* HFHearBeat.m */,
-				3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */,
 				39B718F21FBC20340088C348 /* HFMyResourceHeaderFootView.m */,
+				3902AED01FE2B078004EC969 /* HFMySourcesDetailViewController.h */,
 				3902AED11FE2B078004EC969 /* HFMySourcesDetailViewController.m */,
 				3902AED21FE2B078004EC969 /* HFMySourcesDetailViewController.xib */,
 			);

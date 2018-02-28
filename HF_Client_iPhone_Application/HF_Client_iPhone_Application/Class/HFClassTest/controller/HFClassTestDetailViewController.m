@@ -19,17 +19,23 @@
 
 @property (nonatomic, copy) NSString *currentElementName;
 @property (nonatomic, strong) NSMutableArray <HFClassTestObject *> *dataArray;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel; // 时间标签
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *sentButton;
-@property (weak, nonatomic) IBOutlet UIButton *recommendButton;
-@property (weak, nonatomic) IBOutlet UIButton *showResult;
-@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *sentButton; // 下发
+@property (weak, nonatomic) IBOutlet UIButton *recommendButton; // 互评
+@property (weak, nonatomic) IBOutlet UIButton *showResult;  // 查看结果
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;  // 停止
 @property (nonatomic, strong) NSString *nameId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, copy) NSMutableString *mutableString;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) HFCountTimeView *configueView;
+
+@property (nonatomic, assign) NSInteger secondsCountDown;
+@property (nonatomic, assign) NSTimer *countDownTimer;
 
 @end
 
@@ -48,13 +54,19 @@
     } else {
         [self gz_loadData];
     }
+    
+    self.timeLabel.hidden = YES;
 }
+
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear: animated];
     
+    // 停止下发
     [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
+    
 }
 
 - (void)gz_loadData
@@ -199,21 +211,57 @@
 - (void)limitTimeSend:(NSString *)count
 {
     NSLog(@"计时下发");
-    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @([count integerValue] * 60), self.name];
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_TIME, @"0", @"", string, @"3"]];
+    self.titleLabel.text = @"正在进行课堂测验...";
+    
+//    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @([count integerValue] * 60), self.name];
+//    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_TIME, @"0", @"", string, @"3"]];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_TIME, @(self.selectedIndex),@([count integerValue] * 60)]];
     [CBAlertWindow jz_hide];
+    
+    // 倒计时控件
+    _secondsCountDown = [count integerValue] * 60 + 1;//倒计时秒数
+    _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownAction) userInfo:nil repeats:YES]; //启动倒计时后会每秒钟调用一次方法 countDownAction
+    //设置倒计时显示的时间
+    NSString *str_hour = [NSString stringWithFormat:@"%02ld",_secondsCountDown/3600];//时
+    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(_secondsCountDown%3600)/60];//分
+    NSString *str_second = [NSString stringWithFormat:@"%02ld",_secondsCountDown%60];//秒
+    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+    NSLog(@"time:%@",format_time);
+}
+
+// 倒计时
+-(void) countDownAction{
+    //倒计时-1
+    _secondsCountDown--;
+    NSString *str_hour = [NSString stringWithFormat:@"%02ld",_secondsCountDown/3600];
+    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(_secondsCountDown%3600)/60];
+    NSString *str_second = [NSString stringWithFormat:@"%02ld",_secondsCountDown%60];
+    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+    //修改倒计时标签现实内容
+    self.timeLabel.text=[NSString stringWithFormat:@"%@",format_time];
+    self.timeLabel.hidden = NO;
+    //当倒计时到0时，做需要的操作，比如验证码过期不能提交
+    if(_secondsCountDown==0){
+        [_countDownTimer invalidate];
+    }
 }
 
 -(void)unlimitTimeSend:(NSString *)countxr
 {
     NSLog(@"不计时下发");
-    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @(0), self.name];
-    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_UNTIME, @"0", @"", string, @"3"]];
+    self.titleLabel.text = @"正在进行课堂测验...";
+    
+//    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, self.nameId, @(self.selectedIndex), @(0), self.name];
+//    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_UNTIME, @"0", @"", string, @"3"]];
+    
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[SEND_DOWN_UNTIME, @(self.selectedIndex), @"0"]];
     [CBAlertWindow jz_hide];
 }
 
 - (IBAction)recommentMsgButton:(UIButton *)sender
 {
+    NSLog(@"互评");
     if ([self isSelectedObject])
     {
         [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_TEST_RECOMMEND_ESCH]];
@@ -235,9 +283,19 @@
 
 - (IBAction)stopSentButton:(UIButton *)sender
 {
+    NSLog(@"停止");
+    self.titleLabel.text = @"测验未开始...";
+    
+    self.timeLabel.hidden = YES;
+    
+    if(_countDownTimer != nil){ // 计时器暂停
+        [_countDownTimer invalidate];
+    }
+    
+    
     if ([self isSelectedObject])
     {
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_TEST_END]];
     }
 }
 

@@ -58,18 +58,12 @@
     self.selectedIndex = -1;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    self.tabBarController.tabBar.hidden = YES;
-}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
 
-    self.tabBarController.tabBar.hidden = NO;
+    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
 }
 
 - (void)gz_loadData
@@ -236,6 +230,8 @@
 - (void)limitTimeSend:(NSString *)count
 {
     NSLog(@"计时下发");
+    [self showText:@"下发成功" afterDelay:2];
+    
     NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @([count integerValue] * 60), self.dxa_Name];
      [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_TIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
@@ -244,6 +240,8 @@
 -(void)unlimitTimeSend:(NSString *)count
 {
     NSLog(@"不计时下发");
+   [self showText:@"下发成功" afterDelay:2];
+    
     NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), self.dxa_Name];
      [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
     [CBAlertWindow jz_hide];
@@ -271,7 +269,17 @@
                 self.configueView = configueView;
                 configueView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
                 configueView.layer.masksToBounds = YES;
-                [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+                
+                if([object.typeName containsString: AfterClassExercise] || [object.typeName containsString: DAOXUEAN_InClassExercise] || [object.typeName containsString: DAOXUEAN_BeforeClassExercise] || [object.typeName containsString: DAOXUEAN_StandardTest]){ // 弹出窗口
+                    
+                    
+                     [CBAlertWindow jz_showView: configueView animateType: CBShowAnimateTypeCenter];
+                }else{
+                    [self showText:@"下发成功" afterDelay:2];
+                    NSString *string = [NSString stringWithFormat: @"%@&%@&%@&%@&%@", [HFCacheObject shardence].courseId, _object.Dxa_ID, @(self.selectedIndex), @(0), self.dxa_Name];
+                    [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_UNTIME, @"0", @"", string, @"3"]];
+                }
+               
             } else {
                 NSLog(@"下发导学案");
                 [HF_MBPregress showMessag: @"当前资源不允许下发"];
@@ -288,6 +296,7 @@
 - (IBAction)sendAway:(UIButton *)sender
 {
     NSLog(@"停止");
+    [self showText:@"停止下发" afterDelay:2];
     
      [[HFSocketService sharedInstance] sendCtrolMessage: @[DAOXUEAN_DETAIL_SEND_STOP]];
     

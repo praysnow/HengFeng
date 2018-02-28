@@ -125,14 +125,14 @@
 {
     _className = className;
     
-        NSString *result;
-        if (className.length > 0) {
-            if ([className containsString: @"["]) {
-                NSRange range = [className rangeOfString:@"["];
-                result = [className substringToIndex: range.location];
-                _className = result;
-            }
+    NSString *result;
+    if (className.length > 0) {
+        if ([className containsString: @"["]) {
+            NSRange range = [className rangeOfString:@"["];
+            result = [className substringToIndex: range.location];
+            _className = result;
         }
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"className" object: nil];
 }
