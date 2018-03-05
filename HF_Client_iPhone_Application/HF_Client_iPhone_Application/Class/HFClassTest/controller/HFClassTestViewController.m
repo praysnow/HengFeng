@@ -28,10 +28,9 @@
 
 - (IBAction)capatureTest:(UIButton *)sender
 {
+    
     [self.navigationController pushViewController: VIEW_CONTROLLER_FROM_XIB(HFTeacherCaptureViewController) animated: YES];
-//    [self presentViewController: VIEW_CONTROLLER_FROM_XIB(HFTeacherCaptureViewController)  animated: YES completion:^{
-//        ;
-//    }];
+//    [self presentViewController: VIEW_CONTROLLER_FROM_XIB(HFTeacherCaptureViewController)  animated: YES completion:nil];
 }
 
 @end

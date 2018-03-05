@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic)NSTimer *timer;
 
+@property (strong, nonatomic)NSMutableData *cacheData; //缓存数据
+
 @end
 
 @implementation HFSocketService
@@ -31,6 +33,13 @@
         sharedInstace = [[self alloc] init];
     });
     return sharedInstace;
+}
+
+- (NSMutableData *)cacheData{
+    if (_cacheData == nil) {
+        _cacheData = [NSMutableData data];
+    }
+    return _cacheData;
 }
 
 // socket连接
@@ -120,10 +129,10 @@
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     int length = (int)data.length;
     NSData *lengthData = [NSData dataWithBytes:&length length: sizeof(length)];
-    [mutableData appendData: typeData];
-    [mutableData appendData: lengthData];
-    [mutableData appendData: steamIdData];
-    [mutableData appendData: data];
+    [mutableData appendData: typeData]; // 1个字节
+    [mutableData appendData: lengthData]; // 4个字节
+    [mutableData appendData: steamIdData]; // 4个字节
+    [mutableData appendData: data];   // 数据包个字节
     [self.socket writeData: mutableData withTimeout: -1 tag: 0];
 }
 
@@ -187,7 +196,7 @@
     [self.socket writeData: mutableData withTimeout:-1 tag:0];
 }
 
-- (Byte)transByteFormint:(int)value
+- (int)transByteFormint:(int)value
 {
     char *p_time = (char *)&value;
     char str_time[4] = {0};
@@ -206,20 +215,57 @@
 
 #pragma mark - recevied socket message
 
-// 读取数据
--(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
-{
-    [self.socket readDataWithTimeout: -1 tag:0];
-    
-     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
-    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
-   
-    NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
-    NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
-    //    char* a=[data bytes];
-    //    NSString * string = [NSString stringWithUTF8String::@"a];
-    
 
+// 处理粘包拆包的问题
+-(void)didReadData:(NSData *)data {
+    
+    //将接收到的数据保存到缓存数据中
+    [self.cacheData appendData:data];;
+    
+    // 取出1-5位保存的数据长度，计算数据包长度
+    NSData *dataLength = [_cacheData subdataWithRange:NSMakeRange(1, 4)];
+    int dataLenInt;
+    [dataLength getBytes: &dataLenInt length: sizeof(dataLenInt)];
+    
+    NSInteger complateDataLength = dataLenInt + 9;//算出一个包完整的长度(内容长度＋头长度)
+    NSLog(@"数据包长度 = %d  ",dataLenInt);
+    
+    //因为服务号和长度字节占8位，所以大于8才是一个正确的数据包
+    while (_cacheData.length > 8) {
+        
+        if (_cacheData.length < complateDataLength) { //如果缓存中的数据长度小于包头长度 则继续拼接
+            
+            [self.socket readDataWithTimeout:-1 tag:0];//socket读取数据
+            break;
+            
+        }else {
+            [self.socket readDataWithTimeout: -1 tag:0];
+            //截取完整数据包
+            NSData *dataOne = [_cacheData subdataWithRange:NSMakeRange(0, complateDataLength)];
+            //处理包数据
+            [self handleTcpResponseData:dataOne length:dataLenInt];
+          
+            
+            // 清空数据
+            [_cacheData replaceBytesInRange:NSMakeRange(0, complateDataLength) withBytes:nil length:0];
+            
+            if (_cacheData.length > 8) {
+                
+                [self didReadData:nil];
+                
+            }
+        }
+    }
+}
+
+// 解析处理
+- (void)handleTcpResponseData:(NSData *)data length:(int)dataLenInt{
+    NSData *utf8data = [data subdataWithRange:NSMakeRange(9, dataLenInt)];
+    NSString *receviedMessage = (NSString *)[[NSString alloc] initWithData:utf8data encoding: NSUTF8StringEncoding];
+    NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
+    
+    NSString *receviedAsiiMessage = receviedMessage;
+    
     // 截屏图片
     if ([receviedAsiiMessage containsString: @"}43{"]) {
         [self revieveCaptureImageUrl: receviedAsiiMessage];
@@ -245,7 +291,7 @@
         [self reveviedSendFormatQuestion:receviedAsiiMessage];
     }
     
-   //投票提交
+    //投票提交
     if ([receviedAsiiMessage containsString: @"SendSelectToCtrl"]) {
         [self reveviedSendSelectToCtrln:receviedAsiiMessage];
     }
@@ -306,10 +352,125 @@
     if ([receviedMessage containsString: @"XmlServerState"]) {
         [self responseXmlStatsWith: receviedMessage];
     }
-    //    else if ([receviedMessage containsString: @"SendToCtrl"]) {
-    //        NSLog(@"截屏图片");
-    //        [self image: receviedMessage];
-    //    }
+    
+    // CommandCode="ListUsers" 在线学生人数
+    if( [receviedMessage containsString: @" CommandCode=\"ListUsers\""] ){
+         [self responseListUsers: receviedMessage];
+    }
+}
+
+// 读取数据
+-(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    
+    // 处理粘包拆包的问题
+    [self didReadData:data];
+    return;
+    
+    
+    
+    
+    
+//     NSString* receviedAsiiMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSASCIIStringEncoding]; //  NSASCIIStringEncoding
+//    NSString* receviedMessage = (NSString *)[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding]; //  NSASCIIStringEncoding
+//
+//
+//    NSLog(@"iOS 接收UTF-8命令: %@", receviedMessage);
+//    NSLog(@"iOS 接收ASII命令: %@", receviedAsiiMessage);
+//
+//
+//    return;
+//
+//    // 截屏图片
+//    if ([receviedAsiiMessage containsString: @"}43{"]) {
+//        [self revieveCaptureImageUrl: receviedAsiiMessage];
+//    }
+//
+//
+//
+//    if ([receviedAsiiMessage containsString: @"SendTeacherInfo"]) {
+//        [self teacherInfo: receviedAsiiMessage];
+//    }
+//    if ([receviedAsiiMessage containsString: @"PadViewImage?folder="]) {
+//        [self reveviedPadViewImageView];
+//    }
+//    if ([receviedAsiiMessage containsString: @"ForceCloseScreenTest"]) {
+//        [self reveviedForceCloseScreenTest];
+//    }
+//
+//    if ([receviedAsiiMessage containsString: @"CommitViewImage"]) {
+//        [self reveviedCommitViewImage:receviedAsiiMessage];
+//    }
+//    //开始投票 接收参数
+//    if ([receviedAsiiMessage containsString: @"SendFormatQuestion"]) {
+//        [self reveviedSendFormatQuestion:receviedAsiiMessage];
+//    }
+//
+//   //投票提交
+//    if ([receviedAsiiMessage containsString: @"SendSelectToCtrl"]) {
+//        [self reveviedSendSelectToCtrln:receviedAsiiMessage];
+//    }
+//    //关闭投票
+//    if ([receviedAsiiMessage containsString: @"CloseFormatQuestion"]) {
+//        [self reveviedCloseFormatQuestion:receviedAsiiMessage];
+//    }
+//
+//    if ([receviedMessage containsString: @"teacher="]) {
+//        [self reveviedTeaclerName: receviedMessage];
+//    }
+//    if ([receviedMessage containsString: @"SendTeacherInfo"]) {
+//        [self teacherInfo: receviedMessage];
+//    }
+//
+//    //单点登录
+//    if ([receviedAsiiMessage containsString: @"BeLogout"]) {
+//        [self logOut];
+//    }
+//
+//
+//    // 课堂信息
+//    if ([receviedAsiiMessage containsString: @"CommandCode="]) {
+//        [self responseXmlStatsWith: receviedAsiiMessage];
+//    }
+//    //获取课堂名称
+//    if ([receviedMessage containsString: @"CommandCode=\"ReponseXmlState\""]) {
+//
+//        [self responseClassName: receviedMessage];
+//    }
+//    //锁屏指令
+//    if ([receviedAsiiMessage containsString: @"LockScreen"]) {
+//        [self responseXmlStatsWith: receviedAsiiMessage];
+//    }
+//    if ([receviedAsiiMessage containsString: @"CommandCode=\"EndBrocastDesktop"] || [receviedAsiiMessage containsString: @"CommandCode=\"BrocastDesktop"]) {
+//        //        BOOL change = [HFCacheObject shardence].BrocastDesktop;
+//        if ([receviedAsiiMessage containsString: @"BrocastDesktop"] && ![receviedAsiiMessage containsString: @"EndBrocastDesktop"]) {
+//            [HFCacheObject shardence].BrocastDesktop = YES;
+//            NSLog(@"屏幕广播开始");
+//        } else if ([receviedAsiiMessage containsString: @"EndBrocastDesktop"]){
+//            [HFCacheObject shardence].BrocastDesktop = NO;
+//            NSLog(@"屏幕广播没有开始");
+//        }
+//        [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
+//    }
+//    if ([receviedAsiiMessage containsString: @"CommandCode=\"BeginRacing"] || [receviedAsiiMessage containsString: @"CommandCode=\"EndRacing"]) {
+//        //        BOOL change = [HFCacheObject shardence].BrocastDesktop;
+//        if ([receviedAsiiMessage containsString: @"BeginRacing"]) {
+//            [HFCacheObject shardence].Racing = YES;
+//            NSLog(@"开始抢答");
+//        } else if ([receviedAsiiMessage containsString: @"EndRacing"]){
+//            [HFCacheObject shardence].Racing = NO;
+//            NSLog(@"停止抢答");
+//        }
+//        [[NSNotificationCenter defaultCenter] postNotificationName: CHANGE_TEACHER_STATUS object: nil];
+//    }
+//
+//    if ([receviedMessage containsString: @"XmlServerState"]) {
+//        [self responseXmlStatsWith: receviedMessage];
+//    }
+//    //    else if ([receviedMessage containsString: @"SendToCtrl"]) {
+//    //        NSLog(@"截屏图片");
+//    //        [self image: receviedMessage];
+//    //    }
 }
 
 - (void)logOut
@@ -320,6 +481,11 @@
 }
 
 - (void)image:(NSString *)receviedMessage{
+    
+}
+
+// 在线学生人数 responseListUsers
+- (void)responseListUsers:(NSString *)string{
     
 }
 

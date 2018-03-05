@@ -38,7 +38,7 @@
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startVoting) name: @"startVoting" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendFormatQuestion" object: nil];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendSelectToCtrl" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadVoteMessage) name: @"SendSelectToCtrl" object: nil];
     [self initUI];
 }
 
@@ -52,6 +52,11 @@
 }
 
 - (void)initUI{
+    self.tableView.layer.borderWidth = 0.5;
+    self.tableView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.tableView.layer.cornerRadius = 10;
+    self.tableView.layer.masksToBounds = YES;
+    
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([HFVoteTableViewCell class]) bundle: nil] forCellReuseIdentifier: @"Cell"];
 }
 
@@ -190,11 +195,20 @@
 - (IBAction)beginVote:(id)sender {
     NSLog(@"开始投票");
     
+    // 清空数据
+    [[HFCacheObject shardence].optionArray removeAllObjects];
+    [HFCacheObject shardence].commitCount = 0;
+    
     NSInteger num = [_questionNumLabel.text integerValue];
     [[HFSocketService sharedInstance] sendCtrolMessage: @[START_OR_RESTART_VOTE,@(num)]];
     [OPTION_ARRAY removeAllObjects];
     [self.tableView reloadData];
     self.coverImageView.hidden = YES;
+    
+    UIButton *button = (UIButton *)sender;
+    [button setTitle:@"重新投票" forState:UIControlStateNormal];
+    
+    
 }
 
 - (IBAction)endVote:(id)sender {

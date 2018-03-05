@@ -145,6 +145,7 @@
 		8226AAF6200238D200C9BDB4 /* HFStudentArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAF5200238D200C9BDB4 /* HFStudentArrayModel.m */; };
 		8226AAFA200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */; };
 		8226AAFB200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */; };
+		8229A69F204D211F00B8AA16 /* HFOnLineStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8229A69E204D211F00B8AA16 /* HFOnLineStudent.m */; };
 		825D9E282008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E262008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m */; };
 		825D9E292008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */; };
 		825D9E2C2008C7FC00A46EF4 /* HFGroupRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825D9E2B2008C7FC00A46EF4 /* HFGroupRankingViewController.m */; };
@@ -414,6 +415,8 @@
 		8226AAF7200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFStudentGroupCollectionReusableView.h; sourceTree = "<group>"; };
 		8226AAF8200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFStudentGroupCollectionReusableView.m; sourceTree = "<group>"; };
 		8226AAF9200246EB00C9BDB4 /* HFStudentGroupCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFStudentGroupCollectionReusableView.xib; sourceTree = "<group>"; };
+		8229A69D204D211F00B8AA16 /* HFOnLineStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFOnLineStudent.h; sourceTree = "<group>"; };
+		8229A69E204D211F00B8AA16 /* HFOnLineStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFOnLineStudent.m; sourceTree = "<group>"; };
 		825D9E252008ACFD00A46EF4 /* HFPersonRankingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFPersonRankingTableViewCell.h; sourceTree = "<group>"; };
 		825D9E262008ACFD00A46EF4 /* HFPersonRankingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFPersonRankingTableViewCell.m; sourceTree = "<group>"; };
 		825D9E272008ACFD00A46EF4 /* HFPersonRankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HFPersonRankingTableViewCell.xib; sourceTree = "<group>"; };
@@ -876,6 +879,7 @@
 		39B719061FBE87AC0088C348 /* HFNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				8229A69C204D20D400B8AA16 /* model */,
 				39B719081FBE87DC0088C348 /* HFNetwork.h */,
 				39B719091FBE87DC0088C348 /* HFNetwork.m */,
 				39B719071FBE87DC0088C348 /* WebServiceModel.h */,
@@ -1051,6 +1055,15 @@
 				8226AAEA1FFF738D00C9BDB4 /* HFGroupModel.m */,
 				8226AAF4200238D200C9BDB4 /* HFStudentArrayModel.h */,
 				8226AAF5200238D200C9BDB4 /* HFStudentArrayModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8229A69C204D20D400B8AA16 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8229A69D204D211F00B8AA16 /* HFOnLineStudent.h */,
+				8229A69E204D211F00B8AA16 /* HFOnLineStudent.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1470,6 +1483,7 @@
 				397340E01FFB91E2004191BD /* HFUserInfoViewController.m in Sources */,
 				82E6096E200DF4D30079AF3B /* HFFileUploadViewController.m in Sources */,
 				392BB3BA1FB5B40A00444EAF /* MainTabViewController.m in Sources */,
+				8229A69F204D211F00B8AA16 /* HFOnLineStudent.m in Sources */,
 				39CE88E81FC80A720049CD0B /* HFCacheObject.m in Sources */,
 				8226AAE01FFE522C00C9BDB4 /* HFStudentStatusRankingViewController.m in Sources */,
 				82BFF3312004B353005C28DB /* HFClassSituationViewController.m in Sources */,

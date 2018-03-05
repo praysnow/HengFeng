@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +20,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCi-oK-oEc">
-                        <rect key="frame" x="8" y="11" width="20" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCi-oK-oEc">
+                        <rect key="frame" x="15" y="11" width="20" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="3hL-ij-H1P"/>
                             <constraint firstAttribute="height" constant="21" id="5Gu-ur-6zC"/>
@@ -30,28 +30,35 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKA-Y7-RjY">
-                        <rect key="frame" x="48" y="12" width="256" height="21"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQ3-rX-VBb">
+                        <rect key="frame" x="45" y="12" width="249" height="20"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="c2M-nK-PLf"/>
+                            <constraint firstAttribute="height" constant="20" id="fF0-Z5-48k"/>
                         </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWa-Ah-wGK">
+                        <rect key="frame" x="304.5" y="12" width="10.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wCi-oK-oEc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5Ha-eb-aHD"/>
-                    <constraint firstItem="UKA-Y7-RjY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="8cI-zw-imk"/>
-                    <constraint firstItem="UKA-Y7-RjY" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ZyM-Iy-tyX"/>
+                    <constraint firstItem="wCi-oK-oEc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="5Ha-eb-aHD"/>
+                    <constraint firstItem="uQ3-rX-VBb" firstAttribute="leading" secondItem="wCi-oK-oEc" secondAttribute="trailing" constant="10" id="CVT-k0-9al"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uQ3-rX-VBb" secondAttribute="trailing" constant="10" id="To7-S0-9tH"/>
+                    <constraint firstItem="VWa-Ah-wGK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="j1g-c3-Vlv"/>
                     <constraint firstItem="wCi-oK-oEc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="vt3-NC-HgC"/>
-                    <constraint firstItem="UKA-Y7-RjY" firstAttribute="leading" secondItem="wCi-oK-oEc" secondAttribute="trailing" constant="20" id="yDL-K9-hJD"/>
+                    <constraint firstAttribute="trailing" secondItem="VWa-Ah-wGK" secondAttribute="trailing" constant="5" id="w7L-Yw-Kos"/>
+                    <constraint firstItem="uQ3-rX-VBb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="z8Y-NL-NQS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="numberLabel" destination="VWa-Ah-wGK" id="Sx9-NW-hfY"/>
                 <outlet property="optionTitle" destination="wCi-oK-oEc" id="1jC-MI-6OH"/>
-                <outlet property="rateCount" destination="UKA-Y7-RjY" id="uci-tP-NJU"/>
+                <outlet property="progressView" destination="uQ3-rX-VBb" id="dNR-xB-lL5"/>
             </connections>
         </tableViewCell>
     </objects>

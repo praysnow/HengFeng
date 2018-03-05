@@ -13,25 +13,46 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+//    UIView *view = [UIView new];
+//    view.backgroundColor = UICOLOR_RGB(0xff80c1b2);
+//    view.frame = CGRectMake(0, 0, 0, self.rateCount.height);
+//    [self.rateCount addSubview: view];
+    
+    self.numberLabel.hidden = YES;
+    
+    self.progressView.layer.cornerRadius = 5;
+    self.progressView.layer.masksToBounds = YES;
 }
 
 - (void)setObject:(HFVoteObject *)object
 {
     _object = object;
     self.optionTitle.text = _object.title;
+   
+    
     if (object.count != 0) {
-        self.rateCount.text = [NSString stringWithFormat: @"%zi", object.count];
+        self.numberLabel.hidden = NO;
+        self.numberLabel.text = [NSString stringWithFormat: @"%zi", object.count];
+        
+        for(UIView *subview in [self.progressView subviews])
+        {
+            [subview removeFromSuperview];
+        }
+        
         UIView *view = [UIView new];
         view.backgroundColor = UICOLOR_RGB(0xff80c1b2);
-        view.frame = CGRectMake(0, 0, object.count * 10, self.rateCount.height);
-        [self.rateCount addSubview: view];
+        view.frame = CGRectMake(0, 0, object.count * 10, self.progressView.height);
+        [self.progressView addSubview: view];
+    }else{
+        for(UIView *subview in [self.progressView subviews])
+        {
+            [subview removeFromSuperview];
+        }
+        self.numberLabel.hidden = YES;
     }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

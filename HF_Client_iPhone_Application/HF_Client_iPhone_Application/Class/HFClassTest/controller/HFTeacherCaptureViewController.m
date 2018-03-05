@@ -19,8 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageVIew;
 @property (weak, nonatomic) IBOutlet TKImageView *tkImageView;
 @property (weak, nonatomic) IBOutlet UIButton *unlimiteTimeButton;
-@property (weak, nonatomic) IBOutlet UIButton *rightButton;
-@property (weak, nonatomic) IBOutlet UIButton *wrongButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *rightButton; // 打钩的按钮
+@property (weak, nonatomic) IBOutlet UIButton *wrongButton; // 打差的按钮
 @property (strong, nonatomic)  NSString *filePath;
 @property (nonatomic, strong) HFCountTimeView *countView;
 @property (nonatomic, strong) UINavigationController *hf_vagationcontroller;
@@ -39,39 +40,52 @@
     self.navigationItem.title = @"截屏测验";
     self.hf_vagationcontroller = self.navigationController;
     [self setUpTKImageView];
+    
+    // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedImageFromNotifaiction) name: @"imageUrl" object: nil];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedPadViewImageView) name: @"reveviedPadViewImageView" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reveviedPadViewImageView) name: @"reveviedPadViewImageView" object: nil];
     self.imageVIew.contentMode = UIViewContentModeCenter;
     [self.imageVIew sd_setImageWithURL: nil placeholderImage: [UIImage imageNamed: @"guide_capture"]];
+    
+    // 默认隐藏
+    self.rightButton.hidden = YES;
+    self.wrongButton.hidden = YES;
 }
+
+//// 旋转屏幕
+//- (void)rotationScreen{
+//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    //允许转成横屏
+//    appDelegate.allowRotation = YES;
+//    //调用转屏代码
+//    [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
+//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
-    
+
     [self rotationScreen: YES];
     [self.navigationController setNavigationBarHidden: YES animated: animated];
 //    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
     self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeNone;
-    
-    
+
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear: animated];
-    
+
     [self rotationScreen: NO];
     [self.navigationController setNavigationBarHidden: NO animated: animated];
-    
+
     [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
         [self.mm_drawerController setRightDrawerViewController:nil];
     }];
     self.mm_drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.mm_drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-    
-    
 
 }
 
@@ -110,10 +124,18 @@
     }
 }
 
+// 退出按钮
 - (IBAction)dismissCOntroll:(UIButton *)sender
 {
     [self rotationScreen: NO];
     [self dismissController];
+    
+//    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
+//    //切换到竖屏
+//    [UIDevice switchNewOrientation:UIInterfaceOrientationPortrait];
+//
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dismissController
@@ -136,13 +158,17 @@
                           self.tkImageView.toCropImage = image;
                           [HF_MBPregress hide_mbpregress];
                       }];
-        [MBProgressHUD hideHUDForView: self.view animated: YES];
+    [MBProgressHUD hideHUDForView: self.view animated: YES];
+    
+    self.rightButton.hidden = NO;
+    self.wrongButton.hidden = NO;
 }
 
 #pragma mark - Tapped
 
 - (IBAction)sendAway:(UIButton *)sender
 {
+    NSLog(@"下发");
     HFCountTimeView *view = [[[NSBundle mainBundle] loadNibNamed:@"HFCountTimeView" owner:nil options:nil] lastObject];
     self.countView = view;
     view.layer.masksToBounds = YES;
@@ -154,11 +180,13 @@
 
 - (IBAction)unlimitSendAway:(UIButton *)sender
 {
+    NSLog(@"停止");
     [[HFSocketService sharedInstance] sendCtrolMessage: @[STOP_SCREEN_CAPTURE]];
 }
 
 - (IBAction)captureScreen:(UIButton *)sender
 {
+    NSLog(@"截屏");
     [HF_MBPregress mbpregress];
     self.tkImageView.hidden = YES;
     [[HFSocketService sharedInstance] sendCtrolMessage: @[SCREEN_CAPTURE]];
@@ -173,19 +201,28 @@
 
 - (IBAction)ensureButton:(UIButton *)sender
 {
+    NSLog(@"确认裁剪");
+
     if (self.tkImageView.currentCroppedImage) {
         [self handleImage: self.tkImageView.currentCroppedImage];
     }
     self.tkImageView.hidden = YES;
-    self.imageVIew.image
-    = self.tkImageView.currentCroppedImage;
+    self.imageVIew.image = self.tkImageView.currentCroppedImage;
+    
+    self.rightButton.hidden = YES;
 }
 - (IBAction)cancelButton:(UIButton *)sender
 {
+    NSLog(@"取消裁剪");
+    
+    [self showText:@"取消裁剪" afterDelay:1];
     [HF_MBPregress hide_mbpregress];
     self.tkImageView.hidden = YES;
     self.imageVIew.image = [UIImage imageNamed: @"guide_capture"];
-    [HF_MBPregress showMessag: @"取消裁剪"];
+    
+    self.rightButton.hidden = YES;
+    self.wrongButton.hidden = YES;
+    
 }
 
 - (void)handleImage:(UIImage *)image{
@@ -204,9 +241,9 @@
     [fileManager createFileAtPath:_filePath contents:data attributes:nil];
     
     // 上传到ftp
-    NSString *urlString = [NSString stringWithFormat:@"ftp://%@/root/uploadtemp/",[HFNetwork network].SocketAddress];
-    ;
-    _updatePath = [NSString stringWithFormat: @"root/uploadtemp/%@", @"classTestiOS.jpg"];
+    NSString *urlString = [NSString stringWithFormat:@"ftp://%@/root/mobileshow/",[HFNetwork network].SocketAddress];
+    
+    _updatePath = [NSString stringWithFormat: @"root/mobileshow/%@", @"classTestiOS.jpg"];
     _ftpRequest = [[SCRFTPRequest alloc] initWithURL:[NSURL URLWithString:urlString] toUploadFile:_filePath];
     
     _ftpRequest.delegate = self;
@@ -251,7 +288,7 @@
     // 删掉本地图片
     
     // 发送指令
-        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_UPLOAD_SUCCESS, @"/root/uploadtemp/classTestiOS.jpg"]];
+        [[HFSocketService sharedInstance] sendCtrolMessage: @[CLASS_UPLOAD_SUCCESS, @"/root/mobileshow/classTestiOS.jpg"]];
 //    NSString *filePath = [NSString stringWithFormat:];
 //    NSLog(@"ftp路径%@",filePath);
 }

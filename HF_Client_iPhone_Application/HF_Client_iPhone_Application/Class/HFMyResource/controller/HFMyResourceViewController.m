@@ -50,6 +50,8 @@
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib: [UINib nibWithNibName: @"HFMyResourceHeaderFootView" bundle: nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     [self setupLayout];
+    
+    // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadData) name: @"TEACHER_CTROL" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(isShowCoverImage) name: @"isShowCoverImage" object: nil];
  
@@ -67,6 +69,15 @@
     mainVC.tabBar.userInteractionEnabled = [HFSocketService sharedInstance].isSocketed;
 }
 
+- (void)setupLayout
+{
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake((SCREEN_WIDTH - 14 * 3) / 2, 80);
+    self.collectionView.collectionViewLayout = layout;
+}
+
 - (void)isShowCoverImage
 {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -77,10 +88,13 @@
     NSLog(@"调用后Socket: 连接 %zi", [HFSocketService sharedInstance].isSocketed);
     self.coverImageView.hidden = [HFSocketService sharedInstance].isSocketed;
     self.navigationItem.title = ![HFSocketService sharedInstance].isSocketed ? @"连接错误" : @"我的资源";
+    
+   
 }
 
 - (void)loadData
 {
+    
     WebServiceModel *model = [WebServiceModel new];
     self.model = model;
     self.model.method = @"GetDaoXueRenWuByTpID";
@@ -247,19 +261,15 @@
 // 结束
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     NSLog(@"结束");
-    NSLog(@"导学案%zi",self.studentArray.count);
-    NSLog(@"导学堂%zi",self.classArray.count);
+//    NSLog(@"导学案%zi",self.studentArray.count);
+//    NSLog(@"导学堂%zi",self.classArray.count);
+    
+    NSLog(@"导学案%@",self.studentArray);
+    NSLog(@"导学堂%@",self.classArray);
     [self.collectionView reloadData];
 }
 
-- (void)setupLayout
-{
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.showsVerticalScrollIndicator = NO;
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake((SCREEN_WIDTH - 14 * 3) / 2, 80);
-    self.collectionView.collectionViewLayout = layout;
-}
+
 
 #pragma mark - UICollectionViewDeledate
 

@@ -13,8 +13,9 @@
 
 //@property (nonatomic, copy) NSString *optionTitle;
 //@property (nonatomic, assign) NSInteger rateCount;
-@property (weak, nonatomic) IBOutlet UILabel *rateCount;
-@property (weak, nonatomic) IBOutlet UILabel *optionTitle;
+@property (weak, nonatomic) IBOutlet UIView *progressView; // 进度条
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel; // 数字
+@property (weak, nonatomic) IBOutlet UILabel *optionTitle; // ABC
 @property (strong, nonatomic) HFVoteObject *object;
 
 @end
